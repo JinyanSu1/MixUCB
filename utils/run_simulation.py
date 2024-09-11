@@ -1,7 +1,42 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.linalg import inv
-def run_simulation(T, delta, generator, mixucb, linucb, always_query_ucb, plot_rounds, action_plot):
+import cvxpy as cp
+def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
+    theta = cp.Variable((n_actions, len(x_t)))  # Theta variables for each action
+    objective = cp.Maximize(cp.matmul(theta[obj_a], x_t))  # Maximize theta_a^T x_t for a single action
+    constraints = []
+
+    # Add LinUCB constraint for each theta_a
+    for a in range(n_actions):
+        constraints.append(cp.quad_form(theta[a] - theta_sq[a], A_inv[a]) <= beta_sq)
+
+    # Add the logistic regression constraint
+    constraint_lr = cp.quad_form(cp.vec(theta - theta_lr), X_sum_inv) <= beta_lr
+    constraints.append(constraint_lr)
+
+    # Solve the optimization problem
+    prob = cp.Problem(objective, constraints)
+    prob.solve()
+    return prob.value
+def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
+    theta = cp.Variable((n_actions, len(x_t)))  # Theta variables for each action
+    objective = cp.Minimize(cp.matmul(theta[obj_a], x_t))  # Maximize theta_a^T x_t for a single action
+    constraints = []
+
+    # Add LinUCB constraint for each theta_a
+    for a in range(n_actions):
+        constraints.append(cp.quad_form(theta[a] - theta_sq[a], A_inv[a]) <= beta_sq)
+
+    # Add the logistic regression constraint
+    constraint_lr = cp.quad_form(cp.vec(theta - theta_lr), X_sum_inv) <= beta_lr
+    constraints.append(constraint_lr)
+
+    # Solve the optimization problem
+    prob = cp.Problem(objective, constraints)
+    prob.solve()
+    return prob.value
+def run_simulation_mixucb(T, delta, generator, mixucb, linucb, always_query_ucb, plot_rounds, action_plot):
     """Run the simulation and collect rewards and theta values."""
     cumulative_reward_mixucb = []
     cumulative_reward_linucb = []
@@ -17,7 +52,7 @@ def run_simulation(T, delta, generator, mixucb, linucb, always_query_ucb, plot_r
     cov_data = {round_num: {'linucb': [], 'mixucb': [], 'always_query_ucb': []} for round_num in plot_rounds}
 
     for i in range(T):
-        context, true_rewards = generator.generate_context_and_rewards()
+        context, true_rewards, _ = generator.generate_context_rewards_and_expert_action()
         mixucb_ucb, mixucb_lcb = mixucb.get_ucb_lcb(context)
 
         width = mixucb_ucb - mixucb_lcb
@@ -59,3 +94,54 @@ def run_simulation(T, delta, generator, mixucb, linucb, always_query_ucb, plot_r
             cov_data[i + 1]['always_query_ucb'] = inv(always_query_ucb.A[action_plot])
 
     return cumulative_reward_mixucb, cumulative_reward_linucb, cumulative_reward_always_query, q, total_num_queries, theta_data, cov_data
+def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_oracle, linucb, always_query_ucb, reveal_reward= True):
+    """Run the simulation and collect rewards and theta values."""
+    cumulative_reward_mixucb = []
+    cumulative_reward_linucb = []
+    cumulative_reward_always_query = []
+    reward_mixucb = 0
+    reward_linucb = 0
+    reward_always_query = 0
+    q = np.zeros(T)
+    total_num_queries = 0
+
+    
+    for i in range(T):
+        context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
+        n_actions = len(true_rewards)
+        actions_ucb = np.zeros(n_actions)
+        for obj_a in range(n_actions):
+            actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
+        action_hat = np.argmax(actions_ucb)
+        action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
+        width_Ahat = actions_ucb[action_hat] - action_hat_lcb
+
+
+        if width_Ahat > delta:
+            total_num_queries += 1
+            
+            online_lr_oracle.update(context, expert_action)
+            q[i] = 1
+  
+        reward = true_rewards[action_hat]
+        if reveal_reward:
+            online_sq_oracle.update(action_hat, context, reward)
+        
+        reward_mixucb += reward
+        cumulative_reward_mixucb.append(reward_mixucb)
+        linucb_ucb, linucb_lcb = linucb.get_ucb_lcb(context)
+        action_hat = np.argmax(linucb_ucb)
+        reward = true_rewards[action_hat]
+        linucb.update(action_hat, context, reward)
+        reward_linucb += reward
+
+        cumulative_reward_linucb.append(reward_linucb)
+        expert_action = np.argmax(true_rewards)
+        reward = true_rewards[expert_action]
+        always_query_ucb.update_all(context, true_rewards)
+        reward_always_query += reward
+
+        cumulative_reward_always_query.append(reward_always_query)
+
+
+    return cumulative_reward_mixucb, cumulative_reward_linucb, cumulative_reward_always_query, q, total_num_queries
