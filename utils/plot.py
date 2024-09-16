@@ -36,6 +36,25 @@ def plot_average_rewards(axs, cumulative_rewards, params, cumulative_awards_std=
             ax.set_ylabel('Average Reward')
             ax.set_title(f'$\\alpha={params[idx]}$')
         ax.legend()
+        
+def plot_average_rewards1(axs, cumulative_rewards, params, cumulative_awards_std=None):
+    """Plot average rewards in a 1 by m grid for different parameters."""
+    idx = 0
+    ax = axs
+    for key, item in cumulative_rewards.items():
+        cumulative_reward = item[idx]
+        average_rewards = [cum_reward / (i + 1) for i, cum_reward in enumerate(cumulative_reward)]
+        
+        if cumulative_awards_std:
+            std = cumulative_awards_std[key][idx]
+            average_rewards_std = [s / (i + 1) for i, s in enumerate(std)]
+            
+            ax.fill_between(range(len(average_rewards)), [a - s for a, s in zip(average_rewards, average_rewards_std)], [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2)
+        ax.plot(average_rewards, label=f'{key}')
+        ax.set_xlabel('t')
+        ax.set_ylabel('Average Reward')
+        ax.set_title(f'$\\alpha={params[idx]}$')
+    ax.legend()
 def plot_cumulative_rewards(axs, cumulative_rewards, params, cumulative_awards_std=None):
     """Plot average rewards in a 1 by m grid for different parameters."""
     for idx in range(len(params)):
@@ -50,7 +69,20 @@ def plot_cumulative_rewards(axs, cumulative_rewards, params, cumulative_awards_s
             ax.set_ylabel('Cumulative Reward')
             ax.set_title(f'$\\alpha={params[idx]}$')
         ax.legend()  
-    
+def plot_cumulative_rewards1(axs, cumulative_rewards, params, cumulative_awards_std=None):
+    """Plot average rewards in a 1 by m grid for different parameters."""
+    idx = 0
+    ax = axs
+    for key, item in cumulative_rewards.items():
+        cumulative_reward = item[idx]
+        if cumulative_awards_std:
+            std = cumulative_awards_std[key][idx]
+            ax.fill_between(range(len(cumulative_reward)), [a - s for a, s in zip(cumulative_reward, std)], [a + s for a, s in zip(cumulative_reward, std)], alpha=0.2)
+        ax.plot(cumulative_reward, label=f'{key}')
+        ax.set_xlabel('t')
+        ax.set_ylabel('Cumulative Reward')
+        ax.set_title(f'$\\alpha={params[idx]}$')
+    ax.legend() 
     
 def plot_query_timelines(axs, query_data, params):
     """Plot query timelines in a 1 by m grid for different parameters."""

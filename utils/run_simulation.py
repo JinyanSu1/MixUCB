@@ -135,8 +135,11 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
             online_lr_oracle.update(context, expert_action)
             q[i] = 1
   
-        reward = true_rewards[action_hat]
-        if reveal_reward:
+            reward = true_rewards[expert_action]
+            if reveal_reward:
+                online_sq_oracle.update(expert_action, context, reward)
+        else:
+            reward = true_rewards[action_hat]
             online_sq_oracle.update(action_hat, context, reward)
         
         reward_mixucb += reward
@@ -148,7 +151,7 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         reward_linucb += reward
 
         cumulative_reward_linucb.append(reward_linucb)
-        expert_action = np.argmax(true_rewards)
+        # expert_action = np.argmax(true_rewards)
         reward = true_rewards[expert_action]
         always_query_ucb.update_all(context, true_rewards)
         reward_always_query += reward
