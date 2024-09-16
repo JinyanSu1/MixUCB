@@ -2,41 +2,53 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.linalg import inv
 import cvxpy as cp
+from tqdm import tqdm
 def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
+    x_t = x_t.flatten()
     theta = cp.Variable((n_actions, len(x_t)))  # Theta variables for each action
     objective = cp.Maximize(cp.matmul(theta[obj_a], x_t))  # Maximize theta_a^T x_t for a single action
     constraints = []
-
+    theta_sq = online_sq_oracle.get_theta()
+    A = [online_sq_oracle.A[a] for a in range(n_actions)]
+    theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
+    beta_sq = online_sq_oracle.alpha
+    beta_lr = online_lr_oracle.beta
     # Add LinUCB constraint for each theta_a
     for a in range(n_actions):
-        constraints.append(cp.quad_form(theta[a] - theta_sq[a], A_inv[a]) <= beta_sq)
+        constraints.append(cp.quad_form(theta[a] - theta_sq[a], A[a]) <= beta_sq)
 
     # Add the logistic regression constraint
-    constraint_lr = cp.quad_form(cp.vec(theta - theta_lr), X_sum_inv) <= beta_lr
-    constraints.append(constraint_lr)
+    sum_quad_form = cp.sum([cp.quad_form(theta[a] - theta_lr[a], X_sum) for a in range(n_actions)])
+  
+    constraints.append(sum_quad_form <= beta_lr)
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
     prob.solve()
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
+    x_t = x_t.flatten()
     theta = cp.Variable((n_actions, len(x_t)))  # Theta variables for each action
-    objective = cp.Minimize(cp.matmul(theta[obj_a], x_t))  # Maximize theta_a^T x_t for a single action
+    objective = cp.Minimize(cp.matmul(theta[obj_a], x_t))  
     constraints = []
-
+    theta_sq = online_sq_oracle.get_theta()
+    A = [online_sq_oracle.A[a] for a in range(n_actions)]
+    theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
+    beta_sq = online_sq_oracle.alpha
+    beta_lr = online_lr_oracle.beta
     # Add LinUCB constraint for each theta_a
     for a in range(n_actions):
-        constraints.append(cp.quad_form(theta[a] - theta_sq[a], A_inv[a]) <= beta_sq)
+        constraints.append(cp.quad_form(theta[a] - theta_sq[a], A[a]) <= beta_sq)
 
     # Add the logistic regression constraint
-    constraint_lr = cp.quad_form(cp.vec(theta - theta_lr), X_sum_inv) <= beta_lr
-    constraints.append(constraint_lr)
+    sum_quad_form = cp.sum([cp.quad_form(theta[a] - theta_lr[a], X_sum) for a in range(n_actions)])
+    constraints.append(sum_quad_form <= beta_lr)
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
     prob.solve()
     return prob.value
-def run_simulation_mixucb(T, delta, generator, mixucb, linucb, always_query_ucb, plot_rounds, action_plot):
+def run_simulation_mixucbIII(T, delta, generator, mixucb, linucb, always_query_ucb, plot_rounds, action_plot):
     """Run the simulation and collect rewards and theta values."""
     cumulative_reward_mixucb = []
     cumulative_reward_linucb = []
@@ -106,7 +118,7 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
     total_num_queries = 0
 
     
-    for i in range(T):
+    for i in tqdm(range(T)):
         context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
         n_actions = len(true_rewards)
         actions_ucb = np.zeros(n_actions)
