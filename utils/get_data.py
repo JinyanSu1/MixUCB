@@ -2,14 +2,16 @@
 import numpy as np
 ## synthetic data
 class ContextGenerator:
-    def __init__(self, true_weights, noise_std=0.0):
+    def __init__(self, true_weights, noise_std=0.0, temperature = 1.0):
         
         self.noise_std = noise_std
         self.true_weights = true_weights
         self.n_actions, self.n_features = true_weights.shape
+        self.temperature = temperature
 
     def softmax(self, x):
-        e_x = np.exp(x - np.max(x, keepdims=True))  # subtract max for numerical stability
+        x_scaled = x / self.temperature
+        e_x = np.exp(x_scaled - np.max(x_scaled, keepdims=True))  # subtract max for numerical stability
         return e_x / e_x.sum(keepdims=True)
     
     def generate_context(self):

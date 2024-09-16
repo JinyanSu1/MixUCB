@@ -24,7 +24,7 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
-    prob.solve()
+    prob.solve(verbose=True)
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
@@ -46,7 +46,7 @@ def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
-    prob.solve()
+    prob.solve(verbose=True)
     return prob.value
 def run_simulation_mixucbIII(T, delta, generator, mixucb, linucb, always_query_ucb, plot_rounds, action_plot):
     """Run the simulation and collect rewards and theta values."""
