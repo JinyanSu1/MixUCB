@@ -10,13 +10,13 @@ np.random.seed(42)
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB simulation with different beta values.')
     parser.add_argument('--beta', type=float, default=2.0, help='Beta parameter for the logistic regression oracle')
-    parser.add_argument('--temperature', type=float, default=1.0, help='expert action temperaure, lower temperature (close to 0) means he expert action is less noisy')
-    parser.add_argument('--T', type=int, default=1000, help='Number of rounds to run the simulation')
+    parser.add_argument('--temperature', type=float, default=0.1, help='expert action temperaure, lower temperature (close to 0) means he expert action is less noisy')
+    parser.add_argument('--T', type=int, default=500, help='Number of rounds to run the simulation')
     parser.add_argument('--learning_rate', type=float, default=0.1, help='Learning rate for the online lgistic regression oracle')
     parser.add_argument('--num_reps', type=int, default=1, help='Number of repetitions to run the simulation')
     parser.add_argument('--alpha', type=float, default=1.0, help='Alpha parameter for the LinUCB oracle')
     parser.add_argument('--delta', type=float, default=0.2, help='threshold for query')
-    parser.add_argument('reveal_reward', type=bool, default=True, help='set reveal_reward=True for setting II, and set it as False for setting I ')
+    parser.add_argument('--reveal_reward', type=bool, default=True, help='set reveal_reward=True for setting II, and set it as False for setting I ')
     # Parse command-line arguments
     args = parser.parse_args()
 
@@ -105,11 +105,11 @@ if __name__ == "__main__":
     # Plot average rewards
     plot_average_rewards1(axs, cumulative_rewards, alpha_values, cumulative_rewards_std)
     plt.tight_layout()
-    fig.savefig(os.path.join(Figure_dir, f'IIaverage_rewards_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_test.jpg'), format='jpg', dpi=300, bbox_inches='tight')
+    fig.savefig(os.path.join(Figure_dir, f'IIaverage_rewards_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_numreps{num_reps}_test.jpg'), format='jpg', dpi=300, bbox_inches='tight')
     plt.show()
 
     fig, axs = plt.subplots(1, len(alpha_values), figsize=(5, 5))
     plot_cumulative_rewards1(axs, cumulative_rewards, alpha_values, cumulative_rewards_std)
     plt.tight_layout()
-    fig.savefig(os.path.join(Figure_dir, f'IIcumulative_rewards_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_test.jpg'), format='jpg', dpi=300, bbox_inches='tight')
+    fig.savefig(os.path.join(Figure_dir, f'IIcumulative_rewards_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_numreps{num_reps}_test.jpg'), format='jpg', dpi=300, bbox_inches='tight')
     plt.show()
