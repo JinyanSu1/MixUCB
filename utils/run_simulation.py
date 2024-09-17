@@ -4,9 +4,11 @@ from scipy.linalg import inv
 import cvxpy as cp
 from tqdm import tqdm
 import time
+from multiprocessing import Pool
 
 class CBOptimization():
     def __init__(self, n_actions, dim, beta_sq, beta_lr):
+        self.n_actions = n_actions
         self.theta = cp.Variable((n_actions, dim))
         self.context = cp.Parameter(dim)
         self.theta_sq = cp.Parameter((n_actions, dim))
@@ -31,6 +33,14 @@ class CBOptimization():
         prob = cp.Problem(self.objectives[action], self.constraints)
         prob.solve(solver='MOSEK')
         return prob.value
+
+    # def solve_allactions(self, context, theta_sq, theta_lr, As, X_sum, ucb=True):
+        # solve_a = lambda a: self.solve(context, theta_sq, theta_lr, As, X_sum, a)
+
+        # # Parallel computation (set to 1 process here).
+        # pool = Pool(processes = 1)
+        # a_values = pool.map(solve_a, list(range(self.n_actions)))
+        # return a_values
 
 
 
@@ -161,9 +171,22 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
             theta_sq = online_sq_oracle.get_theta()
             As = [online_sq_oracle.A[a] for a in range(n_actions)]
             theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
-            opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, obj_a, ucb=True)
+            actions_ucb[obj_a] = opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, obj_a, ucb=True)
             print(time.time()-currt)
             currt = time.time()
+
+
+        currt = time.time()
+
+        def solve_a(a):
+            return opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, a)
+
+        # Parallel computation (set to 1 process here).
+        pool = Pool(processes = 1)
+        actions_ucb = pool.map(solve_a, list(range(n_actions)))
+
+
+        print(time.time()-currt, time.time()-currt/n_actions)
         action_hat = np.argmax(actions_ucb)
         currt=time.time()
         action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
