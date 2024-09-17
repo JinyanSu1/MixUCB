@@ -3,6 +3,37 @@ import matplotlib.pyplot as plt
 from scipy.linalg import inv
 import cvxpy as cp
 from tqdm import tqdm
+import time
+
+class CBOptimization():
+    def __init__(self, n_actions, dim, beta_sq, beta_lr):
+        self.theta = cp.Variable((n_actions, dim))
+        self.context = cp.Parameter(dim)
+        self.theta_sq = cp.Parameter((n_actions, dim))
+        self.As = [cp.Parameter((dim, dim), PSD=True) for _ in range(n_actions)]
+        self.objectives = [cp.Maximize(cp.matmul(self.theta[a], self.context)) for a in range(n_actions)]
+        self.constraints = [cp.quad_form(self.theta[a] - self.theta_sq[a], self.As[a]) <= beta_sq for a in range(n_actions)]
+
+        self.theta_lr = cp.Parameter((n_actions, dim))
+        self.X_sum = cp.Parameter((dim, dim), PSD=True)
+        sum_quad_form = cp.sum([cp.quad_form(self.theta[a] - self.theta_lr[a], self.X_sum) for a in range(n_actions)])
+  
+        self.constraints.append(sum_quad_form <= beta_lr)
+
+    def solve(self, context, theta_sq, theta_lr, As, X_sum, action, ucb=True):
+        self.theta_sq.value = theta_sq
+        self.theta_lr.value = theta_lr
+        for A, AA in zip(self.As,As):
+            A.value = AA
+        self.X_sum.value = X_sum
+        self.context.value = context
+
+        prob = cp.Problem(self.objectives[action], self.constraints)
+        prob.solve(solver='MOSEK')
+        return prob.value
+
+
+
 def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
     theta = cp.Variable((n_actions, len(x_t)))  # Theta variables for each action
@@ -24,7 +55,7 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
-    prob.solve()
+    prob.solve(solver='MOSEK')
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
@@ -46,7 +77,7 @@ def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
-    prob.solve()
+    prob.solve(solver='MOSEK')
     return prob.value
 def run_simulation_mixucbIII(T, delta, generator, mixucb, linucb, always_query_ucb, plot_rounds, action_plot):
     """Run the simulation and collect rewards and theta values."""
@@ -117,15 +148,26 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
     q = np.zeros(T)
     total_num_queries = 0
 
+    opt_prob = CBOptimization(generator.n_actions, generator.n_features, online_sq_oracle.alpha, online_lr_oracle.beta)
+
     
     for i in tqdm(range(T)):
         context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
         n_actions = len(true_rewards)
         actions_ucb = np.zeros(n_actions)
+        currt = time.time()
         for obj_a in range(n_actions):
-            actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
+            # actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
+            theta_sq = online_sq_oracle.get_theta()
+            As = [online_sq_oracle.A[a] for a in range(n_actions)]
+            theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
+            opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, obj_a, ucb=True)
+            print(time.time()-currt)
+            currt = time.time()
         action_hat = np.argmax(actions_ucb)
+        currt=time.time()
         action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
+        print(time.time() - currt)
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
 
 
