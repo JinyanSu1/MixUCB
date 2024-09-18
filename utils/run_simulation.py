@@ -4,7 +4,10 @@ from scipy.linalg import inv
 import cvxpy as cp
 from tqdm import tqdm
 import time
-from multiprocessing import Pool
+import multiprocess as mp
+import warnings
+
+warnings.filterwarnings(action='ignore', message="You are solving a parameterized problem that is not DPP")
 
 class CBOptimization():
     def __init__(self, n_actions, dim, beta_sq, beta_lr):
@@ -13,13 +16,16 @@ class CBOptimization():
         self.context = cp.Parameter(dim)
         self.theta_sq = cp.Parameter((n_actions, dim))
         self.As = [cp.Parameter((dim, dim), PSD=True) for _ in range(n_actions)]
-        self.objectives = [cp.Maximize(cp.matmul(self.theta[a], self.context)) for a in range(n_actions)]
+        self.objectives_max = [cp.Maximize(cp.matmul(self.theta[a], self.context)) for a in range(n_actions)]
+        self.objectives_min = [cp.Minimize(cp.matmul(self.theta[a], self.context)) for a in range(n_actions)]
+
+        # LinUCB constraints
         self.constraints = [cp.quad_form(self.theta[a] - self.theta_sq[a], self.As[a]) <= beta_sq for a in range(n_actions)]
 
+        # Logistic regression constraints
         self.theta_lr = cp.Parameter((n_actions, dim))
         self.X_sum = cp.Parameter((dim, dim), PSD=True)
         sum_quad_form = cp.sum([cp.quad_form(self.theta[a] - self.theta_lr[a], self.X_sum) for a in range(n_actions)])
-  
         self.constraints.append(sum_quad_form <= beta_lr)
 
     def solve(self, context, theta_sq, theta_lr, As, X_sum, action, ucb=True):
@@ -30,17 +36,22 @@ class CBOptimization():
         self.X_sum.value = X_sum
         self.context.value = context
 
-        prob = cp.Problem(self.objectives[action], self.constraints)
+        if ucb:
+            obj = self.objectives_max[action]
+        else:
+            obj = self.objectives_min[action]
+
+        prob = cp.Problem(obj, self.constraints)
+        # TODO: add error checking
         prob.solve(solver='MOSEK')
         return prob.value
 
-    # def solve_allactions(self, context, theta_sq, theta_lr, As, X_sum, ucb=True):
-        # solve_a = lambda a: self.solve(context, theta_sq, theta_lr, As, X_sum, a)
+    def solve_allactions(self, context, theta_sq, theta_lr, As, X_sum, ucb=True):
+        def solve_a(a):
+            return self.solve(context, theta_sq, theta_lr, As, X_sum, a, ucb=ucb)
 
-        # # Parallel computation (set to 1 process here).
-        # pool = Pool(processes = 1)
-        # a_values = pool.map(solve_a, list(range(self.n_actions)))
-        # return a_values
+        pool = mp.Pool(processes = mp.cpu_count()-1)
+        return pool.map(solve_a, list(range(self.n_actions)))
 
 
 
@@ -159,37 +170,23 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
     total_num_queries = 0
 
     opt_prob = CBOptimization(generator.n_actions, generator.n_features, online_sq_oracle.alpha, online_lr_oracle.beta)
-
     
     for i in tqdm(range(T)):
         context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
         n_actions = len(true_rewards)
         actions_ucb = np.zeros(n_actions)
-        currt = time.time()
-        for obj_a in range(n_actions):
-            # actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
-            theta_sq = online_sq_oracle.get_theta()
-            As = [online_sq_oracle.A[a] for a in range(n_actions)]
-            theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
-            actions_ucb[obj_a] = opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, obj_a, ucb=True)
-            print(time.time()-currt)
-            currt = time.time()
 
+        As = [online_sq_oracle.A[a] for a in range(n_actions)]
+        theta_sq = online_sq_oracle.get_theta()
+        theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
 
         currt = time.time()
-
-        def solve_a(a):
-            return opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, a)
-
-        # Parallel computation (set to 1 process here).
-        pool = Pool(processes = 1)
-        actions_ucb = pool.map(solve_a, list(range(n_actions)))
-
-
-        print(time.time()-currt, time.time()-currt/n_actions)
+        actions_ucb = opt_prob.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum)
+        print(time.time()-currt, (time.time()-currt)/n_actions)
         action_hat = np.argmax(actions_ucb)
+        
         currt=time.time()
-        action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
+        action_hat_lcb = opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, action_hat, ucb=False)
         print(time.time() - currt)
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
 
