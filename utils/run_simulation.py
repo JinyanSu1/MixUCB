@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.linalg import inv
+from scipy.linalg import inv, sqrtm
 import cvxpy as cp
 from tqdm import tqdm
 import time
@@ -28,6 +28,9 @@ class CBOptimization():
         sum_quad_form = cp.sum([cp.quad_form(self.theta[a] - self.theta_lr[a], self.X_sum) for a in range(n_actions)])
         self.constraints.append(sum_quad_form <= beta_lr)
 
+        self.problems_max = [cp.Problem(objmax, self.constraints) for objmax in self.objectives_max]
+        self.problems_min = [cp.Problem(objmin, self.constraints) for objmin in self.objectives_min]
+ 
     def solve(self, context, theta_sq, theta_lr, As, X_sum, action, ucb=True):
         self.theta_sq.value = theta_sq
         self.theta_lr.value = theta_lr
@@ -37,11 +40,10 @@ class CBOptimization():
         self.context.value = context
 
         if ucb:
-            obj = self.objectives_max[action]
+            prob = self.problems_max[action]
         else:
-            obj = self.objectives_min[action]
+            prob = self.problems_min[action]
 
-        prob = cp.Problem(obj, self.constraints)
         # TODO: add error checking
         prob.solve(solver='MOSEK')
         return prob.value
@@ -90,7 +92,6 @@ class CBOptimizationDPP():
             tAt.value = t @ At.value
 
         self.X_sum_sqrt.value = X_sum_sqrt
-        print(X_sum.shape, theta_lr.shape)
         for Xt, t in zip(self.X_sum_theta_lr, theta_lr):
             Xt.value = X_sum @ t
         for tXt, Xt, t in zip(self.quadX_sum_theta_lr, self.X_sum_theta_lr, theta_lr):
@@ -105,7 +106,7 @@ class CBOptimizationDPP():
 
         prob = cp.Problem(obj, self.constraints)
         # TODO: add error checking
-        prob.solve(solver='MOSEK')
+        prob.solve(solver='MOSEK', verbose=(not ucb))
         return prob.value
 
     def solve_allactions(self, context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, ucb=True):
@@ -243,8 +244,8 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         theta_sq = online_sq_oracle.get_theta()
         theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
         currt = time.time()
-        As_sqrt = [np.sqrt(A) for A in As]
-        X_sum_sqrt = np.sqrt(X_sum)
+        As_sqrt = [sqrtm(A) for A in As]
+        X_sum_sqrt = sqrtm(X_sum)
         print('sqrt', time.time()-currt)
 
         # Not DPP
@@ -259,10 +260,10 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
 
         # DPP
-        currt = time.time()
-        actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
-        print('DPP', time.time()-currt, (time.time()-currt)/n_actions)
-        action_hat = np.argmax(actions_ucb)
+        # currt = time.time()
+        # actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
+        # print('DPP', time.time()-currt, (time.time()-currt)/n_actions)
+        # action_hat = np.argmax(actions_ucb)
         
         currt=time.time()
         action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
