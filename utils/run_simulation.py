@@ -11,7 +11,7 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     theta_sq = online_sq_oracle.get_theta()
     A = [online_sq_oracle.A[a] for a in range(n_actions)]
     theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
-    beta_sq = online_sq_oracle.alpha
+    beta_sq = online_sq_oracle.alpha**2
     beta_lr = online_lr_oracle.beta
     # Add LinUCB constraint for each theta_a
     for a in range(n_actions):
@@ -24,7 +24,8 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
-    prob.solve()
+    prob.solve(solver='MOSEK')
+    print("Value of sum_quad_form:", sum_quad_form.value)
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
@@ -34,7 +35,7 @@ def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     theta_sq = online_sq_oracle.get_theta()
     A = [online_sq_oracle.A[a] for a in range(n_actions)]
     theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
-    beta_sq = online_sq_oracle.alpha
+    beta_sq = online_sq_oracle.alpha**2
     beta_lr = online_lr_oracle.beta
     # Add LinUCB constraint for each theta_a
     for a in range(n_actions):
@@ -46,7 +47,7 @@ def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle
 
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
-    prob.solve()
+    prob.solve(solver='MOSEK')
     return prob.value
 def run_simulation_mixucbIII(T, delta, generator, mixucb, linucb, always_query_ucb, plot_rounds, action_plot):
     """Run the simulation and collect rewards and theta values."""
@@ -124,8 +125,12 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         actions_ucb = np.zeros(n_actions)
         for obj_a in range(n_actions):
             actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
+            
         action_hat = np.argmax(actions_ucb)
+        print('action_ucb:', actions_ucb)
+        print('action_hat:', action_hat)
         action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
+        print('action_hat_lcb:', action_hat_lcb)
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
 
 
@@ -144,6 +149,16 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         
         reward_mixucb += reward
         cumulative_reward_mixucb.append(reward_mixucb)
+        print('round:', i, 'mixucb reward:', reward_mixucb, 'q', q[i], 'current reward:', reward)
+        print('action_hat:', action_hat, 'expert_action:', expert_action)
+        
+        
+        
+        
+        
+        
+        
+        
         linucb_ucb, linucb_lcb = linucb.get_ucb_lcb(context)
         action_hat = np.argmax(linucb_ucb)
         reward = true_rewards[action_hat]
@@ -160,3 +175,38 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
 
 
     return cumulative_reward_mixucb, cumulative_reward_linucb, cumulative_reward_always_query, q, total_num_queries
+
+
+def run_simulation_mixucbII_test_lr(T, delta, generator, online_lr_oracle, online_sq_oracle, linucb, always_query_ucb, reveal_reward= True):
+    """Run the simulation and collect rewards and theta values."""
+
+    lr_convergence_errors = []
+    lr_convergence_errors_linucb = []
+    true_parameters = generator.true_weights  # Assuming true weights are stored in the generator
+
+    
+    for i in tqdm(range(T)):
+        context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
+        online_lr_oracle.update(context, expert_action)
+
+  
+
+
+
+        # Calculate logistic regression parameter error (convergence test)
+        learned_parameters = online_lr_oracle.get_model_params()
+        error = np.linalg.norm(learned_parameters - true_parameters)
+        lr_convergence_errors.append(error)
+        
+
+        
+        
+        # LinUCB action selection and updating
+        linucb_ucb, linucb_lcb = linucb.get_ucb_lcb(context)
+        action_hat = np.argmax(linucb_ucb)
+        reward = true_rewards[action_hat]
+        linucb.update(action_hat, context, reward)
+        learned_parameters_linucb = linucb.get_theta()
+        error_linucb = np.linalg.norm(learned_parameters_linucb - true_parameters)
+        lr_convergence_errors_linucb.append(error_linucb)
+    return lr_convergence_errors, lr_convergence_errors_linucb
