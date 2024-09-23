@@ -9,8 +9,9 @@ class ContextGenerator:
         self.n_actions, self.n_features = true_weights.shape
         self.temperature = temperature
 
-    def softmax(self, x):
-        x_scaled = x / self.temperature
+    def softmax(self, x, temp):
+        
+        x_scaled = x / temp
         e_x = np.exp(x_scaled - np.max(x_scaled, keepdims=True))  # subtract max for numerical stability
         return e_x / e_x.sum(keepdims=True)
     
@@ -20,17 +21,16 @@ class ContextGenerator:
     
     def get_reward(self, context):
         logits = np.dot(context, self.true_weights.T) + self.noise_std * np.random.randn(self.n_actions)
-        rewards = logits.flatten() 
+        rewards = self.softmax(logits.flatten() , temp=1)
         return rewards
 
     def generate_context_and_rewards(self):
         context = self.generate_context()
         rewards = self.get_reward(context)
-        rewards = self.softmax(rewards)
         return context, rewards
     def generate_context_rewards_and_expert_action(self):
         context, rewards = self.generate_context_and_rewards()
-        action_probs = self.softmax(rewards)
+        action_probs = self.softmax(rewards, temp=self.temperature)
         noisy_action = np.random.choice(self.n_actions, p=action_probs)
         return context, rewards, noisy_action
         

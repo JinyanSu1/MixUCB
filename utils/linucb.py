@@ -47,7 +47,7 @@ def initialize_ucb_algorithms(n_actions, n_features, alpha, lambda_, learning_ra
 
 class OnlineLogisticRegressionOracle:
     def __init__(self, n_features, n_actions, learning_rate=0.1, lambda_=1.0, beta=1.0):
-        self.model = SGDClassifier(loss='log_loss', learning_rate='constant', eta0=learning_rate)  # Multi-class logistic regression
+        self.model = SGDClassifier(loss='log_loss', learning_rate='constant', eta0=learning_rate, alpha=lambda_)  # Multi-class logistic regression
         self.n_actions = n_actions
         self.n_features = n_features
         self.X_sum = np.zeros((n_features, n_features))  # Accumulated X^T X
@@ -83,4 +83,3 @@ class OnlineLogisticRegressionOracle:
         X_sum = self.X_sum + np.eye(self.n_features) * self.lambda_
         return theta_lr, X_sum
 
-        
