@@ -81,9 +81,16 @@ class CBOptimizationDPP():
         sum_quad_form = cp.sum([cp.sum_squares(self.X_sum_sqrt @ self.theta[a]) - 2*cp.matmul(self.theta[a], self.X_sum_theta_lr[a]) \
                                 + self.quadX_sum_theta_lr[a] for a in range(n_actions)])
         self.constraints.append(sum_quad_form <= beta_lr)
+        
+        self.problems_max = [cp.Problem(objmax, self.constraints) for objmax in self.objectives_max]
+        self.problems_min = [cp.Problem(objmin, self.constraints) for objmin in self.objectives_min]
 
+        self.precompiled_max = [prob.get_problem_data(cp.MOSEK) for prob in self.problems_max]
+        self.precompiled_min = [prob.get_problem_data(cp.MOSEK) for prob in self.problems_min]
+        
+ 
     def solve(self, context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action, ucb=True):
-
+        # TODO: make it so all optimizatino probelms are actually the same
         for A, AA in zip(self.As_sqrt,As_sqrt):
             A.value = AA
         for At, A, t in zip(self.Astheta_sq,As_sqrt,theta_sq):
@@ -99,22 +106,36 @@ class CBOptimizationDPP():
 
         self.context.value = context
 
+       
         if ucb:
-            obj = self.objectives_max[action]
+            prob = self.problems_max[action]
+            # data, chain, inverse_data = self.precompiled_max[action]
         else:
-            obj = self.objectives_min[action]
+            prob = self.problems_min[action]
+            # data, chain, inverse_data = self.precompiled_min[action]
 
-        prob = cp.Problem(obj, self.constraints)
+        # soln = chain.solve_via_data(prob, data)
+        # unpacks the solution returned by SCS into `problem`
+        # prob.unpack_results(soln, chain, inverse_data)
+        
         # TODO: add error checking
-        prob.solve(solver='MOSEK', verbose=(not ucb))
+        prob.solve(solver='MOSEK') #, verbose=(not ucb))
         return prob.value
 
-    def solve_allactions(self, context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, ucb=True):
+    def solve_allactions(self, context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, 
+                         ucb=True, multithreading=True):
         def solve_a(a):
             return self.solve(context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, a, ucb=ucb)
 
-        pool = mp.Pool(processes = 1) # mp.cpu_count()-1)
-        return pool.map(solve_a, list(range(self.n_actions)))
+        if multithreading:
+            pool = mp.Pool(processes = 1) # mp.cpu_count()-1)
+            ret = pool.map(solve_a, list(range(self.n_actions)))
+        else: 
+            ret = []
+            for a in range(self.n_actions):
+                ret.append(solve_a(a))
+        return ret 
+
 
 
 
@@ -260,10 +281,11 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
 
         # DPP
-        # currt = time.time()
-        # actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
-        # print('DPP', time.time()-currt, (time.time()-currt)/n_actions)
-        # action_hat = np.argmax(actions_ucb)
+        currt = time.time()
+        actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
+                                                   As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
+        print('DPP', time.time()-currt, (time.time()-currt)/n_actions)
+        action_hat = np.argmax(actions_ucb)
         
         currt=time.time()
         action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
