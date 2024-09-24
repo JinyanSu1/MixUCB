@@ -80,6 +80,7 @@ class OnlineLogisticRegressionOracle:
         """
         theta_lr = self.get_model_params()  # Get the logistic regression model's coefficients (theta)
         #  X_sum, with regularization
+
         X_sum = self.X_sum + np.eye(self.n_features) * self.lambda_
         return theta_lr, X_sum
 

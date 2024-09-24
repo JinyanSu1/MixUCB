@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from scipy.linalg import inv
 import cvxpy as cp
 from tqdm import tqdm
+import torch
+import sys
 def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
     theta = cp.Variable((n_actions, len(x_t)))  # Theta variables for each action
@@ -16,6 +18,7 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     # Add LinUCB constraint for each theta_a
     for a in range(n_actions):
         constraints.append(cp.quad_form(theta[a] - theta_sq[a], A[a]) <= beta_sq)
+        constraints.append(cp.norm(theta[a], 2) <= 1)
 
     # Add the logistic regression constraint
     sum_quad_form = cp.sum([cp.quad_form(theta[a] - theta_lr[a], X_sum) for a in range(n_actions)])
@@ -26,6 +29,7 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     prob = cp.Problem(objective, constraints)
     prob.solve(solver='MOSEK')
     print("Value of sum_quad_form:", sum_quad_form.value)
+    sys.stdout.flush()
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
@@ -40,6 +44,7 @@ def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     # Add LinUCB constraint for each theta_a
     for a in range(n_actions):
         constraints.append(cp.quad_form(theta[a] - theta_sq[a], A[a]) <= beta_sq)
+        constraints.append(cp.norm(theta[a], 2) <= 1)
 
     # Add the logistic regression constraint
     sum_quad_form = cp.sum([cp.quad_form(theta[a] - theta_lr[a], X_sum) for a in range(n_actions)])
@@ -65,6 +70,7 @@ def run_simulation_mixucbIII(T, delta, generator, mixucb, linucb, always_query_u
     cov_data = {round_num: {'linucb': [], 'mixucb': [], 'always_query_ucb': []} for round_num in plot_rounds}
 
     for i in range(T):
+
         context, true_rewards, _ = generator.generate_context_rewards_and_expert_action()
         mixucb_ucb, mixucb_lcb = mixucb.get_ucb_lcb(context)
 
@@ -120,6 +126,7 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
 
     
     for i in tqdm(range(T)):
+        print('current round:', i)
         context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
         n_actions = len(true_rewards)
         actions_ucb = np.zeros(n_actions)
@@ -127,11 +134,11 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
             actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
             
         action_hat = np.argmax(actions_ucb)
-        print('action_ucb:', actions_ucb)
-        print('action_hat:', action_hat)
         action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
+        print('actions_ucb:', actions_ucb)
         print('action_hat_lcb:', action_hat_lcb)
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
+        print('width_Ahat:', width_Ahat)
 
 
         if width_Ahat > delta:
@@ -149,8 +156,10 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         
         reward_mixucb += reward
         cumulative_reward_mixucb.append(reward_mixucb)
-        print('round:', i, 'mixucb reward:', reward_mixucb, 'q', q[i], 'current reward:', reward)
-        print('action_hat:', action_hat, 'expert_action:', expert_action)
+        print('reward_mixucb:', reward_mixucb, 'query:', q[i])
+        
+ 
+
         
         
         
@@ -166,6 +175,7 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         reward_linucb += reward
 
         cumulative_reward_linucb.append(reward_linucb)
+        print('reward_linucb:', reward_linucb)
         # expert_action = np.argmax(true_rewards)
         reward = true_rewards[expert_action]
         always_query_ucb.update_all(context, true_rewards)
@@ -173,7 +183,7 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
 
         cumulative_reward_always_query.append(reward_always_query)
 
-
+        print('reward_always_query:', reward_always_query)
     return cumulative_reward_mixucb, cumulative_reward_linucb, cumulative_reward_always_query, q, total_num_queries
 
 

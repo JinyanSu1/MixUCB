@@ -17,7 +17,7 @@ if __name__ == "__main__":
     parser.add_argument('--learning_rate', type=float, default=0.1, help='Learning rate for the online lgistic regression oracle')
     parser.add_argument('--num_reps', type=int, default=1, help='Number of repetitions to run the simulation')
     parser.add_argument('--alpha', type=float, default=1.0, help='Alpha parameter for the LinUCB oracle')
-    parser.add_argument('--delta', type=float, default=0.2, help='threshold for query')
+    parser.add_argument('--delta', type=float, default=0.5, help='threshold for query')
     parser.add_argument('--reveal_reward', type=bool, default=True, help='set reveal_reward=True for setting II, and set it as False for setting I ')
     parser.add_argument('--n_actions', type=int, default=5, help='number of actions')
     # Parse command-line arguments
@@ -51,6 +51,9 @@ if __name__ == "__main__":
     log_file = open(log_file_path, 'w')
     sys.stdout = log_file
     true_weights = np.random.randn(n_actions, n_features)
+    norm = np.linalg.norm(true_weights)
+    if norm > 1:  # To avoid division by zero
+        true_weights = true_weights / norm
     generator = ContextGenerator(true_weights=true_weights, noise_std=noise_std, temperature=temperature)
 
     all_rewards = []

@@ -17,11 +17,15 @@ class ContextGenerator:
     
     def generate_context(self):
         context = np.random.randn(1, self.n_features)
+        norm = np.linalg.norm(context)
+        if norm > 1:  # To avoid division by zero
+            context = context / norm
         return context
     
     def get_reward(self, context):
         logits = np.dot(context, self.true_weights.T) + self.noise_std * np.random.randn(self.n_actions)
-        rewards = self.softmax(logits.flatten() , temp=1)
+        rewards = logits.flatten()
+        # rewards = 1 / (1 + np.exp(-logits.flatten()))
         return rewards
 
     def generate_context_and_rewards(self):
