@@ -16,7 +16,7 @@ if __name__ == "__main__":
     parser.add_argument('--lambda_', type=float, default=0.001, help='regularization parameter for logistic regression')
     parser.add_argument('--learning_rate', type=float, default=0.1, help='Learning rate for the online lgistic regression oracle')
     parser.add_argument('--num_reps', type=int, default=1, help='Number of repetitions to run the simulation')
-    parser.add_argument('--alpha', type=float, default=1.0, help='Alpha parameter for the LinUCB oracle')
+    parser.add_argument('--alpha', type=float, default=0.5, help='Alpha parameter for the LinUCB oracle')
     parser.add_argument('--delta', type=float, default=0.5, help='threshold for query')
     parser.add_argument('--reveal_reward', type=bool, default=True, help='set reveal_reward=True for setting II, and set it as False for setting I ')
     parser.add_argument('--n_actions', type=int, default=5, help='number of actions')
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     Results_dir = 'Results/'
     if not os.path.exists(Results_dir):
         os.makedirs(Results_dir)
-    log_file_path = os.path.join(Results_dir, f'print_output_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_numreps{num_reps}_T{T}_actions{n_actions}_delta_{delta}_test.txt')
+    log_file_path = os.path.join(Results_dir, f'print_output_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_numreps{num_reps}_T{T}_actions{n_actions}_delta_{delta}_lambda{lambda_}.txt')
     log_file = open(log_file_path, 'w')
     sys.stdout = log_file
     true_weights = np.random.randn(n_actions, n_features)
