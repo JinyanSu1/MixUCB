@@ -38,6 +38,7 @@ if __name__ == "__main__":
     reveal_reward = args.reveal_reward
     T = args.T
 
+
     colors = {
         'linucb': 'tab:purple',
         'mixucb': 'tab:blue',
@@ -47,9 +48,9 @@ if __name__ == "__main__":
     Results_dir = 'Results/'
     if not os.path.exists(Results_dir):
         os.makedirs(Results_dir)
-    log_file_path = os.path.join(Results_dir, f'print_output_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_numreps{num_reps}_T{T}_actions{n_actions}_delta_{delta}_lambda{lambda_}.txt')
-    log_file = open(log_file_path, 'w')
-    sys.stdout = log_file
+    # log_file_path = os.path.join(Results_dir, f'print_output_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_numreps{num_reps}_T{T}_actions{n_actions}_delta_{delta}_lambda{lambda_}.txt')
+    # log_file = open(log_file_path, 'w')
+    # sys.stdout = log_file
     true_weights = np.random.randn(n_actions, n_features)
     norm = np.linalg.norm(true_weights)
     if norm > 1:  # To avoid division by zero

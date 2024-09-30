@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.linalg import inv, sqrtm
 import cvxpy as cp
 from tqdm import tqdm
-import torch
+# import torch
 import sys
 import time
 import multiprocess as mp
@@ -97,7 +97,7 @@ class CBOptimizationDPP():
         # TODO: make it so all optimizatino probelms are actually the same
         for A, AA in zip(self.As_sqrt,As_sqrt):
             A.value = AA
-        for At, A, t in zip(self.Astheta_sq,As_sqrt,theta_sq):
+        for At, A, t in zip(self.Astheta_sq,As,theta_sq):
             At.value = A @ t
         for tAt, At, t in zip(self.quadAstheta_sq,self.Astheta_sq,theta_sq):
             tAt.value = t @ At.value
@@ -140,9 +140,6 @@ class CBOptimizationDPP():
                 ret.append(solve_a(a))
         return ret 
 
-
-
-
 def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
     theta = cp.Variable((n_actions, len(x_t)))  # Theta variables for each action
@@ -166,8 +163,8 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
     prob.solve(solver='MOSEK')
-    print("Value of sum_quad_form:", sum_quad_form.value)
-    sys.stdout.flush()
+    # print("Value of sum_quad_form:", sum_quad_form.value)
+    # sys.stdout.flush()
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
@@ -270,21 +267,23 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
         n_actions = len(true_rewards)
         actions_ucb = np.zeros(n_actions)
-        for obj_a in range(n_actions):
-            actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
-            
-        action_hat = np.argmax(actions_ucb)
-        action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
-        print('actions_ucb:(Jinyan)', actions_ucb)
-        print('action_hat_lcb:(Jinyan)', action_hat_lcb)
-
+        actions_ucb1 = np.zeros(n_actions)
+        
         As = [online_sq_oracle.A[a] for a in range(n_actions)]
         theta_sq = online_sq_oracle.get_theta()
         theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
-        currt = time.time()
         As_sqrt = [sqrtm(A) for A in As]
         X_sum_sqrt = sqrtm(X_sum)
-        # print('sqrt', time.time()-currt)
+
+        currt = time.time()
+        for obj_a in range(n_actions):
+            actions_ucb1[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
+            
+        action_hat1 = np.argmax(actions_ucb1)
+        action_hat_lcb1 = solve_convex_optimization_lcb(action_hat1, context, online_lr_oracle, online_sq_oracle, n_actions)
+        time1 = time.time()-currt
+
+
 
         # # Not DPP
         # currt = time.time()
@@ -305,12 +304,15 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
         # print('DPP', time.time()-currt, (time.time()-currt)/n_actions)
         action_hat = np.argmax(actions_ucb)
         
-        currt=time.time()
         action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
-        # print(time.time() - currt)
+        time2 = time.time() - currt
+        
+        print('actions_ucb/lcb:(Jinyan)', actions_ucb1, action_hat1, action_hat_lcb1, time1)
+
+        print('actions_ucb/lcb:(Sarah)', np.array(actions_ucb), action_hat, action_hat_lcb, time2)
+                
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
-        print('actions_ucb:(Sarah)', actions_ucb)
-        print('action_hat_lcb:(Sarah)', action_hat_lcb)
+
         if width_Ahat > delta:
             total_num_queries += 1
             
