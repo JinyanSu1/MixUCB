@@ -47,6 +47,8 @@ if __name__ == "__main__":
     Results_dir = 'Results/'
     if not os.path.exists(Results_dir):
         os.makedirs(Results_dir)
+    if not os.path.exists(Figure_dir):
+        os.makedirs(Figure_dir)
     log_file_path = os.path.join(Results_dir, f'print_output_alpha_beta{beta}_tmp{temperature}_lr{learning_rate}_numreps{num_reps}_T{T}_actions{n_actions}_delta_{delta}_lambda{lambda_}.txt')
     log_file = open(log_file_path, 'w')
     sys.stdout = log_file
