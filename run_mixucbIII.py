@@ -51,7 +51,7 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-III Baseline')
     parser.add_argument('--T', type=int, default=1000)
-    parser.add_argument('--delta', type=float, default=0.2)
+    parser.add_argument('--delta', nargs='+', type=float, default=[0.2, 0.5, 1.,2., 5.])
     parser.add_argument('--lambda_', type=float, default=0.001)
     parser.add_argument('--alpha', type=float, default=1)
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
@@ -73,31 +73,34 @@ if __name__ == "__main__":
     T = args.T if args.T <= len(data["rounds"]) else len(data["rounds"])
 
     # Initialize parameters
-    delta = args.delta
+    delta_list = args.delta
     alpha = args.alpha
 
-    # Initialize MixUCB-III model
-    mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
+    for delta in delta_list:
+        results = os.path.join('mixucbIII_results', '{}'.format(delta))
+        os.makedirs(results, exist_ok=True)
+        print('Makedir {}'.format(results))
+        for rep_id in range(5):
+            # Initialize MixUCB-III model
+            mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
 
-    # Run MixUCB-III using the pre-generated data
-    CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
+            # Run MixUCB-III using the pre-generated data
+            CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
 
-    print(f"Finished running MixUCB-III for {T} rounds.")
+            print(f"Finished running MixUCB-III for {T} rounds.")
 
-    results = 'mixucbIII_results'
-    os.makedirs(results, exist_ok=True)
-    pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
-    dict_to_save = {
-        'CR_mixucbIII': CR_mixucbIII,
-        'alpha': args.alpha,
-        'lambda_': args.lambda_,
-        'T': args.T,
-        'n_actions': n_actions,
-        'n_features': n_features,
-        'delta': delta,
-        'TotalQ_mixucbIII': TotalQ_mixucbIII,
-        'q_mixucbIII': q_mixucbIII,
-    }
-    with open(pkl_name, 'wb') as f:
-        pickle.dump(dict_to_save, f)
-    print('Saved to {}'.format(pkl_name))
+            pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+            dict_to_save = {
+                'CR_mixucbIII': CR_mixucbIII,
+                'alpha': args.alpha,
+                'lambda_': args.lambda_,
+                'T': args.T,
+                'n_actions': n_actions,
+                'n_features': n_features,
+                'delta': delta,
+                'TotalQ_mixucbIII': TotalQ_mixucbIII,
+                'q_mixucbIII': q_mixucbIII,
+            }
+            with open(pkl_name, 'wb') as f:
+                pickle.dump(dict_to_save, f)
+            print('Saved to {}'.format(pkl_name))
