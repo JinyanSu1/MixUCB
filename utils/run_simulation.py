@@ -166,7 +166,7 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     # Solve the optimization problem
     prob = cp.Problem(objective, constraints)
     prob.solve(solver='MOSEK')
-    print("Value of sum_quad_form:", sum_quad_form.value)
+    # print("Value of sum_quad_form:", sum_quad_form.value)
     sys.stdout.flush()
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
