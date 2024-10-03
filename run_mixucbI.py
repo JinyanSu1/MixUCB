@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 import pickle
-from utils.run_simulation import CBOptimizationDPP, solve_convex_optimization_ucb, solve_convex_optimization_lcb
+from utils.run_simulation import CBOptimizationDPP
 from utils.linucb import LinUCB, OnlineLogisticRegressionOracle
 import argparse
 from tqdm import tqdm
@@ -54,26 +54,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         
         action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
 
-        ### ADDITION
-        
-        #
 
-        # for obj_a in range(n_actions):
-        #     actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, mixucbI_query_part, mixucbI_NotQuery_part, n_actions)
-        # action_hat = np.argmax(actions_ucb)
-        # action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, mixucbI_query_part, mixucbI_NotQuery_part, n_actions)
-        # width_Ahat = actions_ucb[action_hat] - action_hat_lcb
-        # if width_Ahat > delta:
-        #     TotalQ_mixucbI += 1
-        #     mixucbI_query_part.update(context, noisy_expert_action)
-        #     q_mixucbI[i] = 1
-        #     reward = true_rewards[noisy_expert_action]
-        # else:
-        #     reward = true_rewards[action_hat]
-        #     mixucbI_NotQuery_part.update(action_hat, context, reward)
-        # r_mixucbI += reward
-        # CR_mixucbI.append(r_mixucbI)
-        # #
         
         
         
@@ -98,11 +79,11 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-I Baseline with pre-generated data from a pickle file')
     parser.add_argument('--T', type=int, default=1000)
-    parser.add_argument('--delta', type=float, default=0.4)
+    parser.add_argument('--delta', type=float, default=1)
     parser.add_argument('--lambda_', type=float, default=0.001)
     parser.add_argument('--learning_rate', type=float, default=0.1)
-    parser.add_argument('--alpha', type=float, default=1)
-    parser.add_argument('--beta_MixUCBI', type=float, default=100)
+    parser.add_argument('--alpha', type=float, default=100)
+    parser.add_argument('--beta_MixUCBI', type=float, default=1000)
     parser.add_argument('--temperature', type=float, default=50)
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')

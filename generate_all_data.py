@@ -3,10 +3,7 @@ import pickle
 from utils.get_data import ContextGenerator
 import argparse
 
-import numpy as np
-import pickle
-from utils.get_data import ContextGenerator
-import argparse
+
 
 def generate_data(T, n_actions, n_features, noise_std, seed):
     # Set random seed for reproducibility

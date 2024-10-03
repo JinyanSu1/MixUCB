@@ -77,11 +77,11 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-II Baseline with pre-generated data from a pickle file')
     parser.add_argument('--T', type=int, default=1000)
-    parser.add_argument('--delta', type=float, default=0.2)
+    parser.add_argument('--delta', type=float, default=1)
     parser.add_argument('--lambda_', type=float, default=0.001)
     parser.add_argument('--learning_rate', type=float, default=0.1)
-    parser.add_argument('--alpha', type=float, default=1)
-    parser.add_argument('--beta_MixUCBII', type=float, default=10.0)
+    parser.add_argument('--alpha', type=float, default=100)
+    parser.add_argument('--beta_MixUCBII', type=float, default=3000)
     parser.add_argument('--temperature', type=float, default=50)
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
@@ -99,8 +99,8 @@ if __name__ == "__main__":
     # Extract the number of rounds (T) from the data
     T = args.T if args.T <= len(data["rounds"]) else len(data["rounds"])
     
-    n_actions = args.n_actions
-    n_features = args.n_features
+    n_actions = len(data["rounds"][0]["true_rewards"])  # Number of actions
+    n_features = data["rounds"][0]["context"].shape[1]
     delta = args.delta
     beta = args.beta_MixUCBII
     temperature = args.temperature

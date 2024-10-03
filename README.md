@@ -11,6 +11,8 @@ python run_linucb.py
 python run_noisy_expert.py
 python run_perfect_expert.py
 python run_mixucbI.py
+python run_mixucbII.py
+python run_mixucbIII.py
 
 ```
 
