@@ -1,0 +1,2000 @@
+2024-10-03 13:26:55,552 - INFO - Running MixUCB-I - round: 0
+2024-10-03 13:26:55,623 - INFO - MixUCB-I: 0.23082012109307434, TotalQ_mixucbI: 1, q_mixucbI: 1.0
+2024-10-03 13:26:55,624 - INFO - Running MixUCB-I - round: 1
+2024-10-03 13:26:55,659 - INFO - MixUCB-I: 0.5161783176727003, TotalQ_mixucbI: 2, q_mixucbI: 1.0
+2024-10-03 13:26:55,659 - INFO - Running MixUCB-I - round: 2
+2024-10-03 13:26:55,692 - INFO - MixUCB-I: 0.7050469711019539, TotalQ_mixucbI: 3, q_mixucbI: 1.0
+2024-10-03 13:26:55,693 - INFO - Running MixUCB-I - round: 3
+2024-10-03 13:26:55,726 - INFO - MixUCB-I: 0.7634150910778472, TotalQ_mixucbI: 4, q_mixucbI: 1.0
+2024-10-03 13:26:55,726 - INFO - Running MixUCB-I - round: 4
+2024-10-03 13:26:55,759 - INFO - MixUCB-I: 1.2071017727213489, TotalQ_mixucbI: 5, q_mixucbI: 1.0
+2024-10-03 13:26:55,760 - INFO - Running MixUCB-I - round: 5
+2024-10-03 13:26:55,794 - INFO - MixUCB-I: 1.5072668053999396, TotalQ_mixucbI: 6, q_mixucbI: 1.0
+2024-10-03 13:26:55,795 - INFO - Running MixUCB-I - round: 6
+2024-10-03 13:26:55,830 - INFO - MixUCB-I: 1.748080317299139, TotalQ_mixucbI: 7, q_mixucbI: 1.0
+2024-10-03 13:26:55,830 - INFO - Running MixUCB-I - round: 7
+2024-10-03 13:26:55,862 - INFO - MixUCB-I: 1.8908020027890722, TotalQ_mixucbI: 8, q_mixucbI: 1.0
+2024-10-03 13:26:55,863 - INFO - Running MixUCB-I - round: 8
+2024-10-03 13:26:55,895 - INFO - MixUCB-I: 2.2029479517071375, TotalQ_mixucbI: 9, q_mixucbI: 1.0
+2024-10-03 13:26:55,895 - INFO - Running MixUCB-I - round: 9
+2024-10-03 13:26:55,932 - INFO - MixUCB-I: 2.4649716010485743, TotalQ_mixucbI: 10, q_mixucbI: 1.0
+2024-10-03 13:26:55,932 - INFO - Running MixUCB-I - round: 10
+2024-10-03 13:26:55,964 - INFO - MixUCB-I: 2.4003884346354707, TotalQ_mixucbI: 10, q_mixucbI: 0.0
+2024-10-03 13:26:55,964 - INFO - Running MixUCB-I - round: 11
+2024-10-03 13:26:55,999 - INFO - MixUCB-I: 2.818296635417357, TotalQ_mixucbI: 11, q_mixucbI: 1.0
+2024-10-03 13:26:55,999 - INFO - Running MixUCB-I - round: 12
+2024-10-03 13:26:56,032 - INFO - MixUCB-I: 2.9524745729100847, TotalQ_mixucbI: 12, q_mixucbI: 1.0
+2024-10-03 13:26:56,032 - INFO - Running MixUCB-I - round: 13
+2024-10-03 13:26:56,066 - INFO - MixUCB-I: 3.0861545375385138, TotalQ_mixucbI: 13, q_mixucbI: 1.0
+2024-10-03 13:26:56,066 - INFO - Running MixUCB-I - round: 14
+2024-10-03 13:26:56,101 - INFO - MixUCB-I: 3.6752966925608934, TotalQ_mixucbI: 14, q_mixucbI: 1.0
+2024-10-03 13:26:56,101 - INFO - Running MixUCB-I - round: 15
+2024-10-03 13:26:56,136 - INFO - MixUCB-I: 3.7688727325899576, TotalQ_mixucbI: 15, q_mixucbI: 1.0
+2024-10-03 13:26:56,136 - INFO - Running MixUCB-I - round: 16
+2024-10-03 13:26:56,170 - INFO - MixUCB-I: 3.9681303555640426, TotalQ_mixucbI: 16, q_mixucbI: 1.0
+2024-10-03 13:26:56,171 - INFO - Running MixUCB-I - round: 17
+2024-10-03 13:26:56,203 - INFO - MixUCB-I: 4.129946475682758, TotalQ_mixucbI: 17, q_mixucbI: 1.0
+2024-10-03 13:26:56,203 - INFO - Running MixUCB-I - round: 18
+2024-10-03 13:26:56,238 - INFO - MixUCB-I: 4.304540947079401, TotalQ_mixucbI: 18, q_mixucbI: 1.0
+2024-10-03 13:26:56,238 - INFO - Running MixUCB-I - round: 19
+2024-10-03 13:26:56,273 - INFO - MixUCB-I: 4.925927317360003, TotalQ_mixucbI: 19, q_mixucbI: 1.0
+2024-10-03 13:26:56,274 - INFO - Running MixUCB-I - round: 20
+2024-10-03 13:26:56,307 - INFO - MixUCB-I: 5.2502369081337275, TotalQ_mixucbI: 20, q_mixucbI: 1.0
+2024-10-03 13:26:56,307 - INFO - Running MixUCB-I - round: 21
+2024-10-03 13:26:56,338 - INFO - MixUCB-I: 5.403496355286173, TotalQ_mixucbI: 21, q_mixucbI: 1.0
+2024-10-03 13:26:56,338 - INFO - Running MixUCB-I - round: 22
+2024-10-03 13:26:56,372 - INFO - MixUCB-I: 5.786392536043276, TotalQ_mixucbI: 22, q_mixucbI: 1.0
+2024-10-03 13:26:56,372 - INFO - Running MixUCB-I - round: 23
+2024-10-03 13:26:56,406 - INFO - MixUCB-I: 6.157307386704073, TotalQ_mixucbI: 23, q_mixucbI: 1.0
+2024-10-03 13:26:56,407 - INFO - Running MixUCB-I - round: 24
+2024-10-03 13:26:56,441 - INFO - MixUCB-I: 6.2757534232389105, TotalQ_mixucbI: 24, q_mixucbI: 1.0
+2024-10-03 13:26:56,441 - INFO - Running MixUCB-I - round: 25
+2024-10-03 13:26:56,476 - INFO - MixUCB-I: 6.556776205604834, TotalQ_mixucbI: 25, q_mixucbI: 1.0
+2024-10-03 13:26:56,476 - INFO - Running MixUCB-I - round: 26
+2024-10-03 13:26:56,507 - INFO - MixUCB-I: 6.769577524571438, TotalQ_mixucbI: 26, q_mixucbI: 1.0
+2024-10-03 13:26:56,508 - INFO - Running MixUCB-I - round: 27
+2024-10-03 13:26:56,541 - INFO - MixUCB-I: 7.227658241088478, TotalQ_mixucbI: 27, q_mixucbI: 1.0
+2024-10-03 13:26:56,541 - INFO - Running MixUCB-I - round: 28
+2024-10-03 13:26:56,576 - INFO - MixUCB-I: 7.574557534731517, TotalQ_mixucbI: 28, q_mixucbI: 1.0
+2024-10-03 13:26:56,576 - INFO - Running MixUCB-I - round: 29
+2024-10-03 13:26:56,611 - INFO - MixUCB-I: 7.720360246272643, TotalQ_mixucbI: 29, q_mixucbI: 1.0
+2024-10-03 13:26:56,611 - INFO - Running MixUCB-I - round: 30
+2024-10-03 13:26:56,643 - INFO - MixUCB-I: 8.06269296093471, TotalQ_mixucbI: 30, q_mixucbI: 1.0
+2024-10-03 13:26:56,643 - INFO - Running MixUCB-I - round: 31
+2024-10-03 13:26:56,676 - INFO - MixUCB-I: 8.256187913740954, TotalQ_mixucbI: 31, q_mixucbI: 1.0
+2024-10-03 13:26:56,676 - INFO - Running MixUCB-I - round: 32
+2024-10-03 13:26:56,711 - INFO - MixUCB-I: 8.53944265598326, TotalQ_mixucbI: 32, q_mixucbI: 1.0
+2024-10-03 13:26:56,711 - INFO - Running MixUCB-I - round: 33
+2024-10-03 13:26:56,746 - INFO - MixUCB-I: 8.71151057066123, TotalQ_mixucbI: 33, q_mixucbI: 1.0
+2024-10-03 13:26:56,746 - INFO - Running MixUCB-I - round: 34
+2024-10-03 13:26:56,780 - INFO - MixUCB-I: 9.215353826049203, TotalQ_mixucbI: 34, q_mixucbI: 1.0
+2024-10-03 13:26:56,781 - INFO - Running MixUCB-I - round: 35
+2024-10-03 13:26:56,813 - INFO - MixUCB-I: 9.574057402559536, TotalQ_mixucbI: 35, q_mixucbI: 1.0
+2024-10-03 13:26:56,814 - INFO - Running MixUCB-I - round: 36
+2024-10-03 13:26:56,847 - INFO - MixUCB-I: 9.863957135852557, TotalQ_mixucbI: 36, q_mixucbI: 1.0
+2024-10-03 13:26:56,847 - INFO - Running MixUCB-I - round: 37
+2024-10-03 13:26:56,883 - INFO - MixUCB-I: 10.121867995524138, TotalQ_mixucbI: 37, q_mixucbI: 1.0
+2024-10-03 13:26:56,883 - INFO - Running MixUCB-I - round: 38
+2024-10-03 13:26:56,916 - INFO - MixUCB-I: 10.421545608787449, TotalQ_mixucbI: 38, q_mixucbI: 1.0
+2024-10-03 13:26:56,917 - INFO - Running MixUCB-I - round: 39
+2024-10-03 13:26:56,949 - INFO - MixUCB-I: 10.520939072353512, TotalQ_mixucbI: 39, q_mixucbI: 1.0
+2024-10-03 13:26:56,949 - INFO - Running MixUCB-I - round: 40
+2024-10-03 13:26:56,983 - INFO - MixUCB-I: 10.635906377000289, TotalQ_mixucbI: 40, q_mixucbI: 1.0
+2024-10-03 13:26:56,983 - INFO - Running MixUCB-I - round: 41
+2024-10-03 13:26:57,017 - INFO - MixUCB-I: 10.983835636776341, TotalQ_mixucbI: 41, q_mixucbI: 1.0
+2024-10-03 13:26:57,018 - INFO - Running MixUCB-I - round: 42
+2024-10-03 13:26:57,050 - INFO - MixUCB-I: 11.205819786363296, TotalQ_mixucbI: 42, q_mixucbI: 1.0
+2024-10-03 13:26:57,051 - INFO - Running MixUCB-I - round: 43
+2024-10-03 13:26:57,081 - INFO - MixUCB-I: 11.299258231991674, TotalQ_mixucbI: 43, q_mixucbI: 1.0
+2024-10-03 13:26:57,081 - INFO - Running MixUCB-I - round: 44
+2024-10-03 13:26:57,111 - INFO - MixUCB-I: 11.6129849501671, TotalQ_mixucbI: 44, q_mixucbI: 1.0
+2024-10-03 13:26:57,111 - INFO - Running MixUCB-I - round: 45
+2024-10-03 13:26:57,141 - INFO - MixUCB-I: 11.888573172109623, TotalQ_mixucbI: 45, q_mixucbI: 1.0
+2024-10-03 13:26:57,141 - INFO - Running MixUCB-I - round: 46
+2024-10-03 13:26:57,171 - INFO - MixUCB-I: 12.234812416760251, TotalQ_mixucbI: 46, q_mixucbI: 1.0
+2024-10-03 13:26:57,171 - INFO - Running MixUCB-I - round: 47
+2024-10-03 13:26:57,201 - INFO - MixUCB-I: 12.376722954357374, TotalQ_mixucbI: 47, q_mixucbI: 1.0
+2024-10-03 13:26:57,201 - INFO - Running MixUCB-I - round: 48
+2024-10-03 13:26:57,231 - INFO - MixUCB-I: 12.489891403460442, TotalQ_mixucbI: 48, q_mixucbI: 1.0
+2024-10-03 13:26:57,231 - INFO - Running MixUCB-I - round: 49
+2024-10-03 13:26:57,260 - INFO - MixUCB-I: 12.567231083533706, TotalQ_mixucbI: 49, q_mixucbI: 1.0
+2024-10-03 13:26:57,261 - INFO - Running MixUCB-I - round: 50
+2024-10-03 13:26:57,284 - INFO - MixUCB-I: 12.774612697988001, TotalQ_mixucbI: 50, q_mixucbI: 1.0
+2024-10-03 13:26:57,284 - INFO - Running MixUCB-I - round: 51
+2024-10-03 13:26:57,314 - INFO - MixUCB-I: 12.853083971541126, TotalQ_mixucbI: 51, q_mixucbI: 1.0
+2024-10-03 13:26:57,314 - INFO - Running MixUCB-I - round: 52
+2024-10-03 13:26:57,339 - INFO - MixUCB-I: 13.21906118546735, TotalQ_mixucbI: 52, q_mixucbI: 1.0
+2024-10-03 13:26:57,339 - INFO - Running MixUCB-I - round: 53
+2024-10-03 13:26:57,363 - INFO - MixUCB-I: 13.695330459935045, TotalQ_mixucbI: 53, q_mixucbI: 1.0
+2024-10-03 13:26:57,364 - INFO - Running MixUCB-I - round: 54
+2024-10-03 13:26:57,388 - INFO - MixUCB-I: 13.953416968344275, TotalQ_mixucbI: 54, q_mixucbI: 1.0
+2024-10-03 13:26:57,388 - INFO - Running MixUCB-I - round: 55
+2024-10-03 13:26:57,413 - INFO - MixUCB-I: 14.520128001744979, TotalQ_mixucbI: 55, q_mixucbI: 1.0
+2024-10-03 13:26:57,413 - INFO - Running MixUCB-I - round: 56
+2024-10-03 13:26:57,437 - INFO - MixUCB-I: 14.92329756235891, TotalQ_mixucbI: 56, q_mixucbI: 1.0
+2024-10-03 13:26:57,437 - INFO - Running MixUCB-I - round: 57
+2024-10-03 13:26:57,461 - INFO - MixUCB-I: 15.16976272367692, TotalQ_mixucbI: 57, q_mixucbI: 1.0
+2024-10-03 13:26:57,462 - INFO - Running MixUCB-I - round: 58
+2024-10-03 13:26:57,495 - INFO - MixUCB-I: 15.797938608249384, TotalQ_mixucbI: 58, q_mixucbI: 1.0
+2024-10-03 13:26:57,495 - INFO - Running MixUCB-I - round: 59
+2024-10-03 13:26:57,530 - INFO - MixUCB-I: 16.12477584006466, TotalQ_mixucbI: 59, q_mixucbI: 1.0
+2024-10-03 13:26:57,530 - INFO - Running MixUCB-I - round: 60
+2024-10-03 13:26:57,563 - INFO - MixUCB-I: 16.45255904579467, TotalQ_mixucbI: 60, q_mixucbI: 1.0
+2024-10-03 13:26:57,563 - INFO - Running MixUCB-I - round: 61
+2024-10-03 13:26:57,598 - INFO - MixUCB-I: 16.910062263467847, TotalQ_mixucbI: 61, q_mixucbI: 1.0
+2024-10-03 13:26:57,598 - INFO - Running MixUCB-I - round: 62
+2024-10-03 13:26:57,633 - INFO - MixUCB-I: 17.35755654272944, TotalQ_mixucbI: 62, q_mixucbI: 1.0
+2024-10-03 13:26:57,634 - INFO - Running MixUCB-I - round: 63
+2024-10-03 13:26:57,668 - INFO - MixUCB-I: 17.509321136139, TotalQ_mixucbI: 63, q_mixucbI: 1.0
+2024-10-03 13:26:57,669 - INFO - Running MixUCB-I - round: 64
+2024-10-03 13:26:57,702 - INFO - MixUCB-I: 17.723950480749593, TotalQ_mixucbI: 64, q_mixucbI: 1.0
+2024-10-03 13:26:57,702 - INFO - Running MixUCB-I - round: 65
+2024-10-03 13:26:57,736 - INFO - MixUCB-I: 17.979681879931153, TotalQ_mixucbI: 65, q_mixucbI: 1.0
+2024-10-03 13:26:57,737 - INFO - Running MixUCB-I - round: 66
+2024-10-03 13:26:57,772 - INFO - MixUCB-I: 18.131191787369612, TotalQ_mixucbI: 66, q_mixucbI: 1.0
+2024-10-03 13:26:57,772 - INFO - Running MixUCB-I - round: 67
+2024-10-03 13:26:57,807 - INFO - MixUCB-I: 18.15886669864761, TotalQ_mixucbI: 67, q_mixucbI: 1.0
+2024-10-03 13:26:57,807 - INFO - Running MixUCB-I - round: 68
+2024-10-03 13:26:57,840 - INFO - MixUCB-I: 18.244440431994867, TotalQ_mixucbI: 68, q_mixucbI: 1.0
+2024-10-03 13:26:57,840 - INFO - Running MixUCB-I - round: 69
+2024-10-03 13:26:57,874 - INFO - MixUCB-I: 18.436827366450725, TotalQ_mixucbI: 69, q_mixucbI: 1.0
+2024-10-03 13:26:57,874 - INFO - Running MixUCB-I - round: 70
+2024-10-03 13:26:57,910 - INFO - MixUCB-I: 18.54059666517715, TotalQ_mixucbI: 70, q_mixucbI: 1.0
+2024-10-03 13:26:57,910 - INFO - Running MixUCB-I - round: 71
+2024-10-03 13:26:57,946 - INFO - MixUCB-I: 18.76062981040499, TotalQ_mixucbI: 71, q_mixucbI: 1.0
+2024-10-03 13:26:57,946 - INFO - Running MixUCB-I - round: 72
+2024-10-03 13:26:57,981 - INFO - MixUCB-I: 18.977518534481046, TotalQ_mixucbI: 72, q_mixucbI: 1.0
+2024-10-03 13:26:57,981 - INFO - Running MixUCB-I - round: 73
+2024-10-03 13:26:58,016 - INFO - MixUCB-I: 19.39277882408097, TotalQ_mixucbI: 73, q_mixucbI: 1.0
+2024-10-03 13:26:58,016 - INFO - Running MixUCB-I - round: 74
+2024-10-03 13:26:58,051 - INFO - MixUCB-I: 19.509096205551682, TotalQ_mixucbI: 74, q_mixucbI: 1.0
+2024-10-03 13:26:58,051 - INFO - Running MixUCB-I - round: 75
+2024-10-03 13:26:58,086 - INFO - MixUCB-I: 19.704693542935534, TotalQ_mixucbI: 75, q_mixucbI: 1.0
+2024-10-03 13:26:58,086 - INFO - Running MixUCB-I - round: 76
+2024-10-03 13:26:58,122 - INFO - MixUCB-I: 20.133312117661173, TotalQ_mixucbI: 76, q_mixucbI: 1.0
+2024-10-03 13:26:58,122 - INFO - Running MixUCB-I - round: 77
+2024-10-03 13:26:58,156 - INFO - MixUCB-I: 20.594178332659258, TotalQ_mixucbI: 77, q_mixucbI: 1.0
+2024-10-03 13:26:58,156 - INFO - Running MixUCB-I - round: 78
+2024-10-03 13:26:58,189 - INFO - MixUCB-I: 20.81319387964308, TotalQ_mixucbI: 78, q_mixucbI: 1.0
+2024-10-03 13:26:58,190 - INFO - Running MixUCB-I - round: 79
+2024-10-03 13:26:58,224 - INFO - MixUCB-I: 21.24055332088289, TotalQ_mixucbI: 79, q_mixucbI: 1.0
+2024-10-03 13:26:58,224 - INFO - Running MixUCB-I - round: 80
+2024-10-03 13:26:58,256 - INFO - MixUCB-I: 21.228807248588918, TotalQ_mixucbI: 79, q_mixucbI: 0.0
+2024-10-03 13:26:58,257 - INFO - Running MixUCB-I - round: 81
+2024-10-03 13:26:58,293 - INFO - MixUCB-I: 21.50555894311023, TotalQ_mixucbI: 80, q_mixucbI: 1.0
+2024-10-03 13:26:58,294 - INFO - Running MixUCB-I - round: 82
+2024-10-03 13:26:58,329 - INFO - MixUCB-I: 22.056329131526958, TotalQ_mixucbI: 81, q_mixucbI: 1.0
+2024-10-03 13:26:58,329 - INFO - Running MixUCB-I - round: 83
+2024-10-03 13:26:58,364 - INFO - MixUCB-I: 22.574728428028784, TotalQ_mixucbI: 82, q_mixucbI: 1.0
+2024-10-03 13:26:58,365 - INFO - Running MixUCB-I - round: 84
+2024-10-03 13:26:58,401 - INFO - MixUCB-I: 22.903230548574378, TotalQ_mixucbI: 83, q_mixucbI: 1.0
+2024-10-03 13:26:58,401 - INFO - Running MixUCB-I - round: 85
+2024-10-03 13:26:58,437 - INFO - MixUCB-I: 23.15806443676335, TotalQ_mixucbI: 84, q_mixucbI: 1.0
+2024-10-03 13:26:58,437 - INFO - Running MixUCB-I - round: 86
+2024-10-03 13:26:58,474 - INFO - MixUCB-I: 23.23912513965482, TotalQ_mixucbI: 85, q_mixucbI: 1.0
+2024-10-03 13:26:58,474 - INFO - Running MixUCB-I - round: 87
+2024-10-03 13:26:58,509 - INFO - MixUCB-I: 23.512303323466462, TotalQ_mixucbI: 86, q_mixucbI: 1.0
+2024-10-03 13:26:58,509 - INFO - Running MixUCB-I - round: 88
+2024-10-03 13:26:58,545 - INFO - MixUCB-I: 24.11385874479936, TotalQ_mixucbI: 87, q_mixucbI: 1.0
+2024-10-03 13:26:58,546 - INFO - Running MixUCB-I - round: 89
+2024-10-03 13:26:58,579 - INFO - MixUCB-I: 24.417346528113992, TotalQ_mixucbI: 88, q_mixucbI: 1.0
+2024-10-03 13:26:58,579 - INFO - Running MixUCB-I - round: 90
+2024-10-03 13:26:58,615 - INFO - MixUCB-I: 24.794357019191224, TotalQ_mixucbI: 89, q_mixucbI: 1.0
+2024-10-03 13:26:58,615 - INFO - Running MixUCB-I - round: 91
+2024-10-03 13:26:58,651 - INFO - MixUCB-I: 25.157442086961904, TotalQ_mixucbI: 90, q_mixucbI: 1.0
+2024-10-03 13:26:58,651 - INFO - Running MixUCB-I - round: 92
+2024-10-03 13:26:58,688 - INFO - MixUCB-I: 25.391002096321056, TotalQ_mixucbI: 91, q_mixucbI: 1.0
+2024-10-03 13:26:58,688 - INFO - Running MixUCB-I - round: 93
+2024-10-03 13:26:58,722 - INFO - MixUCB-I: 25.803099418259762, TotalQ_mixucbI: 92, q_mixucbI: 1.0
+2024-10-03 13:26:58,723 - INFO - Running MixUCB-I - round: 94
+2024-10-03 13:26:58,757 - INFO - MixUCB-I: 25.954999381044566, TotalQ_mixucbI: 93, q_mixucbI: 1.0
+2024-10-03 13:26:58,757 - INFO - Running MixUCB-I - round: 95
+2024-10-03 13:26:58,792 - INFO - MixUCB-I: 26.10654017435247, TotalQ_mixucbI: 94, q_mixucbI: 1.0
+2024-10-03 13:26:58,793 - INFO - Running MixUCB-I - round: 96
+2024-10-03 13:26:58,828 - INFO - MixUCB-I: 26.341868003376117, TotalQ_mixucbI: 95, q_mixucbI: 1.0
+2024-10-03 13:26:58,828 - INFO - Running MixUCB-I - round: 97
+2024-10-03 13:26:58,865 - INFO - MixUCB-I: 26.845520959813513, TotalQ_mixucbI: 96, q_mixucbI: 1.0
+2024-10-03 13:26:58,865 - INFO - Running MixUCB-I - round: 98
+2024-10-03 13:26:58,901 - INFO - MixUCB-I: 27.14270454652271, TotalQ_mixucbI: 97, q_mixucbI: 1.0
+2024-10-03 13:26:58,901 - INFO - Running MixUCB-I - round: 99
+2024-10-03 13:26:58,934 - INFO - MixUCB-I: 27.568377313436653, TotalQ_mixucbI: 98, q_mixucbI: 1.0
+2024-10-03 13:26:58,935 - INFO - Running MixUCB-I - round: 100
+2024-10-03 13:26:58,969 - INFO - MixUCB-I: 27.884821555839736, TotalQ_mixucbI: 99, q_mixucbI: 1.0
+2024-10-03 13:26:58,969 - INFO - Running MixUCB-I - round: 101
+2024-10-03 13:26:59,014 - INFO - MixUCB-I: 28.103860410982836, TotalQ_mixucbI: 100, q_mixucbI: 1.0
+2024-10-03 13:26:59,014 - INFO - Running MixUCB-I - round: 102
+2024-10-03 13:26:59,061 - INFO - MixUCB-I: 28.342407317648643, TotalQ_mixucbI: 101, q_mixucbI: 1.0
+2024-10-03 13:26:59,061 - INFO - Running MixUCB-I - round: 103
+2024-10-03 13:26:59,110 - INFO - MixUCB-I: 28.48480428475373, TotalQ_mixucbI: 102, q_mixucbI: 1.0
+2024-10-03 13:26:59,110 - INFO - Running MixUCB-I - round: 104
+2024-10-03 13:26:59,144 - INFO - MixUCB-I: 28.99261509995071, TotalQ_mixucbI: 103, q_mixucbI: 1.0
+2024-10-03 13:26:59,144 - INFO - Running MixUCB-I - round: 105
+2024-10-03 13:26:59,177 - INFO - MixUCB-I: 29.119492626618555, TotalQ_mixucbI: 104, q_mixucbI: 1.0
+2024-10-03 13:26:59,177 - INFO - Running MixUCB-I - round: 106
+2024-10-03 13:26:59,208 - INFO - MixUCB-I: 29.3699743647224, TotalQ_mixucbI: 105, q_mixucbI: 1.0
+2024-10-03 13:26:59,209 - INFO - Running MixUCB-I - round: 107
+2024-10-03 13:26:59,238 - INFO - MixUCB-I: 29.607716553079836, TotalQ_mixucbI: 106, q_mixucbI: 1.0
+2024-10-03 13:26:59,238 - INFO - Running MixUCB-I - round: 108
+2024-10-03 13:26:59,265 - INFO - MixUCB-I: 29.85226694591064, TotalQ_mixucbI: 107, q_mixucbI: 1.0
+2024-10-03 13:26:59,265 - INFO - Running MixUCB-I - round: 109
+2024-10-03 13:26:59,289 - INFO - MixUCB-I: 30.094610879824412, TotalQ_mixucbI: 108, q_mixucbI: 1.0
+2024-10-03 13:26:59,290 - INFO - Running MixUCB-I - round: 110
+2024-10-03 13:26:59,314 - INFO - MixUCB-I: 30.326006490902447, TotalQ_mixucbI: 109, q_mixucbI: 1.0
+2024-10-03 13:26:59,315 - INFO - Running MixUCB-I - round: 111
+2024-10-03 13:26:59,340 - INFO - MixUCB-I: 30.64617549168184, TotalQ_mixucbI: 110, q_mixucbI: 1.0
+2024-10-03 13:26:59,340 - INFO - Running MixUCB-I - round: 112
+2024-10-03 13:26:59,364 - INFO - MixUCB-I: 30.753048264787836, TotalQ_mixucbI: 111, q_mixucbI: 1.0
+2024-10-03 13:26:59,364 - INFO - Running MixUCB-I - round: 113
+2024-10-03 13:26:59,390 - INFO - MixUCB-I: 31.138328363027505, TotalQ_mixucbI: 112, q_mixucbI: 1.0
+2024-10-03 13:26:59,390 - INFO - Running MixUCB-I - round: 114
+2024-10-03 13:26:59,415 - INFO - MixUCB-I: 31.48689653081917, TotalQ_mixucbI: 113, q_mixucbI: 1.0
+2024-10-03 13:26:59,415 - INFO - Running MixUCB-I - round: 115
+2024-10-03 13:26:59,440 - INFO - MixUCB-I: 31.681191302264565, TotalQ_mixucbI: 114, q_mixucbI: 1.0
+2024-10-03 13:26:59,440 - INFO - Running MixUCB-I - round: 116
+2024-10-03 13:26:59,465 - INFO - MixUCB-I: 32.22144386360672, TotalQ_mixucbI: 115, q_mixucbI: 1.0
+2024-10-03 13:26:59,465 - INFO - Running MixUCB-I - round: 117
+2024-10-03 13:26:59,492 - INFO - MixUCB-I: 32.328079204704, TotalQ_mixucbI: 116, q_mixucbI: 1.0
+2024-10-03 13:26:59,492 - INFO - Running MixUCB-I - round: 118
+2024-10-03 13:26:59,518 - INFO - MixUCB-I: 32.54441461978221, TotalQ_mixucbI: 117, q_mixucbI: 1.0
+2024-10-03 13:26:59,518 - INFO - Running MixUCB-I - round: 119
+2024-10-03 13:26:59,543 - INFO - MixUCB-I: 33.02740322775777, TotalQ_mixucbI: 118, q_mixucbI: 1.0
+2024-10-03 13:26:59,543 - INFO - Running MixUCB-I - round: 120
+2024-10-03 13:26:59,568 - INFO - MixUCB-I: 33.62723913637185, TotalQ_mixucbI: 119, q_mixucbI: 1.0
+2024-10-03 13:26:59,568 - INFO - Running MixUCB-I - round: 121
+2024-10-03 13:26:59,593 - INFO - MixUCB-I: 34.049229195748474, TotalQ_mixucbI: 120, q_mixucbI: 1.0
+2024-10-03 13:26:59,594 - INFO - Running MixUCB-I - round: 122
+2024-10-03 13:26:59,619 - INFO - MixUCB-I: 34.70537449836462, TotalQ_mixucbI: 121, q_mixucbI: 1.0
+2024-10-03 13:26:59,619 - INFO - Running MixUCB-I - round: 123
+2024-10-03 13:26:59,643 - INFO - MixUCB-I: 34.72286678351201, TotalQ_mixucbI: 122, q_mixucbI: 1.0
+2024-10-03 13:26:59,643 - INFO - Running MixUCB-I - round: 124
+2024-10-03 13:26:59,668 - INFO - MixUCB-I: 35.038476663415615, TotalQ_mixucbI: 123, q_mixucbI: 1.0
+2024-10-03 13:26:59,668 - INFO - Running MixUCB-I - round: 125
+2024-10-03 13:26:59,693 - INFO - MixUCB-I: 35.32613878744847, TotalQ_mixucbI: 124, q_mixucbI: 1.0
+2024-10-03 13:26:59,694 - INFO - Running MixUCB-I - round: 126
+2024-10-03 13:26:59,718 - INFO - MixUCB-I: 35.47571474738664, TotalQ_mixucbI: 125, q_mixucbI: 1.0
+2024-10-03 13:26:59,718 - INFO - Running MixUCB-I - round: 127
+2024-10-03 13:26:59,743 - INFO - MixUCB-I: 35.7971296200196, TotalQ_mixucbI: 126, q_mixucbI: 1.0
+2024-10-03 13:26:59,743 - INFO - Running MixUCB-I - round: 128
+2024-10-03 13:26:59,768 - INFO - MixUCB-I: 35.996579203655806, TotalQ_mixucbI: 127, q_mixucbI: 1.0
+2024-10-03 13:26:59,768 - INFO - Running MixUCB-I - round: 129
+2024-10-03 13:26:59,793 - INFO - MixUCB-I: 36.08799224898622, TotalQ_mixucbI: 128, q_mixucbI: 1.0
+2024-10-03 13:26:59,793 - INFO - Running MixUCB-I - round: 130
+2024-10-03 13:26:59,818 - INFO - MixUCB-I: 36.200437480141495, TotalQ_mixucbI: 129, q_mixucbI: 1.0
+2024-10-03 13:26:59,818 - INFO - Running MixUCB-I - round: 131
+2024-10-03 13:26:59,843 - INFO - MixUCB-I: 36.660591812477975, TotalQ_mixucbI: 130, q_mixucbI: 1.0
+2024-10-03 13:26:59,843 - INFO - Running MixUCB-I - round: 132
+2024-10-03 13:26:59,868 - INFO - MixUCB-I: 36.89155898193789, TotalQ_mixucbI: 131, q_mixucbI: 1.0
+2024-10-03 13:26:59,868 - INFO - Running MixUCB-I - round: 133
+2024-10-03 13:26:59,894 - INFO - MixUCB-I: 37.23998493380388, TotalQ_mixucbI: 132, q_mixucbI: 1.0
+2024-10-03 13:26:59,894 - INFO - Running MixUCB-I - round: 134
+2024-10-03 13:26:59,916 - INFO - MixUCB-I: 37.18560604294508, TotalQ_mixucbI: 132, q_mixucbI: 0.0
+2024-10-03 13:26:59,916 - INFO - Running MixUCB-I - round: 135
+2024-10-03 13:26:59,941 - INFO - MixUCB-I: 37.432295457691914, TotalQ_mixucbI: 133, q_mixucbI: 1.0
+2024-10-03 13:26:59,941 - INFO - Running MixUCB-I - round: 136
+2024-10-03 13:26:59,966 - INFO - MixUCB-I: 37.67696027856537, TotalQ_mixucbI: 134, q_mixucbI: 1.0
+2024-10-03 13:26:59,966 - INFO - Running MixUCB-I - round: 137
+2024-10-03 13:26:59,991 - INFO - MixUCB-I: 37.92807852058847, TotalQ_mixucbI: 135, q_mixucbI: 1.0
+2024-10-03 13:26:59,991 - INFO - Running MixUCB-I - round: 138
+2024-10-03 13:27:00,021 - INFO - MixUCB-I: 37.974152197856014, TotalQ_mixucbI: 136, q_mixucbI: 1.0
+2024-10-03 13:27:00,021 - INFO - Running MixUCB-I - round: 139
+2024-10-03 13:27:00,047 - INFO - MixUCB-I: 38.178638465865895, TotalQ_mixucbI: 137, q_mixucbI: 1.0
+2024-10-03 13:27:00,047 - INFO - Running MixUCB-I - round: 140
+2024-10-03 13:27:00,072 - INFO - MixUCB-I: 38.48189448926836, TotalQ_mixucbI: 138, q_mixucbI: 1.0
+2024-10-03 13:27:00,072 - INFO - Running MixUCB-I - round: 141
+2024-10-03 13:27:00,098 - INFO - MixUCB-I: 38.8662292000386, TotalQ_mixucbI: 139, q_mixucbI: 1.0
+2024-10-03 13:27:00,098 - INFO - Running MixUCB-I - round: 142
+2024-10-03 13:27:00,122 - INFO - MixUCB-I: 39.28595500455509, TotalQ_mixucbI: 140, q_mixucbI: 1.0
+2024-10-03 13:27:00,122 - INFO - Running MixUCB-I - round: 143
+2024-10-03 13:27:00,147 - INFO - MixUCB-I: 39.539177443614065, TotalQ_mixucbI: 141, q_mixucbI: 1.0
+2024-10-03 13:27:00,148 - INFO - Running MixUCB-I - round: 144
+2024-10-03 13:27:00,173 - INFO - MixUCB-I: 39.76045661193354, TotalQ_mixucbI: 142, q_mixucbI: 1.0
+2024-10-03 13:27:00,173 - INFO - Running MixUCB-I - round: 145
+2024-10-03 13:27:00,201 - INFO - MixUCB-I: 40.008833117323626, TotalQ_mixucbI: 143, q_mixucbI: 1.0
+2024-10-03 13:27:00,201 - INFO - Running MixUCB-I - round: 146
+2024-10-03 13:27:00,227 - INFO - MixUCB-I: 40.24923470229846, TotalQ_mixucbI: 144, q_mixucbI: 1.0
+2024-10-03 13:27:00,227 - INFO - Running MixUCB-I - round: 147
+2024-10-03 13:27:00,253 - INFO - MixUCB-I: 40.5083648877611, TotalQ_mixucbI: 145, q_mixucbI: 1.0
+2024-10-03 13:27:00,253 - INFO - Running MixUCB-I - round: 148
+2024-10-03 13:27:00,279 - INFO - MixUCB-I: 40.78166912176208, TotalQ_mixucbI: 146, q_mixucbI: 1.0
+2024-10-03 13:27:00,279 - INFO - Running MixUCB-I - round: 149
+2024-10-03 13:27:00,304 - INFO - MixUCB-I: 41.032519771139235, TotalQ_mixucbI: 147, q_mixucbI: 1.0
+2024-10-03 13:27:00,304 - INFO - Running MixUCB-I - round: 150
+2024-10-03 13:27:00,329 - INFO - MixUCB-I: 41.29152020123657, TotalQ_mixucbI: 148, q_mixucbI: 1.0
+2024-10-03 13:27:00,329 - INFO - Running MixUCB-I - round: 151
+2024-10-03 13:27:00,352 - INFO - MixUCB-I: 41.29953526062965, TotalQ_mixucbI: 148, q_mixucbI: 0.0
+2024-10-03 13:27:00,352 - INFO - Running MixUCB-I - round: 152
+2024-10-03 13:27:00,377 - INFO - MixUCB-I: 41.43197953923867, TotalQ_mixucbI: 149, q_mixucbI: 1.0
+2024-10-03 13:27:00,377 - INFO - Running MixUCB-I - round: 153
+2024-10-03 13:27:00,402 - INFO - MixUCB-I: 41.83115716980465, TotalQ_mixucbI: 150, q_mixucbI: 1.0
+2024-10-03 13:27:00,402 - INFO - Running MixUCB-I - round: 154
+2024-10-03 13:27:00,428 - INFO - MixUCB-I: 42.097548688938915, TotalQ_mixucbI: 151, q_mixucbI: 1.0
+2024-10-03 13:27:00,428 - INFO - Running MixUCB-I - round: 155
+2024-10-03 13:27:00,454 - INFO - MixUCB-I: 42.21884017777367, TotalQ_mixucbI: 152, q_mixucbI: 1.0
+2024-10-03 13:27:00,454 - INFO - Running MixUCB-I - round: 156
+2024-10-03 13:27:00,482 - INFO - MixUCB-I: 42.76074725945594, TotalQ_mixucbI: 153, q_mixucbI: 1.0
+2024-10-03 13:27:00,482 - INFO - Running MixUCB-I - round: 157
+2024-10-03 13:27:00,508 - INFO - MixUCB-I: 43.13573161341671, TotalQ_mixucbI: 154, q_mixucbI: 1.0
+2024-10-03 13:27:00,508 - INFO - Running MixUCB-I - round: 158
+2024-10-03 13:27:00,534 - INFO - MixUCB-I: 43.57670780372271, TotalQ_mixucbI: 155, q_mixucbI: 1.0
+2024-10-03 13:27:00,534 - INFO - Running MixUCB-I - round: 159
+2024-10-03 13:27:00,559 - INFO - MixUCB-I: 43.82682652613122, TotalQ_mixucbI: 156, q_mixucbI: 1.0
+2024-10-03 13:27:00,559 - INFO - Running MixUCB-I - round: 160
+2024-10-03 13:27:00,585 - INFO - MixUCB-I: 44.120224965076964, TotalQ_mixucbI: 157, q_mixucbI: 1.0
+2024-10-03 13:27:00,585 - INFO - Running MixUCB-I - round: 161
+2024-10-03 13:27:00,611 - INFO - MixUCB-I: 44.57859364651344, TotalQ_mixucbI: 158, q_mixucbI: 1.0
+2024-10-03 13:27:00,611 - INFO - Running MixUCB-I - round: 162
+2024-10-03 13:27:00,637 - INFO - MixUCB-I: 44.612785207033035, TotalQ_mixucbI: 159, q_mixucbI: 1.0
+2024-10-03 13:27:00,637 - INFO - Running MixUCB-I - round: 163
+2024-10-03 13:27:00,662 - INFO - MixUCB-I: 44.78560585385616, TotalQ_mixucbI: 160, q_mixucbI: 1.0
+2024-10-03 13:27:00,662 - INFO - Running MixUCB-I - round: 164
+2024-10-03 13:27:00,687 - INFO - MixUCB-I: 45.17641398901387, TotalQ_mixucbI: 161, q_mixucbI: 1.0
+2024-10-03 13:27:00,687 - INFO - Running MixUCB-I - round: 165
+2024-10-03 13:27:00,712 - INFO - MixUCB-I: 45.44328515744021, TotalQ_mixucbI: 162, q_mixucbI: 1.0
+2024-10-03 13:27:00,712 - INFO - Running MixUCB-I - round: 166
+2024-10-03 13:27:00,738 - INFO - MixUCB-I: 46.01337662179633, TotalQ_mixucbI: 163, q_mixucbI: 1.0
+2024-10-03 13:27:00,738 - INFO - Running MixUCB-I - round: 167
+2024-10-03 13:27:00,763 - INFO - MixUCB-I: 46.16751920153555, TotalQ_mixucbI: 164, q_mixucbI: 1.0
+2024-10-03 13:27:00,763 - INFO - Running MixUCB-I - round: 168
+2024-10-03 13:27:00,789 - INFO - MixUCB-I: 46.3353882755563, TotalQ_mixucbI: 165, q_mixucbI: 1.0
+2024-10-03 13:27:00,789 - INFO - Running MixUCB-I - round: 169
+2024-10-03 13:27:00,814 - INFO - MixUCB-I: 46.656410453108954, TotalQ_mixucbI: 166, q_mixucbI: 1.0
+2024-10-03 13:27:00,814 - INFO - Running MixUCB-I - round: 170
+2024-10-03 13:27:00,840 - INFO - MixUCB-I: 46.8787110119046, TotalQ_mixucbI: 167, q_mixucbI: 1.0
+2024-10-03 13:27:00,840 - INFO - Running MixUCB-I - round: 171
+2024-10-03 13:27:00,865 - INFO - MixUCB-I: 47.31043270177467, TotalQ_mixucbI: 168, q_mixucbI: 1.0
+2024-10-03 13:27:00,865 - INFO - Running MixUCB-I - round: 172
+2024-10-03 13:27:00,891 - INFO - MixUCB-I: 47.44285435038683, TotalQ_mixucbI: 169, q_mixucbI: 1.0
+2024-10-03 13:27:00,891 - INFO - Running MixUCB-I - round: 173
+2024-10-03 13:27:00,916 - INFO - MixUCB-I: 47.81465938966885, TotalQ_mixucbI: 170, q_mixucbI: 1.0
+2024-10-03 13:27:00,916 - INFO - Running MixUCB-I - round: 174
+2024-10-03 13:27:00,941 - INFO - MixUCB-I: 48.286763608423016, TotalQ_mixucbI: 171, q_mixucbI: 1.0
+2024-10-03 13:27:00,941 - INFO - Running MixUCB-I - round: 175
+2024-10-03 13:27:00,965 - INFO - MixUCB-I: 48.73043745992071, TotalQ_mixucbI: 172, q_mixucbI: 1.0
+2024-10-03 13:27:00,965 - INFO - Running MixUCB-I - round: 176
+2024-10-03 13:27:00,990 - INFO - MixUCB-I: 48.98636137575127, TotalQ_mixucbI: 173, q_mixucbI: 1.0
+2024-10-03 13:27:00,990 - INFO - Running MixUCB-I - round: 177
+2024-10-03 13:27:01,014 - INFO - MixUCB-I: 49.340707774277156, TotalQ_mixucbI: 174, q_mixucbI: 1.0
+2024-10-03 13:27:01,015 - INFO - Running MixUCB-I - round: 178
+2024-10-03 13:27:01,039 - INFO - MixUCB-I: 49.460311949872356, TotalQ_mixucbI: 175, q_mixucbI: 1.0
+2024-10-03 13:27:01,039 - INFO - Running MixUCB-I - round: 179
+2024-10-03 13:27:01,064 - INFO - MixUCB-I: 49.885652070950705, TotalQ_mixucbI: 176, q_mixucbI: 1.0
+2024-10-03 13:27:01,064 - INFO - Running MixUCB-I - round: 180
+2024-10-03 13:27:01,089 - INFO - MixUCB-I: 50.2471569996498, TotalQ_mixucbI: 177, q_mixucbI: 1.0
+2024-10-03 13:27:01,089 - INFO - Running MixUCB-I - round: 181
+2024-10-03 13:27:01,115 - INFO - MixUCB-I: 50.65717555095658, TotalQ_mixucbI: 178, q_mixucbI: 1.0
+2024-10-03 13:27:01,115 - INFO - Running MixUCB-I - round: 182
+2024-10-03 13:27:01,140 - INFO - MixUCB-I: 50.89759220514488, TotalQ_mixucbI: 179, q_mixucbI: 1.0
+2024-10-03 13:27:01,140 - INFO - Running MixUCB-I - round: 183
+2024-10-03 13:27:01,165 - INFO - MixUCB-I: 51.216352399129356, TotalQ_mixucbI: 180, q_mixucbI: 1.0
+2024-10-03 13:27:01,165 - INFO - Running MixUCB-I - round: 184
+2024-10-03 13:27:01,189 - INFO - MixUCB-I: 51.427443513743334, TotalQ_mixucbI: 181, q_mixucbI: 1.0
+2024-10-03 13:27:01,189 - INFO - Running MixUCB-I - round: 185
+2024-10-03 13:27:01,216 - INFO - MixUCB-I: 51.668938654961785, TotalQ_mixucbI: 182, q_mixucbI: 1.0
+2024-10-03 13:27:01,216 - INFO - Running MixUCB-I - round: 186
+2024-10-03 13:27:01,243 - INFO - MixUCB-I: 52.080666694466146, TotalQ_mixucbI: 183, q_mixucbI: 1.0
+2024-10-03 13:27:01,243 - INFO - Running MixUCB-I - round: 187
+2024-10-03 13:27:01,268 - INFO - MixUCB-I: 52.55911497533285, TotalQ_mixucbI: 184, q_mixucbI: 1.0
+2024-10-03 13:27:01,268 - INFO - Running MixUCB-I - round: 188
+2024-10-03 13:27:01,293 - INFO - MixUCB-I: 52.60586162641067, TotalQ_mixucbI: 185, q_mixucbI: 1.0
+2024-10-03 13:27:01,293 - INFO - Running MixUCB-I - round: 189
+2024-10-03 13:27:01,317 - INFO - MixUCB-I: 52.948314115032055, TotalQ_mixucbI: 186, q_mixucbI: 1.0
+2024-10-03 13:27:01,318 - INFO - Running MixUCB-I - round: 190
+2024-10-03 13:27:01,342 - INFO - MixUCB-I: 53.34649904791316, TotalQ_mixucbI: 187, q_mixucbI: 1.0
+2024-10-03 13:27:01,342 - INFO - Running MixUCB-I - round: 191
+2024-10-03 13:27:01,367 - INFO - MixUCB-I: 53.52320114417347, TotalQ_mixucbI: 188, q_mixucbI: 1.0
+2024-10-03 13:27:01,367 - INFO - Running MixUCB-I - round: 192
+2024-10-03 13:27:01,392 - INFO - MixUCB-I: 53.845595838971064, TotalQ_mixucbI: 189, q_mixucbI: 1.0
+2024-10-03 13:27:01,392 - INFO - Running MixUCB-I - round: 193
+2024-10-03 13:27:01,417 - INFO - MixUCB-I: 54.35107039272107, TotalQ_mixucbI: 190, q_mixucbI: 1.0
+2024-10-03 13:27:01,417 - INFO - Running MixUCB-I - round: 194
+2024-10-03 13:27:01,441 - INFO - MixUCB-I: 54.44466230686471, TotalQ_mixucbI: 191, q_mixucbI: 1.0
+2024-10-03 13:27:01,441 - INFO - Running MixUCB-I - round: 195
+2024-10-03 13:27:01,466 - INFO - MixUCB-I: 54.69128597439092, TotalQ_mixucbI: 192, q_mixucbI: 1.0
+2024-10-03 13:27:01,466 - INFO - Running MixUCB-I - round: 196
+2024-10-03 13:27:01,492 - INFO - MixUCB-I: 54.76143066752581, TotalQ_mixucbI: 193, q_mixucbI: 1.0
+2024-10-03 13:27:01,493 - INFO - Running MixUCB-I - round: 197
+2024-10-03 13:27:01,517 - INFO - MixUCB-I: 55.0523773518714, TotalQ_mixucbI: 194, q_mixucbI: 1.0
+2024-10-03 13:27:01,517 - INFO - Running MixUCB-I - round: 198
+2024-10-03 13:27:01,543 - INFO - MixUCB-I: 55.28386701366867, TotalQ_mixucbI: 195, q_mixucbI: 1.0
+2024-10-03 13:27:01,543 - INFO - Running MixUCB-I - round: 199
+2024-10-03 13:27:01,568 - INFO - MixUCB-I: 55.59840274075017, TotalQ_mixucbI: 196, q_mixucbI: 1.0
+2024-10-03 13:27:01,568 - INFO - Running MixUCB-I - round: 200
+2024-10-03 13:27:01,593 - INFO - MixUCB-I: 55.88815498697366, TotalQ_mixucbI: 197, q_mixucbI: 1.0
+2024-10-03 13:27:01,593 - INFO - Running MixUCB-I - round: 201
+2024-10-03 13:27:01,617 - INFO - MixUCB-I: 56.14246301581252, TotalQ_mixucbI: 198, q_mixucbI: 1.0
+2024-10-03 13:27:01,617 - INFO - Running MixUCB-I - round: 202
+2024-10-03 13:27:01,642 - INFO - MixUCB-I: 56.38439242945612, TotalQ_mixucbI: 199, q_mixucbI: 1.0
+2024-10-03 13:27:01,642 - INFO - Running MixUCB-I - round: 203
+2024-10-03 13:27:01,667 - INFO - MixUCB-I: 56.46566923496989, TotalQ_mixucbI: 200, q_mixucbI: 1.0
+2024-10-03 13:27:01,667 - INFO - Running MixUCB-I - round: 204
+2024-10-03 13:27:01,692 - INFO - MixUCB-I: 56.56592021774769, TotalQ_mixucbI: 201, q_mixucbI: 1.0
+2024-10-03 13:27:01,692 - INFO - Running MixUCB-I - round: 205
+2024-10-03 13:27:01,718 - INFO - MixUCB-I: 56.695669830521304, TotalQ_mixucbI: 202, q_mixucbI: 1.0
+2024-10-03 13:27:01,718 - INFO - Running MixUCB-I - round: 206
+2024-10-03 13:27:01,743 - INFO - MixUCB-I: 57.0625440364437, TotalQ_mixucbI: 203, q_mixucbI: 1.0
+2024-10-03 13:27:01,743 - INFO - Running MixUCB-I - round: 207
+2024-10-03 13:27:01,768 - INFO - MixUCB-I: 57.42252910356762, TotalQ_mixucbI: 204, q_mixucbI: 1.0
+2024-10-03 13:27:01,768 - INFO - Running MixUCB-I - round: 208
+2024-10-03 13:27:01,793 - INFO - MixUCB-I: 57.81041371606903, TotalQ_mixucbI: 205, q_mixucbI: 1.0
+2024-10-03 13:27:01,793 - INFO - Running MixUCB-I - round: 209
+2024-10-03 13:27:01,818 - INFO - MixUCB-I: 57.95828839040385, TotalQ_mixucbI: 206, q_mixucbI: 1.0
+2024-10-03 13:27:01,818 - INFO - Running MixUCB-I - round: 210
+2024-10-03 13:27:01,843 - INFO - MixUCB-I: 58.22750129686358, TotalQ_mixucbI: 207, q_mixucbI: 1.0
+2024-10-03 13:27:01,843 - INFO - Running MixUCB-I - round: 211
+2024-10-03 13:27:01,873 - INFO - MixUCB-I: 58.68523804141818, TotalQ_mixucbI: 208, q_mixucbI: 1.0
+2024-10-03 13:27:01,874 - INFO - Running MixUCB-I - round: 212
+2024-10-03 13:27:01,899 - INFO - MixUCB-I: 58.88172196027771, TotalQ_mixucbI: 209, q_mixucbI: 1.0
+2024-10-03 13:27:01,899 - INFO - Running MixUCB-I - round: 213
+2024-10-03 13:27:01,924 - INFO - MixUCB-I: 59.286583457914816, TotalQ_mixucbI: 210, q_mixucbI: 1.0
+2024-10-03 13:27:01,924 - INFO - Running MixUCB-I - round: 214
+2024-10-03 13:27:01,949 - INFO - MixUCB-I: 59.43764927472003, TotalQ_mixucbI: 211, q_mixucbI: 1.0
+2024-10-03 13:27:01,949 - INFO - Running MixUCB-I - round: 215
+2024-10-03 13:27:01,974 - INFO - MixUCB-I: 59.79448681905382, TotalQ_mixucbI: 212, q_mixucbI: 1.0
+2024-10-03 13:27:01,975 - INFO - Running MixUCB-I - round: 216
+2024-10-03 13:27:01,999 - INFO - MixUCB-I: 60.175373050630796, TotalQ_mixucbI: 213, q_mixucbI: 1.0
+2024-10-03 13:27:01,999 - INFO - Running MixUCB-I - round: 217
+2024-10-03 13:27:02,025 - INFO - MixUCB-I: 60.44211602667988, TotalQ_mixucbI: 214, q_mixucbI: 1.0
+2024-10-03 13:27:02,025 - INFO - Running MixUCB-I - round: 218
+2024-10-03 13:27:02,050 - INFO - MixUCB-I: 60.48002596203294, TotalQ_mixucbI: 215, q_mixucbI: 1.0
+2024-10-03 13:27:02,050 - INFO - Running MixUCB-I - round: 219
+2024-10-03 13:27:02,075 - INFO - MixUCB-I: 60.865912298615854, TotalQ_mixucbI: 216, q_mixucbI: 1.0
+2024-10-03 13:27:02,075 - INFO - Running MixUCB-I - round: 220
+2024-10-03 13:27:02,100 - INFO - MixUCB-I: 61.140362278652496, TotalQ_mixucbI: 217, q_mixucbI: 1.0
+2024-10-03 13:27:02,100 - INFO - Running MixUCB-I - round: 221
+2024-10-03 13:27:02,125 - INFO - MixUCB-I: 61.739193653110675, TotalQ_mixucbI: 218, q_mixucbI: 1.0
+2024-10-03 13:27:02,125 - INFO - Running MixUCB-I - round: 222
+2024-10-03 13:27:02,150 - INFO - MixUCB-I: 61.91529435322569, TotalQ_mixucbI: 219, q_mixucbI: 1.0
+2024-10-03 13:27:02,150 - INFO - Running MixUCB-I - round: 223
+2024-10-03 13:27:02,175 - INFO - MixUCB-I: 62.19338356371183, TotalQ_mixucbI: 220, q_mixucbI: 1.0
+2024-10-03 13:27:02,175 - INFO - Running MixUCB-I - round: 224
+2024-10-03 13:27:02,199 - INFO - MixUCB-I: 62.3883765951868, TotalQ_mixucbI: 221, q_mixucbI: 1.0
+2024-10-03 13:27:02,199 - INFO - Running MixUCB-I - round: 225
+2024-10-03 13:27:02,224 - INFO - MixUCB-I: 62.578316144314535, TotalQ_mixucbI: 222, q_mixucbI: 1.0
+2024-10-03 13:27:02,224 - INFO - Running MixUCB-I - round: 226
+2024-10-03 13:27:02,249 - INFO - MixUCB-I: 62.78943347897979, TotalQ_mixucbI: 223, q_mixucbI: 1.0
+2024-10-03 13:27:02,249 - INFO - Running MixUCB-I - round: 227
+2024-10-03 13:27:02,274 - INFO - MixUCB-I: 62.90554128535311, TotalQ_mixucbI: 224, q_mixucbI: 1.0
+2024-10-03 13:27:02,274 - INFO - Running MixUCB-I - round: 228
+2024-10-03 13:27:02,300 - INFO - MixUCB-I: 63.50883070452571, TotalQ_mixucbI: 225, q_mixucbI: 1.0
+2024-10-03 13:27:02,300 - INFO - Running MixUCB-I - round: 229
+2024-10-03 13:27:02,325 - INFO - MixUCB-I: 63.841106971272865, TotalQ_mixucbI: 226, q_mixucbI: 1.0
+2024-10-03 13:27:02,325 - INFO - Running MixUCB-I - round: 230
+2024-10-03 13:27:02,350 - INFO - MixUCB-I: 64.0783747786738, TotalQ_mixucbI: 227, q_mixucbI: 1.0
+2024-10-03 13:27:02,350 - INFO - Running MixUCB-I - round: 231
+2024-10-03 13:27:02,374 - INFO - MixUCB-I: 64.41089985333335, TotalQ_mixucbI: 228, q_mixucbI: 1.0
+2024-10-03 13:27:02,375 - INFO - Running MixUCB-I - round: 232
+2024-10-03 13:27:02,399 - INFO - MixUCB-I: 64.79625629842646, TotalQ_mixucbI: 229, q_mixucbI: 1.0
+2024-10-03 13:27:02,399 - INFO - Running MixUCB-I - round: 233
+2024-10-03 13:27:02,424 - INFO - MixUCB-I: 64.9414840014089, TotalQ_mixucbI: 230, q_mixucbI: 1.0
+2024-10-03 13:27:02,424 - INFO - Running MixUCB-I - round: 234
+2024-10-03 13:27:02,449 - INFO - MixUCB-I: 65.20248728386775, TotalQ_mixucbI: 231, q_mixucbI: 1.0
+2024-10-03 13:27:02,450 - INFO - Running MixUCB-I - round: 235
+2024-10-03 13:27:02,475 - INFO - MixUCB-I: 65.33492254328029, TotalQ_mixucbI: 232, q_mixucbI: 1.0
+2024-10-03 13:27:02,476 - INFO - Running MixUCB-I - round: 236
+2024-10-03 13:27:02,501 - INFO - MixUCB-I: 65.66403274229322, TotalQ_mixucbI: 233, q_mixucbI: 1.0
+2024-10-03 13:27:02,501 - INFO - Running MixUCB-I - round: 237
+2024-10-03 13:27:02,527 - INFO - MixUCB-I: 66.0024232097023, TotalQ_mixucbI: 234, q_mixucbI: 1.0
+2024-10-03 13:27:02,527 - INFO - Running MixUCB-I - round: 238
+2024-10-03 13:27:02,552 - INFO - MixUCB-I: 66.19424394742167, TotalQ_mixucbI: 235, q_mixucbI: 1.0
+2024-10-03 13:27:02,552 - INFO - Running MixUCB-I - round: 239
+2024-10-03 13:27:02,576 - INFO - MixUCB-I: 66.28432276516052, TotalQ_mixucbI: 236, q_mixucbI: 1.0
+2024-10-03 13:27:02,576 - INFO - Running MixUCB-I - round: 240
+2024-10-03 13:27:02,603 - INFO - MixUCB-I: 66.63948100962882, TotalQ_mixucbI: 237, q_mixucbI: 1.0
+2024-10-03 13:27:02,603 - INFO - Running MixUCB-I - round: 241
+2024-10-03 13:27:02,631 - INFO - MixUCB-I: 66.77611710807768, TotalQ_mixucbI: 238, q_mixucbI: 1.0
+2024-10-03 13:27:02,632 - INFO - Running MixUCB-I - round: 242
+2024-10-03 13:27:02,659 - INFO - MixUCB-I: 66.95908938578724, TotalQ_mixucbI: 239, q_mixucbI: 1.0
+2024-10-03 13:27:02,659 - INFO - Running MixUCB-I - round: 243
+2024-10-03 13:27:02,685 - INFO - MixUCB-I: 67.29508911747386, TotalQ_mixucbI: 240, q_mixucbI: 1.0
+2024-10-03 13:27:02,685 - INFO - Running MixUCB-I - round: 244
+2024-10-03 13:27:02,710 - INFO - MixUCB-I: 67.4440910533068, TotalQ_mixucbI: 241, q_mixucbI: 1.0
+2024-10-03 13:27:02,710 - INFO - Running MixUCB-I - round: 245
+2024-10-03 13:27:02,737 - INFO - MixUCB-I: 67.5290667003502, TotalQ_mixucbI: 242, q_mixucbI: 1.0
+2024-10-03 13:27:02,737 - INFO - Running MixUCB-I - round: 246
+2024-10-03 13:27:02,762 - INFO - MixUCB-I: 67.84358681513355, TotalQ_mixucbI: 243, q_mixucbI: 1.0
+2024-10-03 13:27:02,762 - INFO - Running MixUCB-I - round: 247
+2024-10-03 13:27:02,787 - INFO - MixUCB-I: 68.19365894147649, TotalQ_mixucbI: 244, q_mixucbI: 1.0
+2024-10-03 13:27:02,788 - INFO - Running MixUCB-I - round: 248
+2024-10-03 13:27:02,813 - INFO - MixUCB-I: 68.59485971383604, TotalQ_mixucbI: 245, q_mixucbI: 1.0
+2024-10-03 13:27:02,813 - INFO - Running MixUCB-I - round: 249
+2024-10-03 13:27:02,838 - INFO - MixUCB-I: 68.79170507590742, TotalQ_mixucbI: 246, q_mixucbI: 1.0
+2024-10-03 13:27:02,838 - INFO - Running MixUCB-I - round: 250
+2024-10-03 13:27:02,864 - INFO - MixUCB-I: 69.15670887391951, TotalQ_mixucbI: 247, q_mixucbI: 1.0
+2024-10-03 13:27:02,864 - INFO - Running MixUCB-I - round: 251
+2024-10-03 13:27:02,889 - INFO - MixUCB-I: 69.47422317821382, TotalQ_mixucbI: 248, q_mixucbI: 1.0
+2024-10-03 13:27:02,889 - INFO - Running MixUCB-I - round: 252
+2024-10-03 13:27:02,915 - INFO - MixUCB-I: 69.91679144825395, TotalQ_mixucbI: 249, q_mixucbI: 1.0
+2024-10-03 13:27:02,915 - INFO - Running MixUCB-I - round: 253
+2024-10-03 13:27:02,941 - INFO - MixUCB-I: 70.2977643661693, TotalQ_mixucbI: 250, q_mixucbI: 1.0
+2024-10-03 13:27:02,941 - INFO - Running MixUCB-I - round: 254
+2024-10-03 13:27:02,966 - INFO - MixUCB-I: 70.44184605719325, TotalQ_mixucbI: 251, q_mixucbI: 1.0
+2024-10-03 13:27:02,966 - INFO - Running MixUCB-I - round: 255
+2024-10-03 13:27:02,992 - INFO - MixUCB-I: 70.56517481206956, TotalQ_mixucbI: 252, q_mixucbI: 1.0
+2024-10-03 13:27:02,992 - INFO - Running MixUCB-I - round: 256
+2024-10-03 13:27:03,017 - INFO - MixUCB-I: 71.14007017942133, TotalQ_mixucbI: 253, q_mixucbI: 1.0
+2024-10-03 13:27:03,017 - INFO - Running MixUCB-I - round: 257
+2024-10-03 13:27:03,042 - INFO - MixUCB-I: 71.3758470109385, TotalQ_mixucbI: 254, q_mixucbI: 1.0
+2024-10-03 13:27:03,042 - INFO - Running MixUCB-I - round: 258
+2024-10-03 13:27:03,068 - INFO - MixUCB-I: 71.62760542661347, TotalQ_mixucbI: 255, q_mixucbI: 1.0
+2024-10-03 13:27:03,068 - INFO - Running MixUCB-I - round: 259
+2024-10-03 13:27:03,093 - INFO - MixUCB-I: 71.74658409525397, TotalQ_mixucbI: 256, q_mixucbI: 1.0
+2024-10-03 13:27:03,094 - INFO - Running MixUCB-I - round: 260
+2024-10-03 13:27:03,119 - INFO - MixUCB-I: 72.29118133603524, TotalQ_mixucbI: 257, q_mixucbI: 1.0
+2024-10-03 13:27:03,119 - INFO - Running MixUCB-I - round: 261
+2024-10-03 13:27:03,144 - INFO - MixUCB-I: 72.47187014208136, TotalQ_mixucbI: 258, q_mixucbI: 1.0
+2024-10-03 13:27:03,145 - INFO - Running MixUCB-I - round: 262
+2024-10-03 13:27:03,170 - INFO - MixUCB-I: 72.65678081785659, TotalQ_mixucbI: 259, q_mixucbI: 1.0
+2024-10-03 13:27:03,170 - INFO - Running MixUCB-I - round: 263
+2024-10-03 13:27:03,195 - INFO - MixUCB-I: 72.72733291907562, TotalQ_mixucbI: 260, q_mixucbI: 1.0
+2024-10-03 13:27:03,195 - INFO - Running MixUCB-I - round: 264
+2024-10-03 13:27:03,220 - INFO - MixUCB-I: 72.86446619414298, TotalQ_mixucbI: 261, q_mixucbI: 1.0
+2024-10-03 13:27:03,220 - INFO - Running MixUCB-I - round: 265
+2024-10-03 13:27:03,246 - INFO - MixUCB-I: 73.08513795955659, TotalQ_mixucbI: 262, q_mixucbI: 1.0
+2024-10-03 13:27:03,246 - INFO - Running MixUCB-I - round: 266
+2024-10-03 13:27:03,271 - INFO - MixUCB-I: 73.316048479768, TotalQ_mixucbI: 263, q_mixucbI: 1.0
+2024-10-03 13:27:03,271 - INFO - Running MixUCB-I - round: 267
+2024-10-03 13:27:03,296 - INFO - MixUCB-I: 73.7056182144854, TotalQ_mixucbI: 264, q_mixucbI: 1.0
+2024-10-03 13:27:03,297 - INFO - Running MixUCB-I - round: 268
+2024-10-03 13:27:03,322 - INFO - MixUCB-I: 73.9994420993385, TotalQ_mixucbI: 265, q_mixucbI: 1.0
+2024-10-03 13:27:03,322 - INFO - Running MixUCB-I - round: 269
+2024-10-03 13:27:03,347 - INFO - MixUCB-I: 74.34294302655377, TotalQ_mixucbI: 266, q_mixucbI: 1.0
+2024-10-03 13:27:03,348 - INFO - Running MixUCB-I - round: 270
+2024-10-03 13:27:03,373 - INFO - MixUCB-I: 74.70547710002481, TotalQ_mixucbI: 267, q_mixucbI: 1.0
+2024-10-03 13:27:03,373 - INFO - Running MixUCB-I - round: 271
+2024-10-03 13:27:03,399 - INFO - MixUCB-I: 74.93630940827467, TotalQ_mixucbI: 268, q_mixucbI: 1.0
+2024-10-03 13:27:03,399 - INFO - Running MixUCB-I - round: 272
+2024-10-03 13:27:03,425 - INFO - MixUCB-I: 75.26574590243715, TotalQ_mixucbI: 269, q_mixucbI: 1.0
+2024-10-03 13:27:03,425 - INFO - Running MixUCB-I - round: 273
+2024-10-03 13:27:03,450 - INFO - MixUCB-I: 75.29838195344912, TotalQ_mixucbI: 270, q_mixucbI: 1.0
+2024-10-03 13:27:03,451 - INFO - Running MixUCB-I - round: 274
+2024-10-03 13:27:03,478 - INFO - MixUCB-I: 75.62370317151647, TotalQ_mixucbI: 271, q_mixucbI: 1.0
+2024-10-03 13:27:03,478 - INFO - Running MixUCB-I - round: 275
+2024-10-03 13:27:03,504 - INFO - MixUCB-I: 76.02292873080405, TotalQ_mixucbI: 272, q_mixucbI: 1.0
+2024-10-03 13:27:03,504 - INFO - Running MixUCB-I - round: 276
+2024-10-03 13:27:03,530 - INFO - MixUCB-I: 76.22541033898707, TotalQ_mixucbI: 273, q_mixucbI: 1.0
+2024-10-03 13:27:03,530 - INFO - Running MixUCB-I - round: 277
+2024-10-03 13:27:03,556 - INFO - MixUCB-I: 76.39306693436606, TotalQ_mixucbI: 274, q_mixucbI: 1.0
+2024-10-03 13:27:03,556 - INFO - Running MixUCB-I - round: 278
+2024-10-03 13:27:03,582 - INFO - MixUCB-I: 76.57362706668312, TotalQ_mixucbI: 275, q_mixucbI: 1.0
+2024-10-03 13:27:03,582 - INFO - Running MixUCB-I - round: 279
+2024-10-03 13:27:03,608 - INFO - MixUCB-I: 76.87112915919916, TotalQ_mixucbI: 276, q_mixucbI: 1.0
+2024-10-03 13:27:03,608 - INFO - Running MixUCB-I - round: 280
+2024-10-03 13:27:03,633 - INFO - MixUCB-I: 77.38552496444048, TotalQ_mixucbI: 277, q_mixucbI: 1.0
+2024-10-03 13:27:03,633 - INFO - Running MixUCB-I - round: 281
+2024-10-03 13:27:03,659 - INFO - MixUCB-I: 77.50299949716255, TotalQ_mixucbI: 278, q_mixucbI: 1.0
+2024-10-03 13:27:03,659 - INFO - Running MixUCB-I - round: 282
+2024-10-03 13:27:03,685 - INFO - MixUCB-I: 77.86032802398091, TotalQ_mixucbI: 279, q_mixucbI: 1.0
+2024-10-03 13:27:03,685 - INFO - Running MixUCB-I - round: 283
+2024-10-03 13:27:03,711 - INFO - MixUCB-I: 78.0470369850015, TotalQ_mixucbI: 280, q_mixucbI: 1.0
+2024-10-03 13:27:03,711 - INFO - Running MixUCB-I - round: 284
+2024-10-03 13:27:03,736 - INFO - MixUCB-I: 78.39522600135561, TotalQ_mixucbI: 281, q_mixucbI: 1.0
+2024-10-03 13:27:03,736 - INFO - Running MixUCB-I - round: 285
+2024-10-03 13:27:03,761 - INFO - MixUCB-I: 78.51174575276059, TotalQ_mixucbI: 282, q_mixucbI: 1.0
+2024-10-03 13:27:03,761 - INFO - Running MixUCB-I - round: 286
+2024-10-03 13:27:03,787 - INFO - MixUCB-I: 78.55961741035733, TotalQ_mixucbI: 283, q_mixucbI: 1.0
+2024-10-03 13:27:03,787 - INFO - Running MixUCB-I - round: 287
+2024-10-03 13:27:03,812 - INFO - MixUCB-I: 78.8570076223448, TotalQ_mixucbI: 284, q_mixucbI: 1.0
+2024-10-03 13:27:03,812 - INFO - Running MixUCB-I - round: 288
+2024-10-03 13:27:03,839 - INFO - MixUCB-I: 79.25954508580075, TotalQ_mixucbI: 285, q_mixucbI: 1.0
+2024-10-03 13:27:03,839 - INFO - Running MixUCB-I - round: 289
+2024-10-03 13:27:03,865 - INFO - MixUCB-I: 79.33045115839019, TotalQ_mixucbI: 286, q_mixucbI: 1.0
+2024-10-03 13:27:03,865 - INFO - Running MixUCB-I - round: 290
+2024-10-03 13:27:03,890 - INFO - MixUCB-I: 79.43278805254796, TotalQ_mixucbI: 287, q_mixucbI: 1.0
+2024-10-03 13:27:03,890 - INFO - Running MixUCB-I - round: 291
+2024-10-03 13:27:03,915 - INFO - MixUCB-I: 79.65984365099284, TotalQ_mixucbI: 288, q_mixucbI: 1.0
+2024-10-03 13:27:03,916 - INFO - Running MixUCB-I - round: 292
+2024-10-03 13:27:03,942 - INFO - MixUCB-I: 79.96710611680788, TotalQ_mixucbI: 289, q_mixucbI: 1.0
+2024-10-03 13:27:03,942 - INFO - Running MixUCB-I - round: 293
+2024-10-03 13:27:03,969 - INFO - MixUCB-I: 80.42142023641469, TotalQ_mixucbI: 290, q_mixucbI: 1.0
+2024-10-03 13:27:03,969 - INFO - Running MixUCB-I - round: 294
+2024-10-03 13:27:03,997 - INFO - MixUCB-I: 80.65127341640951, TotalQ_mixucbI: 291, q_mixucbI: 1.0
+2024-10-03 13:27:03,997 - INFO - Running MixUCB-I - round: 295
+2024-10-03 13:27:04,038 - INFO - MixUCB-I: 81.20116157594032, TotalQ_mixucbI: 292, q_mixucbI: 1.0
+2024-10-03 13:27:04,038 - INFO - Running MixUCB-I - round: 296
+2024-10-03 13:27:04,067 - INFO - MixUCB-I: 81.71969163335115, TotalQ_mixucbI: 293, q_mixucbI: 1.0
+2024-10-03 13:27:04,067 - INFO - Running MixUCB-I - round: 297
+2024-10-03 13:27:04,106 - INFO - MixUCB-I: 81.94368191965198, TotalQ_mixucbI: 294, q_mixucbI: 1.0
+2024-10-03 13:27:04,107 - INFO - Running MixUCB-I - round: 298
+2024-10-03 13:27:04,136 - INFO - MixUCB-I: 82.16020920894408, TotalQ_mixucbI: 295, q_mixucbI: 1.0
+2024-10-03 13:27:04,136 - INFO - Running MixUCB-I - round: 299
+2024-10-03 13:27:04,164 - INFO - MixUCB-I: 82.56794390266109, TotalQ_mixucbI: 296, q_mixucbI: 1.0
+2024-10-03 13:27:04,164 - INFO - Running MixUCB-I - round: 300
+2024-10-03 13:27:04,190 - INFO - MixUCB-I: 82.63105367218114, TotalQ_mixucbI: 297, q_mixucbI: 1.0
+2024-10-03 13:27:04,190 - INFO - Running MixUCB-I - round: 301
+2024-10-03 13:27:04,216 - INFO - MixUCB-I: 82.80061139491822, TotalQ_mixucbI: 298, q_mixucbI: 1.0
+2024-10-03 13:27:04,217 - INFO - Running MixUCB-I - round: 302
+2024-10-03 13:27:04,241 - INFO - MixUCB-I: 82.8321240753375, TotalQ_mixucbI: 298, q_mixucbI: 0.0
+2024-10-03 13:27:04,241 - INFO - Running MixUCB-I - round: 303
+2024-10-03 13:27:04,267 - INFO - MixUCB-I: 82.92095853398992, TotalQ_mixucbI: 299, q_mixucbI: 1.0
+2024-10-03 13:27:04,267 - INFO - Running MixUCB-I - round: 304
+2024-10-03 13:27:04,293 - INFO - MixUCB-I: 83.44284136245197, TotalQ_mixucbI: 300, q_mixucbI: 1.0
+2024-10-03 13:27:04,293 - INFO - Running MixUCB-I - round: 305
+2024-10-03 13:27:04,324 - INFO - MixUCB-I: 83.77006688483146, TotalQ_mixucbI: 301, q_mixucbI: 1.0
+2024-10-03 13:27:04,325 - INFO - Running MixUCB-I - round: 306
+2024-10-03 13:27:04,352 - INFO - MixUCB-I: 83.84468662670776, TotalQ_mixucbI: 302, q_mixucbI: 1.0
+2024-10-03 13:27:04,352 - INFO - Running MixUCB-I - round: 307
+2024-10-03 13:27:04,377 - INFO - MixUCB-I: 84.0758981433033, TotalQ_mixucbI: 303, q_mixucbI: 1.0
+2024-10-03 13:27:04,377 - INFO - Running MixUCB-I - round: 308
+2024-10-03 13:27:04,403 - INFO - MixUCB-I: 84.29342753864735, TotalQ_mixucbI: 304, q_mixucbI: 1.0
+2024-10-03 13:27:04,403 - INFO - Running MixUCB-I - round: 309
+2024-10-03 13:27:04,429 - INFO - MixUCB-I: 84.8264113615899, TotalQ_mixucbI: 305, q_mixucbI: 1.0
+2024-10-03 13:27:04,430 - INFO - Running MixUCB-I - round: 310
+2024-10-03 13:27:04,454 - INFO - MixUCB-I: 85.26230738387797, TotalQ_mixucbI: 305, q_mixucbI: 0.0
+2024-10-03 13:27:04,454 - INFO - Running MixUCB-I - round: 311
+2024-10-03 13:27:04,478 - INFO - MixUCB-I: 85.72524580985782, TotalQ_mixucbI: 305, q_mixucbI: 0.0
+2024-10-03 13:27:04,478 - INFO - Running MixUCB-I - round: 312
+2024-10-03 13:27:04,503 - INFO - MixUCB-I: 85.91821608457472, TotalQ_mixucbI: 305, q_mixucbI: 0.0
+2024-10-03 13:27:04,503 - INFO - Running MixUCB-I - round: 313
+2024-10-03 13:27:04,529 - INFO - MixUCB-I: 86.0509891512174, TotalQ_mixucbI: 306, q_mixucbI: 1.0
+2024-10-03 13:27:04,529 - INFO - Running MixUCB-I - round: 314
+2024-10-03 13:27:04,556 - INFO - MixUCB-I: 86.29587032724022, TotalQ_mixucbI: 307, q_mixucbI: 1.0
+2024-10-03 13:27:04,557 - INFO - Running MixUCB-I - round: 315
+2024-10-03 13:27:04,583 - INFO - MixUCB-I: 86.38251880454149, TotalQ_mixucbI: 308, q_mixucbI: 1.0
+2024-10-03 13:27:04,583 - INFO - Running MixUCB-I - round: 316
+2024-10-03 13:27:04,609 - INFO - MixUCB-I: 86.60889150004911, TotalQ_mixucbI: 309, q_mixucbI: 1.0
+2024-10-03 13:27:04,609 - INFO - Running MixUCB-I - round: 317
+2024-10-03 13:27:04,635 - INFO - MixUCB-I: 86.71986513097048, TotalQ_mixucbI: 310, q_mixucbI: 1.0
+2024-10-03 13:27:04,635 - INFO - Running MixUCB-I - round: 318
+2024-10-03 13:27:04,660 - INFO - MixUCB-I: 86.91811682102876, TotalQ_mixucbI: 311, q_mixucbI: 1.0
+2024-10-03 13:27:04,660 - INFO - Running MixUCB-I - round: 319
+2024-10-03 13:27:04,687 - INFO - MixUCB-I: 87.13774724875235, TotalQ_mixucbI: 312, q_mixucbI: 1.0
+2024-10-03 13:27:04,687 - INFO - Running MixUCB-I - round: 320
+2024-10-03 13:27:04,710 - INFO - MixUCB-I: 87.50278977927483, TotalQ_mixucbI: 312, q_mixucbI: 0.0
+2024-10-03 13:27:04,710 - INFO - Running MixUCB-I - round: 321
+2024-10-03 13:27:04,734 - INFO - MixUCB-I: 88.0600953263726, TotalQ_mixucbI: 312, q_mixucbI: 0.0
+2024-10-03 13:27:04,734 - INFO - Running MixUCB-I - round: 322
+2024-10-03 13:27:04,760 - INFO - MixUCB-I: 88.13806518299764, TotalQ_mixucbI: 313, q_mixucbI: 1.0
+2024-10-03 13:27:04,760 - INFO - Running MixUCB-I - round: 323
+2024-10-03 13:27:04,785 - INFO - MixUCB-I: 88.36755076501628, TotalQ_mixucbI: 314, q_mixucbI: 1.0
+2024-10-03 13:27:04,785 - INFO - Running MixUCB-I - round: 324
+2024-10-03 13:27:04,811 - INFO - MixUCB-I: 88.43259815709945, TotalQ_mixucbI: 315, q_mixucbI: 1.0
+2024-10-03 13:27:04,811 - INFO - Running MixUCB-I - round: 325
+2024-10-03 13:27:04,836 - INFO - MixUCB-I: 88.76770159850807, TotalQ_mixucbI: 316, q_mixucbI: 1.0
+2024-10-03 13:27:04,836 - INFO - Running MixUCB-I - round: 326
+2024-10-03 13:27:04,860 - INFO - MixUCB-I: 89.18168602264585, TotalQ_mixucbI: 316, q_mixucbI: 0.0
+2024-10-03 13:27:04,860 - INFO - Running MixUCB-I - round: 327
+2024-10-03 13:27:04,884 - INFO - MixUCB-I: 89.62244797196041, TotalQ_mixucbI: 316, q_mixucbI: 0.0
+2024-10-03 13:27:04,884 - INFO - Running MixUCB-I - round: 328
+2024-10-03 13:27:04,909 - INFO - MixUCB-I: 89.96003563238969, TotalQ_mixucbI: 317, q_mixucbI: 1.0
+2024-10-03 13:27:04,909 - INFO - Running MixUCB-I - round: 329
+2024-10-03 13:27:04,933 - INFO - MixUCB-I: 90.17530863420976, TotalQ_mixucbI: 317, q_mixucbI: 0.0
+2024-10-03 13:27:04,933 - INFO - Running MixUCB-I - round: 330
+2024-10-03 13:27:04,960 - INFO - MixUCB-I: 90.29018177565737, TotalQ_mixucbI: 318, q_mixucbI: 1.0
+2024-10-03 13:27:04,960 - INFO - Running MixUCB-I - round: 331
+2024-10-03 13:27:04,986 - INFO - MixUCB-I: 90.54048675117328, TotalQ_mixucbI: 319, q_mixucbI: 1.0
+2024-10-03 13:27:04,986 - INFO - Running MixUCB-I - round: 332
+2024-10-03 13:27:05,011 - INFO - MixUCB-I: 90.99820900988121, TotalQ_mixucbI: 319, q_mixucbI: 0.0
+2024-10-03 13:27:05,011 - INFO - Running MixUCB-I - round: 333
+2024-10-03 13:27:05,035 - INFO - MixUCB-I: 91.30931602137166, TotalQ_mixucbI: 319, q_mixucbI: 0.0
+2024-10-03 13:27:05,035 - INFO - Running MixUCB-I - round: 334
+2024-10-03 13:27:05,060 - INFO - MixUCB-I: 91.41384323402015, TotalQ_mixucbI: 320, q_mixucbI: 1.0
+2024-10-03 13:27:05,060 - INFO - Running MixUCB-I - round: 335
+2024-10-03 13:27:05,084 - INFO - MixUCB-I: 91.78608641936299, TotalQ_mixucbI: 320, q_mixucbI: 0.0
+2024-10-03 13:27:05,084 - INFO - Running MixUCB-I - round: 336
+2024-10-03 13:27:05,108 - INFO - MixUCB-I: 91.87719451248434, TotalQ_mixucbI: 320, q_mixucbI: 0.0
+2024-10-03 13:27:05,108 - INFO - Running MixUCB-I - round: 337
+2024-10-03 13:27:05,132 - INFO - MixUCB-I: 92.21931184199953, TotalQ_mixucbI: 320, q_mixucbI: 0.0
+2024-10-03 13:27:05,132 - INFO - Running MixUCB-I - round: 338
+2024-10-03 13:27:05,156 - INFO - MixUCB-I: 92.47461870176453, TotalQ_mixucbI: 320, q_mixucbI: 0.0
+2024-10-03 13:27:05,156 - INFO - Running MixUCB-I - round: 339
+2024-10-03 13:27:05,181 - INFO - MixUCB-I: 92.88777193914275, TotalQ_mixucbI: 320, q_mixucbI: 0.0
+2024-10-03 13:27:05,181 - INFO - Running MixUCB-I - round: 340
+2024-10-03 13:27:05,206 - INFO - MixUCB-I: 93.33750222378053, TotalQ_mixucbI: 320, q_mixucbI: 0.0
+2024-10-03 13:27:05,207 - INFO - Running MixUCB-I - round: 341
+2024-10-03 13:27:05,233 - INFO - MixUCB-I: 93.47496919203638, TotalQ_mixucbI: 321, q_mixucbI: 1.0
+2024-10-03 13:27:05,233 - INFO - Running MixUCB-I - round: 342
+2024-10-03 13:27:05,257 - INFO - MixUCB-I: 93.57636169636831, TotalQ_mixucbI: 321, q_mixucbI: 0.0
+2024-10-03 13:27:05,257 - INFO - Running MixUCB-I - round: 343
+2024-10-03 13:27:05,282 - INFO - MixUCB-I: 93.74851324514911, TotalQ_mixucbI: 322, q_mixucbI: 1.0
+2024-10-03 13:27:05,282 - INFO - Running MixUCB-I - round: 344
+2024-10-03 13:27:05,305 - INFO - MixUCB-I: 94.02117408698724, TotalQ_mixucbI: 322, q_mixucbI: 0.0
+2024-10-03 13:27:05,305 - INFO - Running MixUCB-I - round: 345
+2024-10-03 13:27:05,328 - INFO - MixUCB-I: 94.17968037860334, TotalQ_mixucbI: 322, q_mixucbI: 0.0
+2024-10-03 13:27:05,328 - INFO - Running MixUCB-I - round: 346
+2024-10-03 13:27:05,351 - INFO - MixUCB-I: 94.60752108178207, TotalQ_mixucbI: 322, q_mixucbI: 0.0
+2024-10-03 13:27:05,351 - INFO - Running MixUCB-I - round: 347
+2024-10-03 13:27:05,375 - INFO - MixUCB-I: 95.05041719886853, TotalQ_mixucbI: 322, q_mixucbI: 0.0
+2024-10-03 13:27:05,375 - INFO - Running MixUCB-I - round: 348
+2024-10-03 13:27:05,398 - INFO - MixUCB-I: 95.20436636027176, TotalQ_mixucbI: 322, q_mixucbI: 0.0
+2024-10-03 13:27:05,398 - INFO - Running MixUCB-I - round: 349
+2024-10-03 13:27:05,422 - INFO - MixUCB-I: 95.59447828768153, TotalQ_mixucbI: 322, q_mixucbI: 0.0
+2024-10-03 13:27:05,422 - INFO - Running MixUCB-I - round: 350
+2024-10-03 13:27:05,447 - INFO - MixUCB-I: 95.68342615206255, TotalQ_mixucbI: 323, q_mixucbI: 1.0
+2024-10-03 13:27:05,447 - INFO - Running MixUCB-I - round: 351
+2024-10-03 13:27:05,472 - INFO - MixUCB-I: 95.73376837532152, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,472 - INFO - Running MixUCB-I - round: 352
+2024-10-03 13:27:05,496 - INFO - MixUCB-I: 95.97641376568606, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,496 - INFO - Running MixUCB-I - round: 353
+2024-10-03 13:27:05,519 - INFO - MixUCB-I: 96.1643368654592, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,519 - INFO - Running MixUCB-I - round: 354
+2024-10-03 13:27:05,543 - INFO - MixUCB-I: 96.44563041340942, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,543 - INFO - Running MixUCB-I - round: 355
+2024-10-03 13:27:05,566 - INFO - MixUCB-I: 96.86573191504326, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,566 - INFO - Running MixUCB-I - round: 356
+2024-10-03 13:27:05,589 - INFO - MixUCB-I: 97.39456390071587, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,589 - INFO - Running MixUCB-I - round: 357
+2024-10-03 13:27:05,613 - INFO - MixUCB-I: 97.38081387278028, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,613 - INFO - Running MixUCB-I - round: 358
+2024-10-03 13:27:05,636 - INFO - MixUCB-I: 97.74116620360866, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,636 - INFO - Running MixUCB-I - round: 359
+2024-10-03 13:27:05,659 - INFO - MixUCB-I: 97.8998516572326, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,659 - INFO - Running MixUCB-I - round: 360
+2024-10-03 13:27:05,683 - INFO - MixUCB-I: 98.08578244362766, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,683 - INFO - Running MixUCB-I - round: 361
+2024-10-03 13:27:05,706 - INFO - MixUCB-I: 98.32104094665351, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,706 - INFO - Running MixUCB-I - round: 362
+2024-10-03 13:27:05,729 - INFO - MixUCB-I: 98.65300730081486, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,729 - INFO - Running MixUCB-I - round: 363
+2024-10-03 13:27:05,753 - INFO - MixUCB-I: 98.87005730309879, TotalQ_mixucbI: 323, q_mixucbI: 0.0
+2024-10-03 13:27:05,753 - INFO - Running MixUCB-I - round: 364
+2024-10-03 13:27:05,778 - INFO - MixUCB-I: 98.9234746969097, TotalQ_mixucbI: 324, q_mixucbI: 1.0
+2024-10-03 13:27:05,778 - INFO - Running MixUCB-I - round: 365
+2024-10-03 13:27:05,801 - INFO - MixUCB-I: 99.41545622099528, TotalQ_mixucbI: 324, q_mixucbI: 0.0
+2024-10-03 13:27:05,801 - INFO - Running MixUCB-I - round: 366
+2024-10-03 13:27:05,824 - INFO - MixUCB-I: 99.72976613554708, TotalQ_mixucbI: 324, q_mixucbI: 0.0
+2024-10-03 13:27:05,824 - INFO - Running MixUCB-I - round: 367
+2024-10-03 13:27:05,848 - INFO - MixUCB-I: 99.94563335082636, TotalQ_mixucbI: 324, q_mixucbI: 0.0
+2024-10-03 13:27:05,848 - INFO - Running MixUCB-I - round: 368
+2024-10-03 13:27:05,871 - INFO - MixUCB-I: 100.36562615951445, TotalQ_mixucbI: 324, q_mixucbI: 0.0
+2024-10-03 13:27:05,872 - INFO - Running MixUCB-I - round: 369
+2024-10-03 13:27:05,895 - INFO - MixUCB-I: 100.55778087090631, TotalQ_mixucbI: 324, q_mixucbI: 0.0
+2024-10-03 13:27:05,895 - INFO - Running MixUCB-I - round: 370
+2024-10-03 13:27:05,920 - INFO - MixUCB-I: 100.78660470491755, TotalQ_mixucbI: 325, q_mixucbI: 1.0
+2024-10-03 13:27:05,920 - INFO - Running MixUCB-I - round: 371
+2024-10-03 13:27:05,944 - INFO - MixUCB-I: 100.8544807250243, TotalQ_mixucbI: 325, q_mixucbI: 0.0
+2024-10-03 13:27:05,944 - INFO - Running MixUCB-I - round: 372
+2024-10-03 13:27:05,968 - INFO - MixUCB-I: 101.39188625267083, TotalQ_mixucbI: 325, q_mixucbI: 0.0
+2024-10-03 13:27:05,968 - INFO - Running MixUCB-I - round: 373
+2024-10-03 13:27:05,994 - INFO - MixUCB-I: 101.55783040254302, TotalQ_mixucbI: 326, q_mixucbI: 1.0
+2024-10-03 13:27:05,994 - INFO - Running MixUCB-I - round: 374
+2024-10-03 13:27:06,018 - INFO - MixUCB-I: 101.94079298079285, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,018 - INFO - Running MixUCB-I - round: 375
+2024-10-03 13:27:06,042 - INFO - MixUCB-I: 102.38639976623281, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,042 - INFO - Running MixUCB-I - round: 376
+2024-10-03 13:27:06,066 - INFO - MixUCB-I: 102.54474878920925, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,066 - INFO - Running MixUCB-I - round: 377
+2024-10-03 13:27:06,090 - INFO - MixUCB-I: 102.9157825940812, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,090 - INFO - Running MixUCB-I - round: 378
+2024-10-03 13:27:06,113 - INFO - MixUCB-I: 102.98037085732523, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,113 - INFO - Running MixUCB-I - round: 379
+2024-10-03 13:27:06,137 - INFO - MixUCB-I: 103.16855851020317, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,137 - INFO - Running MixUCB-I - round: 380
+2024-10-03 13:27:06,160 - INFO - MixUCB-I: 103.38030923566048, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,160 - INFO - Running MixUCB-I - round: 381
+2024-10-03 13:27:06,184 - INFO - MixUCB-I: 103.72839235424371, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,184 - INFO - Running MixUCB-I - round: 382
+2024-10-03 13:27:06,208 - INFO - MixUCB-I: 103.95372017668514, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,208 - INFO - Running MixUCB-I - round: 383
+2024-10-03 13:27:06,231 - INFO - MixUCB-I: 104.37271544086795, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,231 - INFO - Running MixUCB-I - round: 384
+2024-10-03 13:27:06,255 - INFO - MixUCB-I: 104.51463646876456, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,255 - INFO - Running MixUCB-I - round: 385
+2024-10-03 13:27:06,280 - INFO - MixUCB-I: 104.76096713277293, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,280 - INFO - Running MixUCB-I - round: 386
+2024-10-03 13:27:06,303 - INFO - MixUCB-I: 104.90289029577879, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,303 - INFO - Running MixUCB-I - round: 387
+2024-10-03 13:27:06,327 - INFO - MixUCB-I: 105.13495963860296, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,327 - INFO - Running MixUCB-I - round: 388
+2024-10-03 13:27:06,350 - INFO - MixUCB-I: 105.33630547114286, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,350 - INFO - Running MixUCB-I - round: 389
+2024-10-03 13:27:06,375 - INFO - MixUCB-I: 105.59676973924222, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,375 - INFO - Running MixUCB-I - round: 390
+2024-10-03 13:27:06,398 - INFO - MixUCB-I: 105.866079169915, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,398 - INFO - Running MixUCB-I - round: 391
+2024-10-03 13:27:06,421 - INFO - MixUCB-I: 106.02506487506909, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,422 - INFO - Running MixUCB-I - round: 392
+2024-10-03 13:27:06,445 - INFO - MixUCB-I: 106.20691076269262, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,445 - INFO - Running MixUCB-I - round: 393
+2024-10-03 13:27:06,470 - INFO - MixUCB-I: 106.45899276084752, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,470 - INFO - Running MixUCB-I - round: 394
+2024-10-03 13:27:06,494 - INFO - MixUCB-I: 106.91461007294821, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,494 - INFO - Running MixUCB-I - round: 395
+2024-10-03 13:27:06,517 - INFO - MixUCB-I: 107.24944276287337, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,517 - INFO - Running MixUCB-I - round: 396
+2024-10-03 13:27:06,541 - INFO - MixUCB-I: 107.40128549921131, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,541 - INFO - Running MixUCB-I - round: 397
+2024-10-03 13:27:06,565 - INFO - MixUCB-I: 107.82797380306968, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,565 - INFO - Running MixUCB-I - round: 398
+2024-10-03 13:27:06,588 - INFO - MixUCB-I: 108.23769222401101, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,588 - INFO - Running MixUCB-I - round: 399
+2024-10-03 13:27:06,612 - INFO - MixUCB-I: 108.32607562312951, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,612 - INFO - Running MixUCB-I - round: 400
+2024-10-03 13:27:06,635 - INFO - MixUCB-I: 108.51886969063199, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,635 - INFO - Running MixUCB-I - round: 401
+2024-10-03 13:27:06,659 - INFO - MixUCB-I: 108.75643351883086, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,660 - INFO - Running MixUCB-I - round: 402
+2024-10-03 13:27:06,683 - INFO - MixUCB-I: 108.97002649077278, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,683 - INFO - Running MixUCB-I - round: 403
+2024-10-03 13:27:06,707 - INFO - MixUCB-I: 109.10971399265863, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,707 - INFO - Running MixUCB-I - round: 404
+2024-10-03 13:27:06,730 - INFO - MixUCB-I: 109.31854005404212, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,730 - INFO - Running MixUCB-I - round: 405
+2024-10-03 13:27:06,754 - INFO - MixUCB-I: 109.72681589273682, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,754 - INFO - Running MixUCB-I - round: 406
+2024-10-03 13:27:06,777 - INFO - MixUCB-I: 109.88224913398624, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,777 - INFO - Running MixUCB-I - round: 407
+2024-10-03 13:27:06,801 - INFO - MixUCB-I: 110.12346000528771, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,801 - INFO - Running MixUCB-I - round: 408
+2024-10-03 13:27:06,824 - INFO - MixUCB-I: 110.440204649922, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,824 - INFO - Running MixUCB-I - round: 409
+2024-10-03 13:27:06,848 - INFO - MixUCB-I: 110.48941000941815, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,848 - INFO - Running MixUCB-I - round: 410
+2024-10-03 13:27:06,871 - INFO - MixUCB-I: 110.69529966630004, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,871 - INFO - Running MixUCB-I - round: 411
+2024-10-03 13:27:06,895 - INFO - MixUCB-I: 110.90285418906149, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,895 - INFO - Running MixUCB-I - round: 412
+2024-10-03 13:27:06,919 - INFO - MixUCB-I: 111.07860473136705, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,919 - INFO - Running MixUCB-I - round: 413
+2024-10-03 13:27:06,942 - INFO - MixUCB-I: 111.70629249234676, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,942 - INFO - Running MixUCB-I - round: 414
+2024-10-03 13:27:06,966 - INFO - MixUCB-I: 111.85463382395709, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,966 - INFO - Running MixUCB-I - round: 415
+2024-10-03 13:27:06,990 - INFO - MixUCB-I: 112.14458465003979, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:06,990 - INFO - Running MixUCB-I - round: 416
+2024-10-03 13:27:07,041 - INFO - MixUCB-I: 112.3084184105172, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,041 - INFO - Running MixUCB-I - round: 417
+2024-10-03 13:27:07,076 - INFO - MixUCB-I: 112.59373158941267, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,076 - INFO - Running MixUCB-I - round: 418
+2024-10-03 13:27:07,100 - INFO - MixUCB-I: 113.18907322463868, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,100 - INFO - Running MixUCB-I - round: 419
+2024-10-03 13:27:07,124 - INFO - MixUCB-I: 113.28864429446182, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,124 - INFO - Running MixUCB-I - round: 420
+2024-10-03 13:27:07,147 - INFO - MixUCB-I: 113.39408379712486, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,147 - INFO - Running MixUCB-I - round: 421
+2024-10-03 13:27:07,172 - INFO - MixUCB-I: 113.8783460277383, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,172 - INFO - Running MixUCB-I - round: 422
+2024-10-03 13:27:07,195 - INFO - MixUCB-I: 114.10816274557477, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,195 - INFO - Running MixUCB-I - round: 423
+2024-10-03 13:27:07,218 - INFO - MixUCB-I: 114.11716294934834, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,219 - INFO - Running MixUCB-I - round: 424
+2024-10-03 13:27:07,242 - INFO - MixUCB-I: 114.32405761984218, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,242 - INFO - Running MixUCB-I - round: 425
+2024-10-03 13:27:07,267 - INFO - MixUCB-I: 114.70143792925224, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,267 - INFO - Running MixUCB-I - round: 426
+2024-10-03 13:27:07,291 - INFO - MixUCB-I: 114.87430748943345, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,291 - INFO - Running MixUCB-I - round: 427
+2024-10-03 13:27:07,315 - INFO - MixUCB-I: 115.3182986436673, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,315 - INFO - Running MixUCB-I - round: 428
+2024-10-03 13:27:07,342 - INFO - MixUCB-I: 115.73175117567963, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,342 - INFO - Running MixUCB-I - round: 429
+2024-10-03 13:27:07,366 - INFO - MixUCB-I: 116.13785876012778, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,366 - INFO - Running MixUCB-I - round: 430
+2024-10-03 13:27:07,390 - INFO - MixUCB-I: 116.39824433879856, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,390 - INFO - Running MixUCB-I - round: 431
+2024-10-03 13:27:07,414 - INFO - MixUCB-I: 117.00577206014489, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,414 - INFO - Running MixUCB-I - round: 432
+2024-10-03 13:27:07,438 - INFO - MixUCB-I: 117.5919035771391, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,438 - INFO - Running MixUCB-I - round: 433
+2024-10-03 13:27:07,462 - INFO - MixUCB-I: 118.15105727646026, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,462 - INFO - Running MixUCB-I - round: 434
+2024-10-03 13:27:07,486 - INFO - MixUCB-I: 118.64653691475674, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,487 - INFO - Running MixUCB-I - round: 435
+2024-10-03 13:27:07,510 - INFO - MixUCB-I: 118.8607164976087, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,511 - INFO - Running MixUCB-I - round: 436
+2024-10-03 13:27:07,534 - INFO - MixUCB-I: 119.02079352526485, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,534 - INFO - Running MixUCB-I - round: 437
+2024-10-03 13:27:07,558 - INFO - MixUCB-I: 119.24118563701415, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,558 - INFO - Running MixUCB-I - round: 438
+2024-10-03 13:27:07,581 - INFO - MixUCB-I: 119.71405842012221, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,581 - INFO - Running MixUCB-I - round: 439
+2024-10-03 13:27:07,604 - INFO - MixUCB-I: 120.08654185882592, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,604 - INFO - Running MixUCB-I - round: 440
+2024-10-03 13:27:07,627 - INFO - MixUCB-I: 120.55601520569238, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,627 - INFO - Running MixUCB-I - round: 441
+2024-10-03 13:27:07,651 - INFO - MixUCB-I: 120.96664177251421, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,651 - INFO - Running MixUCB-I - round: 442
+2024-10-03 13:27:07,675 - INFO - MixUCB-I: 121.14206345486278, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,675 - INFO - Running MixUCB-I - round: 443
+2024-10-03 13:27:07,698 - INFO - MixUCB-I: 121.61024309989138, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,698 - INFO - Running MixUCB-I - round: 444
+2024-10-03 13:27:07,722 - INFO - MixUCB-I: 121.9013304928703, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,722 - INFO - Running MixUCB-I - round: 445
+2024-10-03 13:27:07,745 - INFO - MixUCB-I: 122.3735163007066, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,746 - INFO - Running MixUCB-I - round: 446
+2024-10-03 13:27:07,768 - INFO - MixUCB-I: 123.01876505879856, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,768 - INFO - Running MixUCB-I - round: 447
+2024-10-03 13:27:07,792 - INFO - MixUCB-I: 123.34113608223439, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,792 - INFO - Running MixUCB-I - round: 448
+2024-10-03 13:27:07,815 - INFO - MixUCB-I: 123.75287033104263, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,816 - INFO - Running MixUCB-I - round: 449
+2024-10-03 13:27:07,839 - INFO - MixUCB-I: 123.856509005611, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,839 - INFO - Running MixUCB-I - round: 450
+2024-10-03 13:27:07,863 - INFO - MixUCB-I: 124.27779730669347, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,863 - INFO - Running MixUCB-I - round: 451
+2024-10-03 13:27:07,887 - INFO - MixUCB-I: 124.46541148017862, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,887 - INFO - Running MixUCB-I - round: 452
+2024-10-03 13:27:07,911 - INFO - MixUCB-I: 124.51722343075757, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,911 - INFO - Running MixUCB-I - round: 453
+2024-10-03 13:27:07,935 - INFO - MixUCB-I: 124.98019114753586, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,935 - INFO - Running MixUCB-I - round: 454
+2024-10-03 13:27:07,959 - INFO - MixUCB-I: 125.34635333347215, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,959 - INFO - Running MixUCB-I - round: 455
+2024-10-03 13:27:07,983 - INFO - MixUCB-I: 125.67502127261614, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:07,983 - INFO - Running MixUCB-I - round: 456
+2024-10-03 13:27:08,007 - INFO - MixUCB-I: 125.96338454765845, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,007 - INFO - Running MixUCB-I - round: 457
+2024-10-03 13:27:08,030 - INFO - MixUCB-I: 126.14765330717694, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,030 - INFO - Running MixUCB-I - round: 458
+2024-10-03 13:27:08,054 - INFO - MixUCB-I: 126.39208875875227, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,054 - INFO - Running MixUCB-I - round: 459
+2024-10-03 13:27:08,078 - INFO - MixUCB-I: 126.76490009855678, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,078 - INFO - Running MixUCB-I - round: 460
+2024-10-03 13:27:08,102 - INFO - MixUCB-I: 127.0748155280129, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,102 - INFO - Running MixUCB-I - round: 461
+2024-10-03 13:27:08,126 - INFO - MixUCB-I: 127.36170004042371, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,126 - INFO - Running MixUCB-I - round: 462
+2024-10-03 13:27:08,150 - INFO - MixUCB-I: 127.57491119892634, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,150 - INFO - Running MixUCB-I - round: 463
+2024-10-03 13:27:08,174 - INFO - MixUCB-I: 127.74907597557717, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,174 - INFO - Running MixUCB-I - round: 464
+2024-10-03 13:27:08,197 - INFO - MixUCB-I: 127.89203618460463, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,198 - INFO - Running MixUCB-I - round: 465
+2024-10-03 13:27:08,220 - INFO - MixUCB-I: 128.0587375336166, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,221 - INFO - Running MixUCB-I - round: 466
+2024-10-03 13:27:08,244 - INFO - MixUCB-I: 128.4740564754569, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,244 - INFO - Running MixUCB-I - round: 467
+2024-10-03 13:27:08,268 - INFO - MixUCB-I: 128.8458165230785, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,268 - INFO - Running MixUCB-I - round: 468
+2024-10-03 13:27:08,292 - INFO - MixUCB-I: 129.04250715460714, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,292 - INFO - Running MixUCB-I - round: 469
+2024-10-03 13:27:08,315 - INFO - MixUCB-I: 129.2632354788726, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,315 - INFO - Running MixUCB-I - round: 470
+2024-10-03 13:27:08,339 - INFO - MixUCB-I: 129.7489421371689, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,339 - INFO - Running MixUCB-I - round: 471
+2024-10-03 13:27:08,363 - INFO - MixUCB-I: 129.99981952180073, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,364 - INFO - Running MixUCB-I - round: 472
+2024-10-03 13:27:08,387 - INFO - MixUCB-I: 130.18380107083306, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,387 - INFO - Running MixUCB-I - round: 473
+2024-10-03 13:27:08,410 - INFO - MixUCB-I: 130.69785990970806, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,411 - INFO - Running MixUCB-I - round: 474
+2024-10-03 13:27:08,434 - INFO - MixUCB-I: 130.73497390204273, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,434 - INFO - Running MixUCB-I - round: 475
+2024-10-03 13:27:08,458 - INFO - MixUCB-I: 130.90680572155463, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,459 - INFO - Running MixUCB-I - round: 476
+2024-10-03 13:27:08,483 - INFO - MixUCB-I: 131.0884851098362, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,483 - INFO - Running MixUCB-I - round: 477
+2024-10-03 13:27:08,507 - INFO - MixUCB-I: 131.72031231779644, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,507 - INFO - Running MixUCB-I - round: 478
+2024-10-03 13:27:08,533 - INFO - MixUCB-I: 131.83098265462178, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,533 - INFO - Running MixUCB-I - round: 479
+2024-10-03 13:27:08,557 - INFO - MixUCB-I: 132.38091333501757, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,557 - INFO - Running MixUCB-I - round: 480
+2024-10-03 13:27:08,581 - INFO - MixUCB-I: 132.60135517276592, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,581 - INFO - Running MixUCB-I - round: 481
+2024-10-03 13:27:08,605 - INFO - MixUCB-I: 132.97634852261308, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,605 - INFO - Running MixUCB-I - round: 482
+2024-10-03 13:27:08,629 - INFO - MixUCB-I: 133.34000414324802, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,629 - INFO - Running MixUCB-I - round: 483
+2024-10-03 13:27:08,654 - INFO - MixUCB-I: 133.77742460397894, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,654 - INFO - Running MixUCB-I - round: 484
+2024-10-03 13:27:08,678 - INFO - MixUCB-I: 134.05171167542673, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,678 - INFO - Running MixUCB-I - round: 485
+2024-10-03 13:27:08,701 - INFO - MixUCB-I: 134.28309874184262, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,702 - INFO - Running MixUCB-I - round: 486
+2024-10-03 13:27:08,725 - INFO - MixUCB-I: 134.3575054066536, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,726 - INFO - Running MixUCB-I - round: 487
+2024-10-03 13:27:08,749 - INFO - MixUCB-I: 134.95617433145335, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,750 - INFO - Running MixUCB-I - round: 488
+2024-10-03 13:27:08,775 - INFO - MixUCB-I: 135.1186848190982, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,775 - INFO - Running MixUCB-I - round: 489
+2024-10-03 13:27:08,799 - INFO - MixUCB-I: 135.43865676170273, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,799 - INFO - Running MixUCB-I - round: 490
+2024-10-03 13:27:08,823 - INFO - MixUCB-I: 135.9519483193356, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,823 - INFO - Running MixUCB-I - round: 491
+2024-10-03 13:27:08,846 - INFO - MixUCB-I: 136.18385803285537, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,847 - INFO - Running MixUCB-I - round: 492
+2024-10-03 13:27:08,871 - INFO - MixUCB-I: 136.15062974891978, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,871 - INFO - Running MixUCB-I - round: 493
+2024-10-03 13:27:08,895 - INFO - MixUCB-I: 136.2717575164151, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,895 - INFO - Running MixUCB-I - round: 494
+2024-10-03 13:27:08,919 - INFO - MixUCB-I: 136.3168019193801, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,919 - INFO - Running MixUCB-I - round: 495
+2024-10-03 13:27:08,943 - INFO - MixUCB-I: 136.42256622366543, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,943 - INFO - Running MixUCB-I - round: 496
+2024-10-03 13:27:08,968 - INFO - MixUCB-I: 136.8262790491399, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,968 - INFO - Running MixUCB-I - round: 497
+2024-10-03 13:27:08,993 - INFO - MixUCB-I: 137.03124384939605, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:08,993 - INFO - Running MixUCB-I - round: 498
+2024-10-03 13:27:09,030 - INFO - MixUCB-I: 137.1908981471034, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,034 - INFO - Running MixUCB-I - round: 499
+2024-10-03 13:27:09,060 - INFO - MixUCB-I: 137.3909046613002, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,060 - INFO - Running MixUCB-I - round: 500
+2024-10-03 13:27:09,098 - INFO - MixUCB-I: 137.6259724929268, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,098 - INFO - Running MixUCB-I - round: 501
+2024-10-03 13:27:09,124 - INFO - MixUCB-I: 138.08869122601996, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,125 - INFO - Running MixUCB-I - round: 502
+2024-10-03 13:27:09,151 - INFO - MixUCB-I: 138.57143462127868, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,151 - INFO - Running MixUCB-I - round: 503
+2024-10-03 13:27:09,175 - INFO - MixUCB-I: 138.70671552736184, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,175 - INFO - Running MixUCB-I - round: 504
+2024-10-03 13:27:09,227 - INFO - MixUCB-I: 138.84492856328617, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,227 - INFO - Running MixUCB-I - round: 505
+2024-10-03 13:27:09,252 - INFO - MixUCB-I: 138.98004291152063, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,252 - INFO - Running MixUCB-I - round: 506
+2024-10-03 13:27:09,287 - INFO - MixUCB-I: 139.17645396646557, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,288 - INFO - Running MixUCB-I - round: 507
+2024-10-03 13:27:09,333 - INFO - MixUCB-I: 139.307945519851, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,333 - INFO - Running MixUCB-I - round: 508
+2024-10-03 13:27:09,358 - INFO - MixUCB-I: 139.4254086101509, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,358 - INFO - Running MixUCB-I - round: 509
+2024-10-03 13:27:09,383 - INFO - MixUCB-I: 139.68010187172595, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,383 - INFO - Running MixUCB-I - round: 510
+2024-10-03 13:27:09,407 - INFO - MixUCB-I: 140.0681822742226, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,407 - INFO - Running MixUCB-I - round: 511
+2024-10-03 13:27:09,431 - INFO - MixUCB-I: 140.40937915815604, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,431 - INFO - Running MixUCB-I - round: 512
+2024-10-03 13:27:09,455 - INFO - MixUCB-I: 140.6297734519322, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,455 - INFO - Running MixUCB-I - round: 513
+2024-10-03 13:27:09,481 - INFO - MixUCB-I: 141.05236608064456, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,481 - INFO - Running MixUCB-I - round: 514
+2024-10-03 13:27:09,509 - INFO - MixUCB-I: 141.249404031616, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,510 - INFO - Running MixUCB-I - round: 515
+2024-10-03 13:27:09,550 - INFO - MixUCB-I: 141.6068406136446, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,550 - INFO - Running MixUCB-I - round: 516
+2024-10-03 13:27:09,574 - INFO - MixUCB-I: 141.95811165902586, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,574 - INFO - Running MixUCB-I - round: 517
+2024-10-03 13:27:09,599 - INFO - MixUCB-I: 142.2849144632866, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,599 - INFO - Running MixUCB-I - round: 518
+2024-10-03 13:27:09,626 - INFO - MixUCB-I: 142.45602210766953, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,626 - INFO - Running MixUCB-I - round: 519
+2024-10-03 13:27:09,654 - INFO - MixUCB-I: 143.04288224928976, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,656 - INFO - Running MixUCB-I - round: 520
+2024-10-03 13:27:09,687 - INFO - MixUCB-I: 143.4024446652485, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,687 - INFO - Running MixUCB-I - round: 521
+2024-10-03 13:27:09,712 - INFO - MixUCB-I: 143.7376859043814, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,712 - INFO - Running MixUCB-I - round: 522
+2024-10-03 13:27:09,737 - INFO - MixUCB-I: 144.41452383204935, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,737 - INFO - Running MixUCB-I - round: 523
+2024-10-03 13:27:09,761 - INFO - MixUCB-I: 145.0709809495936, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,761 - INFO - Running MixUCB-I - round: 524
+2024-10-03 13:27:09,784 - INFO - MixUCB-I: 145.53697776318037, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,785 - INFO - Running MixUCB-I - round: 525
+2024-10-03 13:27:09,807 - INFO - MixUCB-I: 145.71988155582775, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,808 - INFO - Running MixUCB-I - round: 526
+2024-10-03 13:27:09,832 - INFO - MixUCB-I: 146.102379108071, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,832 - INFO - Running MixUCB-I - round: 527
+2024-10-03 13:27:09,856 - INFO - MixUCB-I: 146.33317406350818, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,856 - INFO - Running MixUCB-I - round: 528
+2024-10-03 13:27:09,880 - INFO - MixUCB-I: 146.48693301319116, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,880 - INFO - Running MixUCB-I - round: 529
+2024-10-03 13:27:09,903 - INFO - MixUCB-I: 146.8753501130219, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,903 - INFO - Running MixUCB-I - round: 530
+2024-10-03 13:27:09,927 - INFO - MixUCB-I: 147.104892466589, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,928 - INFO - Running MixUCB-I - round: 531
+2024-10-03 13:27:09,951 - INFO - MixUCB-I: 147.24443836903575, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,951 - INFO - Running MixUCB-I - round: 532
+2024-10-03 13:27:09,975 - INFO - MixUCB-I: 147.77092738695018, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,975 - INFO - Running MixUCB-I - round: 533
+2024-10-03 13:27:09,999 - INFO - MixUCB-I: 148.0801229218951, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:09,999 - INFO - Running MixUCB-I - round: 534
+2024-10-03 13:27:10,023 - INFO - MixUCB-I: 148.13153696333913, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,023 - INFO - Running MixUCB-I - round: 535
+2024-10-03 13:27:10,047 - INFO - MixUCB-I: 148.35515467360807, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,047 - INFO - Running MixUCB-I - round: 536
+2024-10-03 13:27:10,070 - INFO - MixUCB-I: 148.75351285355805, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,070 - INFO - Running MixUCB-I - round: 537
+2024-10-03 13:27:10,095 - INFO - MixUCB-I: 149.06303432733284, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,095 - INFO - Running MixUCB-I - round: 538
+2024-10-03 13:27:10,119 - INFO - MixUCB-I: 149.24727703745762, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,119 - INFO - Running MixUCB-I - round: 539
+2024-10-03 13:27:10,143 - INFO - MixUCB-I: 149.32617494681068, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,143 - INFO - Running MixUCB-I - round: 540
+2024-10-03 13:27:10,166 - INFO - MixUCB-I: 149.5373405078449, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,168 - INFO - Running MixUCB-I - round: 541
+2024-10-03 13:27:10,194 - INFO - MixUCB-I: 149.7050305791167, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,194 - INFO - Running MixUCB-I - round: 542
+2024-10-03 13:27:10,220 - INFO - MixUCB-I: 149.9365078912832, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,220 - INFO - Running MixUCB-I - round: 543
+2024-10-03 13:27:10,244 - INFO - MixUCB-I: 150.3354820172904, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,244 - INFO - Running MixUCB-I - round: 544
+2024-10-03 13:27:10,268 - INFO - MixUCB-I: 150.5388593914717, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,268 - INFO - Running MixUCB-I - round: 545
+2024-10-03 13:27:10,291 - INFO - MixUCB-I: 150.73965582004027, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,291 - INFO - Running MixUCB-I - round: 546
+2024-10-03 13:27:10,315 - INFO - MixUCB-I: 151.13740696652437, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,315 - INFO - Running MixUCB-I - round: 547
+2024-10-03 13:27:10,339 - INFO - MixUCB-I: 151.1890527976299, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,339 - INFO - Running MixUCB-I - round: 548
+2024-10-03 13:27:10,363 - INFO - MixUCB-I: 151.29427950992383, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,363 - INFO - Running MixUCB-I - round: 549
+2024-10-03 13:27:10,387 - INFO - MixUCB-I: 151.4152956973375, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,387 - INFO - Running MixUCB-I - round: 550
+2024-10-03 13:27:10,411 - INFO - MixUCB-I: 151.9179446991031, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,411 - INFO - Running MixUCB-I - round: 551
+2024-10-03 13:27:10,434 - INFO - MixUCB-I: 151.97717721012958, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,435 - INFO - Running MixUCB-I - round: 552
+2024-10-03 13:27:10,458 - INFO - MixUCB-I: 152.19756740607704, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,458 - INFO - Running MixUCB-I - round: 553
+2024-10-03 13:27:10,483 - INFO - MixUCB-I: 152.46802928917992, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,483 - INFO - Running MixUCB-I - round: 554
+2024-10-03 13:27:10,507 - INFO - MixUCB-I: 152.62974990941538, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,507 - INFO - Running MixUCB-I - round: 555
+2024-10-03 13:27:10,531 - INFO - MixUCB-I: 153.1277441429804, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,531 - INFO - Running MixUCB-I - round: 556
+2024-10-03 13:27:10,555 - INFO - MixUCB-I: 153.47082503785603, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,555 - INFO - Running MixUCB-I - round: 557
+2024-10-03 13:27:10,579 - INFO - MixUCB-I: 153.7645218412147, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,579 - INFO - Running MixUCB-I - round: 558
+2024-10-03 13:27:10,603 - INFO - MixUCB-I: 153.90655237212633, TotalQ_mixucbI: 326, q_mixucbI: 0.0
+2024-10-03 13:27:10,603 - INFO - Running MixUCB-I - round: 559
+2024-10-03 13:27:10,628 - INFO - MixUCB-I: 153.91965191090782, TotalQ_mixucbI: 327, q_mixucbI: 1.0
+2024-10-03 13:27:10,628 - INFO - Running MixUCB-I - round: 560
+2024-10-03 13:27:10,652 - INFO - MixUCB-I: 154.15770393344556, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,652 - INFO - Running MixUCB-I - round: 561
+2024-10-03 13:27:10,676 - INFO - MixUCB-I: 154.49142310854984, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,676 - INFO - Running MixUCB-I - round: 562
+2024-10-03 13:27:10,705 - INFO - MixUCB-I: 154.94541564171053, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,705 - INFO - Running MixUCB-I - round: 563
+2024-10-03 13:27:10,729 - INFO - MixUCB-I: 155.28240220198856, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,729 - INFO - Running MixUCB-I - round: 564
+2024-10-03 13:27:10,752 - INFO - MixUCB-I: 155.6657347277544, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,753 - INFO - Running MixUCB-I - round: 565
+2024-10-03 13:27:10,783 - INFO - MixUCB-I: 155.9780005717322, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,783 - INFO - Running MixUCB-I - round: 566
+2024-10-03 13:27:10,808 - INFO - MixUCB-I: 156.03554874944967, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,808 - INFO - Running MixUCB-I - round: 567
+2024-10-03 13:27:10,839 - INFO - MixUCB-I: 156.50527078706332, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,841 - INFO - Running MixUCB-I - round: 568
+2024-10-03 13:27:10,886 - INFO - MixUCB-I: 156.71410083671486, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,886 - INFO - Running MixUCB-I - round: 569
+2024-10-03 13:27:10,910 - INFO - MixUCB-I: 156.96711359653779, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,910 - INFO - Running MixUCB-I - round: 570
+2024-10-03 13:27:10,935 - INFO - MixUCB-I: 157.12453334879967, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,935 - INFO - Running MixUCB-I - round: 571
+2024-10-03 13:27:10,959 - INFO - MixUCB-I: 157.3864428829869, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,960 - INFO - Running MixUCB-I - round: 572
+2024-10-03 13:27:10,984 - INFO - MixUCB-I: 157.88518999128104, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:10,984 - INFO - Running MixUCB-I - round: 573
+2024-10-03 13:27:11,007 - INFO - MixUCB-I: 158.27930258013157, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,007 - INFO - Running MixUCB-I - round: 574
+2024-10-03 13:27:11,031 - INFO - MixUCB-I: 158.60264439148997, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,031 - INFO - Running MixUCB-I - round: 575
+2024-10-03 13:27:11,055 - INFO - MixUCB-I: 159.10561576248185, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,055 - INFO - Running MixUCB-I - round: 576
+2024-10-03 13:27:11,094 - INFO - MixUCB-I: 159.29448470555323, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,095 - INFO - Running MixUCB-I - round: 577
+2024-10-03 13:27:11,122 - INFO - MixUCB-I: 159.45959529088933, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,123 - INFO - Running MixUCB-I - round: 578
+2024-10-03 13:27:11,148 - INFO - MixUCB-I: 159.8435811473311, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,148 - INFO - Running MixUCB-I - round: 579
+2024-10-03 13:27:11,174 - INFO - MixUCB-I: 159.9218996590609, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,174 - INFO - Running MixUCB-I - round: 580
+2024-10-03 13:27:11,198 - INFO - MixUCB-I: 160.27995571646696, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,198 - INFO - Running MixUCB-I - round: 581
+2024-10-03 13:27:11,235 - INFO - MixUCB-I: 160.6241185386295, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,235 - INFO - Running MixUCB-I - round: 582
+2024-10-03 13:27:11,260 - INFO - MixUCB-I: 160.7317415484747, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,260 - INFO - Running MixUCB-I - round: 583
+2024-10-03 13:27:11,285 - INFO - MixUCB-I: 161.03292892996356, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,285 - INFO - Running MixUCB-I - round: 584
+2024-10-03 13:27:11,309 - INFO - MixUCB-I: 161.12022723702134, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,310 - INFO - Running MixUCB-I - round: 585
+2024-10-03 13:27:11,334 - INFO - MixUCB-I: 161.23185821412955, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,334 - INFO - Running MixUCB-I - round: 586
+2024-10-03 13:27:11,358 - INFO - MixUCB-I: 161.52157416797445, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,358 - INFO - Running MixUCB-I - round: 587
+2024-10-03 13:27:11,382 - INFO - MixUCB-I: 161.56119030538886, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,382 - INFO - Running MixUCB-I - round: 588
+2024-10-03 13:27:11,406 - INFO - MixUCB-I: 161.5574019685397, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,406 - INFO - Running MixUCB-I - round: 589
+2024-10-03 13:27:11,430 - INFO - MixUCB-I: 161.88189091961473, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,430 - INFO - Running MixUCB-I - round: 590
+2024-10-03 13:27:11,455 - INFO - MixUCB-I: 162.1441210166454, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,455 - INFO - Running MixUCB-I - round: 591
+2024-10-03 13:27:11,480 - INFO - MixUCB-I: 162.3208362948228, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,480 - INFO - Running MixUCB-I - round: 592
+2024-10-03 13:27:11,504 - INFO - MixUCB-I: 162.7136731754684, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,504 - INFO - Running MixUCB-I - round: 593
+2024-10-03 13:27:11,528 - INFO - MixUCB-I: 162.95763198986364, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,528 - INFO - Running MixUCB-I - round: 594
+2024-10-03 13:27:11,552 - INFO - MixUCB-I: 163.02234192805014, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,552 - INFO - Running MixUCB-I - round: 595
+2024-10-03 13:27:11,575 - INFO - MixUCB-I: 163.2197615861333, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,575 - INFO - Running MixUCB-I - round: 596
+2024-10-03 13:27:11,599 - INFO - MixUCB-I: 163.30052591329073, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,599 - INFO - Running MixUCB-I - round: 597
+2024-10-03 13:27:11,622 - INFO - MixUCB-I: 163.47475138262752, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,623 - INFO - Running MixUCB-I - round: 598
+2024-10-03 13:27:11,646 - INFO - MixUCB-I: 163.96531069929847, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,646 - INFO - Running MixUCB-I - round: 599
+2024-10-03 13:27:11,670 - INFO - MixUCB-I: 164.06152162277118, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,671 - INFO - Running MixUCB-I - round: 600
+2024-10-03 13:27:11,695 - INFO - MixUCB-I: 164.22582543380722, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,695 - INFO - Running MixUCB-I - round: 601
+2024-10-03 13:27:11,718 - INFO - MixUCB-I: 164.54627878453877, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,718 - INFO - Running MixUCB-I - round: 602
+2024-10-03 13:27:11,742 - INFO - MixUCB-I: 164.66077474106842, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,742 - INFO - Running MixUCB-I - round: 603
+2024-10-03 13:27:11,766 - INFO - MixUCB-I: 164.94507722639605, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,766 - INFO - Running MixUCB-I - round: 604
+2024-10-03 13:27:11,789 - INFO - MixUCB-I: 165.07587411207973, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,789 - INFO - Running MixUCB-I - round: 605
+2024-10-03 13:27:11,813 - INFO - MixUCB-I: 165.09860204421966, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,813 - INFO - Running MixUCB-I - round: 606
+2024-10-03 13:27:11,836 - INFO - MixUCB-I: 165.55205249337197, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,836 - INFO - Running MixUCB-I - round: 607
+2024-10-03 13:27:11,860 - INFO - MixUCB-I: 165.77677422567427, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,861 - INFO - Running MixUCB-I - round: 608
+2024-10-03 13:27:11,884 - INFO - MixUCB-I: 165.84138405926115, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,885 - INFO - Running MixUCB-I - round: 609
+2024-10-03 13:27:11,908 - INFO - MixUCB-I: 166.0363623550337, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,908 - INFO - Running MixUCB-I - round: 610
+2024-10-03 13:27:11,932 - INFO - MixUCB-I: 166.297646429063, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,932 - INFO - Running MixUCB-I - round: 611
+2024-10-03 13:27:11,955 - INFO - MixUCB-I: 166.44999956730837, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,955 - INFO - Running MixUCB-I - round: 612
+2024-10-03 13:27:11,979 - INFO - MixUCB-I: 166.7905303860705, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:11,980 - INFO - Running MixUCB-I - round: 613
+2024-10-03 13:27:12,003 - INFO - MixUCB-I: 167.17710562156867, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,003 - INFO - Running MixUCB-I - round: 614
+2024-10-03 13:27:12,026 - INFO - MixUCB-I: 167.21408097028467, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,027 - INFO - Running MixUCB-I - round: 615
+2024-10-03 13:27:12,051 - INFO - MixUCB-I: 167.32289720210534, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,051 - INFO - Running MixUCB-I - round: 616
+2024-10-03 13:27:12,075 - INFO - MixUCB-I: 167.39690025276084, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,075 - INFO - Running MixUCB-I - round: 617
+2024-10-03 13:27:12,099 - INFO - MixUCB-I: 167.4880520576084, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,099 - INFO - Running MixUCB-I - round: 618
+2024-10-03 13:27:12,122 - INFO - MixUCB-I: 167.94326210171533, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,122 - INFO - Running MixUCB-I - round: 619
+2024-10-03 13:27:12,146 - INFO - MixUCB-I: 168.20281049417343, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,146 - INFO - Running MixUCB-I - round: 620
+2024-10-03 13:27:12,171 - INFO - MixUCB-I: 168.22986850864262, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,171 - INFO - Running MixUCB-I - round: 621
+2024-10-03 13:27:12,194 - INFO - MixUCB-I: 168.3352836834329, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,194 - INFO - Running MixUCB-I - round: 622
+2024-10-03 13:27:12,218 - INFO - MixUCB-I: 168.5183775264666, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,218 - INFO - Running MixUCB-I - round: 623
+2024-10-03 13:27:12,241 - INFO - MixUCB-I: 169.07633562426014, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,241 - INFO - Running MixUCB-I - round: 624
+2024-10-03 13:27:12,267 - INFO - MixUCB-I: 169.5342322242207, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,267 - INFO - Running MixUCB-I - round: 625
+2024-10-03 13:27:12,291 - INFO - MixUCB-I: 169.69914057831687, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,291 - INFO - Running MixUCB-I - round: 626
+2024-10-03 13:27:12,316 - INFO - MixUCB-I: 170.16435513497012, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,316 - INFO - Running MixUCB-I - round: 627
+2024-10-03 13:27:12,340 - INFO - MixUCB-I: 170.6041003402534, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,340 - INFO - Running MixUCB-I - round: 628
+2024-10-03 13:27:12,364 - INFO - MixUCB-I: 171.16424399954707, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,364 - INFO - Running MixUCB-I - round: 629
+2024-10-03 13:27:12,388 - INFO - MixUCB-I: 171.46703972003337, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,388 - INFO - Running MixUCB-I - round: 630
+2024-10-03 13:27:12,411 - INFO - MixUCB-I: 171.62962218377245, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,411 - INFO - Running MixUCB-I - round: 631
+2024-10-03 13:27:12,435 - INFO - MixUCB-I: 172.05685032082636, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,435 - INFO - Running MixUCB-I - round: 632
+2024-10-03 13:27:12,458 - INFO - MixUCB-I: 172.48579937115875, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,458 - INFO - Running MixUCB-I - round: 633
+2024-10-03 13:27:12,483 - INFO - MixUCB-I: 172.66664216340936, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,483 - INFO - Running MixUCB-I - round: 634
+2024-10-03 13:27:12,507 - INFO - MixUCB-I: 173.2955358287324, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,508 - INFO - Running MixUCB-I - round: 635
+2024-10-03 13:27:12,531 - INFO - MixUCB-I: 173.89176811550456, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,531 - INFO - Running MixUCB-I - round: 636
+2024-10-03 13:27:12,554 - INFO - MixUCB-I: 174.2373700116499, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,554 - INFO - Running MixUCB-I - round: 637
+2024-10-03 13:27:12,578 - INFO - MixUCB-I: 174.6998530632657, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,578 - INFO - Running MixUCB-I - round: 638
+2024-10-03 13:27:12,601 - INFO - MixUCB-I: 174.87749686446566, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,602 - INFO - Running MixUCB-I - round: 639
+2024-10-03 13:27:12,626 - INFO - MixUCB-I: 175.3103136806089, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,626 - INFO - Running MixUCB-I - round: 640
+2024-10-03 13:27:12,650 - INFO - MixUCB-I: 175.47423592297238, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,650 - INFO - Running MixUCB-I - round: 641
+2024-10-03 13:27:12,674 - INFO - MixUCB-I: 175.48260373949535, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,674 - INFO - Running MixUCB-I - round: 642
+2024-10-03 13:27:12,697 - INFO - MixUCB-I: 176.09783238722167, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,697 - INFO - Running MixUCB-I - round: 643
+2024-10-03 13:27:12,721 - INFO - MixUCB-I: 176.62889695669094, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,721 - INFO - Running MixUCB-I - round: 644
+2024-10-03 13:27:12,744 - INFO - MixUCB-I: 176.93166326195205, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,745 - INFO - Running MixUCB-I - round: 645
+2024-10-03 13:27:12,768 - INFO - MixUCB-I: 177.33446832786512, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,768 - INFO - Running MixUCB-I - round: 646
+2024-10-03 13:27:12,792 - INFO - MixUCB-I: 177.86580376486444, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,792 - INFO - Running MixUCB-I - round: 647
+2024-10-03 13:27:12,815 - INFO - MixUCB-I: 178.4705849832326, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,815 - INFO - Running MixUCB-I - round: 648
+2024-10-03 13:27:12,839 - INFO - MixUCB-I: 178.78340560274822, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,839 - INFO - Running MixUCB-I - round: 649
+2024-10-03 13:27:12,862 - INFO - MixUCB-I: 178.9556759659699, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,863 - INFO - Running MixUCB-I - round: 650
+2024-10-03 13:27:12,887 - INFO - MixUCB-I: 179.43932795873397, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,887 - INFO - Running MixUCB-I - round: 651
+2024-10-03 13:27:12,911 - INFO - MixUCB-I: 179.60321536201872, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,911 - INFO - Running MixUCB-I - round: 652
+2024-10-03 13:27:12,934 - INFO - MixUCB-I: 179.92582860303943, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,934 - INFO - Running MixUCB-I - round: 653
+2024-10-03 13:27:12,958 - INFO - MixUCB-I: 180.31363519690103, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,958 - INFO - Running MixUCB-I - round: 654
+2024-10-03 13:27:12,982 - INFO - MixUCB-I: 180.41398636139692, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:12,982 - INFO - Running MixUCB-I - round: 655
+2024-10-03 13:27:13,006 - INFO - MixUCB-I: 180.6012913045326, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,006 - INFO - Running MixUCB-I - round: 656
+2024-10-03 13:27:13,029 - INFO - MixUCB-I: 180.77220685702883, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,029 - INFO - Running MixUCB-I - round: 657
+2024-10-03 13:27:13,053 - INFO - MixUCB-I: 180.89614466209335, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,053 - INFO - Running MixUCB-I - round: 658
+2024-10-03 13:27:13,077 - INFO - MixUCB-I: 181.2635342455814, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,077 - INFO - Running MixUCB-I - round: 659
+2024-10-03 13:27:13,102 - INFO - MixUCB-I: 181.63652747656252, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,102 - INFO - Running MixUCB-I - round: 660
+2024-10-03 13:27:13,126 - INFO - MixUCB-I: 181.91409436914796, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,126 - INFO - Running MixUCB-I - round: 661
+2024-10-03 13:27:13,150 - INFO - MixUCB-I: 182.13408010032055, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,150 - INFO - Running MixUCB-I - round: 662
+2024-10-03 13:27:13,174 - INFO - MixUCB-I: 182.35546031098957, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,174 - INFO - Running MixUCB-I - round: 663
+2024-10-03 13:27:13,198 - INFO - MixUCB-I: 182.69509973446634, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,198 - INFO - Running MixUCB-I - round: 664
+2024-10-03 13:27:13,222 - INFO - MixUCB-I: 183.32680665804526, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,222 - INFO - Running MixUCB-I - round: 665
+2024-10-03 13:27:13,246 - INFO - MixUCB-I: 183.65573106696618, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,246 - INFO - Running MixUCB-I - round: 666
+2024-10-03 13:27:13,270 - INFO - MixUCB-I: 183.866155397589, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,270 - INFO - Running MixUCB-I - round: 667
+2024-10-03 13:27:13,294 - INFO - MixUCB-I: 184.02442805243345, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,294 - INFO - Running MixUCB-I - round: 668
+2024-10-03 13:27:13,317 - INFO - MixUCB-I: 184.1538546448793, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,317 - INFO - Running MixUCB-I - round: 669
+2024-10-03 13:27:13,341 - INFO - MixUCB-I: 184.40058180991738, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,341 - INFO - Running MixUCB-I - round: 670
+2024-10-03 13:27:13,365 - INFO - MixUCB-I: 184.7173631818021, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,365 - INFO - Running MixUCB-I - round: 671
+2024-10-03 13:27:13,388 - INFO - MixUCB-I: 184.81057031323752, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,388 - INFO - Running MixUCB-I - round: 672
+2024-10-03 13:27:13,412 - INFO - MixUCB-I: 184.8658453773623, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,412 - INFO - Running MixUCB-I - round: 673
+2024-10-03 13:27:13,435 - INFO - MixUCB-I: 185.11610070993137, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,435 - INFO - Running MixUCB-I - round: 674
+2024-10-03 13:27:13,458 - INFO - MixUCB-I: 185.34920087249057, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,459 - INFO - Running MixUCB-I - round: 675
+2024-10-03 13:27:13,484 - INFO - MixUCB-I: 185.93970127804184, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,484 - INFO - Running MixUCB-I - round: 676
+2024-10-03 13:27:13,508 - INFO - MixUCB-I: 186.25401353840888, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,508 - INFO - Running MixUCB-I - round: 677
+2024-10-03 13:27:13,531 - INFO - MixUCB-I: 186.43255287096582, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,531 - INFO - Running MixUCB-I - round: 678
+2024-10-03 13:27:13,554 - INFO - MixUCB-I: 186.99788976551756, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,554 - INFO - Running MixUCB-I - round: 679
+2024-10-03 13:27:13,578 - INFO - MixUCB-I: 187.60729688330917, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,578 - INFO - Running MixUCB-I - round: 680
+2024-10-03 13:27:13,602 - INFO - MixUCB-I: 188.08844030072083, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,603 - INFO - Running MixUCB-I - round: 681
+2024-10-03 13:27:13,625 - INFO - MixUCB-I: 188.23701067193068, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,626 - INFO - Running MixUCB-I - round: 682
+2024-10-03 13:27:13,649 - INFO - MixUCB-I: 188.57931246529915, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,649 - INFO - Running MixUCB-I - round: 683
+2024-10-03 13:27:13,674 - INFO - MixUCB-I: 188.71409961000836, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,674 - INFO - Running MixUCB-I - round: 684
+2024-10-03 13:27:13,698 - INFO - MixUCB-I: 188.90660398855405, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,698 - INFO - Running MixUCB-I - round: 685
+2024-10-03 13:27:13,722 - INFO - MixUCB-I: 189.29657661309207, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,722 - INFO - Running MixUCB-I - round: 686
+2024-10-03 13:27:13,746 - INFO - MixUCB-I: 189.5113632307064, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,746 - INFO - Running MixUCB-I - round: 687
+2024-10-03 13:27:13,770 - INFO - MixUCB-I: 189.57774033525885, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,770 - INFO - Running MixUCB-I - round: 688
+2024-10-03 13:27:13,793 - INFO - MixUCB-I: 189.77771628491288, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,793 - INFO - Running MixUCB-I - round: 689
+2024-10-03 13:27:13,816 - INFO - MixUCB-I: 190.04790994454552, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,816 - INFO - Running MixUCB-I - round: 690
+2024-10-03 13:27:13,840 - INFO - MixUCB-I: 190.3271740462633, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,840 - INFO - Running MixUCB-I - round: 691
+2024-10-03 13:27:13,864 - INFO - MixUCB-I: 190.72602140648215, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,864 - INFO - Running MixUCB-I - round: 692
+2024-10-03 13:27:13,888 - INFO - MixUCB-I: 190.91468235899768, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,888 - INFO - Running MixUCB-I - round: 693
+2024-10-03 13:27:13,912 - INFO - MixUCB-I: 190.95513781239774, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,912 - INFO - Running MixUCB-I - round: 694
+2024-10-03 13:27:13,936 - INFO - MixUCB-I: 191.47582520263842, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,936 - INFO - Running MixUCB-I - round: 695
+2024-10-03 13:27:13,960 - INFO - MixUCB-I: 191.65734248926535, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,960 - INFO - Running MixUCB-I - round: 696
+2024-10-03 13:27:13,986 - INFO - MixUCB-I: 192.02397463104256, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:13,986 - INFO - Running MixUCB-I - round: 697
+2024-10-03 13:27:14,013 - INFO - MixUCB-I: 192.08638693167907, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,018 - INFO - Running MixUCB-I - round: 698
+2024-10-03 13:27:14,048 - INFO - MixUCB-I: 192.41586968247182, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,048 - INFO - Running MixUCB-I - round: 699
+2024-10-03 13:27:14,086 - INFO - MixUCB-I: 192.8686448257248, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,086 - INFO - Running MixUCB-I - round: 700
+2024-10-03 13:27:14,114 - INFO - MixUCB-I: 193.03187604208347, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,114 - INFO - Running MixUCB-I - round: 701
+2024-10-03 13:27:14,140 - INFO - MixUCB-I: 193.369276852845, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,140 - INFO - Running MixUCB-I - round: 702
+2024-10-03 13:27:14,165 - INFO - MixUCB-I: 193.51433956260973, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,165 - INFO - Running MixUCB-I - round: 703
+2024-10-03 13:27:14,189 - INFO - MixUCB-I: 193.94964154686846, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,189 - INFO - Running MixUCB-I - round: 704
+2024-10-03 13:27:14,213 - INFO - MixUCB-I: 194.0417444692879, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,213 - INFO - Running MixUCB-I - round: 705
+2024-10-03 13:27:14,236 - INFO - MixUCB-I: 194.24945706486704, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,236 - INFO - Running MixUCB-I - round: 706
+2024-10-03 13:27:14,259 - INFO - MixUCB-I: 194.55637617431418, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,260 - INFO - Running MixUCB-I - round: 707
+2024-10-03 13:27:14,284 - INFO - MixUCB-I: 194.7597659988497, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,284 - INFO - Running MixUCB-I - round: 708
+2024-10-03 13:27:14,308 - INFO - MixUCB-I: 195.15707724768993, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,308 - INFO - Running MixUCB-I - round: 709
+2024-10-03 13:27:14,332 - INFO - MixUCB-I: 195.31486217910506, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,332 - INFO - Running MixUCB-I - round: 710
+2024-10-03 13:27:14,356 - INFO - MixUCB-I: 195.60998850722666, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,356 - INFO - Running MixUCB-I - round: 711
+2024-10-03 13:27:14,379 - INFO - MixUCB-I: 195.8745763416428, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,380 - INFO - Running MixUCB-I - round: 712
+2024-10-03 13:27:14,403 - INFO - MixUCB-I: 195.8336275197915, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,403 - INFO - Running MixUCB-I - round: 713
+2024-10-03 13:27:14,426 - INFO - MixUCB-I: 196.06639641360366, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,426 - INFO - Running MixUCB-I - round: 714
+2024-10-03 13:27:14,450 - INFO - MixUCB-I: 196.16182625467545, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,450 - INFO - Running MixUCB-I - round: 715
+2024-10-03 13:27:14,474 - INFO - MixUCB-I: 196.28064682234577, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,475 - INFO - Running MixUCB-I - round: 716
+2024-10-03 13:27:14,499 - INFO - MixUCB-I: 196.4398917648552, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,499 - INFO - Running MixUCB-I - round: 717
+2024-10-03 13:27:14,523 - INFO - MixUCB-I: 196.90283206659518, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,523 - INFO - Running MixUCB-I - round: 718
+2024-10-03 13:27:14,547 - INFO - MixUCB-I: 197.10707743290885, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,547 - INFO - Running MixUCB-I - round: 719
+2024-10-03 13:27:14,570 - INFO - MixUCB-I: 197.44549442450514, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,570 - INFO - Running MixUCB-I - round: 720
+2024-10-03 13:27:14,594 - INFO - MixUCB-I: 197.80583848187533, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,594 - INFO - Running MixUCB-I - round: 721
+2024-10-03 13:27:14,618 - INFO - MixUCB-I: 198.16304545317746, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,618 - INFO - Running MixUCB-I - round: 722
+2024-10-03 13:27:14,641 - INFO - MixUCB-I: 198.1942743652364, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,642 - INFO - Running MixUCB-I - round: 723
+2024-10-03 13:27:14,665 - INFO - MixUCB-I: 198.56917699218786, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,665 - INFO - Running MixUCB-I - round: 724
+2024-10-03 13:27:14,689 - INFO - MixUCB-I: 198.91809769406015, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,689 - INFO - Running MixUCB-I - round: 725
+2024-10-03 13:27:14,712 - INFO - MixUCB-I: 199.1238307193705, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,713 - INFO - Running MixUCB-I - round: 726
+2024-10-03 13:27:14,736 - INFO - MixUCB-I: 199.60549010468634, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,736 - INFO - Running MixUCB-I - round: 727
+2024-10-03 13:27:14,765 - INFO - MixUCB-I: 199.80232311816897, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,765 - INFO - Running MixUCB-I - round: 728
+2024-10-03 13:27:14,789 - INFO - MixUCB-I: 200.36933350238246, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,789 - INFO - Running MixUCB-I - round: 729
+2024-10-03 13:27:14,813 - INFO - MixUCB-I: 200.45131062966456, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,813 - INFO - Running MixUCB-I - round: 730
+2024-10-03 13:27:14,837 - INFO - MixUCB-I: 200.58448159965855, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,837 - INFO - Running MixUCB-I - round: 731
+2024-10-03 13:27:14,860 - INFO - MixUCB-I: 201.117513969698, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,860 - INFO - Running MixUCB-I - round: 732
+2024-10-03 13:27:14,883 - INFO - MixUCB-I: 201.31315974855164, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,883 - INFO - Running MixUCB-I - round: 733
+2024-10-03 13:27:14,907 - INFO - MixUCB-I: 201.50017467094887, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,907 - INFO - Running MixUCB-I - round: 734
+2024-10-03 13:27:14,931 - INFO - MixUCB-I: 201.58854566737182, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,931 - INFO - Running MixUCB-I - round: 735
+2024-10-03 13:27:14,955 - INFO - MixUCB-I: 201.68510373658663, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,955 - INFO - Running MixUCB-I - round: 736
+2024-10-03 13:27:14,979 - INFO - MixUCB-I: 201.827472140322, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:14,979 - INFO - Running MixUCB-I - round: 737
+2024-10-03 13:27:15,003 - INFO - MixUCB-I: 201.85300482889073, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,003 - INFO - Running MixUCB-I - round: 738
+2024-10-03 13:27:15,027 - INFO - MixUCB-I: 202.066755475286, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,027 - INFO - Running MixUCB-I - round: 739
+2024-10-03 13:27:15,050 - INFO - MixUCB-I: 202.31170640371747, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,050 - INFO - Running MixUCB-I - round: 740
+2024-10-03 13:27:15,074 - INFO - MixUCB-I: 202.72389139252596, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,074 - INFO - Running MixUCB-I - round: 741
+2024-10-03 13:27:15,097 - INFO - MixUCB-I: 202.97101450388791, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,097 - INFO - Running MixUCB-I - round: 742
+2024-10-03 13:27:15,121 - INFO - MixUCB-I: 203.18362166154594, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,122 - INFO - Running MixUCB-I - round: 743
+2024-10-03 13:27:15,145 - INFO - MixUCB-I: 203.39965094689188, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,145 - INFO - Running MixUCB-I - round: 744
+2024-10-03 13:27:15,171 - INFO - MixUCB-I: 203.75713158735655, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,171 - INFO - Running MixUCB-I - round: 745
+2024-10-03 13:27:15,198 - INFO - MixUCB-I: 203.99171046142712, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,198 - INFO - Running MixUCB-I - round: 746
+2024-10-03 13:27:15,222 - INFO - MixUCB-I: 204.39372435384703, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,222 - INFO - Running MixUCB-I - round: 747
+2024-10-03 13:27:15,246 - INFO - MixUCB-I: 204.69282482775412, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,246 - INFO - Running MixUCB-I - round: 748
+2024-10-03 13:27:15,269 - INFO - MixUCB-I: 205.14663285757618, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,270 - INFO - Running MixUCB-I - round: 749
+2024-10-03 13:27:15,293 - INFO - MixUCB-I: 205.38373080605203, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,293 - INFO - Running MixUCB-I - round: 750
+2024-10-03 13:27:15,317 - INFO - MixUCB-I: 205.6532104363416, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,317 - INFO - Running MixUCB-I - round: 751
+2024-10-03 13:27:15,341 - INFO - MixUCB-I: 205.73567320900833, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,341 - INFO - Running MixUCB-I - round: 752
+2024-10-03 13:27:15,365 - INFO - MixUCB-I: 206.3783573901174, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,365 - INFO - Running MixUCB-I - round: 753
+2024-10-03 13:27:15,389 - INFO - MixUCB-I: 206.64225421513547, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,389 - INFO - Running MixUCB-I - round: 754
+2024-10-03 13:27:15,413 - INFO - MixUCB-I: 207.0364552358426, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,413 - INFO - Running MixUCB-I - round: 755
+2024-10-03 13:27:15,437 - INFO - MixUCB-I: 207.4376731440127, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,437 - INFO - Running MixUCB-I - round: 756
+2024-10-03 13:27:15,461 - INFO - MixUCB-I: 207.67338470694128, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,461 - INFO - Running MixUCB-I - round: 757
+2024-10-03 13:27:15,486 - INFO - MixUCB-I: 207.94183229924064, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,486 - INFO - Running MixUCB-I - round: 758
+2024-10-03 13:27:15,510 - INFO - MixUCB-I: 208.1701233764157, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,510 - INFO - Running MixUCB-I - round: 759
+2024-10-03 13:27:15,534 - INFO - MixUCB-I: 208.48812993708393, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,534 - INFO - Running MixUCB-I - round: 760
+2024-10-03 13:27:15,558 - INFO - MixUCB-I: 208.6450775752211, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,558 - INFO - Running MixUCB-I - round: 761
+2024-10-03 13:27:15,582 - INFO - MixUCB-I: 208.92387233506025, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,582 - INFO - Running MixUCB-I - round: 762
+2024-10-03 13:27:15,605 - INFO - MixUCB-I: 209.42350504732113, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,606 - INFO - Running MixUCB-I - round: 763
+2024-10-03 13:27:15,629 - INFO - MixUCB-I: 209.65884266482885, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,630 - INFO - Running MixUCB-I - round: 764
+2024-10-03 13:27:15,653 - INFO - MixUCB-I: 210.0129281232615, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,653 - INFO - Running MixUCB-I - round: 765
+2024-10-03 13:27:15,677 - INFO - MixUCB-I: 210.37178387261767, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,677 - INFO - Running MixUCB-I - round: 766
+2024-10-03 13:27:15,700 - INFO - MixUCB-I: 210.54809654031158, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,700 - INFO - Running MixUCB-I - round: 767
+2024-10-03 13:27:15,723 - INFO - MixUCB-I: 210.8931904925419, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,723 - INFO - Running MixUCB-I - round: 768
+2024-10-03 13:27:15,746 - INFO - MixUCB-I: 211.10163186834913, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,746 - INFO - Running MixUCB-I - round: 769
+2024-10-03 13:27:15,771 - INFO - MixUCB-I: 211.2760358187073, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,771 - INFO - Running MixUCB-I - round: 770
+2024-10-03 13:27:15,795 - INFO - MixUCB-I: 211.70182207122394, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,795 - INFO - Running MixUCB-I - round: 771
+2024-10-03 13:27:15,818 - INFO - MixUCB-I: 212.09076597325853, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,819 - INFO - Running MixUCB-I - round: 772
+2024-10-03 13:27:15,842 - INFO - MixUCB-I: 212.28506560054464, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,842 - INFO - Running MixUCB-I - round: 773
+2024-10-03 13:27:15,865 - INFO - MixUCB-I: 212.73662087501384, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,866 - INFO - Running MixUCB-I - round: 774
+2024-10-03 13:27:15,890 - INFO - MixUCB-I: 213.14204889857362, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,890 - INFO - Running MixUCB-I - round: 775
+2024-10-03 13:27:15,914 - INFO - MixUCB-I: 213.443671962658, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,914 - INFO - Running MixUCB-I - round: 776
+2024-10-03 13:27:15,938 - INFO - MixUCB-I: 213.93991973993815, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,938 - INFO - Running MixUCB-I - round: 777
+2024-10-03 13:27:15,963 - INFO - MixUCB-I: 214.390537131027, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,963 - INFO - Running MixUCB-I - round: 778
+2024-10-03 13:27:15,987 - INFO - MixUCB-I: 214.82506784414448, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:15,987 - INFO - Running MixUCB-I - round: 779
+2024-10-03 13:27:16,011 - INFO - MixUCB-I: 215.05127409673165, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,011 - INFO - Running MixUCB-I - round: 780
+2024-10-03 13:27:16,035 - INFO - MixUCB-I: 215.63341757293705, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,035 - INFO - Running MixUCB-I - round: 781
+2024-10-03 13:27:16,058 - INFO - MixUCB-I: 215.91188479359352, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,058 - INFO - Running MixUCB-I - round: 782
+2024-10-03 13:27:16,082 - INFO - MixUCB-I: 216.52887419891726, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,082 - INFO - Running MixUCB-I - round: 783
+2024-10-03 13:27:16,106 - INFO - MixUCB-I: 216.9454466558768, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,106 - INFO - Running MixUCB-I - round: 784
+2024-10-03 13:27:16,131 - INFO - MixUCB-I: 217.3050845923286, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,131 - INFO - Running MixUCB-I - round: 785
+2024-10-03 13:27:16,155 - INFO - MixUCB-I: 217.77742382747076, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,155 - INFO - Running MixUCB-I - round: 786
+2024-10-03 13:27:16,178 - INFO - MixUCB-I: 217.92990316822315, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,179 - INFO - Running MixUCB-I - round: 787
+2024-10-03 13:27:16,202 - INFO - MixUCB-I: 218.26977195099226, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,202 - INFO - Running MixUCB-I - round: 788
+2024-10-03 13:27:16,227 - INFO - MixUCB-I: 218.60988498233755, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,227 - INFO - Running MixUCB-I - round: 789
+2024-10-03 13:27:16,251 - INFO - MixUCB-I: 218.68756770599677, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,251 - INFO - Running MixUCB-I - round: 790
+2024-10-03 13:27:16,275 - INFO - MixUCB-I: 218.90120874528307, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,275 - INFO - Running MixUCB-I - round: 791
+2024-10-03 13:27:16,298 - INFO - MixUCB-I: 219.2295895590982, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,299 - INFO - Running MixUCB-I - round: 792
+2024-10-03 13:27:16,322 - INFO - MixUCB-I: 219.4451949545436, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,322 - INFO - Running MixUCB-I - round: 793
+2024-10-03 13:27:16,345 - INFO - MixUCB-I: 219.60387472472135, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,346 - INFO - Running MixUCB-I - round: 794
+2024-10-03 13:27:16,369 - INFO - MixUCB-I: 219.91492524370312, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,369 - INFO - Running MixUCB-I - round: 795
+2024-10-03 13:27:16,393 - INFO - MixUCB-I: 220.2839118127222, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,393 - INFO - Running MixUCB-I - round: 796
+2024-10-03 13:27:16,416 - INFO - MixUCB-I: 220.44094168445508, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,417 - INFO - Running MixUCB-I - round: 797
+2024-10-03 13:27:16,440 - INFO - MixUCB-I: 220.6918477612912, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,440 - INFO - Running MixUCB-I - round: 798
+2024-10-03 13:27:16,464 - INFO - MixUCB-I: 221.18168707810827, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,464 - INFO - Running MixUCB-I - round: 799
+2024-10-03 13:27:16,489 - INFO - MixUCB-I: 221.36202613412098, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,489 - INFO - Running MixUCB-I - round: 800
+2024-10-03 13:27:16,513 - INFO - MixUCB-I: 221.52995452804103, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,513 - INFO - Running MixUCB-I - round: 801
+2024-10-03 13:27:16,537 - INFO - MixUCB-I: 221.73151871194932, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,537 - INFO - Running MixUCB-I - round: 802
+2024-10-03 13:27:16,561 - INFO - MixUCB-I: 221.81324729295818, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,561 - INFO - Running MixUCB-I - round: 803
+2024-10-03 13:27:16,584 - INFO - MixUCB-I: 221.92328239136137, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,585 - INFO - Running MixUCB-I - round: 804
+2024-10-03 13:27:16,610 - INFO - MixUCB-I: 222.0208752071214, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,610 - INFO - Running MixUCB-I - round: 805
+2024-10-03 13:27:16,633 - INFO - MixUCB-I: 222.23360107078176, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,633 - INFO - Running MixUCB-I - round: 806
+2024-10-03 13:27:16,657 - INFO - MixUCB-I: 222.4801233599264, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,657 - INFO - Running MixUCB-I - round: 807
+2024-10-03 13:27:16,682 - INFO - MixUCB-I: 223.1209090523078, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,682 - INFO - Running MixUCB-I - round: 808
+2024-10-03 13:27:16,705 - INFO - MixUCB-I: 223.77475306566976, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,705 - INFO - Running MixUCB-I - round: 809
+2024-10-03 13:27:16,729 - INFO - MixUCB-I: 223.91926594274662, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,729 - INFO - Running MixUCB-I - round: 810
+2024-10-03 13:27:16,753 - INFO - MixUCB-I: 223.98127126275696, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,753 - INFO - Running MixUCB-I - round: 811
+2024-10-03 13:27:16,776 - INFO - MixUCB-I: 224.30607237827215, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,776 - INFO - Running MixUCB-I - round: 812
+2024-10-03 13:27:16,799 - INFO - MixUCB-I: 224.29135230820336, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,800 - INFO - Running MixUCB-I - round: 813
+2024-10-03 13:27:16,823 - INFO - MixUCB-I: 224.51138756332426, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,823 - INFO - Running MixUCB-I - round: 814
+2024-10-03 13:27:16,848 - INFO - MixUCB-I: 224.86467403356792, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,848 - INFO - Running MixUCB-I - round: 815
+2024-10-03 13:27:16,872 - INFO - MixUCB-I: 225.1136648809505, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,872 - INFO - Running MixUCB-I - round: 816
+2024-10-03 13:27:16,896 - INFO - MixUCB-I: 225.68530206667378, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,896 - INFO - Running MixUCB-I - round: 817
+2024-10-03 13:27:16,920 - INFO - MixUCB-I: 226.13283267619056, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,920 - INFO - Running MixUCB-I - round: 818
+2024-10-03 13:27:16,943 - INFO - MixUCB-I: 226.36623517240298, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,943 - INFO - Running MixUCB-I - round: 819
+2024-10-03 13:27:16,967 - INFO - MixUCB-I: 226.54792393980634, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,968 - INFO - Running MixUCB-I - round: 820
+2024-10-03 13:27:16,991 - INFO - MixUCB-I: 226.837305839108, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:16,991 - INFO - Running MixUCB-I - round: 821
+2024-10-03 13:27:17,016 - INFO - MixUCB-I: 227.04189514836636, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,016 - INFO - Running MixUCB-I - round: 822
+2024-10-03 13:27:17,040 - INFO - MixUCB-I: 227.1996772307263, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,040 - INFO - Running MixUCB-I - round: 823
+2024-10-03 13:27:17,063 - INFO - MixUCB-I: 227.5332172674359, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,063 - INFO - Running MixUCB-I - round: 824
+2024-10-03 13:27:17,087 - INFO - MixUCB-I: 227.89539234935629, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,087 - INFO - Running MixUCB-I - round: 825
+2024-10-03 13:27:17,111 - INFO - MixUCB-I: 228.0328894479209, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,111 - INFO - Running MixUCB-I - round: 826
+2024-10-03 13:27:17,134 - INFO - MixUCB-I: 228.26989260761127, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,134 - INFO - Running MixUCB-I - round: 827
+2024-10-03 13:27:17,158 - INFO - MixUCB-I: 228.90505578684883, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,158 - INFO - Running MixUCB-I - round: 828
+2024-10-03 13:27:17,181 - INFO - MixUCB-I: 229.15166813409832, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,181 - INFO - Running MixUCB-I - round: 829
+2024-10-03 13:27:17,205 - INFO - MixUCB-I: 229.18781670139785, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,205 - INFO - Running MixUCB-I - round: 830
+2024-10-03 13:27:17,229 - INFO - MixUCB-I: 229.36452143084423, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,229 - INFO - Running MixUCB-I - round: 831
+2024-10-03 13:27:17,253 - INFO - MixUCB-I: 229.960472985159, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,253 - INFO - Running MixUCB-I - round: 832
+2024-10-03 13:27:17,276 - INFO - MixUCB-I: 230.36744272633726, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,276 - INFO - Running MixUCB-I - round: 833
+2024-10-03 13:27:17,300 - INFO - MixUCB-I: 230.6601502933645, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,300 - INFO - Running MixUCB-I - round: 834
+2024-10-03 13:27:17,323 - INFO - MixUCB-I: 230.7605315175907, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,324 - INFO - Running MixUCB-I - round: 835
+2024-10-03 13:27:17,348 - INFO - MixUCB-I: 230.89649267208534, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,348 - INFO - Running MixUCB-I - round: 836
+2024-10-03 13:27:17,371 - INFO - MixUCB-I: 231.49991545671227, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,371 - INFO - Running MixUCB-I - round: 837
+2024-10-03 13:27:17,395 - INFO - MixUCB-I: 231.8125133880223, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,395 - INFO - Running MixUCB-I - round: 838
+2024-10-03 13:27:17,418 - INFO - MixUCB-I: 231.93877749382156, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,418 - INFO - Running MixUCB-I - round: 839
+2024-10-03 13:27:17,442 - INFO - MixUCB-I: 232.04204563618052, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,442 - INFO - Running MixUCB-I - round: 840
+2024-10-03 13:27:17,464 - INFO - MixUCB-I: 232.33642937438145, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,464 - INFO - Running MixUCB-I - round: 841
+2024-10-03 13:27:17,489 - INFO - MixUCB-I: 232.77558427144172, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,490 - INFO - Running MixUCB-I - round: 842
+2024-10-03 13:27:17,514 - INFO - MixUCB-I: 232.97509785476404, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,514 - INFO - Running MixUCB-I - round: 843
+2024-10-03 13:27:17,537 - INFO - MixUCB-I: 233.41995918090166, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,538 - INFO - Running MixUCB-I - round: 844
+2024-10-03 13:27:17,565 - INFO - MixUCB-I: 233.5609264616026, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,565 - INFO - Running MixUCB-I - round: 845
+2024-10-03 13:27:17,590 - INFO - MixUCB-I: 233.75075637836426, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,590 - INFO - Running MixUCB-I - round: 846
+2024-10-03 13:27:17,613 - INFO - MixUCB-I: 233.84651262741627, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,613 - INFO - Running MixUCB-I - round: 847
+2024-10-03 13:27:17,638 - INFO - MixUCB-I: 234.2244927393887, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,638 - INFO - Running MixUCB-I - round: 848
+2024-10-03 13:27:17,677 - INFO - MixUCB-I: 234.61186117216025, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,678 - INFO - Running MixUCB-I - round: 849
+2024-10-03 13:27:17,712 - INFO - MixUCB-I: 234.93368244693556, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,713 - INFO - Running MixUCB-I - round: 850
+2024-10-03 13:27:17,737 - INFO - MixUCB-I: 235.21515449940495, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,737 - INFO - Running MixUCB-I - round: 851
+2024-10-03 13:27:17,761 - INFO - MixUCB-I: 235.80038937071333, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,761 - INFO - Running MixUCB-I - round: 852
+2024-10-03 13:27:17,785 - INFO - MixUCB-I: 235.95237936263038, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,785 - INFO - Running MixUCB-I - round: 853
+2024-10-03 13:27:17,809 - INFO - MixUCB-I: 236.26100641254965, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,809 - INFO - Running MixUCB-I - round: 854
+2024-10-03 13:27:17,833 - INFO - MixUCB-I: 236.68749120847343, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,833 - INFO - Running MixUCB-I - round: 855
+2024-10-03 13:27:17,858 - INFO - MixUCB-I: 236.94032814855083, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,858 - INFO - Running MixUCB-I - round: 856
+2024-10-03 13:27:17,881 - INFO - MixUCB-I: 237.00773012891176, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,882 - INFO - Running MixUCB-I - round: 857
+2024-10-03 13:27:17,927 - INFO - MixUCB-I: 237.42345060725745, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,927 - INFO - Running MixUCB-I - round: 858
+2024-10-03 13:27:17,954 - INFO - MixUCB-I: 237.82045303778122, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,954 - INFO - Running MixUCB-I - round: 859
+2024-10-03 13:27:17,980 - INFO - MixUCB-I: 238.22904353453302, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:17,980 - INFO - Running MixUCB-I - round: 860
+2024-10-03 13:27:18,005 - INFO - MixUCB-I: 238.6136056165613, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,005 - INFO - Running MixUCB-I - round: 861
+2024-10-03 13:27:18,034 - INFO - MixUCB-I: 238.82446925806053, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,035 - INFO - Running MixUCB-I - round: 862
+2024-10-03 13:27:18,070 - INFO - MixUCB-I: 238.95518340074014, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,070 - INFO - Running MixUCB-I - round: 863
+2024-10-03 13:27:18,094 - INFO - MixUCB-I: 239.1833541351283, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,094 - INFO - Running MixUCB-I - round: 864
+2024-10-03 13:27:18,119 - INFO - MixUCB-I: 239.6725359642663, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,119 - INFO - Running MixUCB-I - round: 865
+2024-10-03 13:27:18,143 - INFO - MixUCB-I: 240.02381892004252, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,144 - INFO - Running MixUCB-I - round: 866
+2024-10-03 13:27:18,167 - INFO - MixUCB-I: 240.19294519782326, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,167 - INFO - Running MixUCB-I - round: 867
+2024-10-03 13:27:18,191 - INFO - MixUCB-I: 240.56688650886062, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,192 - INFO - Running MixUCB-I - round: 868
+2024-10-03 13:27:18,215 - INFO - MixUCB-I: 240.6337143568169, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,215 - INFO - Running MixUCB-I - round: 869
+2024-10-03 13:27:18,238 - INFO - MixUCB-I: 240.8292286983606, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,239 - INFO - Running MixUCB-I - round: 870
+2024-10-03 13:27:18,262 - INFO - MixUCB-I: 240.88598618686274, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,262 - INFO - Running MixUCB-I - round: 871
+2024-10-03 13:27:18,286 - INFO - MixUCB-I: 241.04639348568082, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,286 - INFO - Running MixUCB-I - round: 872
+2024-10-03 13:27:18,310 - INFO - MixUCB-I: 241.1414845705827, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,310 - INFO - Running MixUCB-I - round: 873
+2024-10-03 13:27:18,333 - INFO - MixUCB-I: 241.45906271206454, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,333 - INFO - Running MixUCB-I - round: 874
+2024-10-03 13:27:18,357 - INFO - MixUCB-I: 241.55321730937953, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,357 - INFO - Running MixUCB-I - round: 875
+2024-10-03 13:27:18,381 - INFO - MixUCB-I: 241.94594746947223, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,381 - INFO - Running MixUCB-I - round: 876
+2024-10-03 13:27:18,404 - INFO - MixUCB-I: 241.9560588528316, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,404 - INFO - Running MixUCB-I - round: 877
+2024-10-03 13:27:18,428 - INFO - MixUCB-I: 242.37056844101213, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,428 - INFO - Running MixUCB-I - round: 878
+2024-10-03 13:27:18,452 - INFO - MixUCB-I: 242.52278192018724, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,452 - INFO - Running MixUCB-I - round: 879
+2024-10-03 13:27:18,476 - INFO - MixUCB-I: 242.84036756108716, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,476 - INFO - Running MixUCB-I - round: 880
+2024-10-03 13:27:18,500 - INFO - MixUCB-I: 243.30895219411366, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,500 - INFO - Running MixUCB-I - round: 881
+2024-10-03 13:27:18,524 - INFO - MixUCB-I: 243.96786150097174, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,525 - INFO - Running MixUCB-I - round: 882
+2024-10-03 13:27:18,548 - INFO - MixUCB-I: 244.2156947924826, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,548 - INFO - Running MixUCB-I - round: 883
+2024-10-03 13:27:18,572 - INFO - MixUCB-I: 244.40645297516696, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,572 - INFO - Running MixUCB-I - round: 884
+2024-10-03 13:27:18,596 - INFO - MixUCB-I: 244.70022307410963, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,596 - INFO - Running MixUCB-I - round: 885
+2024-10-03 13:27:18,619 - INFO - MixUCB-I: 244.95801178926592, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,619 - INFO - Running MixUCB-I - round: 886
+2024-10-03 13:27:18,643 - INFO - MixUCB-I: 245.510165710544, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,643 - INFO - Running MixUCB-I - round: 887
+2024-10-03 13:27:18,667 - INFO - MixUCB-I: 245.67857133699695, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,667 - INFO - Running MixUCB-I - round: 888
+2024-10-03 13:27:18,690 - INFO - MixUCB-I: 246.26756952419703, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,690 - INFO - Running MixUCB-I - round: 889
+2024-10-03 13:27:18,714 - INFO - MixUCB-I: 246.4145223373509, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,714 - INFO - Running MixUCB-I - round: 890
+2024-10-03 13:27:18,738 - INFO - MixUCB-I: 246.64504054576005, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,738 - INFO - Running MixUCB-I - round: 891
+2024-10-03 13:27:18,763 - INFO - MixUCB-I: 246.74794929148104, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,763 - INFO - Running MixUCB-I - round: 892
+2024-10-03 13:27:18,787 - INFO - MixUCB-I: 246.9620084312435, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,787 - INFO - Running MixUCB-I - round: 893
+2024-10-03 13:27:18,810 - INFO - MixUCB-I: 247.00005825002341, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,811 - INFO - Running MixUCB-I - round: 894
+2024-10-03 13:27:18,834 - INFO - MixUCB-I: 247.25441383050799, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,834 - INFO - Running MixUCB-I - round: 895
+2024-10-03 13:27:18,858 - INFO - MixUCB-I: 247.75100213450696, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,858 - INFO - Running MixUCB-I - round: 896
+2024-10-03 13:27:18,882 - INFO - MixUCB-I: 247.91014468666174, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,882 - INFO - Running MixUCB-I - round: 897
+2024-10-03 13:27:18,906 - INFO - MixUCB-I: 248.158653960085, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,906 - INFO - Running MixUCB-I - round: 898
+2024-10-03 13:27:18,930 - INFO - MixUCB-I: 248.29105576778105, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,930 - INFO - Running MixUCB-I - round: 899
+2024-10-03 13:27:18,953 - INFO - MixUCB-I: 248.60437650728448, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,953 - INFO - Running MixUCB-I - round: 900
+2024-10-03 13:27:18,977 - INFO - MixUCB-I: 248.84968061420105, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:18,977 - INFO - Running MixUCB-I - round: 901
+2024-10-03 13:27:19,004 - INFO - MixUCB-I: 249.38650407937178, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,005 - INFO - Running MixUCB-I - round: 902
+2024-10-03 13:27:19,047 - INFO - MixUCB-I: 249.64404133135022, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,047 - INFO - Running MixUCB-I - round: 903
+2024-10-03 13:27:19,073 - INFO - MixUCB-I: 250.20655963822574, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,075 - INFO - Running MixUCB-I - round: 904
+2024-10-03 13:27:19,110 - INFO - MixUCB-I: 250.28569099431752, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,111 - INFO - Running MixUCB-I - round: 905
+2024-10-03 13:27:19,138 - INFO - MixUCB-I: 250.61486283921386, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,139 - INFO - Running MixUCB-I - round: 906
+2024-10-03 13:27:19,164 - INFO - MixUCB-I: 251.00632200856376, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,165 - INFO - Running MixUCB-I - round: 907
+2024-10-03 13:27:19,188 - INFO - MixUCB-I: 251.23156774325986, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,189 - INFO - Running MixUCB-I - round: 908
+2024-10-03 13:27:19,212 - INFO - MixUCB-I: 251.54156969032195, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,213 - INFO - Running MixUCB-I - round: 909
+2024-10-03 13:27:19,248 - INFO - MixUCB-I: 252.02305247647652, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,248 - INFO - Running MixUCB-I - round: 910
+2024-10-03 13:27:19,273 - INFO - MixUCB-I: 252.36483547547158, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,273 - INFO - Running MixUCB-I - round: 911
+2024-10-03 13:27:19,298 - INFO - MixUCB-I: 252.61371503349122, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,298 - INFO - Running MixUCB-I - round: 912
+2024-10-03 13:27:19,322 - INFO - MixUCB-I: 253.08491067993452, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,322 - INFO - Running MixUCB-I - round: 913
+2024-10-03 13:27:19,346 - INFO - MixUCB-I: 253.1938670467533, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,346 - INFO - Running MixUCB-I - round: 914
+2024-10-03 13:27:19,391 - INFO - MixUCB-I: 253.63949975789419, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,392 - INFO - Running MixUCB-I - round: 915
+2024-10-03 13:27:19,431 - INFO - MixUCB-I: 253.90019674352132, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,431 - INFO - Running MixUCB-I - round: 916
+2024-10-03 13:27:19,456 - INFO - MixUCB-I: 254.45986685650493, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,456 - INFO - Running MixUCB-I - round: 917
+2024-10-03 13:27:19,482 - INFO - MixUCB-I: 254.79759733655874, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,482 - INFO - Running MixUCB-I - round: 918
+2024-10-03 13:27:19,506 - INFO - MixUCB-I: 255.0132602322202, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,507 - INFO - Running MixUCB-I - round: 919
+2024-10-03 13:27:19,531 - INFO - MixUCB-I: 255.16414941346588, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,531 - INFO - Running MixUCB-I - round: 920
+2024-10-03 13:27:19,555 - INFO - MixUCB-I: 255.4521603465231, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,555 - INFO - Running MixUCB-I - round: 921
+2024-10-03 13:27:19,602 - INFO - MixUCB-I: 255.528551211876, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,602 - INFO - Running MixUCB-I - round: 922
+2024-10-03 13:27:19,629 - INFO - MixUCB-I: 255.6755467251739, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,629 - INFO - Running MixUCB-I - round: 923
+2024-10-03 13:27:19,653 - INFO - MixUCB-I: 255.87328306139176, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,653 - INFO - Running MixUCB-I - round: 924
+2024-10-03 13:27:19,679 - INFO - MixUCB-I: 256.0789455918854, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,679 - INFO - Running MixUCB-I - round: 925
+2024-10-03 13:27:19,703 - INFO - MixUCB-I: 256.5355651261579, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,703 - INFO - Running MixUCB-I - round: 926
+2024-10-03 13:27:19,727 - INFO - MixUCB-I: 256.753572008297, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,727 - INFO - Running MixUCB-I - round: 927
+2024-10-03 13:27:19,763 - INFO - MixUCB-I: 257.3223573167746, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,764 - INFO - Running MixUCB-I - round: 928
+2024-10-03 13:27:19,791 - INFO - MixUCB-I: 257.4592858483708, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,792 - INFO - Running MixUCB-I - round: 929
+2024-10-03 13:27:19,817 - INFO - MixUCB-I: 257.66014945796127, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,817 - INFO - Running MixUCB-I - round: 930
+2024-10-03 13:27:19,841 - INFO - MixUCB-I: 257.9056276831449, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,841 - INFO - Running MixUCB-I - round: 931
+2024-10-03 13:27:19,865 - INFO - MixUCB-I: 258.23859293874233, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,865 - INFO - Running MixUCB-I - round: 932
+2024-10-03 13:27:19,890 - INFO - MixUCB-I: 258.429619644672, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,890 - INFO - Running MixUCB-I - round: 933
+2024-10-03 13:27:19,914 - INFO - MixUCB-I: 258.6078351253336, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,914 - INFO - Running MixUCB-I - round: 934
+2024-10-03 13:27:19,938 - INFO - MixUCB-I: 258.7893887900209, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,938 - INFO - Running MixUCB-I - round: 935
+2024-10-03 13:27:19,961 - INFO - MixUCB-I: 258.99713679060824, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,961 - INFO - Running MixUCB-I - round: 936
+2024-10-03 13:27:19,986 - INFO - MixUCB-I: 259.44960656291863, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:19,986 - INFO - Running MixUCB-I - round: 937
+2024-10-03 13:27:20,010 - INFO - MixUCB-I: 259.97634652245864, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,010 - INFO - Running MixUCB-I - round: 938
+2024-10-03 13:27:20,033 - INFO - MixUCB-I: 260.35039112286654, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,033 - INFO - Running MixUCB-I - round: 939
+2024-10-03 13:27:20,057 - INFO - MixUCB-I: 260.65272810012686, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,057 - INFO - Running MixUCB-I - round: 940
+2024-10-03 13:27:20,080 - INFO - MixUCB-I: 261.27463423542036, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,081 - INFO - Running MixUCB-I - round: 941
+2024-10-03 13:27:20,105 - INFO - MixUCB-I: 261.31137532781855, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,105 - INFO - Running MixUCB-I - round: 942
+2024-10-03 13:27:20,136 - INFO - MixUCB-I: 261.5858298425931, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,136 - INFO - Running MixUCB-I - round: 943
+2024-10-03 13:27:20,161 - INFO - MixUCB-I: 261.91148193203423, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,161 - INFO - Running MixUCB-I - round: 944
+2024-10-03 13:27:20,187 - INFO - MixUCB-I: 262.41951802809626, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,189 - INFO - Running MixUCB-I - round: 945
+2024-10-03 13:27:20,213 - INFO - MixUCB-I: 262.6124870639619, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,214 - INFO - Running MixUCB-I - round: 946
+2024-10-03 13:27:20,238 - INFO - MixUCB-I: 263.09414058824683, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,238 - INFO - Running MixUCB-I - round: 947
+2024-10-03 13:27:20,262 - INFO - MixUCB-I: 263.39229194455305, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,262 - INFO - Running MixUCB-I - round: 948
+2024-10-03 13:27:20,286 - INFO - MixUCB-I: 263.45555730643025, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,286 - INFO - Running MixUCB-I - round: 949
+2024-10-03 13:27:20,309 - INFO - MixUCB-I: 263.5813599207214, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,309 - INFO - Running MixUCB-I - round: 950
+2024-10-03 13:27:20,333 - INFO - MixUCB-I: 263.7328387079186, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,333 - INFO - Running MixUCB-I - round: 951
+2024-10-03 13:27:20,356 - INFO - MixUCB-I: 263.9645704841916, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,356 - INFO - Running MixUCB-I - round: 952
+2024-10-03 13:27:20,379 - INFO - MixUCB-I: 264.22679769537, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,380 - INFO - Running MixUCB-I - round: 953
+2024-10-03 13:27:20,403 - INFO - MixUCB-I: 264.3800987765068, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,403 - INFO - Running MixUCB-I - round: 954
+2024-10-03 13:27:20,426 - INFO - MixUCB-I: 264.6549237071091, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,426 - INFO - Running MixUCB-I - round: 955
+2024-10-03 13:27:20,450 - INFO - MixUCB-I: 264.9914751133441, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,451 - INFO - Running MixUCB-I - round: 956
+2024-10-03 13:27:20,476 - INFO - MixUCB-I: 265.0975473812664, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,476 - INFO - Running MixUCB-I - round: 957
+2024-10-03 13:27:20,500 - INFO - MixUCB-I: 265.64923484610347, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,500 - INFO - Running MixUCB-I - round: 958
+2024-10-03 13:27:20,523 - INFO - MixUCB-I: 266.024294462623, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,523 - INFO - Running MixUCB-I - round: 959
+2024-10-03 13:27:20,547 - INFO - MixUCB-I: 266.10124481402124, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,547 - INFO - Running MixUCB-I - round: 960
+2024-10-03 13:27:20,570 - INFO - MixUCB-I: 266.4068336675744, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,571 - INFO - Running MixUCB-I - round: 961
+2024-10-03 13:27:20,594 - INFO - MixUCB-I: 266.8108906850004, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,594 - INFO - Running MixUCB-I - round: 962
+2024-10-03 13:27:20,618 - INFO - MixUCB-I: 267.25618161524784, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,618 - INFO - Running MixUCB-I - round: 963
+2024-10-03 13:27:20,641 - INFO - MixUCB-I: 267.3981451713748, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,642 - INFO - Running MixUCB-I - round: 964
+2024-10-03 13:27:20,665 - INFO - MixUCB-I: 267.8092729147387, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,666 - INFO - Running MixUCB-I - round: 965
+2024-10-03 13:27:20,690 - INFO - MixUCB-I: 268.0293269660292, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,690 - INFO - Running MixUCB-I - round: 966
+2024-10-03 13:27:20,713 - INFO - MixUCB-I: 268.4294343142768, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,713 - INFO - Running MixUCB-I - round: 967
+2024-10-03 13:27:20,736 - INFO - MixUCB-I: 268.77370988046187, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,737 - INFO - Running MixUCB-I - round: 968
+2024-10-03 13:27:20,761 - INFO - MixUCB-I: 268.88692562092893, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,761 - INFO - Running MixUCB-I - round: 969
+2024-10-03 13:27:20,785 - INFO - MixUCB-I: 268.8851861106324, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,785 - INFO - Running MixUCB-I - round: 970
+2024-10-03 13:27:20,808 - INFO - MixUCB-I: 269.3599989382903, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,809 - INFO - Running MixUCB-I - round: 971
+2024-10-03 13:27:20,833 - INFO - MixUCB-I: 269.4103480503817, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,833 - INFO - Running MixUCB-I - round: 972
+2024-10-03 13:27:20,856 - INFO - MixUCB-I: 269.65776884597, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,857 - INFO - Running MixUCB-I - round: 973
+2024-10-03 13:27:20,880 - INFO - MixUCB-I: 270.12260977142523, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,880 - INFO - Running MixUCB-I - round: 974
+2024-10-03 13:27:20,904 - INFO - MixUCB-I: 270.4479815254903, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,904 - INFO - Running MixUCB-I - round: 975
+2024-10-03 13:27:20,928 - INFO - MixUCB-I: 270.9469601214495, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,928 - INFO - Running MixUCB-I - round: 976
+2024-10-03 13:27:20,952 - INFO - MixUCB-I: 271.0009766302587, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,952 - INFO - Running MixUCB-I - round: 977
+2024-10-03 13:27:20,976 - INFO - MixUCB-I: 271.1845597532455, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:20,976 - INFO - Running MixUCB-I - round: 978
+2024-10-03 13:27:21,000 - INFO - MixUCB-I: 271.4119721940333, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,000 - INFO - Running MixUCB-I - round: 979
+2024-10-03 13:27:21,023 - INFO - MixUCB-I: 271.8015213002451, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,023 - INFO - Running MixUCB-I - round: 980
+2024-10-03 13:27:21,046 - INFO - MixUCB-I: 272.2910765586656, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,047 - INFO - Running MixUCB-I - round: 981
+2024-10-03 13:27:21,071 - INFO - MixUCB-I: 272.67139073750553, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,071 - INFO - Running MixUCB-I - round: 982
+2024-10-03 13:27:21,095 - INFO - MixUCB-I: 272.9108734300695, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,095 - INFO - Running MixUCB-I - round: 983
+2024-10-03 13:27:21,119 - INFO - MixUCB-I: 273.24709082522486, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,119 - INFO - Running MixUCB-I - round: 984
+2024-10-03 13:27:21,144 - INFO - MixUCB-I: 273.68260639522856, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,144 - INFO - Running MixUCB-I - round: 985
+2024-10-03 13:27:21,169 - INFO - MixUCB-I: 274.10946437168474, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,169 - INFO - Running MixUCB-I - round: 986
+2024-10-03 13:27:21,193 - INFO - MixUCB-I: 274.1542046211506, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,193 - INFO - Running MixUCB-I - round: 987
+2024-10-03 13:27:21,218 - INFO - MixUCB-I: 274.300203917811, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,218 - INFO - Running MixUCB-I - round: 988
+2024-10-03 13:27:21,242 - INFO - MixUCB-I: 274.47332285783466, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,242 - INFO - Running MixUCB-I - round: 989
+2024-10-03 13:27:21,267 - INFO - MixUCB-I: 274.8254062506466, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,267 - INFO - Running MixUCB-I - round: 990
+2024-10-03 13:27:21,292 - INFO - MixUCB-I: 274.95716112114513, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,293 - INFO - Running MixUCB-I - round: 991
+2024-10-03 13:27:21,317 - INFO - MixUCB-I: 275.3452495021474, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,317 - INFO - Running MixUCB-I - round: 992
+2024-10-03 13:27:21,341 - INFO - MixUCB-I: 275.7281292684127, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,341 - INFO - Running MixUCB-I - round: 993
+2024-10-03 13:27:21,366 - INFO - MixUCB-I: 275.883696925251, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,366 - INFO - Running MixUCB-I - round: 994
+2024-10-03 13:27:21,391 - INFO - MixUCB-I: 276.24385494991725, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,391 - INFO - Running MixUCB-I - round: 995
+2024-10-03 13:27:21,414 - INFO - MixUCB-I: 276.4474162668469, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,415 - INFO - Running MixUCB-I - round: 996
+2024-10-03 13:27:21,437 - INFO - MixUCB-I: 276.84177088107447, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,438 - INFO - Running MixUCB-I - round: 997
+2024-10-03 13:27:21,461 - INFO - MixUCB-I: 277.1622572640155, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,461 - INFO - Running MixUCB-I - round: 998
+2024-10-03 13:27:21,486 - INFO - MixUCB-I: 277.4360673537341, TotalQ_mixucbI: 327, q_mixucbI: 0.0
+2024-10-03 13:27:21,486 - INFO - Running MixUCB-I - round: 999
+2024-10-03 13:27:21,510 - INFO - MixUCB-I: 277.5781178374135, TotalQ_mixucbI: 327, q_mixucbI: 0.0
