@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 from scipy.linalg import inv, sqrtm
 import cvxpy as cp
 from tqdm import tqdm
-import torch
+# import torch
 import sys
 import time
 import multiprocess as mp
 import warnings
 
 warnings.filterwarnings(action='ignore', message="You are solving a parameterized problem that is not DPP")
+
 class CBOptimizationDPP():
     # to ensure DPP, replace quad_form with the following:
     # (theta - thetah)^T A (theta - thetah) = |A_sqrt theta|^2 - 2*theta^T (A @ thetah) + (thetah^T A thetah)
@@ -74,7 +75,6 @@ class CBOptimizationDPP():
         
         # TODO: add error checking/catching
         prob.solve(solver='MOSEK')
-        print('prob.value:', prob.value)
         return prob.value
 
     def solve_allactions(self, context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, 
@@ -115,7 +115,7 @@ def solve_convex_optimization_ucb(obj_a, x_t, online_lr_oracle, online_sq_oracle
     prob = cp.Problem(objective, constraints)
     prob.solve(solver='MOSEK')
     # print("Value of sum_quad_form:", sum_quad_form.value)
-    sys.stdout.flush()
+    # sys.stdout.flush()
     return prob.value
 def solve_convex_optimization_lcb(obj_a, x_t, online_lr_oracle, online_sq_oracle, n_actions):
     x_t = x_t.flatten()
@@ -210,55 +210,52 @@ def run_simulation_mixucbII(T, delta, generator, online_lr_oracle, online_sq_ora
     q = np.zeros(T)
     total_num_queries = 0
 
-    # opt_prob = CBOptimization(generator.n_actions, generator.n_features, online_sq_oracle.alpha**2, online_lr_oracle.beta)
-    #opt_probDPP = CBOptimizationDPP(generator.n_actions, generator.n_features, online_sq_oracle.alpha**2, online_lr_oracle.beta)
-    
+    ### FOR DPP
+    opt_probDPP = CBOptimizationDPP(generator.n_actions, generator.n_features, online_sq_oracle.alpha**2, online_lr_oracle.beta)
+    ### END
+
     for i in tqdm(range(T)):
         print('current round:', i)
         context, true_rewards, expert_action = generator.generate_context_rewards_and_expert_action()
         n_actions = len(true_rewards)
         actions_ucb = np.zeros(n_actions)
+        actions_ucb1 = np.zeros(n_actions)
+
+        ### TO BE REPLACED
+        currt = time.time()
         for obj_a in range(n_actions):
-            actions_ucb[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
+            actions_ucb1[obj_a] = solve_convex_optimization_ucb(obj_a, context, online_lr_oracle, online_sq_oracle, n_actions)
             
+        action_hat1 = np.argmax(actions_ucb1)
+        action_hat_lcb1 = solve_convex_optimization_lcb(action_hat1, context, online_lr_oracle, online_sq_oracle, n_actions)
+        time1 = time.time()-currt
+        ### END
+
+
+        ### FOR DPP
+        As = [online_sq_oracle.A[a] for a in range(n_actions)]
+        theta_sq = online_sq_oracle.get_theta()
+        theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
+        # TODO: possible speedup by maintaining sqrt(A) and updating recursively within lr_oracle
+        As_sqrt = [sqrtm(A) for A in As]
+        X_sum_sqrt = sqrtm(X_sum)
+
+        currt = time.time()
+        actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
+                                                   As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
         action_hat = np.argmax(actions_ucb)
-        action_hat_lcb = solve_convex_optimization_lcb(action_hat, context, online_lr_oracle, online_sq_oracle, n_actions)
-        # print('actions_ucb:(Jinyan)', actions_ucb)
-        # print('action_hat_lcb:(Jinyan)', action_hat_lcb)
-
-        # As = [online_sq_oracle.A[a] for a in range(n_actions)]
-        # theta_sq = online_sq_oracle.get_theta()
-        # theta_lr, X_sum = online_lr_oracle.get_optimization_parameters()
-        # currt = time.time()
-        # As_sqrt = [sqrtm(A) for A in As]
-        # X_sum_sqrt = sqrtm(X_sum)
-        # print('sqrt', time.time()-currt)
-
-        # # Not DPP
-        # currt = time.time()
-        # actions_ucb = opt_prob.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum)
-        # print(time.time()-currt, (time.time()-currt)/n_actions)
-        # action_hat = np.argmax(actions_ucb)
         
-        # currt=time.time()
-        # action_hat_lcb = opt_prob.solve(context.flatten(), np.array(theta_sq), theta_lr, As, X_sum, action_hat, ucb=False)
-        # print(time.time() - currt)
-        # width_Ahat = actions_ucb[action_hat] - action_hat_lcb
-        # print('width_Ahat:', width_Ahat)
+        action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
+        time2 = time.time() - currt
+        ### ADDITION
 
-        # DPP
-        # currt = time.time()
-        # actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
-        #                                            As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
-        # print('DPP', time.time()-currt, (time.time()-currt)/n_actions)
-        # action_hat = np.argmax(actions_ucb)
         
-        # currt=time.time()
-        # action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
-        # print(time.time() - currt)
+        print('actions_ucb/lcb:(Jinyan)', actions_ucb1, action_hat1, action_hat_lcb1, time1)
+
+        print('actions_ucb/lcb:(Sarah)', np.array(actions_ucb), action_hat, action_hat_lcb, time2)
+                
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
-        # print('actions_ucb:(Sarah)', actions_ucb)
-        # print('action_hat_lcb:(Sarah)', action_hat_lcb)
+
         if width_Ahat > delta:
             total_num_queries += 1
             

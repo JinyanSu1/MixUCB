@@ -1,7 +1,17 @@
 # All the baselines
 
 
-Step 1. Generate the and store the data for T rounds using ```generate_all_data.py``` 
+Generate the and store the data for T rounds using ```generate_all_data.py``` 
 
+
+
+# Baselines
+```bash
+python run_linucb.py
+python run_noisy_expert.py
+python run_perfect_expert.py
+python run_mixucbI.py
+
+```
 
 

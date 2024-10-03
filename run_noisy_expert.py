@@ -8,8 +8,6 @@ import torch
 logging.basicConfig(filename='simulation_NoisyExpert.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-
-
 def run_NoisyExpert(data, T, temperature):
     CR_NoisyExpert = []
     r_NoisyExpert = 0
@@ -42,10 +40,15 @@ def run_NoisyExpert(data, T, temperature):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run NoisyExpert Baseline with pre-generated data from a pickle file')
     parser.add_argument('--T', type=int, default=1000, help='Number of rounds to run')
-    parser.add_argument('--temperature', type=float, default=70, help='Temperature for softmax expert action sampling')
+    parser.add_argument('--temperature', type=float, default=50, help='Temperature for softmax expert action sampling')
+    parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('--pickle_file', type=str, default = 'simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
     
     args = parser.parse_args()
+
+    # Set random seed for reproducibility
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
 
     # Load pre-generated data from the pickle file
     with open(args.pickle_file, 'rb') as f:

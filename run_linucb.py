@@ -41,8 +41,6 @@ if __name__ == "__main__":
     parser.add_argument('--T', type=int, default=1000)
     parser.add_argument('--lambda_', type=float, default=0.001)
     parser.add_argument('--alpha', type=float, default=1)
-    parser.add_argument('--n_actions', type=int, default=30)
-    parser.add_argument('--n_features', type=int, default=2)
     parser.add_argument('--pickle_file', type=str, default = 'simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
     
     args = parser.parse_args()
@@ -54,8 +52,8 @@ if __name__ == "__main__":
     # Extract the number of rounds (T) from the data
     T = args.T if args.T <= len(data["rounds"]) else len(data["rounds"])
     
-    n_actions = args.n_actions
-    n_features = args.n_features
+    n_actions = len(data["rounds"][0]["true_rewards"])  # Number of actions
+    n_features = data["rounds"][0]["context"].shape[1]
     alpha = args.alpha
 
     # Initialize LinUCB
