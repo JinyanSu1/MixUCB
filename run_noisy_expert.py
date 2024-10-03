@@ -4,6 +4,8 @@ import argparse
 from tqdm import tqdm
 import logging
 import torch
+import os
+import time
 
 logging.basicConfig(filename='simulation_NoisyExpert.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -61,3 +63,14 @@ if __name__ == "__main__":
     CR_NoisyExpert = run_NoisyExpert(data, T, args.temperature)
 
     print(f"Finished running NoisyExpert for {T} rounds.")
+
+    results = 'noisy_expert_results'
+    os.makedirs(results, exist_ok=True)
+    pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+    dict_to_save = {
+        'CR_NoisyExpert': CR_NoisyExpert,
+        'T': args.T,
+    }
+    with open(pkl_name, 'wb') as f:
+        pickle.dump(dict_to_save, f)
+    print('Saved to {}'.format(pkl_name))

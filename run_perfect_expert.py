@@ -3,6 +3,8 @@ import pickle
 import argparse
 from tqdm import tqdm
 import logging
+import os
+import time
 
 logging.basicConfig(filename='simulation_PerfectExpert.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -46,3 +48,14 @@ if __name__ == "__main__":
     CR_PerfectExpert = run_PerfectExpert(data, T)
 
     print(f"Finished running PerfectExpert for {T} rounds.")
+
+    results = 'perfect_expert_results'
+    os.makedirs(results, exist_ok=True)
+    pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+    dict_to_save = {
+        'CR_PerfectExpert': CR_PerfectExpert,
+        'T': args.T,
+    }
+    with open(pkl_name, 'wb') as f:
+        pickle.dump(dict_to_save, f)
+    print('Saved to {}'.format(pkl_name))

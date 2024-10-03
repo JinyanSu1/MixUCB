@@ -7,6 +7,8 @@ import argparse
 from tqdm import tqdm
 import logging
 from scipy.linalg import inv, sqrtm
+import os
+import time
 
 logging.basicConfig(filename='simulation_mixucbII.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -116,3 +118,24 @@ if __name__ == "__main__":
     CR_mixucbII, TotalQ_mixucbII, q_mixucbII = run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part)
 
     print(f"Finished running MixUCB-II for {T} rounds.")
+
+    results = 'mixucbII_results'
+    os.makedirs(results, exist_ok=True)
+    pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+    dict_to_save = {
+        'CR_mixucbII': CR_mixucbII,
+        'alpha': args.alpha,
+        'lambda_': args.lambda_,
+        'T': args.T,
+        'n_actions': n_actions,
+        'n_features': n_features,
+        'delta': delta,
+        'beta': beta,
+        'temperature': temperature,
+        'lr': learning_rate,
+        'TotalQ_mixucbII': TotalQ_mixucbII,
+        'q_mixucbII': q_mixucbII,
+    }
+    with open(pkl_name, 'wb') as f:
+        pickle.dump(dict_to_save, f)
+    print('Saved to {}'.format(pkl_name))

@@ -4,6 +4,8 @@ from utils.linucb import LinUCB
 import argparse
 from tqdm import tqdm
 import logging
+import os
+import time
 
 logging.basicConfig(filename='simulation_mixucbIII.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -81,3 +83,21 @@ if __name__ == "__main__":
     CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
 
     print(f"Finished running MixUCB-III for {T} rounds.")
+
+    results = 'mixucbIII_results'
+    os.makedirs(results, exist_ok=True)
+    pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+    dict_to_save = {
+        'CR_mixucbIII': CR_mixucbIII,
+        'alpha': args.alpha,
+        'lambda_': args.lambda_,
+        'T': args.T,
+        'n_actions': n_actions,
+        'n_features': n_features,
+        'delta': delta,
+        'TotalQ_mixucbIII': TotalQ_mixucbIII,
+        'q_mixucbIII': q_mixucbIII,
+    }
+    with open(pkl_name, 'wb') as f:
+        pickle.dump(dict_to_save, f)
+    print('Saved to {}'.format(pkl_name))

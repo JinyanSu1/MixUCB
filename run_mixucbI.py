@@ -7,6 +7,8 @@ import argparse
 from tqdm import tqdm
 import logging
 from scipy.linalg import inv, sqrtm
+import os
+import time
 
 logging.basicConfig(filename='simulation_mixucbI.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -53,10 +55,6 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         action_hat = np.argmax(actions_ucb)
         
         action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
-
-
-        
-        
         
         width_Ahat = actions_ucb[action_hat] - action_hat_lcb
 
@@ -118,3 +116,24 @@ if __name__ == "__main__":
     CR_mixucbI, TotalQ_mixucbI, q_mixucbI = run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part)
 
     print(f"Finished running MixUCB-I for {T} rounds.")
+
+    results = 'mixucbI_results'
+    os.makedirs(results, exist_ok=True)
+    pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+    dict_to_save = {
+        'CR_mixucbI': CR_mixucbI,
+        'alpha': args.alpha,
+        'lambda_': args.lambda_,
+        'T': args.T,
+        'n_actions': n_actions,
+        'n_features': n_features,
+        'delta': delta,
+        'beta': beta,
+        'temperature': temperature,
+        'lr': learning_rate,
+        'TotalQ_mixucbI': TotalQ_mixucbI,
+        'q_mixucbI': q_mixucbI,
+    }
+    with open(pkl_name, 'wb') as f:
+        pickle.dump(dict_to_save, f)
+    print('Saved to {}'.format(pkl_name))

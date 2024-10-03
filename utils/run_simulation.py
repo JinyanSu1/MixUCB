@@ -74,7 +74,7 @@ class CBOptimizationDPP():
         
         # TODO: add error checking/catching
         prob.solve(solver='MOSEK')
-        print('prob.value:', prob.value)
+        # print('prob.value:', prob.value)
         return prob.value
 
     def solve_allactions(self, context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, 
