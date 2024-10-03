@@ -1,0 +1,2000 @@
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 0
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 0.13147690130089143
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 1
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 0.3285269226997771
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 2
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 0.5599720398011598
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 3
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 0.8028237883287213
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 4
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 1.0395040485390683
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 5
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 1.2381798948879779
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 6
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 1.4861560817323027
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 7
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 1.6947696430670336
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 8
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 1.8458247308530988
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 9
+2024-10-03 10:55:00,879 - INFO - PerfectExpert: 2.037797706642157
+2024-10-03 10:55:00,879 - INFO - Running PerfectExpert - round: 10
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 2.2822165488557022
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 11
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 2.514930276684261
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 12
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 2.710003769838169
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 13
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 2.8723314016780237
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 14
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 3.103742875371605
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 15
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 3.343790607729892
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 16
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 3.4195473327705095
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 17
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 3.656740907609932
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 18
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 3.848283461059735
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 19
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 4.043314546161092
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 20
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 4.315356935791195
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 21
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 4.59137375439202
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 22
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 4.784584108839761
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 23
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 4.966226480554614
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 24
+2024-10-03 10:55:00,880 - INFO - PerfectExpert: 5.090966878161213
+2024-10-03 10:55:00,880 - INFO - Running PerfectExpert - round: 25
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 5.36920140062189
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 26
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 5.599588392753663
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 27
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 5.835545117159638
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 28
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 5.965143374802611
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 29
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 6.016838091029959
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 30
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 6.191042431786659
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 31
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 6.329481917468335
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 32
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 6.461277485838964
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 33
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 6.681650804936628
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 34
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 6.8794162904360325
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 35
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 7.127967544978963
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 36
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 7.385166575597322
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 37
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 7.621468269686143
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 38
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 7.859485513386277
+2024-10-03 10:55:00,881 - INFO - Running PerfectExpert - round: 39
+2024-10-03 10:55:00,881 - INFO - PerfectExpert: 8.107261013258947
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 40
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 8.143404786914424
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 41
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 8.37843427544395
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 42
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 8.575245086376878
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 43
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 8.846763229554895
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 44
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 9.047433073555958
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 45
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 9.232891394524684
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 46
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 9.304492457531765
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 47
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 9.465986980359824
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 48
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 9.698322403735292
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 49
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 9.915642114575093
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 50
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 10.128109295502973
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 51
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 10.376475854260416
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 52
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 10.630143931177363
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 53
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 10.89109684455482
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 54
+2024-10-03 10:55:00,882 - INFO - PerfectExpert: 11.125898381307405
+2024-10-03 10:55:00,882 - INFO - Running PerfectExpert - round: 55
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 11.157157108362536
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 56
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 11.384094570928387
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 57
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 11.459628853631068
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 58
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 11.700119713365641
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 59
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 11.917981157128644
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 60
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 12.154901031311583
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 61
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 12.390481587782086
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 62
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 12.651675202547178
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 63
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 12.884833931705547
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 64
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 13.070554139467605
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 65
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 13.112817106995779
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 66
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 13.179697759960046
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 67
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 13.371740294573101
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 68
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 13.636180967758929
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 69
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 13.765479799225478
+2024-10-03 10:55:00,883 - INFO - Running PerfectExpert - round: 70
+2024-10-03 10:55:00,883 - INFO - PerfectExpert: 13.97737326353731
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 71
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 14.232697665826285
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 72
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 14.50697656004479
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 73
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 14.740632962493239
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 74
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 14.948137547570969
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 75
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 15.135969004706926
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 76
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 15.410995015335708
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 77
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 15.658859469695095
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 78
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 15.902370807532263
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 79
+2024-10-03 10:55:00,884 - INFO - PerfectExpert: 16.10231546247886
+2024-10-03 10:55:00,884 - INFO - Running PerfectExpert - round: 80
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 16.331709108828026
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 81
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 16.565057989996273
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 82
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 16.674054614342193
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 83
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 16.90251247114282
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 84
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 16.98899986267156
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 85
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 17.185079862780487
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 86
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 17.394424430818876
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 87
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 17.67166149333675
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 88
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 17.91611827636698
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 89
+2024-10-03 10:55:00,885 - INFO - PerfectExpert: 18.191054540643677
+2024-10-03 10:55:00,885 - INFO - Running PerfectExpert - round: 90
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 18.392046315054237
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 91
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 18.655704688340062
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 92
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 18.922522863205003
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 93
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 18.996226149465556
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 94
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 19.16583683683521
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 95
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 19.4216340475837
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 96
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 19.656927312542855
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 97
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 19.894043382087755
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 98
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 20.163334091002106
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 99
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 20.332927064429487
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 100
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 20.387280708525438
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 101
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 20.630625195677112
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 102
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 20.878340549699573
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 103
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 21.156008027162375
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 104
+2024-10-03 10:55:00,886 - INFO - PerfectExpert: 21.36325531588049
+2024-10-03 10:55:00,886 - INFO - Running PerfectExpert - round: 105
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 21.51734724170211
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 106
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 21.668739761638125
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 107
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 21.921844265920548
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 108
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 22.100472484073713
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 109
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 22.346517398587277
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 110
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 22.593065297463525
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 111
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 22.71183134362873
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 112
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 22.948565552175705
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 113
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 22.992307140524478
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 114
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 23.091164432518653
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 115
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 23.28826519076439
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 116
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 23.519234338082843
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 117
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 23.723345063872465
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 118
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 23.968362631670505
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 119
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 24.215603201119514
+2024-10-03 10:55:00,887 - INFO - Running PerfectExpert - round: 120
+2024-10-03 10:55:00,887 - INFO - PerfectExpert: 24.361409552106743
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 121
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 24.601281919324897
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 122
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 24.747960326158033
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 123
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 25.00082840577104
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 124
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 25.248784542128227
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 125
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 25.446307360455553
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 126
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 25.513910780434323
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 127
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 25.788345225652275
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 128
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 25.936008974988038
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 129
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 26.04251719504032
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 130
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 26.24577976662278
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 131
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 26.523146198993196
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 132
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 26.696803952818858
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 133
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 26.941896356539726
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 134
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 27.191805585829098
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 135
+2024-10-03 10:55:00,888 - INFO - PerfectExpert: 27.245947162682643
+2024-10-03 10:55:00,888 - INFO - Running PerfectExpert - round: 136
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 27.489275578490503
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 137
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 27.745053154039375
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 138
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 27.982161155681442
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 139
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 28.121329064644357
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 140
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 28.39209051021399
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 141
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 28.586835165683407
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 142
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 28.842098518378585
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 143
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 29.10809513450855
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 144
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 29.313845038057046
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 145
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 29.55086539479814
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 146
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 29.740069679371217
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 147
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 29.957027481999717
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 148
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 30.2327074675801
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 149
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 30.46005770933584
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 150
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 30.685852708510584
+2024-10-03 10:55:00,889 - INFO - Running PerfectExpert - round: 151
+2024-10-03 10:55:00,889 - INFO - PerfectExpert: 30.834427107432052
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 152
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 30.98634983845827
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 153
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 31.259030760250464
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 154
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 31.512967559701387
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 155
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 31.714715991604475
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 156
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 31.801187141842906
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 157
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 32.034913484301356
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 158
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 32.24074509264166
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 159
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 32.44255373839543
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 160
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 32.57253090398102
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 161
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 32.69188916340971
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 162
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 32.90724990638223
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 163
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 33.14380553512899
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 164
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 33.380014839887764
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 165
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 33.57586640403226
+2024-10-03 10:55:00,890 - INFO - Running PerfectExpert - round: 166
+2024-10-03 10:55:00,890 - INFO - PerfectExpert: 33.82392142607826
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 167
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 34.030869669077646
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 168
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 34.29625653154816
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 169
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 34.36593153634523
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 170
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 34.58054927988923
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 171
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 34.81790794238458
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 172
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 34.99575545296479
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 173
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 35.091024002539505
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 174
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 35.2594387424304
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 175
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 35.51311702455996
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 176
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 35.785874341554454
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 177
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 36.035343876370945
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 178
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 36.16398717702896
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 179
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 36.402949644231704
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 180
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 36.4703484292425
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 181
+2024-10-03 10:55:00,891 - INFO - PerfectExpert: 36.72061710190776
+2024-10-03 10:55:00,891 - INFO - Running PerfectExpert - round: 182
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 36.97288031149062
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 183
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 37.239076019530486
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 184
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 37.473460322847046
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 185
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 37.740806539533345
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 186
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 37.98290858695637
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 187
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 38.10139746726328
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 188
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 38.34649072257754
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 189
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 38.56338758655707
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 190
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 38.68500667243393
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 191
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 38.94271344278807
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 192
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 39.20385814139273
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 193
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 39.353504892920476
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 194
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 39.60143225028645
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 195
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 39.870500562957766
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 196
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 40.00140199124842
+2024-10-03 10:55:00,892 - INFO - Running PerfectExpert - round: 197
+2024-10-03 10:55:00,892 - INFO - PerfectExpert: 40.22734955171039
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 198
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 40.505651150119746
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 199
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 40.71173231768475
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 200
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 40.96835741401875
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 201
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 41.21342107030766
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 202
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 41.456217821486106
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 203
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 41.72481487985143
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 204
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 41.91782101775932
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 205
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 42.15422760890083
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 206
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 42.309972287262404
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 207
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 42.34609101213052
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 208
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 42.56010629614688
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 209
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 42.697676421412666
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 210
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 42.92149800853559
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 211
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 43.1677996596854
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 212
+2024-10-03 10:55:00,893 - INFO - PerfectExpert: 43.406446766243334
+2024-10-03 10:55:00,893 - INFO - Running PerfectExpert - round: 213
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 43.625704930219825
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 214
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 43.85828103182563
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 215
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 44.13184353583146
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 216
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 44.378712765266705
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 217
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 44.60901658874678
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 218
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 44.8590493310744
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 219
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 45.09618575025112
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 220
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 45.15990280071573
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 221
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 45.30277730084154
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 222
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 45.49284411005473
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 223
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 45.589352273609265
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 224
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 45.74894859836597
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 225
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 45.9726287940621
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 226
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 46.20975927915272
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 227
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 46.40537917323074
+2024-10-03 10:55:00,894 - INFO - Running PerfectExpert - round: 228
+2024-10-03 10:55:00,894 - INFO - PerfectExpert: 46.480782402178775
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 229
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 46.700170409171214
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 230
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 46.805345473153174
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 231
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 47.047866851463326
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 232
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 47.216335600565024
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 233
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 47.42574986455139
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 234
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 47.65947328514948
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 235
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 47.9070187014782
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 236
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 48.13486876769588
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 237
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 48.329665598517714
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 238
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 48.60418919639918
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 239
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 48.8396075751276
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 240
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 48.99093475486452
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 241
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 49.131805131924516
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 242
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 49.28075418743854
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 243
+2024-10-03 10:55:00,895 - INFO - PerfectExpert: 49.42922283101752
+2024-10-03 10:55:00,895 - INFO - Running PerfectExpert - round: 244
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 49.64025481965644
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 245
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 49.88246198118352
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 246
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 50.152755090498424
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 247
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 50.32552908723016
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 248
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 50.566310339991695
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 249
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 50.805560850125794
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 250
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 50.847585761495395
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 251
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 50.9800311520887
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 252
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 51.23995440868457
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 253
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 51.51764981806359
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 254
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 51.745631082551256
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 255
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 51.95110801554464
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 256
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 52.20300957836582
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 257
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 52.44413979138412
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 258
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 52.67999604823989
+2024-10-03 10:55:00,896 - INFO - Running PerfectExpert - round: 259
+2024-10-03 10:55:00,896 - INFO - PerfectExpert: 52.913667654404136
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 260
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 52.98887408959851
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 261
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 53.2063995815928
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 262
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 53.447526689719005
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 263
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 53.72585261733881
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 264
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 53.93213971251722
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 265
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 54.19477450092708
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 266
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 54.42783753024308
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 267
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 54.66058595775642
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 268
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 54.86671932099212
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 269
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 55.07370570250459
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 270
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 55.27893487008937
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 271
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 55.5569454892227
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 272
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 55.68102450520977
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 273
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 55.95026550629332
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 274
+2024-10-03 10:55:00,897 - INFO - PerfectExpert: 56.217217339395425
+2024-10-03 10:55:00,897 - INFO - Running PerfectExpert - round: 275
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 56.29789944125006
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 276
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 56.532559390364526
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 277
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 56.736592882625246
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 278
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 56.99278611280078
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 279
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 57.20042588119758
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 280
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 57.45034446729943
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 281
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 57.54101628909193
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 282
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 57.74860783187172
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 283
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 57.996488577724705
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 284
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 58.14939092642613
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 285
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 58.25410293027571
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 286
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 58.501895644676345
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 287
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 58.70435778769409
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 288
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 58.84446238091184
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 289
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 59.082582602319874
+2024-10-03 10:55:00,898 - INFO - Running PerfectExpert - round: 290
+2024-10-03 10:55:00,898 - INFO - PerfectExpert: 59.30410076902329
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 291
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 59.440831806212564
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 292
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 59.67400931274285
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 293
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 59.70742315231264
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 294
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 59.881738626316555
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 295
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 60.154999352447255
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 296
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 60.41080064393296
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 297
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 60.52683534803566
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 298
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 60.76681212798017
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 299
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 61.04084877986761
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 300
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 61.118864789661025
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 301
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 61.331278528464225
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 302
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 61.537929239909516
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 303
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 61.713859220925954
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 304
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 61.96974970129706
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 305
+2024-10-03 10:55:00,899 - INFO - PerfectExpert: 62.08169156790011
+2024-10-03 10:55:00,899 - INFO - Running PerfectExpert - round: 306
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 62.279585603441056
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 307
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 62.54052424627577
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 308
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 62.74416903298301
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 309
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 63.015581971995395
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 310
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 63.17322515363736
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 311
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 63.42937365129626
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 312
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 63.62161166361548
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 313
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 63.8586727836687
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 314
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 64.12479115583756
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 315
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 64.33693221200859
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 316
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 64.51831078539223
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 317
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 64.77995453338987
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 318
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 64.98938972226075
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 319
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 65.13416237393304
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 320
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 65.3329246146512
+2024-10-03 10:55:00,900 - INFO - Running PerfectExpert - round: 321
+2024-10-03 10:55:00,900 - INFO - PerfectExpert: 65.54669259496269
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 322
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 65.76446185578386
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 323
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 66.03950527860316
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 324
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 66.26631178893787
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 325
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 66.50717096407541
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 326
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 66.75566667859802
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 327
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 66.80570905512566
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 328
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 66.88739193662292
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 329
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 67.0015635150124
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 330
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 67.15453014095175
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 331
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 67.41740769520833
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 332
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 67.66953109107678
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 333
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 67.86152613818058
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 334
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 68.11095919422557
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 335
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 68.347309483125
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 336
+2024-10-03 10:55:00,901 - INFO - PerfectExpert: 68.41204693023344
+2024-10-03 10:55:00,901 - INFO - Running PerfectExpert - round: 337
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 68.52137268605269
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 338
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 68.75073574254093
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 339
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 68.95938735760959
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 340
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 69.19139271704245
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 341
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 69.4349436188616
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 342
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 69.64421298351233
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 343
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 69.7671517890933
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 344
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 70.01103165366014
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 345
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 70.28058908204932
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 346
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 70.5131681458276
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 347
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 70.74440912159635
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 348
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 70.98472878673878
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 349
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 71.04756539296535
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 350
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 71.23294613512273
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 351
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 71.46337767359209
+2024-10-03 10:55:00,902 - INFO - Running PerfectExpert - round: 352
+2024-10-03 10:55:00,902 - INFO - PerfectExpert: 71.69664133651264
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 353
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 71.85641683018358
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 354
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 71.99061438383474
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 355
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 72.13866619853013
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 356
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 72.38965285103909
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 357
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 72.53592437381083
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 358
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 72.76764458769384
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 359
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 72.95916225876292
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 360
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 73.09094295200107
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 361
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 73.3500515910825
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 362
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 73.55107889266102
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 363
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 73.65262855066067
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 364
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 73.86536148337831
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 365
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 73.89731592559895
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 366
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 74.07709316152066
+2024-10-03 10:55:00,903 - INFO - Running PerfectExpert - round: 367
+2024-10-03 10:55:00,903 - INFO - PerfectExpert: 74.23481277240188
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 368
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 74.32658262740625
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 369
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 74.4546849147665
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 370
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 74.71472255814045
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 371
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 74.9858892778107
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 372
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 75.1832042799823
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 373
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 75.408617691887
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 374
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 75.62556255892126
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 375
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 75.8676074482273
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 376
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 75.95366401981023
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 377
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 76.14648587587388
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 378
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 76.32263050675328
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 379
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 76.5708147842182
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 380
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 76.69187121183128
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 381
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 76.93846844452442
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 382
+2024-10-03 10:55:00,904 - INFO - PerfectExpert: 77.10906917712623
+2024-10-03 10:55:00,904 - INFO - Running PerfectExpert - round: 383
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 77.35064582505677
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 384
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 77.58686197515246
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 385
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 77.8510885927353
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 386
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 78.00304053629318
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 387
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 78.27682077878029
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 388
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 78.38601777916122
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 389
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 78.58806671023898
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 390
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 78.82549137559677
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 391
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 79.10285185626188
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 392
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 79.33387975880525
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 393
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 79.5749046314362
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 394
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 79.84801641452198
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 395
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 79.99590104813231
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 396
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 80.25817032178887
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 397
+2024-10-03 10:55:00,905 - INFO - PerfectExpert: 80.40817383364735
+2024-10-03 10:55:00,905 - INFO - Running PerfectExpert - round: 398
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 80.65532416617474
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 399
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 80.92210032387419
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 400
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 81.12934144593908
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 401
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 81.37994075732068
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 402
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 81.47501274193732
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 403
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 81.73327206459302
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 404
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 81.89166056308528
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 405
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 82.16328295170624
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 406
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 82.41401294849187
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 407
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 82.52711483344082
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 408
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 82.74620168641042
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 409
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 82.92364170030595
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 410
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 83.2003237253854
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 411
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 83.47860397819896
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 412
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 83.69932940068496
+2024-10-03 10:55:00,906 - INFO - Running PerfectExpert - round: 413
+2024-10-03 10:55:00,906 - INFO - PerfectExpert: 83.7938288211266
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 414
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 84.00185386430546
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 415
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 84.25800789798313
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 416
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 84.31367321894962
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 417
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 84.52093352533453
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 418
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 84.73202259565316
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 419
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 84.923750851192
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 420
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 85.04548252038015
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 421
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 85.2901517776889
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 422
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 85.5089870663161
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 423
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 85.68663939709504
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 424
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 85.96239748062357
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 425
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 86.20975122032479
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 426
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 86.41703895601046
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 427
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 86.66535205530958
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 428
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 86.8707277778305
+2024-10-03 10:55:00,907 - INFO - Running PerfectExpert - round: 429
+2024-10-03 10:55:00,907 - INFO - PerfectExpert: 87.04949333885321
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 430
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 87.29293575223885
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 431
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 87.49452245753783
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 432
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 87.70862204367685
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 433
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 87.96214714252402
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 434
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 88.20257394691764
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 435
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 88.40519051211058
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 436
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 88.6423944613822
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 437
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 88.86266000079654
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 438
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 89.04590766598237
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 439
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 89.30573320307825
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 440
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 89.45807087140041
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 441
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 89.688574960315
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 442
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 89.8977625831281
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 443
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 89.98508594668986
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 444
+2024-10-03 10:55:00,908 - INFO - PerfectExpert: 90.22771335852737
+2024-10-03 10:55:00,908 - INFO - Running PerfectExpert - round: 445
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 90.44139243568925
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 446
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 90.6795157308707
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 447
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 90.92074036664782
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 448
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 91.11797913088402
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 449
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 91.37934234475779
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 450
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 91.57096104919952
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 451
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 91.80188361635602
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 452
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 92.03248671165025
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 453
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 92.2606185059603
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 454
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 92.47768269320126
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 455
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 92.70287313882221
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 456
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 92.95315403578445
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 457
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 93.17256923305035
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 458
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 93.25723080850837
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 459
+2024-10-03 10:55:00,909 - INFO - PerfectExpert: 93.53556605816965
+2024-10-03 10:55:00,909 - INFO - Running PerfectExpert - round: 460
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 93.735222190556
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 461
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 93.97087246274057
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 462
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 94.24196186484237
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 463
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 94.45168318640886
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 464
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 94.64324956696461
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 465
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 94.70249930586147
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 466
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 94.91144619081872
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 467
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 95.14584759503327
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 468
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 95.42342765939723
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 469
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 95.56647692392785
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 470
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 95.77982061224053
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 471
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 95.93971115805208
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 472
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 96.1683286041796
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 473
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 96.26713598562797
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 474
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 96.35592031614829
+2024-10-03 10:55:00,910 - INFO - Running PerfectExpert - round: 475
+2024-10-03 10:55:00,910 - INFO - PerfectExpert: 96.61920956341706
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 476
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 96.83031792655477
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 477
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 97.00195131078867
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 478
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 97.23056952115704
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 479
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 97.42678301580489
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 480
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 97.58643409765035
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 481
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 97.82600434989457
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 482
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 97.92374840777343
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 483
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 98.14396142633751
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 484
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 98.37680054069983
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 485
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 98.45233521430168
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 486
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 98.69856569249444
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 487
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 98.80704837483057
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 488
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 99.05637617415006
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 489
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 99.29038885280912
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 490
+2024-10-03 10:55:00,911 - INFO - PerfectExpert: 99.52765168825712
+2024-10-03 10:55:00,911 - INFO - Running PerfectExpert - round: 491
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 99.74925474654819
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 492
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 99.99392158615228
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 493
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 100.25222900730424
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 494
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 100.3838699867538
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 495
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 100.52418582384585
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 496
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 100.73859566468485
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 497
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 101.01345804762454
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 498
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 101.22221927738704
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 499
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 101.46140357683983
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 500
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 101.73492170840171
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 501
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 102.0093406738693
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 502
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 102.19488669522131
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 503
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 102.43877038047556
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 504
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 102.63176264589966
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 505
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 102.67899442809609
+2024-10-03 10:55:00,912 - INFO - Running PerfectExpert - round: 506
+2024-10-03 10:55:00,912 - INFO - PerfectExpert: 102.86539899468265
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 507
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 103.140908813953
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 508
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 103.22839047653328
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 509
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 103.3956321183788
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 510
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 103.59505092889466
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 511
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 103.79535359244953
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 512
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 104.05763250225229
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 513
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 104.27701506454596
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 514
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 104.36097703401201
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 515
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 104.62781971773796
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 516
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 104.82974811510528
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 517
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 105.03893326914583
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 518
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 105.24282057745181
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 519
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 105.29766713157393
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 520
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 105.52294929439843
+2024-10-03 10:55:00,913 - INFO - Running PerfectExpert - round: 521
+2024-10-03 10:55:00,913 - INFO - PerfectExpert: 105.77181716685635
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 522
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 105.82912192307721
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 523
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 106.08526541103484
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 524
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 106.31663464529865
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 525
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 106.5516033420552
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 526
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 106.81972782072373
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 527
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 106.88333072960071
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 528
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 107.12600085728333
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 529
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 107.40322660707919
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 530
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 107.60302167093607
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 531
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 107.81206534122832
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 532
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 108.03235161784922
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 533
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 108.25827620719078
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 534
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 108.48897813677641
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 535
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 108.74249968811952
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 536
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 108.98903526964826
+2024-10-03 10:55:00,914 - INFO - Running PerfectExpert - round: 537
+2024-10-03 10:55:00,914 - INFO - PerfectExpert: 109.11267145630298
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 538
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 109.37341973858129
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 539
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 109.5873400592209
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 540
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 109.8623932103282
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 541
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 110.07017393926485
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 542
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 110.26868804556908
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 543
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 110.46774168245942
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 544
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 110.67493010795054
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 545
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 110.9179573629366
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 546
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 111.19300893163943
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 547
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 111.33167160439582
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 548
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 111.52367129582161
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 549
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 111.68108435235554
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 550
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 111.94194026679963
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 551
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 112.13960739406845
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 552
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 112.40069968823842
+2024-10-03 10:55:00,915 - INFO - Running PerfectExpert - round: 553
+2024-10-03 10:55:00,915 - INFO - PerfectExpert: 112.44012708635928
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 554
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 112.6770720222376
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 555
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 112.94925277291462
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 556
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 113.16528128641247
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 557
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 113.26178927599041
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 558
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 113.49399107231409
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 559
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 113.64117722662482
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 560
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 113.87104960715499
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 561
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 114.07781495706206
+2024-10-03 10:55:00,916 - INFO - Running PerfectExpert - round: 562
+2024-10-03 10:55:00,916 - INFO - PerfectExpert: 114.34908993973157
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 563
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 114.59368315777304
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 564
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 114.85470263053482
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 565
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 115.05959014483918
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 566
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 115.32595349324129
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 567
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 115.57771872967793
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 568
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 115.831300631749
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 569
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 116.07510669575214
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 570
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 116.32946361243292
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 571
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 116.56358090900392
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 572
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 116.74177955486931
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 573
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 116.96497553380254
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 574
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 117.01850565515866
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 575
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 117.22459648123017
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 576
+2024-10-03 10:55:00,917 - INFO - PerfectExpert: 117.50203180987465
+2024-10-03 10:55:00,917 - INFO - Running PerfectExpert - round: 577
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 117.75962417252774
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 578
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 117.90041198041067
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 579
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 118.13365449454044
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 580
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 118.35397614511038
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 581
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 118.59297428546577
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 582
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 118.83644108624475
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 583
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 119.10121113570335
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 584
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 119.33230947750472
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 585
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 119.44475764851563
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 586
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 119.67048881551288
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 587
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 119.8265864070198
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 588
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 120.0644850396544
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 589
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 120.29356035126486
+2024-10-03 10:55:00,918 - INFO - Running PerfectExpert - round: 590
+2024-10-03 10:55:00,918 - INFO - PerfectExpert: 120.42055725292832
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 591
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 120.56688326597585
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 592
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 120.80992845365708
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 593
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 121.05344012802814
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 594
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 121.28743002425387
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 595
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 121.46414284372486
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 596
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 121.73526086125568
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 597
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 121.95067945546609
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 598
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 122.1842034079623
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 599
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 122.36482479843585
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 600
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 122.61835420791729
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 601
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 122.6715602151397
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 602
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 122.87157862372399
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 603
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 123.07175343307854
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 604
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 123.28811962682897
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 605
+2024-10-03 10:55:00,919 - INFO - PerfectExpert: 123.51187039694986
+2024-10-03 10:55:00,919 - INFO - Running PerfectExpert - round: 606
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 123.77915109802834
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 607
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 124.01836575308897
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 608
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 124.27195661225488
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 609
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 124.49788726608729
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 610
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 124.73409538416368
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 611
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 124.83746512862638
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 612
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 125.07869198533912
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 613
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 125.28241111462108
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 614
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 125.34856710669803
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 615
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 125.46540792149669
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 616
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 125.71809648075016
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 617
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 125.90945430508293
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 618
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 126.17573387727796
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 619
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 126.36840469007244
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 620
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 126.52549504896429
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 621
+2024-10-03 10:55:00,920 - INFO - PerfectExpert: 126.71963443663671
+2024-10-03 10:55:00,920 - INFO - Running PerfectExpert - round: 622
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 126.94624580761267
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 623
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 127.19002378384465
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 624
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 127.3120886754043
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 625
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 127.47195346546582
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 626
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 127.68656877665455
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 627
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 127.91316748306005
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 628
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 128.15020004828216
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 629
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 128.38630089517818
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 630
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 128.59572924231458
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 631
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 128.73673361227478
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 632
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 128.95614520060323
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 633
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 129.23087757802836
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 634
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 129.5058722823709
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 635
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 129.7425912628172
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 636
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 129.97723242891047
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 637
+2024-10-03 10:55:00,921 - INFO - PerfectExpert: 130.20974564213475
+2024-10-03 10:55:00,921 - INFO - Running PerfectExpert - round: 638
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 130.41754051214352
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 639
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 130.6838751666485
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 640
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 130.7979797160167
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 641
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 131.04269168416585
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 642
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 131.18814475886197
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 643
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 131.41504639955485
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 644
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 131.650957076478
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 645
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 131.86684318466467
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 646
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 132.1392700632298
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 647
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 132.2865713792887
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 648
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 132.505481388135
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 649
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 132.73778184043937
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 650
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 132.76331248220754
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 651
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 132.9632914192499
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 652
+2024-10-03 10:55:00,922 - INFO - PerfectExpert: 133.1010519472065
+2024-10-03 10:55:00,922 - INFO - Running PerfectExpert - round: 653
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 133.3730283231793
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 654
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 133.56069243460425
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 655
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 133.81651567776373
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 656
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 133.970312242923
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 657
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 134.041891714479
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 658
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 134.2754036799073
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 659
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 134.48110758783307
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 660
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 134.72462129037908
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 661
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 134.7909815977772
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 662
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 134.96523867166601
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 663
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 135.1702713450877
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 664
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 135.43993939553707
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 665
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 135.71268312221233
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 666
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 135.9507906701588
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 667
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 136.0900428280389
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 668
+2024-10-03 10:55:00,923 - INFO - PerfectExpert: 136.21751701577824
+2024-10-03 10:55:00,923 - INFO - Running PerfectExpert - round: 669
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 136.49181030339815
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 670
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 136.72497763874966
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 671
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 137.0031977210187
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 672
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 137.21253508163483
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 673
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 137.273372574031
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 674
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 137.46716845507802
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 675
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 137.70575375143122
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 676
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 137.91090764975775
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 677
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 138.12369316061103
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 678
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 138.24722841540427
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 679
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 138.49477537511004
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 680
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 138.7442266982455
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 681
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 138.76706778359056
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 682
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 139.01422984855517
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 683
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 139.10695411561355
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 684
+2024-10-03 10:55:00,924 - INFO - PerfectExpert: 139.38146471201304
+2024-10-03 10:55:00,924 - INFO - Running PerfectExpert - round: 685
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 139.44505906290928
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 686
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 139.6907818476093
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 687
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 139.93991255160643
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 688
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 140.13889351061172
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 689
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 140.39825342867863
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 690
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 140.6374004402804
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 691
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 140.66801345013337
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 692
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 140.9067713416323
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 693
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 141.18489686411883
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 694
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 141.42271475433864
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 695
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 141.61452202703205
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 696
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 141.85780075475623
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 697
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 142.09483488400681
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 698
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 142.36895893425202
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 699
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 142.57831996114768
+2024-10-03 10:55:00,925 - INFO - Running PerfectExpert - round: 700
+2024-10-03 10:55:00,925 - INFO - PerfectExpert: 142.78031017206985
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 701
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 143.02578782447927
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 702
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 143.2959895021818
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 703
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 143.53191867974667
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 704
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 143.7848015866425
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 705
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 144.00768218627422
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 706
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 144.14843556180426
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 707
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 144.31362816353766
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 708
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 144.54121513458023
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 709
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 144.68455970757887
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 710
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 144.9113361641282
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 711
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 145.16479086179254
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 712
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 145.37420991629537
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 713
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 145.5611537979995
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 714
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 145.80782305199907
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 715
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 145.92348790711986
+2024-10-03 10:55:00,926 - INFO - Running PerfectExpert - round: 716
+2024-10-03 10:55:00,926 - INFO - PerfectExpert: 146.1826687987723
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 717
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 146.454509470797
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 718
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 146.66380847186247
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 719
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 146.78124368421112
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 720
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 147.0231765413325
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 721
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 147.2131566475693
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 722
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 147.45711028278603
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 723
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 147.6509545995539
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 724
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 147.88694392084966
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 725
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 148.13023431733754
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 726
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 148.3159751184854
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 727
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 148.54214601186757
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 728
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 148.7882889426881
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 729
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 148.93710968034054
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 730
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 149.18039749287578
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 731
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 149.21544812183555
+2024-10-03 10:55:00,927 - INFO - Running PerfectExpert - round: 732
+2024-10-03 10:55:00,927 - INFO - PerfectExpert: 149.4246963311967
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 733
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 149.66943308967356
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 734
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 149.81454618459108
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 735
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 150.01749393516744
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 736
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 150.24963110668335
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 737
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 150.44656909717912
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 738
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 150.60963947045968
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 739
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 150.77067857141355
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 740
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 151.02082978252804
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 741
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 151.11434439881984
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 742
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 151.2372386171829
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 743
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 151.48512787333556
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 744
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 151.71554201625673
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 745
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 151.95069149434988
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 746
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 152.05008218297053
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 747
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 152.2432288888383
+2024-10-03 10:55:00,928 - INFO - Running PerfectExpert - round: 748
+2024-10-03 10:55:00,928 - INFO - PerfectExpert: 152.41516216354654
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 749
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 152.6630169870866
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 750
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 152.86465877221625
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 751
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 153.10178596841683
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 752
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 153.3111261410419
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 753
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 153.50068875345838
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 754
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 153.6256658998031
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 755
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 153.87686774596057
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 756
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 154.0221761009448
+2024-10-03 10:55:00,929 - INFO - Running PerfectExpert - round: 757
+2024-10-03 10:55:00,929 - INFO - PerfectExpert: 154.2650186394779
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 758
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 154.45424454580197
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 759
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 154.69837677642226
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 760
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 154.94577591965432
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 761
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 155.19774179924707
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 762
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 155.45120967626812
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 763
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 155.6896058740844
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 764
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 155.74475489154452
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 765
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 155.94023737740895
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 766
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 155.96291418070854
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 767
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 156.06064763951096
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 768
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 156.33872972340356
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 769
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 156.6007353280904
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 770
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 156.8644905971318
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 771
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 157.07783784685446
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 772
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 157.2730454813145
+2024-10-03 10:55:00,930 - INFO - Running PerfectExpert - round: 773
+2024-10-03 10:55:00,930 - INFO - PerfectExpert: 157.43327325799294
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 774
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 157.6549829839249
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 775
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 157.8711963861952
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 776
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 158.02650346702995
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 777
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 158.07227475216706
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 778
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 158.3147493113477
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 779
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 158.5894790501396
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 780
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 158.8498546423391
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 781
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 158.96859542948206
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 782
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 159.0636974717923
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 783
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 159.24099655308055
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 784
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 159.4111042294962
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 785
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 159.58537753774948
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 786
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 159.85213511498242
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 787
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 160.11345200304623
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 788
+2024-10-03 10:55:00,931 - INFO - PerfectExpert: 160.36407892049013
+2024-10-03 10:55:00,931 - INFO - Running PerfectExpert - round: 789
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 160.63467153938967
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 790
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 160.69517746746916
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 791
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 160.79610742729574
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 792
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 161.05784116471133
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 793
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 161.2662044888713
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 794
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 161.50332921288012
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 795
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 161.7576660812472
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 796
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 161.9615778952731
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 797
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 162.18627676553677
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 798
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 162.3875920600587
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 799
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 162.64358728656666
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 800
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 162.88285688727098
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 801
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 163.02439820037918
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 802
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 163.2446742405438
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 803
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 163.43594547347203
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 804
+2024-10-03 10:55:00,932 - INFO - PerfectExpert: 163.68098672768377
+2024-10-03 10:55:00,932 - INFO - Running PerfectExpert - round: 805
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 163.9539741372691
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 806
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 164.16570904416727
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 807
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 164.2684187153874
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 808
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 164.27376905801367
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 809
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 164.54192855048638
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 810
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 164.7848745119803
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 811
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 165.012479352766
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 812
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 165.18222134706573
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 813
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 165.4407757938385
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 814
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 165.70704130386795
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 815
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 165.96522951409474
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 816
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 166.05833720236353
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 817
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 166.29018427727067
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 818
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 166.46261594864532
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 819
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 166.66311895058004
+2024-10-03 10:55:00,933 - INFO - Running PerfectExpert - round: 820
+2024-10-03 10:55:00,933 - INFO - PerfectExpert: 166.79832072658115
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 821
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 166.99548866496582
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 822
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 167.1609561972146
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 823
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 167.35340173271044
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 824
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 167.53927742208154
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 825
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 167.77711457933725
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 826
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 168.02433574916026
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 827
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 168.05522937734816
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 828
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 168.2917058996179
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 829
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 168.3982714369081
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 830
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 168.6206930431387
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 831
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 168.8630621888758
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 832
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 169.11917610413798
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 833
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 169.24930718949582
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 834
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 169.48461743668048
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 835
+2024-10-03 10:55:00,934 - INFO - PerfectExpert: 169.7102984413539
+2024-10-03 10:55:00,934 - INFO - Running PerfectExpert - round: 836
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 169.94483334595742
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 837
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 170.05133466607774
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 838
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 170.0932476375119
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 839
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 170.2687267338014
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 840
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 170.4132235128624
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 841
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 170.54511891514633
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 842
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 170.5764009724705
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 843
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 170.8480038621732
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 844
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 171.1024479390822
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 845
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 171.35035579640845
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 846
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 171.6283704890875
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 847
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 171.81901283601732
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 848
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 172.0144857077577
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 849
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 172.25692709494479
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 850
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 172.42750108900773
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 851
+2024-10-03 10:55:00,935 - INFO - PerfectExpert: 172.66949019091385
+2024-10-03 10:55:00,935 - INFO - Running PerfectExpert - round: 852
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 172.94305486110215
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 853
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 173.21203496967593
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 854
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 173.4039361424369
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 855
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 173.64995593944704
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 856
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 173.88364308674207
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 857
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 174.01424998202393
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 858
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 174.25612453928534
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 859
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 174.5168086436105
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 860
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 174.7610504889295
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 861
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 174.99787740989908
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 862
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 175.21437168339466
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 863
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 175.46108524181977
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 864
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 175.65739425850185
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 865
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 175.8918270091848
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 866
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 176.1474456603562
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 867
+2024-10-03 10:55:00,936 - INFO - PerfectExpert: 176.41451042195192
+2024-10-03 10:55:00,936 - INFO - Running PerfectExpert - round: 868
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 176.69182578598853
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 869
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 176.87953775857858
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 870
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 177.0551433908228
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 871
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 177.19327905437447
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 872
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 177.2713556287623
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 873
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 177.47106380079364
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 874
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 177.66514114390878
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 875
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 177.9094144145356
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 876
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 178.02362255300673
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 877
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 178.19491607298573
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 878
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 178.43897796393938
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 879
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 178.6761026812269
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 880
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 178.80431598870763
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 881
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 179.05153846744938
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 882
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 179.24439291373596
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 883
+2024-10-03 10:55:00,937 - INFO - PerfectExpert: 179.40126181539236
+2024-10-03 10:55:00,937 - INFO - Running PerfectExpert - round: 884
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 179.614437126012
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 885
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 179.88427140261203
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 886
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 180.15059100528973
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 887
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 180.4243672125449
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 888
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 180.61070511952286
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 889
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 180.81219458857262
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 890
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 181.09009195028023
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 891
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 181.36327746004167
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 892
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 181.44759511524714
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 893
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 181.65574922016765
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 894
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 181.90662811253566
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 895
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 182.16037005387247
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 896
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 182.21415883280548
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 897
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 182.4697111921736
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 898
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 182.70495026431252
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 899
+2024-10-03 10:55:00,938 - INFO - PerfectExpert: 182.91450594067666
+2024-10-03 10:55:00,938 - INFO - Running PerfectExpert - round: 900
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 183.082256389556
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 901
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 183.25087177772286
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 902
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 183.47916882232695
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 903
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 183.67682735631928
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 904
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 183.95423275409237
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 905
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 184.1065599484134
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 906
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 184.3534950656682
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 907
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 184.4845949149786
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 908
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 184.67786432834177
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 909
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 184.82447170712024
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 910
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 185.05726851905797
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 911
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 185.28683581732582
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 912
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 185.48072178594316
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 913
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 185.67487578583712
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 914
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 185.9473784159289
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 915
+2024-10-03 10:55:00,939 - INFO - PerfectExpert: 186.11957423228847
+2024-10-03 10:55:00,939 - INFO - Running PerfectExpert - round: 916
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 186.38632841968953
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 917
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 186.62172350434162
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 918
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 186.85006110636934
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 919
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 187.10784582988313
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 920
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 187.15578783450295
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 921
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 187.41544898831017
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 922
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 187.68319848118546
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 923
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 187.96034358188595
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 924
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 188.22099829438403
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 925
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 188.33843062412353
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 926
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 188.5264976869943
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 927
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 188.64065274453787
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 928
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 188.81272151460624
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 929
+2024-10-03 10:55:00,940 - INFO - PerfectExpert: 189.04922898565582
+2024-10-03 10:55:00,940 - INFO - Running PerfectExpert - round: 930
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 189.30273495834481
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 931
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 189.44525319839957
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 932
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 189.62892611996315
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 933
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 189.8109153049663
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 934
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 190.06979290009957
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 935
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 190.32502294973384
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 936
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 190.5811956052814
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 937
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 190.7811976462377
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 938
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 191.02244750717924
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 939
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 191.21718490609447
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 940
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 191.4410013841061
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 941
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 191.59785032621156
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 942
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 191.83428846530995
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 943
+2024-10-03 10:55:00,941 - INFO - PerfectExpert: 192.0387925776173
+2024-10-03 10:55:00,941 - INFO - Running PerfectExpert - round: 944
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 192.16260155272047
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 945
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 192.19156381234419
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 946
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 192.46206185644937
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 947
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 192.54229737545478
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 948
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 192.63017010174823
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 949
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 192.69058480684942
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 950
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 192.93855842033298
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 951
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 193.05372540012442
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 952
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 193.29902538798967
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 953
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 193.46554470280466
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 954
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 193.60875958323885
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 955
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 193.81319983560192
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 956
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 194.0821012499439
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 957
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 194.3189184153615
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 958
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 194.55604079318374
+2024-10-03 10:55:00,942 - INFO - Running PerfectExpert - round: 959
+2024-10-03 10:55:00,942 - INFO - PerfectExpert: 194.79244547428982
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 960
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 195.04415890513124
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 961
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 195.27551116724518
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 962
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 195.47934952631658
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 963
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 195.66686831921987
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 964
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 195.9173729600089
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 965
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 196.15335917007343
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 966
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 196.35465008666267
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 967
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 196.50959677300432
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 968
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 196.7237295888681
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 969
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 196.97982186550226
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 970
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 197.22176568498355
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 971
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 197.44692315561147
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 972
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 197.67520299787842
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 973
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 197.92417411917666
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 974
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 198.11544275982624
+2024-10-03 10:55:00,943 - INFO - Running PerfectExpert - round: 975
+2024-10-03 10:55:00,943 - INFO - PerfectExpert: 198.35631406902255
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 976
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 198.38928597303985
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 977
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 198.6103008596734
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 978
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 198.79307909050067
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 979
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 199.00077480156654
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 980
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 199.21000949685794
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 981
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 199.4185892225383
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 982
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 199.48001171345757
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 983
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 199.7229976315174
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 984
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 199.7845047717078
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 985
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 199.99280621355695
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 986
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 200.20222894683567
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 987
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 200.43933428466562
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 988
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 200.7057876198013
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 989
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 200.89746128949716
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 990
+2024-10-03 10:55:00,944 - INFO - PerfectExpert: 201.11901682362068
+2024-10-03 10:55:00,944 - INFO - Running PerfectExpert - round: 991
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 201.37237667060043
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 992
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 201.63454432836784
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 993
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 201.8749581075258
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 994
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 202.11714948617853
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 995
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 202.37213215051537
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 996
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 202.54375754004602
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 997
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 202.74183388372148
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 998
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 202.98258774076413
+2024-10-03 10:55:00,945 - INFO - Running PerfectExpert - round: 999
+2024-10-03 10:55:00,945 - INFO - PerfectExpert: 203.1766476002516

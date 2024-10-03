@@ -1,10 +1,7 @@
-# MixUCB
-## Setting III
-When query expert return all the rewards of all the actions. See code in
+# All the baselines
 
-```settingIII.ipynb```
-(We plot different $\alpha$)
 
-## Setting II
-``` python settingII.py --T 1000 --beta 3 --n_actions 30 --delta 0.2 ```
+Step 1. Generate the and store the data for T rounds using ```generate_all_data.py``` 
+
+
 
