@@ -197,8 +197,8 @@ def plot_three_mixucbs(Figure_dir='Figures'):
 
     plot_average_rewards(axs, cumulative_rewards, cumulative_rewards_std, delta_values)
     # plot_cumulative_rewards([axs], cumulative_rewards, cumulative_rewards_std)
-    fig.savefig(os.path.join(Figure_dir, f'three_mixucbs.png'), format='jpg', dpi=300, bbox_inches='tight')
     plt.tight_layout()
+    fig.savefig(os.path.join(Figure_dir, f'three_mixucbs.png'), format='jpg', dpi=300, bbox_inches='tight')
     plt.show()
 
 if __name__ == '__main__':

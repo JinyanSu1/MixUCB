@@ -2,12 +2,16 @@ import numpy as np
 import pickle
 from utils.get_data import ContextGenerator
 import argparse
-
+import gym
+import d4rl
 
 
 def generate_data(T, n_actions, n_features, noise_std, seed):
     # Set random seed for reproducibility
     np.random.seed(seed)
+    env = gym.make('maze2d-umaze-v1')
+    print('obs_space: ', env.observation_space)
+    print('action_space: ', env.action_space)
 
     # Generate true weights (theta) for actions
     true_weights = np.random.randn(n_actions, n_features)
@@ -44,7 +48,7 @@ if __name__ == "__main__":
     parser.add_argument('--n_features', type=int, default=4, help='Number of features for each context')
     parser.add_argument('--noise_std', type=float, default=0, help='Noise standard deviation for reward generation')
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
-    parser.add_argument('--output_file', type=str, default='simulation_data.pkl', help='Output pickle file to store the data')
+    parser.add_argument('--output_file', type=str, default='d4rl_data.pkl', help='Output pickle file to store the data')
     
     args = parser.parse_args()
 
