@@ -8,6 +8,9 @@ class ContextGenerator:
         self.true_weights = true_weights
         self.n_actions, self.n_features = true_weights.shape
     def generate_context_and_rewards(self):
+        """
+        returns a single context and true rewards corresponding to each action.
+        """
         context = np.random.randn(1, self.n_features)
         norm = np.linalg.norm(context)
         if norm > 1:  

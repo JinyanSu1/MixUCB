@@ -6,6 +6,7 @@ Generate the and store the data for T rounds using ```generate_all_data.py```
 Install:
 ```
 conda create -n mixucb python=3.10
+conda activate mixucb
 pip install -r requirements.txt 
 # Install pytorch
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
