@@ -100,6 +100,7 @@ def generate_data(T, pca_dim, seed):
 
     where len(rounds) = T, and context and true_rewards are generated for each round.
     (context is the context at round t, and true_rewards are the true rewards for each action at round t)
+    context should have shape (1,n_features), and true_rewards should have shape (n_actions,).
 
     In our case:
     - ignore noise_std.
@@ -128,7 +129,7 @@ def generate_data(T, pca_dim, seed):
         
         # Store context, true_rewards, and expert_action for each round
         data["rounds"].append({
-            "context": context,
+            "context": np.expand_dims(context,0),
             "true_rewards": true_rewards,
         })
 
