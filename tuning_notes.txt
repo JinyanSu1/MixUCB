@@ -1,0 +1,3 @@
+SPANET, PCA with d=5.
+betaMixUCBI -> 40000 is minimum value (or, minimum lies in (20000, 40000])
+betaMixUCBII -> 40000 works (but, something in (3000, 40000) could also potentially work - haven't tried)

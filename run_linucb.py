@@ -55,7 +55,9 @@ if __name__ == "__main__":
     T = args.T if args.T <= len(data["rounds"]) else len(data["rounds"])
     
     n_actions = len(data["rounds"][0]["true_rewards"])  # Number of actions
+    print(f"Number of actions: {n_actions}")
     n_features = data["rounds"][0]["context"].shape[1]
+    print(f"Number of features: {n_features}")
     alpha = args.alpha
 
     # Initialize LinUCB

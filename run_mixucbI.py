@@ -13,6 +13,17 @@ import time
 logging.basicConfig(filename='simulation_mixucbI.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+parser = argparse.ArgumentParser(description='Run MixUCB-I Baseline with pre-generated data from a pickle file')
+parser.add_argument('--T', type=int, default=1000)
+parser.add_argument('--delta', nargs='+', type=float, default=[0.2, 0.5, 1.,2., 5.])
+parser.add_argument('--lambda_', type=float, default=0.001)
+parser.add_argument('--learning_rate', type=float, default=0.1)
+parser.add_argument('--alpha', type=float, default=100)
+parser.add_argument('--beta_MixUCBI', type=float, default=1000)
+parser.add_argument('--temperature', type=float, default=50)
+parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
+parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+
 def softmax_with_temperature(rewards, temperature):
     """Compute the softmax of rewards scaled by temperature."""
     rewards_tensor = torch.tensor(rewards, dtype=torch.float32)
@@ -20,6 +31,10 @@ def softmax_with_temperature(rewards, temperature):
     return action_probs
 
 def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part):
+    """
+    query_part: OnlineLogisticRegressionOracle
+    not_query_part: LinUCB
+    """
     CR_mixucbI = []
     q_mixucbI = np.zeros(T)
     TotalQ_mixucbI = 0
@@ -36,6 +51,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         true_rewards = data["rounds"][i]["true_rewards"]
 
         # Use softmax with temperature to get noisy expert action
+        # NOTE: this is the source of randomness.
         action_probs = softmax_with_temperature(true_rewards, temperature)
         noisy_expert_action = np.random.choice(n_actions, p=action_probs)
 
@@ -74,20 +90,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
 
     return CR_mixucbI, TotalQ_mixucbI, q_mixucbI
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Run MixUCB-I Baseline with pre-generated data from a pickle file')
-    parser.add_argument('--T', type=int, default=1000)
-    parser.add_argument('--delta', nargs='+', type=float, default=[0.2, 0.5, 1.,2., 5.])
-    parser.add_argument('--lambda_', type=float, default=0.001)
-    parser.add_argument('--learning_rate', type=float, default=0.1)
-    parser.add_argument('--alpha', type=float, default=100)
-    parser.add_argument('--beta_MixUCBI', type=float, default=1000)
-    parser.add_argument('--temperature', type=float, default=50)
-    parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
-    parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
-    
-    args = parser.parse_args()
-
+def main(args):
     # Set random seed for reproducibility
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -140,3 +143,7 @@ if __name__ == "__main__":
             with open(pkl_name, 'wb') as f:
                 pickle.dump(dict_to_save, f)
             print('Saved to {}'.format(pkl_name))
+
+if __name__ == "__main__":
+    args = parser.parse_args()
+    main(args)

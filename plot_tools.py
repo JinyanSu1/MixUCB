@@ -48,10 +48,10 @@ def plot_six_baselines(Figure_dir='Figures'):
     os.makedirs(Figure_dir, exist_ok=True)
     CR_linucb_mean = []
     CR_linucb_std = []
-    # CR_mixucbI_mean = []
-    # CR_mixucbI_std = []
-    # CR_mixucbII_mean = []
-    # CR_mixucbII_std = []
+    CR_mixucbI_mean = []
+    CR_mixucbI_std = []
+    CR_mixucbII_mean = []
+    CR_mixucbII_std = []
     CR_mixucbIII_mean = []
     CR_mixucbIII_std = []
     CR_NoisyExpert_mean = []
@@ -67,24 +67,25 @@ def plot_six_baselines(Figure_dir='Figures'):
             CR_linucb = data['CR_linucb']
             linucb_list.append(CR_linucb)
 
-    # mixucbI_pkls = os.listdir('mixucbI_results')
-    # mixucbI_list = []
-    # for each_mixucbI_pkl in mixucbI_pkls:
-    #     with open(os.path.join('mixucbI_results', each_mixucbI_pkl), 'rb') as f:
-    #         data = pickle.load(f)
-    #         CR_mixucbI = data['CR_mixucbI']
-    #         mixucbI_list.append(CR_mixucbI)
-
-    # mixucbII_pkls = os.listdir('mixucbII_results')
-    # mixucbII_list = []
-    # for each_mixucbII_pkl in mixucbII_pkls:
-    #     with open(os.path.join('mixucbII_results', each_mixucbII_pkl), 'rb') as f:
-    #         data = pickle.load(f)
-    #         CR_mixucbII = data['CR_mixucbII']
-    #         mixucbII_list.append(CR_mixucbII)
-
     # NOTE: using a partiuclar value of delta.
     delta=0.5
+
+    mixucbI_pkls = os.listdir(f'mixucbI_results/{delta}')
+    mixucbI_list = []
+    for each_mixucbI_pkl in mixucbI_pkls:
+        with open(os.path.join(f'mixucbI_results/{delta}', each_mixucbI_pkl), 'rb') as f:
+            data = pickle.load(f)
+            CR_mixucbI = data['CR_mixucbI']
+            mixucbI_list.append(CR_mixucbI)
+
+    mixucbII_pkls = os.listdir(f'mixucbII_results/{delta}')
+    mixucbII_list = []
+    for each_mixucbII_pkl in mixucbII_pkls:
+        with open(os.path.join(f'mixucbII_results/{delta}', each_mixucbII_pkl), 'rb') as f:
+            data = pickle.load(f)
+            CR_mixucbII = data['CR_mixucbII']
+            mixucbII_list.append(CR_mixucbII)
+
     mixucbIII_pkls = os.listdir(f'mixucbIII_results/{delta}')
     mixucbIII_list = []
     for each_mixucbIII_pkl in mixucbIII_pkls:
@@ -111,10 +112,10 @@ def plot_six_baselines(Figure_dir='Figures'):
 
     CR_linucb_mean.append(np.mean(linucb_list, axis=0))
     CR_linucb_std.append(np.std(linucb_list, axis=0))
-    # CR_mixucbI_mean.append(np.mean(mixucbI_list, axis=0))
-    # CR_mixucbI_std.append(np.std(mixucbI_list, axis=0))
-    # CR_mixucbII_mean.append(np.mean(mixucbII_list, axis=0))
-    # CR_mixucbII_std.append(np.std(mixucbII_list, axis=0))
+    CR_mixucbI_mean.append(np.mean(mixucbI_list, axis=0))
+    CR_mixucbI_std.append(np.std(mixucbI_list, axis=0))
+    CR_mixucbII_mean.append(np.mean(mixucbII_list, axis=0))
+    CR_mixucbII_std.append(np.std(mixucbII_list, axis=0))
     CR_mixucbIII_mean.append(np.mean(mixucbIII_list, axis=0))
     CR_mixucbIII_std.append(np.std(mixucbIII_list, axis=0))
     CR_NoisyExpert_mean.append(np.mean(noisy_expert_list, axis=0))
@@ -124,20 +125,23 @@ def plot_six_baselines(Figure_dir='Figures'):
 
     cumulative_rewards = {
         'LinUCB': CR_linucb_mean,
-        # 'MixUCB-I': CR_mixucbI_mean,
-        # 'MixUCB-II': CR_mixucbII_mean,
+        f'MixUCB-I ($\\delta = {delta}$)': CR_mixucbI_mean,
+        f'MixUCB-II ($\\delta = {delta}$)': CR_mixucbII_mean,
         f'MixUCB-III ($\\delta = {delta}$)': CR_mixucbIII_mean,
         'NoisyExpert': CR_NoisyExpert_mean,
         'PerfectExpert': CR_PerfectExpert_mean,
     }
     cumulative_rewards_std = {
         'LinUCB': CR_linucb_std,
-        # 'MixUCB-I': CR_mixucbI_std,
-        # 'MixUCB-II': CR_mixucbII_std,
+        f'MixUCB-I ($\\delta = {delta}$)': CR_mixucbI_std,
+        f'MixUCB-II ($\\delta = {delta}$)': CR_mixucbII_std,
         f'MixUCB-III ($\\delta = {delta}$)': CR_mixucbIII_std,
         'NoisyExpert': CR_NoisyExpert_std,
         'PerfectExpert': CR_PerfectExpert_std,
     }
+
+    import pdb; pdb.set_trace()
+
     fig, axs = plt.subplots(1, 1, figsize=(8, 8))
     plot_average_rewards([axs], cumulative_rewards, cumulative_rewards_std)
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_avgr.png'), format='jpg', dpi=300, bbox_inches='tight')
@@ -150,29 +154,29 @@ def plot_six_baselines(Figure_dir='Figures'):
 
 def plot_three_mixucbs(Figure_dir='Figures'):
     os.makedirs(Figure_dir, exist_ok=True)
-    # CR_mixucbI_mean = []
-    # CR_mixucbI_std = []
-    # CR_mixucbII_mean = []
-    # CR_mixucbII_std = []
+    CR_mixucbI_mean = []
+    CR_mixucbI_std = []
+    CR_mixucbII_mean = []
+    CR_mixucbII_std = []
     CR_mixucbIII_mean = []
     CR_mixucbIII_std = []
     delta_values = [0.2, 0.5, 1.,2., 5.]
     for each_delta in delta_values:
-        # mixucbI_pkls = os.listdir(os.path.join('mixucbI_results','{}'.format(each_delta)))
-        # mixucbI_list = []
-        # for each_mixucbI_pkl in mixucbI_pkls:
-        #     with open(os.path.join('mixucbI_results','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
-        #         data = pickle.load(f)
-        #         CR_mixucbI = data['CR_mixucbI']
-        #         mixucbI_list.append(CR_mixucbI)
+        mixucbI_pkls = os.listdir(os.path.join('mixucbI_results','{}'.format(each_delta)))
+        mixucbI_list = []
+        for each_mixucbI_pkl in mixucbI_pkls:
+            with open(os.path.join('mixucbI_results','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
+                data = pickle.load(f)
+                CR_mixucbI = data['CR_mixucbI']
+                mixucbI_list.append(CR_mixucbI)
 
-        # mixucbII_pkls = os.listdir(os.path.join('mixucbII_results','{}'.format(each_delta)))
-        # mixucbII_list = []
-        # for each_mixucbII_pkl in mixucbII_pkls:
-        #     with open(os.path.join('mixucbII_results','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
-        #         data = pickle.load(f)
-        #         CR_mixucbII = data['CR_mixucbII']
-        #         mixucbII_list.append(CR_mixucbII)
+        mixucbII_pkls = os.listdir(os.path.join('mixucbII_results','{}'.format(each_delta)))
+        mixucbII_list = []
+        for each_mixucbII_pkl in mixucbII_pkls:
+            with open(os.path.join('mixucbII_results','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
+                data = pickle.load(f)
+                CR_mixucbII = data['CR_mixucbII']
+                mixucbII_list.append(CR_mixucbII)
 
         mixucbIII_pkls = os.listdir(os.path.join('mixucbIII_results','{}'.format(each_delta)))
         mixucbIII_list = []
@@ -182,23 +186,24 @@ def plot_three_mixucbs(Figure_dir='Figures'):
                 CR_mixucbIII = data['CR_mixucbIII']
                 mixucbIII_list.append(CR_mixucbIII)
 
-        # CR_mixucbI_mean.append(np.mean(mixucbI_list, axis=0))
-        # CR_mixucbI_std.append(np.std(mixucbI_list, axis=0))
-        # CR_mixucbII_mean.append(np.mean(mixucbII_list, axis=0))
-        # CR_mixucbII_std.append(np.std(mixucbII_list, axis=0))
+        CR_mixucbI_mean.append(np.mean(mixucbI_list, axis=0))
+        CR_mixucbI_std.append(np.std(mixucbI_list, axis=0))
+        CR_mixucbII_mean.append(np.mean(mixucbII_list, axis=0))
+        CR_mixucbII_std.append(np.std(mixucbII_list, axis=0))
         CR_mixucbIII_mean.append(np.mean(mixucbIII_list, axis=0))
         CR_mixucbIII_std.append(np.std(mixucbIII_list, axis=0))
 
     cumulative_rewards = {
-        # 'MixUCB-I': CR_mixucbI_mean,
-        # 'MixUCB-II': CR_mixucbII_mean,
+        'MixUCB-I': CR_mixucbI_mean,
+        'MixUCB-II': CR_mixucbII_mean,
         'MixUCB-III': CR_mixucbIII_mean,
     }
     cumulative_rewards_std = {
-        # 'MixUCB-I': CR_mixucbI_std,
-        # 'MixUCB-II': CR_mixucbII_std,
+        'MixUCB-I': CR_mixucbI_std,
+        'MixUCB-II': CR_mixucbII_std,
         'MixUCB-III': CR_mixucbIII_std,
     }
+    
     # Create a 1 by m grid of subplots for average rewards
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
     plot_average_rewards(axs, cumulative_rewards, cumulative_rewards_std, delta_values)
