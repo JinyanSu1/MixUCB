@@ -140,8 +140,6 @@ def plot_six_baselines(Figure_dir='Figures'):
         'PerfectExpert': CR_PerfectExpert_std,
     }
 
-    import pdb; pdb.set_trace()
-
     fig, axs = plt.subplots(1, 1, figsize=(8, 8))
     plot_average_rewards([axs], cumulative_rewards, cumulative_rewards_std)
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_avgr.png'), format='jpg', dpi=300, bbox_inches='tight')
@@ -160,31 +158,49 @@ def plot_three_mixucbs(Figure_dir='Figures'):
     CR_mixucbII_std = []
     CR_mixucbIII_mean = []
     CR_mixucbIII_std = []
+
+    TotalQ_mixucbI_mean = []
+    TotalQ_mixucbI_std = []
+    TotalQ_mixucbII_mean = []
+    TotalQ_mixucbII_std = []
+    TotalQ_mixucbIII_mean = []
+    TotalQ_mixucbIII_std = []
+
     delta_values = [0.2, 0.5, 1.,2., 5.]
     for each_delta in delta_values:
         mixucbI_pkls = os.listdir(os.path.join('mixucbI_results','{}'.format(each_delta)))
         mixucbI_list = []
+        mixucbI_list_totalQ = []
         for each_mixucbI_pkl in mixucbI_pkls:
             with open(os.path.join('mixucbI_results','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
                 data = pickle.load(f)
                 CR_mixucbI = data['CR_mixucbI']
                 mixucbI_list.append(CR_mixucbI)
+                TotalQ_mixUCBI = data['TotalQ_mixucbI']
+                mixucbI_list_totalQ.append(TotalQ_mixUCBI)
 
         mixucbII_pkls = os.listdir(os.path.join('mixucbII_results','{}'.format(each_delta)))
         mixucbII_list = []
+        mixucbII_list_totalQ = []
         for each_mixucbII_pkl in mixucbII_pkls:
             with open(os.path.join('mixucbII_results','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
                 data = pickle.load(f)
                 CR_mixucbII = data['CR_mixucbII']
                 mixucbII_list.append(CR_mixucbII)
+                TotalQ_mixUCBII = data['TotalQ_mixucbII']
+                mixucbII_list_totalQ.append(TotalQ_mixUCBII)
 
         mixucbIII_pkls = os.listdir(os.path.join('mixucbIII_results','{}'.format(each_delta)))
         mixucbIII_list = []
+        mixucbIII_list_totalQ = []
         for each_mixucbIII_pkl in mixucbIII_pkls:
             with open(os.path.join('mixucbIII_results','{}'.format(each_delta), each_mixucbIII_pkl), 'rb') as f:
                 data = pickle.load(f)
                 CR_mixucbIII = data['CR_mixucbIII']
                 mixucbIII_list.append(CR_mixucbIII)
+                TotalQ_mixUCBIII = data['TotalQ_mixucbIII']
+                mixucbIII_list_totalQ.append(TotalQ_mixUCBIII)
+
 
         CR_mixucbI_mean.append(np.mean(mixucbI_list, axis=0))
         CR_mixucbI_std.append(np.std(mixucbI_list, axis=0))
@@ -192,6 +208,13 @@ def plot_three_mixucbs(Figure_dir='Figures'):
         CR_mixucbII_std.append(np.std(mixucbII_list, axis=0))
         CR_mixucbIII_mean.append(np.mean(mixucbIII_list, axis=0))
         CR_mixucbIII_std.append(np.std(mixucbIII_list, axis=0))
+
+        TotalQ_mixucbI_mean.append(np.mean(mixucbI_list_totalQ))
+        TotalQ_mixucbI_std.append(np.std(mixucbI_list_totalQ))
+        TotalQ_mixucbII_mean.append(np.mean(mixucbII_list_totalQ))
+        TotalQ_mixucbII_std.append(np.std(mixucbII_list_totalQ))
+        TotalQ_mixucbIII_mean.append(np.mean(mixucbIII_list_totalQ))
+        TotalQ_mixucbIII_std.append(np.std(mixucbIII_list_totalQ))
 
     cumulative_rewards = {
         'MixUCB-I': CR_mixucbI_mean,
@@ -203,6 +226,11 @@ def plot_three_mixucbs(Figure_dir='Figures'):
         'MixUCB-II': CR_mixucbII_std,
         'MixUCB-III': CR_mixucbIII_std,
     }
+
+    print(f"Deltas: {delta_values}")
+    print(f'TotalQ_mixucbI_mean: {np.array(TotalQ_mixucbI_mean)}')
+    print(f'TotalQ_mixucbII_mean: {np.array(TotalQ_mixucbII_mean)}')
+    print(f'TotalQ_mixucbIII_mean: {np.array(TotalQ_mixucbIII_mean)}')
     
     # Create a 1 by m grid of subplots for average rewards
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
