@@ -3,15 +3,24 @@
 
 Generate the and store the data for T rounds using ```generate_all_data.py``` 
 
+Install:
+```
+conda create -n mixucb python=3.10
+pip install -r requirements.txt 
+# Install pytorch
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+# Install multiprocess
+pip install multiprocess
+```
 
 
 # Baselines
 ```bash
 python run_linucb.py
-python run_noisy_expert.py
+python run_noisy_expert.py  # requires torch
 python run_perfect_expert.py
-python run_mixucbI.py
-python run_mixucbII.py
+python run_mixucbI.py       # requires torch
+python run_mixucbII.py      # requires torch, multiprocess
 python run_mixucbIII.py
 
 ```
