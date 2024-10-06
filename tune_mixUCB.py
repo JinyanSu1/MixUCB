@@ -16,12 +16,17 @@ if __name__=="__main__":
     alpha = 1
 
     # Variable parameters.
-    lambdas = [0.001, 0.01, 0.1, 1]
-    beta_MixUCBI_values = [1000, 2000, 4000, 8000, 16000]
-    failed_I = {(lambda_, beta): False for (lambda_, beta) in itertools.product(lambdas, beta_MixUCBI_values)}
-    failed_II = {(lambda_, beta): False for (lambda_, beta) in itertools.product(lambdas, beta_MixUCBI_values)}
+    # lambdas = [0.001, 0.01, 0.1, 1]
+    # beta_MixUCBI_values = [1000, 2000, 4000, 8000, 16000]
+    # generator = itertools.product(lambdas, beta_MixUCBI_values)
 
-    for (setting_id, (lambda_, beta)) in enumerate(itertools.product(lambdas, beta_MixUCBI_values)):
+    # 10/6 - second experiment.
+    generator = [(1,5000),(1,6000),(1,7000)] + [(10,beta) for beta in [1000, 2000, 4000, 8000, 16000]]
+
+    failed_I = {(lambda_, beta): False for (lambda_, beta) in generator}
+    failed_II = {(lambda_, beta): False for (lambda_, beta) in generator}
+
+    for (setting_id, (lambda_, beta)) in enumerate(generator):
         print(f"Running all algorithms with lambda={lambda_} and beta_MixUCBI={beta}...")
         # MixUCB-I
         args = run_mixucbI.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', '--temperature', str(temperature), \
