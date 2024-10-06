@@ -80,27 +80,27 @@ if __name__ == "__main__":
         results = os.path.join('mixucbIII_results', '{}'.format(delta))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
-        for rep_id in range(5):
-            # Initialize MixUCB-III model
-            mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
+        # for rep_id in range(5):
+        # Initialize MixUCB-III model
+        mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
 
-            # Run MixUCB-III using the pre-generated data
-            CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
+        # Run MixUCB-III using the pre-generated data
+        CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
 
-            print(f"Finished running MixUCB-III for {T} rounds.")
+        print(f"Finished running MixUCB-III for {T} rounds.")
 
-            pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
-            dict_to_save = {
-                'CR_mixucbIII': CR_mixucbIII,
-                'alpha': args.alpha,
-                'lambda_': args.lambda_,
-                'T': args.T,
-                'n_actions': n_actions,
-                'n_features': n_features,
-                'delta': delta,
-                'TotalQ_mixucbIII': TotalQ_mixucbIII,
-                'q_mixucbIII': q_mixucbIII,
-            }
-            with open(pkl_name, 'wb') as f:
-                pickle.dump(dict_to_save, f)
-            print('Saved to {}'.format(pkl_name))
+        pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+        dict_to_save = {
+            'CR_mixucbIII': CR_mixucbIII,
+            'alpha': args.alpha,
+            'lambda_': args.lambda_,
+            'T': args.T,
+            'n_actions': n_actions,
+            'n_features': n_features,
+            'delta': delta,
+            'TotalQ_mixucbIII': TotalQ_mixucbIII,
+            'q_mixucbIII': q_mixucbIII,
+        }
+        with open(pkl_name, 'wb') as f:
+            pickle.dump(dict_to_save, f)
+        print('Saved to {}'.format(pkl_name))

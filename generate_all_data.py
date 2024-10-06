@@ -47,12 +47,14 @@ if __name__ == "__main__":
     parser.add_argument('--output_file', type=str, default='simulation_data.pkl', help='Output pickle file to store the data')
     
     args = parser.parse_args()
+    args.seed = [42, 0, 1, 2, 3]
+    for seed in args.seed:
+        args.output_file = args.output_file[:-4] + '_{:02d}'.format(seed) + args.output_file[-4:]
+        # Generate the data
+        data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, seed=seed)
 
-    # Generate the data
-    data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, seed=args.seed)
+        # Save data to a pickle file
+        with open(args.output_file, 'wb') as f:
+            pickle.dump(data, f)
 
-    # Save data to a pickle file
-    with open(args.output_file, 'wb') as f:
-        pickle.dump(data, f)
-    
-    print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")
+        print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")

@@ -112,31 +112,31 @@ if __name__ == "__main__":
         results = os.path.join('mixucbI_results', '{}'.format(delta))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
-        for rep_id in range(5):
-            # Initialize query and non-query parts
-            mixucbI_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
-            mixucbI_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
+        # for rep_id in range(5):
+        # Initialize query and non-query parts
+        mixucbI_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
+        mixucbI_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
 
-            # Run MixUCB-I using the pre-generated data
-            CR_mixucbI, TotalQ_mixucbI, q_mixucbI = run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part)
+        # Run MixUCB-I using the pre-generated data
+        CR_mixucbI, TotalQ_mixucbI, q_mixucbI = run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part)
 
-            print(f"Finished running MixUCB-I for {T} rounds.")
+        print(f"Finished running MixUCB-I for {T} rounds.")
 
-            pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
-            dict_to_save = {
-                'CR_mixucbI': CR_mixucbI,
-                'alpha': args.alpha,
-                'lambda_': args.lambda_,
-                'T': args.T,
-                'n_actions': n_actions,
-                'n_features': n_features,
-                'delta': delta,
-                'beta': beta,
-                'temperature': temperature,
-                'lr': learning_rate,
-                'TotalQ_mixucbI': TotalQ_mixucbI,
-                'q_mixucbI': q_mixucbI,
-            }
-            with open(pkl_name, 'wb') as f:
-                pickle.dump(dict_to_save, f)
-            print('Saved to {}'.format(pkl_name))
+        pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+        dict_to_save = {
+            'CR_mixucbI': CR_mixucbI,
+            'alpha': args.alpha,
+            'lambda_': args.lambda_,
+            'T': args.T,
+            'n_actions': n_actions,
+            'n_features': n_features,
+            'delta': delta,
+            'beta': beta,
+            'temperature': temperature,
+            'lr': learning_rate,
+            'TotalQ_mixucbI': TotalQ_mixucbI,
+            'q_mixucbI': q_mixucbI,
+        }
+        with open(pkl_name, 'wb') as f:
+            pickle.dump(dict_to_save, f)
+        print('Saved to {}'.format(pkl_name))
