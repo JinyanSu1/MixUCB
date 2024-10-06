@@ -10,6 +10,15 @@ import time
 logging.basicConfig(filename='simulation_mixucbIII.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+parser = argparse.ArgumentParser(description='Run MixUCB-III Baseline')
+parser.add_argument('--T', type=int, default=1000)
+parser.add_argument('--delta', nargs='+', type=float, default=[0.2, 0.5, 1.,2., 5.])
+parser.add_argument('--lambda_', type=float, default=0.001)
+parser.add_argument('--alpha', type=float, default=1)
+parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
+parser.add_argument("--setting_id", type=int, default=0, help="Setting ID for the experiment")
+
 def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
     CR_mixucbIII = []
     q_mixucbIII = np.zeros(T)
@@ -48,17 +57,7 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
 
     return CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Run MixUCB-III Baseline')
-    parser.add_argument('--T', type=int, default=1000)
-    parser.add_argument('--delta', nargs='+', type=float, default=[0.2, 0.5, 1.,2., 5.])
-    parser.add_argument('--lambda_', type=float, default=0.001)
-    parser.add_argument('--alpha', type=float, default=1)
-    parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
-    parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
-    
-    args = parser.parse_args()
-
+def main(args):
     # Set random seed for reproducibility
     np.random.seed(args.seed)
 
@@ -75,9 +74,10 @@ if __name__ == "__main__":
     # Initialize parameters
     delta_list = args.delta
     alpha = args.alpha
+    setting_id = args.setting_id
 
     for delta in delta_list:
-        results = os.path.join('mixucbIII_results', '{}'.format(delta))
+        results = os.path.join(f'mixucbIII_results_{setting_id}', '{}'.format(delta))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
         for rep_id in range(5):
@@ -104,3 +104,7 @@ if __name__ == "__main__":
             with open(pkl_name, 'wb') as f:
                 pickle.dump(dict_to_save, f)
             print('Saved to {}'.format(pkl_name))
+
+if __name__ == "__main__":
+    args = parser.parse_args()
+    main(args)

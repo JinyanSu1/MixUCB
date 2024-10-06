@@ -23,6 +23,7 @@ parser.add_argument('--beta_MixUCBI', type=float, default=1000)
 parser.add_argument('--temperature', type=float, default=50)
 parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+parser.add_argument("--setting_id", type=int, default=0, help="Setting ID for the experiment")
 
 def softmax_with_temperature(rewards, temperature):
     """Compute the softmax of rewards scaled by temperature."""
@@ -110,9 +111,10 @@ def main(args):
     lambda_ = args.lambda_
     learning_rate = args.learning_rate
     alpha = args.alpha
+    setting_id = args.setting_id
 
     for delta in delta_list:
-        results = os.path.join('mixucbI_results', '{}'.format(delta))
+        results = os.path.join(f'mixucbI_results_{setting_id}', '{}'.format(delta))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
         for rep_id in range(5):
