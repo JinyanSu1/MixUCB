@@ -11,8 +11,11 @@ import pickle as pkl
 import itertools
 
 if __name__=="__main__":
-    # Fixed parameters
-    temperature = 0.1
+    # Fixed parameters: for experiments in 10/6 and before.
+    # temperature = 0.1
+    # alpha = 1
+    # Fixed parameters: for experiments from 10/7 onwards.
+    temperature = 10
     alpha = 1
 
     # Variable parameters.
@@ -24,7 +27,12 @@ if __name__=="__main__":
     # generator = [(1,5000),(1,6000),(1,7000)] + [(10,beta) for beta in [1000, 2000, 4000, 8000, 16000]]
 
     # 10/6 - third experiments
-    lambdas = [2, 4, 6, 8]
+    # lambdas = [2, 4, 6, 8]
+    # beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+    # generator = list(itertools.product(lambdas, beta_MixUCBI_values))
+
+    # 10/7 - round 1 (higher temperature expert = less noisy)
+    lambdas = [0.01, 0.1, 1, 2, 4, 6]
     beta_MixUCBI_values = [1000, 2000, 4000, 8000]
     generator = list(itertools.product(lambdas, beta_MixUCBI_values))
 

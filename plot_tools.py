@@ -303,9 +303,12 @@ if __name__ == '__main__':
     # mixucb_postfix="_7"
     # mixucb_postfix="_0"  # for g2 reproducibility experiment, 10/6/24
     # 2024-10-07 for re-plotting w/ number of queries
-    mixucb_postfix="_7"
-    result_root = 'gridsearchpart3_20241006'
+    # mixucb_postfix="_7"
+    # result_root = 'gridsearchpart3_20241006'
+    # 2024-10-07 g2 experiment
+    mixucb_postfix="_19"
+    result_root=''
+    plot_three_mixucbs(result_postfix=mixucb_postfix,result_root=result_root)
     # NOTE: using a particular value of delta.
     delta=0.5
-    plot_three_mixucbs(result_postfix=mixucb_postfix,result_root=result_root)
     plot_six_baselines(mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)

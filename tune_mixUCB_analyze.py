@@ -7,7 +7,7 @@
 
 import pickle as pkl
 import matplotlib
-matplotlib.use('TKAgg')
+# matplotlib.use('TKAgg')               # comment out for G2
 import matplotlib.pyplot as plt
 import os
 import numpy as np
@@ -27,7 +27,12 @@ def main():
     # generator = [(1,5000),(1,6000),(1,7000)] + [(10,beta) for beta in [1000, 2000, 4000, 8000, 16000]]
 
     # 2024-10-6: experiment III
-    lambdas = [2, 4, 6, 8]
+    # lambdas = [2, 4, 6, 8]
+    # beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+    # generator = [(lambda_, beta) for lambda_ in lambdas for beta in beta_MixUCBI_values]
+
+    # 2024-10-7: G2 experiment with higher temperature
+    lambdas = [0.01, 0.1, 1, 2, 4, 6]
     beta_MixUCBI_values = [1000, 2000, 4000, 8000]
     generator = [(lambda_, beta) for lambda_ in lambdas for beta in beta_MixUCBI_values]
 
