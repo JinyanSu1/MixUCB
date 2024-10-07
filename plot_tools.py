@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use('TKAgg')
+# matplotlib.use('TKAgg') # for g2, comment me out.
 import matplotlib.pyplot as plt
 import os
 import pickle
@@ -246,8 +246,9 @@ if __name__ == '__main__':
     # 2024-10-6 experiment 2
     # mixucb_postfix="_3" # corresponds to a setting, see tune_mixUCB.py
     # 2024-10-6 experiment 3
-    mixucb_postfix="_7"
-    # NOTE: using a partiuclar value of delta.
+    # mixucb_postfix="_7"
+    mixucb_postfix="_0"  # for g2 reproducibility experiment, 10/6/24
+    # NOTE: using a particular value of delta.
     delta=0.5
     plot_three_mixucbs(result_postfix=mixucb_postfix)
     plot_six_baselines(mixucb_result_postfix=mixucb_postfix,delta=delta)
