@@ -243,7 +243,10 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix=""):
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_cr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
 if __name__ == '__main__':
-    mixucb_postfix="_3" # corresponds to a setting, see tune_mixUCB.py
+    # 2024-10-6 experiment 2
+    # mixucb_postfix="_3" # corresponds to a setting, see tune_mixUCB.py
+    # 2024-10-6 experiment 3
+    mixucb_postfix="_7"
     # NOTE: using a partiuclar value of delta.
     delta=0.5
     plot_three_mixucbs(result_postfix=mixucb_postfix)

@@ -14,6 +14,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 pip install multiprocess
 ```
 
+Set up MOSEK.
 
 # Baselines
 ```bash

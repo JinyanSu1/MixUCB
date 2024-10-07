@@ -21,7 +21,12 @@ if __name__=="__main__":
     # generator = itertools.product(lambdas, beta_MixUCBI_values)
 
     # 10/6 - second experiment.
-    generator = [(1,5000),(1,6000),(1,7000)] + [(10,beta) for beta in [1000, 2000, 4000, 8000, 16000]]
+    # generator = [(1,5000),(1,6000),(1,7000)] + [(10,beta) for beta in [1000, 2000, 4000, 8000, 16000]]
+
+    # 10/6 - third experiments
+    lambdas = [2, 4, 6, 8]
+    beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+    generator = list(itertools.product(lambdas, beta_MixUCBI_values))
 
     failed_I = {(lambda_, beta): False for (lambda_, beta) in generator}
     failed_II = {(lambda_, beta): False for (lambda_, beta) in generator}

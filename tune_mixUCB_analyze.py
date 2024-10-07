@@ -24,30 +24,34 @@ def main():
     # beta_MixUCBI_values = [1000, 2000, 4000, 8000, 16000]
 
     # (lambda, beta) values
-    generator = [(1,5000),(1,6000),(1,7000)] + [(10,beta) for beta in [1000, 2000, 4000, 8000, 16000]]
+    # generator = [(1,5000),(1,6000),(1,7000)] + [(10,beta) for beta in [1000, 2000, 4000, 8000, 16000]]
 
+    # 2024-10-6: experiment III
+    lambdas = [2, 4, 6, 8]
+    beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+    generator = [(lambda_, beta) for lambda_ in lambdas for beta in beta_MixUCBI_values]
 
     # Let's make binary heatmaps to see which settings failed
-    # failed_I_matrix = [[int(failed_I[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
-    # failed_II_matrix = [[int(failed_II[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
+    failed_I_matrix = [[int(failed_I[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
+    failed_II_matrix = [[int(failed_II[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
     
-    # fig, ax = plt.subplots()
-    # ax.imshow(failed_I_matrix, cmap='binary')
-    # ax.set_title('MixUCB-I (black = failed, white = succeeded)')
-    # ax.set_xlabel('beta')
-    # ax.set_ylabel('lambda')
-    # ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
-    # ax.set_yticks(range(len(lambdas)), lambdas)
-    # plt.savefig('Figures/failed_I.png')
+    fig, ax = plt.subplots()
+    ax.imshow(failed_I_matrix, cmap='binary')
+    ax.set_title('MixUCB-I (black = failed, white = succeeded)')
+    ax.set_xlabel('beta')
+    ax.set_ylabel('lambda')
+    ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
+    ax.set_yticks(range(len(lambdas)), lambdas)
+    plt.savefig('Figures/failed_I.png')
 
-    # fig, ax = plt.subplots()
-    # ax.imshow(failed_II_matrix, cmap='binary')
-    # ax.set_title('MixUCB-II (black = failed, white = succeeded)')
-    # ax.set_xlabel('beta')
-    # ax.set_ylabel('lambda')
-    # ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
-    # ax.set_yticks(range(len(lambdas)), lambdas)
-    # plt.savefig('Figures/failed_II.png')
+    fig, ax = plt.subplots()
+    ax.imshow(failed_II_matrix, cmap='binary')
+    ax.set_title('MixUCB-II (black = failed, white = succeeded)')
+    ax.set_xlabel('beta')
+    ax.set_ylabel('lambda')
+    ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
+    ax.set_yticks(range(len(lambdas)), lambdas)
+    plt.savefig('Figures/failed_II.png')
 
 
     # (2) Let's examine the number of queries specifically for the following setting
@@ -56,6 +60,8 @@ def main():
 
     # Initial setting
     # settings = [(1,8000),(1,16000),(0.1,16000),(0.01,16000)]
+
+    # Better logic:
     # Instead, go through all settings for which both MixUCB-I and MixUCB-II succeeded.
     settings = [pair for pair in generator if (not failed_I[pair] and not failed_II[pair])]
 
