@@ -101,7 +101,8 @@ def generate_data(T, pca_dim, seed):
         "rounds": [
             {
                 "context": context,
-                "true_rewards": true_rewards,
+                "true_rewards": true_rewards,    - from env, should only be used for evaluation.
+                "expert_rewards": expert_rewards - from linear oracle
             },
             ...
         ]
@@ -128,7 +129,7 @@ def generate_data(T, pca_dim, seed):
     contexts = np.squeeze(np.array(list(subsampled_dataset["context"])))
 
     # OLD: Setting where our oracle is the dataset itself.
-    # true_rewards_list = [get_all_dataset_rewards(full_dataset, foodtype, rotationally_symmetric) for foodtype in subsampled_dataset["fooditem"]]
+    true_rewards_list = [get_all_dataset_rewards(full_dataset, foodtype, rotationally_symmetric) for foodtype in subsampled_dataset["fooditem"]]
     
     # NEW: we want to train a linear oracle on all the (PCA-transformed) contexts
     # in the entire dataset. Our rewards will then come from this oracle in the following way:
@@ -153,7 +154,7 @@ def generate_data(T, pca_dim, seed):
         lr.fit(X_pca,y)
         pca_linear_models.append(lr)
 
-    true_rewards_list = [get_all_dataset_rewards_new(pca_linear_models, pca_full, context) for context in contexts]
+    expert_rewards_list = [get_all_dataset_rewards_new(pca_linear_models, pca_full, context) for context in contexts]
 
     # PCA just for the contexts in the dataset.
     contexts_pca = pca_full.fit_transform(contexts)
@@ -162,11 +163,12 @@ def generate_data(T, pca_dim, seed):
     for t in range(T):
         context = contexts_pca[t]
         true_rewards = true_rewards_list[t]
-        
+        expert_rewards = expert_rewards_list[t]
         # Store context, true_rewards, and expert_action for each round
         data["rounds"].append({
             "context": np.expand_dims(context,0),
             "true_rewards": true_rewards,
+            "expert_rewards": expert_rewards
         })
 
     return data
