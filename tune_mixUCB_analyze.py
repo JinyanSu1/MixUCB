@@ -13,10 +13,12 @@ import os
 import numpy as np
 import sys
 
-def main():
+from argparse import ArgumentParser
+
+def main(temperature):
     # (1) load the failed pickles
-    failed_I = pkl.load(open('failed_I.pkl', 'rb'))
-    failed_II = pkl.load(open('failed_II.pkl', 'rb'))
+    failed_I = pkl.load(open(f'failed_I_{temperature}.pkl', 'rb'))
+    failed_II = pkl.load(open(f'failed_II_{temperature}.pkl', 'rb'))
     print(f"Failure setting for I: {failed_I}")
     print(f"Failure setting for II: {failed_II}")
 
@@ -32,31 +34,35 @@ def main():
     # generator = [(lambda_, beta) for lambda_ in lambdas for beta in beta_MixUCBI_values]
 
     # 2024-10-7: G2 experiment with higher temperature
-    lambdas = [0.01, 0.1, 1, 2, 4, 6]
-    beta_MixUCBI_values = [1000, 2000, 4000, 8000]
-    generator = [(lambda_, beta) for lambda_ in lambdas for beta in beta_MixUCBI_values]
+    # lambdas = [0.01, 0.1, 1, 2, 4, 6]
+    # beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+    # generator = [(lambda_, beta) for lambda_ in lambdas for beta in beta_MixUCBI_values]
+
+    # 2024-10-7: temperature experiment
+    beta_MixUCBI_values = [5000, 6000, 7000, 8000]
+    generator = beta_MixUCBI_values
 
     # Let's make binary heatmaps to see which settings failed
-    failed_I_matrix = [[int(failed_I[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
-    failed_II_matrix = [[int(failed_II[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
+    # failed_I_matrix = [[int(failed_I[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
+    # failed_II_matrix = [[int(failed_II[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
     
-    fig, ax = plt.subplots()
-    ax.imshow(failed_I_matrix, cmap='binary')
-    ax.set_title('MixUCB-I (black = failed, white = succeeded)')
-    ax.set_xlabel('beta')
-    ax.set_ylabel('lambda')
-    ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
-    ax.set_yticks(range(len(lambdas)), lambdas)
-    plt.savefig('Figures/failed_I.png')
+    # fig, ax = plt.subplots()
+    # ax.imshow(failed_I_matrix, cmap='binary')
+    # ax.set_title('MixUCB-I (black = failed, white = succeeded)')
+    # ax.set_xlabel('beta')
+    # ax.set_ylabel('lambda')
+    # ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
+    # ax.set_yticks(range(len(lambdas)), lambdas)
+    # plt.savefig('Figures/failed_I.png')
 
-    fig, ax = plt.subplots()
-    ax.imshow(failed_II_matrix, cmap='binary')
-    ax.set_title('MixUCB-II (black = failed, white = succeeded)')
-    ax.set_xlabel('beta')
-    ax.set_ylabel('lambda')
-    ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
-    ax.set_yticks(range(len(lambdas)), lambdas)
-    plt.savefig('Figures/failed_II.png')
+    # fig, ax = plt.subplots()
+    # ax.imshow(failed_II_matrix, cmap='binary')
+    # ax.set_title('MixUCB-II (black = failed, white = succeeded)')
+    # ax.set_xlabel('beta')
+    # ax.set_ylabel('lambda')
+    # ax.set_xticks(range(len(beta_MixUCBI_values)), beta_MixUCBI_values)
+    # ax.set_yticks(range(len(lambdas)), lambdas)
+    # plt.savefig('Figures/failed_II.png')
 
 
     # (2) Let's examine the number of queries specifically for the following setting
@@ -68,14 +74,22 @@ def main():
 
     # Better logic:
     # Instead, go through all settings for which both MixUCB-I and MixUCB-II succeeded.
-    settings = [pair for pair in generator if (not failed_I[pair] and not failed_II[pair])]
+    # settings = [pair for pair in generator if (not failed_I[pair] and not failed_II[pair])]
+
+    # temperature = 1.0, 10/7
+    # settings = [7000]
+    # temperature = 5.0, 10/7
+    settings = [5000, 8000]
 
     print(f"Common settings where both I and II didn't fail to converge: {settings}")
 
-    for (lambda_to_check, beta_to_check) in settings:
-        print(f"Checking querying metrics for lambda={lambda_to_check} and beta={beta_to_check}")
+    # for (lambda_to_check, beta_to_check) in settings:
+    for (beta_to_check) in settings:
+        # print(f"Checking querying metrics for lambda={lambda_to_check} and beta={beta_to_check}")
+        print(f"Checking querying metrics for beta={beta_to_check}")
         # setting_ID = lambdas.index(lambda_to_check) * len(beta_MixUCBI_values) + beta_MixUCBI_values.index(beta_to_check)
-        setting_ID = generator.index((lambda_to_check, beta_to_check))
+        # setting_ID = generator.index((lambda_to_check, beta_to_check))
+        setting_ID = generator.index((beta_to_check))
         print(f"Setting ID: {setting_ID}")
 
         CR_mixucbI_mean = []
@@ -94,33 +108,33 @@ def main():
 
         delta_values = [0.2, 0.5, 1.,2., 5.]
         for each_delta in delta_values:
-            mixucbI_pkls = os.listdir(os.path.join(f'mixucbI_results_{setting_ID}','{}'.format(each_delta)))
+            mixucbI_pkls = os.listdir(os.path.join(f'mixucbI_results_temp{temperature}_{setting_ID}','{}'.format(each_delta)))
             mixucbI_list = []
             mixucbI_list_totalQ = []
             for each_mixucbI_pkl in mixucbI_pkls:
-                with open(os.path.join(f'mixucbI_results_{setting_ID}','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbI_results_temp{temperature}_{setting_ID}','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbI = data['CR_mixucbI']
                     mixucbI_list.append(CR_mixucbI)
                     TotalQ_mixUCBI = data['TotalQ_mixucbI']
                     mixucbI_list_totalQ.append(TotalQ_mixUCBI)
 
-            mixucbII_pkls = os.listdir(os.path.join(f'mixucbII_results_{setting_ID}','{}'.format(each_delta)))
+            mixucbII_pkls = os.listdir(os.path.join(f'mixucbII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta)))
             mixucbII_list = []
             mixucbII_list_totalQ = []
             for each_mixucbII_pkl in mixucbII_pkls:
-                with open(os.path.join(f'mixucbII_results_{setting_ID}','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbII = data['CR_mixucbII']
                     mixucbII_list.append(CR_mixucbII)
                     TotalQ_mixUCBII = data['TotalQ_mixucbII']
                     mixucbII_list_totalQ.append(TotalQ_mixUCBII)
 
-            mixucbIII_pkls = os.listdir(os.path.join(f'mixucbIII_results_{setting_ID}','{}'.format(each_delta)))
+            mixucbIII_pkls = os.listdir(os.path.join(f'mixucbIII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta)))
             mixucbIII_list = []
             mixucbIII_list_totalQ = []
             for each_mixucbIII_pkl in mixucbIII_pkls:
-                with open(os.path.join(f'mixucbIII_results_{setting_ID}','{}'.format(each_delta), each_mixucbIII_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbIII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta), each_mixucbIII_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbIII = data['CR_mixucbIII']
                     mixucbIII_list.append(CR_mixucbIII)
@@ -148,4 +162,9 @@ def main():
         print(f"Mean of TotalQ_mixUCBIII: {TotalQ_mixUCBIII_mean}")
 
 if __name__=="__main__":
-    main()
+    parser = ArgumentParser()
+    parser.add_argument('--temperature', type=float, required=True)
+    args = parser.parse_args()
+
+    temperature = args.temperature
+    main(temperature)

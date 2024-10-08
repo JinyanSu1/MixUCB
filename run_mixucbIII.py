@@ -17,7 +17,7 @@ parser.add_argument('--lambda_', type=float, default=0.001)
 parser.add_argument('--alpha', type=float, default=1)
 parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
 parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
-parser.add_argument("--setting_id", type=int, default=0, help="Setting ID for the experiment")
+parser.add_argument("--setting_id", type=str, default="0", help="Setting ID for the experiment")
 
 def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
     CR_mixucbIII = []

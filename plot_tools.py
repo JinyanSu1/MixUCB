@@ -110,10 +110,10 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
             raw_rewards = [CR_PerfectExpert[i] - CR_PerfectExpert[i-1] if i > 0 else CR_PerfectExpert[i] for i in range(len(CR_PerfectExpert))]
             perfect_expert_rawreward_list.append(raw_rewards)
 
-    linucb_pkls = os.listdir(os.path.join(result_root,'linucb_results'))
+    linucb_pkls = os.listdir(os.path.join(result_root,'linucb_results_0'))
     linucb_list = []
     for each_linucb_pkl in linucb_pkls:
-        with open(os.path.join(result_root,'linucb_results', each_linucb_pkl), 'rb') as f:
+        with open(os.path.join(result_root,'linucb_results_0', each_linucb_pkl), 'rb') as f:
             data = pickle.load(f)
             CR_linucb = data['CR_linucb']
             linucb_list.append(CR_linucb)
@@ -440,8 +440,15 @@ if __name__ == '__main__':
     # mixucb_postfix="_7"
     # result_root = 'gridsearchpart3_20241006'
     # 2024-10-07 g2 experiment
-    mixucb_postfix="_19"
-    result_root='g2highertemp_20241007'
+    # mixucb_postfix="_19"
+    # result_root='g2highertemp_20241007'
+    # Temp 1.0 and Temp 5.0 experiments, 10/7
+    # Temp 1.0
+    # mixucb_postfix="_temp1.0_2"
+    # result_root="g2temp1.0_20241007"
+    # temp 5.0
+    mixucb_postfix="_temp5.0_3"
+    result_root="g2temp5.0_20241007"
     plot_three_mixucbs(result_postfix=mixucb_postfix,result_root=result_root)
     # NOTE: using a particular value of delta.
     delta=0.5

@@ -23,7 +23,7 @@ parser.add_argument('--beta_MixUCBII', type=float, default=3000)
 parser.add_argument('--temperature', type=float, default=50)
 parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
-parser.add_argument("--setting_id", type=int, default=0, help="Setting ID for the experiment")
+parser.add_argument("--setting_id", type=str, default="0", help="Setting ID for the experiment")
 
 def softmax_with_temperature(rewards, temperature):
     """Compute the softmax of rewards scaled by temperature."""
