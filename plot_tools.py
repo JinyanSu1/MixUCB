@@ -447,8 +447,15 @@ if __name__ == '__main__':
     # mixucb_postfix="_temp1.0_2"
     # result_root="g2temp1.0_20241007"
     # temp 5.0
-    mixucb_postfix="_temp5.0_3"
-    result_root="g2temp5.0_20241007"
+    # mixucb_postfix="_temp5.0_3"
+    # result_root="g2temp5.0_20241007"
+    # Higher beta experiments, 10/8
+    # Temp 1.0
+    # mixucb_postfix="_temp1.0_5"
+    # result_root="g2temp1.0_higherbeta_20241008"
+    # Temp 5.0
+    mixucb_postfix="_temp5.0_6"
+    result_root="g2temp5.0_higherbeta_20241008"
     plot_three_mixucbs(result_postfix=mixucb_postfix,result_root=result_root)
     # NOTE: using a particular value of delta.
     delta=0.5

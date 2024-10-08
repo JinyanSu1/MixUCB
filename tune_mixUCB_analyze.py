@@ -39,7 +39,11 @@ def main(temperature):
     # generator = [(lambda_, beta) for lambda_ in lambdas for beta in beta_MixUCBI_values]
 
     # 2024-10-7: temperature experiment
-    beta_MixUCBI_values = [5000, 6000, 7000, 8000]
+    # beta_MixUCBI_values = [5000, 6000, 7000, 8000]
+    # generator = beta_MixUCBI_values
+
+    # 2024-10-7: second temperature experiment
+    beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
     generator = beta_MixUCBI_values
 
     # Let's make binary heatmaps to see which settings failed
@@ -74,12 +78,12 @@ def main(temperature):
 
     # Better logic:
     # Instead, go through all settings for which both MixUCB-I and MixUCB-II succeeded.
-    # settings = [pair for pair in generator if (not failed_I[pair] and not failed_II[pair])]
+    settings = [pair for pair in generator if (not failed_I[pair] and not failed_II[pair])]
 
     # temperature = 1.0, 10/7
     # settings = [7000]
     # temperature = 5.0, 10/7
-    settings = [5000, 8000]
+    # settings = [5000, 8000]
 
     print(f"Common settings where both I and II didn't fail to converge: {settings}")
 

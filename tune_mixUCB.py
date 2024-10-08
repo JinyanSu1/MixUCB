@@ -43,7 +43,10 @@ def main(temperature):
     # generator = list(itertools.product(lambdas, beta_MixUCBI_values))
 
     # 10/7 - fixing temp, alpha, lambda
-    beta_MixUCBI_values = [5000, 6000, 7000, 8000]
+    # beta_MixUCBI_values = [5000, 6000, 7000, 8000]
+
+    # 10/7: higher range of beta_MixUCBI
+    beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
 
     # failed_I = {(lambda_, beta): False for (lambda_, beta) in generator}
     # failed_II = {(lambda_, beta): False for (lambda_, beta) in generator}
