@@ -10,6 +10,13 @@ import time
 logging.basicConfig(filename='simulation_linucb.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+parser = argparse.ArgumentParser(description='Run LinUCB Baseline with pre-generated data from a pickle file')
+parser.add_argument('--T', type=int, default=1000)
+parser.add_argument('--lambda_', type=float, default=0.001)
+parser.add_argument('--alpha', type=float, default=1)
+parser.add_argument('--pickle_file', type=str, default = 'simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+parser.add_argument('--setting_id', type=int, default=0)
+
 def run_linucb(data, T, linucb):
     CR_linucb = []
     r_linucb = 0
@@ -38,15 +45,7 @@ def run_linucb(data, T, linucb):
 
     return CR_linucb
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Run LinUCB Baseline with pre-generated data from a pickle file')
-    parser.add_argument('--T', type=int, default=1000)
-    parser.add_argument('--lambda_', type=float, default=0.001)
-    parser.add_argument('--alpha', type=float, default=1)
-    parser.add_argument('--pickle_file', type=str, default = 'simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
-    
-    args = parser.parse_args()
-
+def main(args):
     # Load pre-generated data from the pickle file
     with open(args.pickle_file, 'rb') as f:
         data = pickle.load(f)
@@ -68,7 +67,7 @@ if __name__ == "__main__":
 
     print(f"Finished running LinUCB for {T} rounds.")
 
-    results = 'linucb_results'
+    results = f'linucb_results_{args.setting_id}'
     os.makedirs(results, exist_ok=True)
     pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
     dict_to_save = {
@@ -82,3 +81,8 @@ if __name__ == "__main__":
     with open(pkl_name, 'wb') as f:
         pickle.dump(dict_to_save, f)
     print('Saved to {}'.format(pkl_name))
+
+if __name__ == "__main__":    
+    args = parser.parse_args()
+
+    main(args)
