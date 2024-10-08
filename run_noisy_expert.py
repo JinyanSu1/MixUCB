@@ -17,16 +17,17 @@ def run_NoisyExpert(data, T, temperature):
     # Iterate over the rounds stored in the data
     for i in tqdm(range(T)):
         logging.info(f'Running NoisyExpert - round: {i}')
+        expert_rewards = data["rounds"][i]["expert_rewards"]
         true_rewards = data["rounds"][i]["true_rewards"]
 
         # Sample expert action using softmax based on true rewards and temperature
-        rewards_tensor = torch.tensor(true_rewards, dtype=torch.float32)
+        rewards_tensor = torch.tensor(expert_rewards, dtype=torch.float32)
 
         # Use torch.softmax for temperature scaling
         action_probs = torch.softmax(rewards_tensor * temperature, dim=0).numpy()
 
         # Sample expert action based on probabilities
-        noisy_action = np.random.choice(len(true_rewards), p=action_probs)
+        noisy_action = np.random.choice(len(expert_rewards), p=action_probs)
 
         # Get the reward for the noisy expert action
         reward = true_rewards[noisy_action]

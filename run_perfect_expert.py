@@ -16,12 +16,15 @@ def run_PerfectExpert(data, T):
     # Iterate over the rounds stored in the data
     for i in tqdm(range(T)):
         logging.info(f'Running PerfectExpert - round: {i}')
+        expert_rewards = data["rounds"][i]["expert_rewards"]
         true_rewards = data["rounds"][i]["true_rewards"]
 
         # Select the action with the highest true reward (perfect expert action)
-        best_action = np.argmax(true_rewards)
-        reward = true_rewards[best_action]
-        
+        # best_action = np.argmax(true_rewards)
+        # reward = true_rewards[best_action]
+        best_action = np.argmax(expert_rewards)     # decision is based on expert rewards
+        reward = true_rewards[best_action]          # evaluation is based on true rewards
+
         # Update cumulative reward
         r_PerfectExpert += reward
         CR_PerfectExpert.append(r_PerfectExpert)

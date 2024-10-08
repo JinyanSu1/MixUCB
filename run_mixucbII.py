@@ -45,10 +45,11 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
         
         # Load pre-generated context and rewards for the current round
         context = data["rounds"][i]["context"]
+        expert_rewards = data["rounds"][i]["expert_rewards"]
         true_rewards = data["rounds"][i]["true_rewards"]
 
         # Use softmax with temperature to get noisy expert action
-        action_probs = softmax_with_temperature(true_rewards, temperature)
+        action_probs = softmax_with_temperature(expert_rewards, temperature)
         noisy_expert_action = np.random.choice(n_actions, p=action_probs)
 
         actions_ucb = np.zeros(n_actions)

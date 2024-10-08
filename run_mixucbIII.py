@@ -30,6 +30,7 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
         
         # Load pre-generated context and rewards for the current round
         context = data["rounds"][i]["context"]
+        expert_rewards = data["rounds"][i]["expert_rewards"]
         true_rewards = data["rounds"][i]["true_rewards"]
         
         # Calculate UCB and LCB
@@ -41,9 +42,14 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
         # Determine if querying expert or not
         if width_Ahat > delta:
             TotalQ_mixucbIII += 1
-            expert_action = np.argmax(true_rewards)
+            expert_action = np.argmax(expert_rewards)
             reward = true_rewards[expert_action]
-            mixucbIII.update_all(context, true_rewards)
+            # Update the model,
+            # For the action we observed, we update the model with the true reward
+            # For the actions we didn't observe, we update the model with the expert rewards.
+            rewards_to_update = expert_rewards.copy()
+            rewards_to_update[expert_action] = reward
+            mixucbIII.update_all(context, rewards_to_update)
             q_mixucbIII[i] = 1
         else:
             reward = true_rewards[action_hat]
