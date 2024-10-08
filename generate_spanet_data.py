@@ -10,6 +10,8 @@ from cb_with_human_query.src.cb_human_query_utils import full_fooditem_list
 from sklearn.decomposition import PCA
 import pickle as pkl
 
+from sklearn.linear_model import LinearRegression, Ridge
+
 def load_dataset():
     validation_fooditems = []
     pretrain_fooditems = list(set(full_fooditem_list) - set(validation_fooditems))
@@ -82,6 +84,13 @@ def get_all_dataset_rewards(food_dataset, foodtype, rotationally_symmetric):
 
     return reward_list
 
+def get_all_dataset_rewards_new(pca_linear_models, pca_full, context):
+    """
+    New GT reward. Transform context with PCA, then just return theta^T x for all actions.
+    """
+    context_pca = pca_full.transform(np.expand_dims(context,0))
+    rewards = [lr.predict(context_pca)[0] for lr in pca_linear_models]
+    return rewards
 
 def generate_data(T, pca_dim, seed):
     """
@@ -117,10 +126,37 @@ def generate_data(T, pca_dim, seed):
     # Sample T random contexts and true rewards for each round.
     subsampled_dataset = full_dataset.sample(n=T, random_state=seed)
     contexts = np.squeeze(np.array(list(subsampled_dataset["context"])))
-    true_rewards_list = [get_all_dataset_rewards(full_dataset, foodtype, rotationally_symmetric) for foodtype in subsampled_dataset["fooditem"]]
 
-    pca = PCA(n_components=pca_dim)   # run PCA on full dataset.
-    contexts_pca = pca.fit_transform(contexts)
+    # OLD: Setting where our oracle is the dataset itself.
+    # true_rewards_list = [get_all_dataset_rewards(full_dataset, foodtype, rotationally_symmetric) for foodtype in subsampled_dataset["fooditem"]]
+    
+    # NEW: we want to train a linear oracle on all the (PCA-transformed) contexts
+    # in the entire dataset. Our rewards will then come from this oracle in the following way:
+    # reward_gt(x,a) = theta_a^T x + noise, where theta is the linear oracle.
+    num_actions = 6
+    action_matrices = []
+    for action in range(num_actions):
+        dataset_to_use = full_dataset[full_dataset["action"]==action]
+        X = np.squeeze(np.array(list(dataset_to_use["context"])))
+        y = np.array(list(dataset_to_use["success"]))
+        action_matrices.append((X,y))
+
+    pca_linear_models = []
+    pca_full = PCA(n_components=pca_dim)
+    pca_full.fit(np.squeeze(np.array(list(full_dataset["context"]))))
+    for action in range(num_actions):
+        X,y = action_matrices[action]
+        X_pca = pca_full.transform(X)
+        # learn regressor on X_pca and y.
+        # lr = LinearRegression()
+        lr = Ridge(alpha=1.0)   # NOTE: using same value of L2 regularization as for LinUCB.
+        lr.fit(X_pca,y)
+        pca_linear_models.append(lr)
+
+    true_rewards_list = [get_all_dataset_rewards_new(pca_linear_models, pca_full, context) for context in contexts]
+
+    # PCA just for the contexts in the dataset.
+    contexts_pca = pca_full.fit_transform(contexts)
 
     # Generate data for T rounds
     for t in range(T):
