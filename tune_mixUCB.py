@@ -46,6 +46,7 @@ def main(temperature):
     # beta_MixUCBI_values = [5000, 6000, 7000, 8000]
 
     # 10/7: higher range of beta_MixUCBI
+    # 10/8: using linear reward oracle.
     beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
 
     # failed_I = {(lambda_, beta): False for (lambda_, beta) in generator}

@@ -1,6 +1,6 @@
 ## Runs all the scripts for all 6 baselines.
 # fixed params
-TEMPERATURE=5  # needs to be same temperature as was used for MixUCBI and MixUCBII
+TEMPERATURE=$1  # needs to be same temperature as was used for MixUCBI and MixUCBII
 ALPHA=0.1
 LAMBDA=1
 # variable params

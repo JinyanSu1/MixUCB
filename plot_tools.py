@@ -454,9 +454,18 @@ if __name__ == '__main__':
     # mixucb_postfix="_temp1.0_5"
     # result_root="g2temp1.0_higherbeta_20241008"
     # Temp 5.0
-    mixucb_postfix="_temp5.0_6"
-    result_root="g2temp5.0_higherbeta_20241008"
-    plot_three_mixucbs(result_postfix=mixucb_postfix,result_root=result_root)
-    # NOTE: using a particular value of delta.
+    # mixucb_postfix="_temp5.0_6"
+    # result_root="g2temp5.0_higherbeta_20241008"
+    # Linear reward oracle experiments, 10/8
+    # Temp 1.0
+    # mixucb_postfix="_temp1.0_7"
+    # result_root="g2temp1.0_linearreward_20241008"
+    # Figure_dir = f'Figures/{result_root}'
+    # Temp 5.0
+    mixucb_postfix="_temp5.0_7"
+    result_root="g2temp5.0_linearreward_20241008"
+    Figure_dir = f'Figures/{result_root}'
+    plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix,result_root=result_root)
+    # NOTE: using a fixed value of delta.
     delta=0.5
-    plot_six_baselines(mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
+    plot_six_baselines(Figure_dir=Figure_dir, mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
