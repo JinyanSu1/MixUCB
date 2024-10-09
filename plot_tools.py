@@ -5,7 +5,7 @@ import os
 import pickle
 import numpy as np
 
-def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None):
+def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None, ylabel='Average Reward'):
     """Plot average rewards in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
@@ -25,7 +25,7 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
                                 [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2)
             ax.plot(average_rewards, label=f'{key}')
             ax.set_xlabel('t')
-            ax.set_ylabel('Average Reward')
+            ax.set_ylabel(ylabel)
             if params is not None:
                 ax.set_title(f'$\\delta={params[idx]}$')
         ax.legend()

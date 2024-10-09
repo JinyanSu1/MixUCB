@@ -43,6 +43,40 @@ def run_linucb(data, T, linucb):
 
         logging.info(f'LinUCB: {r_linucb}')
 
+    # # Test: compare final greedy policy (using linucb learned theta) with the expert rewards.
+    # linucb_rewards = []
+    # expert_rewards_list = []
+    # for i in range(T):
+    #     context = data["rounds"][i]["context"]
+    #     expert_rewards = data["rounds"][i]["expert_rewards"]
+    #     true_rewards = data["rounds"][i]["true_rewards"]
+
+    #     theta = linucb.get_theta()
+    #     action_hat = np.argmax([theta[a].dot(context.reshape(-1)) for a in range(len(theta))])
+
+    #     reward = true_rewards[action_hat]
+    #     reward_expert_a = true_rewards[np.argmax(expert_rewards)]
+
+    #     linucb_rewards.append(reward)
+    #     expert_rewards_list.append(reward_expert_a)
+        
+    # print(f"LinUCB rewards (last 50): {linucb_rewards[-50:]}")
+    # print(f"Expert rewards (last 50): {expert_rewards_list[-50:]}")
+    # print(f"Instantaneous regret (last 50): {np.array(expert_rewards_list[-50:]) - np.array(linucb_rewards[-50:])}")
+
+    # # Not really valid to compare directly to plots from plot_tools.py,
+    # # because this is using a counterfactual greedy policy to evaluate LinUCB,
+    # # rather than the actual actions taken by LinUCB.
+    # # so this policy should be better than the actual LinUCB policy.
+    # import matplotlib.pyplot as plt
+    # instantanous_regret = np.array(expert_rewards_list) - np.array(linucb_rewards)
+    # plt.plot(np.cumsum(instantanous_regret))
+    # plt.savefig("cumulative_regret.png")
+    # plt.close()
+    # plt.plot(np.cumsum(instantanous_regret)/np.arange(1, T+1))
+    # plt.savefig("avg_cumulative_regret.png")
+    # plt.close()
+
     return CR_linucb
 
 def main(args):
