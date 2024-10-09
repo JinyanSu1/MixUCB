@@ -134,12 +134,38 @@ def generate_data(T, pca_dim, seed):
     # NEW: we want to train a linear oracle on all the (PCA-transformed) contexts
     # in the entire dataset. Our rewards will then come from this oracle in the following way:
     # reward_gt(x,a) = theta_a^T x + noise, where theta is the linear oracle.
+    # num_actions = 6
+    # action_matrices = []
+    # for action in range(num_actions):
+    #     dataset_to_use = full_dataset[full_dataset["action"]==action]
+    #     X = np.squeeze(np.array(list(dataset_to_use["context"])))
+    #     y = np.array(list(dataset_to_use["success"]))
+    #     action_matrices.append((X,y))
+
+    # pca_linear_models = []
+    # pca_full = PCA(n_components=pca_dim)
+    # pca_full.fit(np.squeeze(np.array(list(full_dataset["context"]))))
+    # for action in range(num_actions):
+    #     X,y = action_matrices[action]
+    #     X_pca = pca_full.transform(X)
+    #     # learn regressor on X_pca and y.
+    #     # lr = LinearRegression()
+    #     lr = Ridge(alpha=1.0)   # NOTE: using same value of L2 regularization as for LinUCB.
+    #     lr.fit(X_pca,y)
+    #     pca_linear_models.append(lr)
+
+    # expert_rewards_list = [get_all_dataset_rewards_new(pca_linear_models, pca_full, context) for context in contexts]
+
+    # NEW v2. Now we want to train a linear oracle, where the labels used to train are the true expected rewards on the full dataset.
+    # We will use the same PCA transformation as before.
+    # This ensures that we're using the same reward modality as the LinUCB algorithm.
     num_actions = 6
     action_matrices = []
     for action in range(num_actions):
         dataset_to_use = full_dataset[full_dataset["action"]==action]
         X = np.squeeze(np.array(list(dataset_to_use["context"])))
-        y = np.array(list(dataset_to_use["success"]))
+        # expected reward = mean of success for this action and for this foodtype.
+        y = np.array([dataset_reward(full_dataset, foodtype, action, rotationally_symmetric) for foodtype in dataset_to_use["fooditem"]])
         action_matrices.append((X,y))
 
     pca_linear_models = []
