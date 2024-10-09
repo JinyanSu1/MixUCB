@@ -8,10 +8,16 @@ import matplotlib.pyplot as plt
 
 from plot_tools import plot_cumulative_rewards, plot_average_rewards
 
-def main():
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+parser.add_argument('--setting_id', type=int, default=0, help='Setting ID for the experiment')
+
+def main(args):
     result_root = ''
     # result_root = 'g2temp1.0_linearreward_20241008'
-    Figure_dir='Figures/'
+    Figure_dir=f'Figures/linucb_{args.setting_id}'
+    os.makedirs(Figure_dir, exist_ok=True)
 
     CR_linucb_mean = []
     CR_linucb_std = []
@@ -25,11 +31,11 @@ def main():
     IR_linucb_mean = []
     IR_linucb_std = []
 
-    perfect_expert_pkls = os.listdir(os.path.join(result_root,f'perfect_expert_results'))
+    perfect_expert_pkls = os.listdir(os.path.join(result_root,f'perfect_expert_results_{args.setting_id}'))
     perfect_expert_list = []
     perfect_expert_rawreward_list = []
     for each_perfect_expert_pkl in perfect_expert_pkls:
-        with open(os.path.join(result_root,'perfect_expert_results', each_perfect_expert_pkl), 'rb') as f:
+        with open(os.path.join(result_root,f'perfect_expert_results_{args.setting_id}', each_perfect_expert_pkl), 'rb') as f:
             data = pkl.load(f)
             CR_PerfectExpert = data['CR_PerfectExpert']
             perfect_expert_list.append(CR_PerfectExpert)
@@ -37,11 +43,11 @@ def main():
             raw_rewards = [CR_PerfectExpert[i] - CR_PerfectExpert[i-1] if i > 0 else CR_PerfectExpert[i] for i in range(len(CR_PerfectExpert))]
             perfect_expert_rawreward_list.append(raw_rewards)
 
-    linucb_pkls = os.listdir(os.path.join(result_root,'linucb_results_0'))
+    linucb_pkls = os.listdir(os.path.join(result_root,f'linucb_results_{args.setting_id}'))
     linucb_list = []
     linucb_rawreward_list = []
     for each_linucb_pkl in linucb_pkls:
-        with open(os.path.join(result_root,'linucb_results_0', each_linucb_pkl), 'rb') as f:
+        with open(os.path.join(result_root,f'linucb_results_{args.setting_id}', each_linucb_pkl), 'rb') as f:
             data = pkl.load(f)
             CR_linucb = data['CR_linucb']
             linucb_list.append(CR_linucb)
@@ -119,4 +125,5 @@ def main():
     fig.savefig(os.path.join(Figure_dir, f'linucb_ir.png'), format='jpg', dpi=300, bbox_inches='tight')
 
 if __name__=="__main__":
-    main()
+    args = parser.parse_args()
+    main(args)
