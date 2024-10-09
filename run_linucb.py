@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
     print(f"Finished running LinUCB for {T} rounds.")
 
-    results = 'linucb_results'
+    results = 'linucb_results_0'
     os.makedirs(results, exist_ok=True)
     pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
     dict_to_save = {

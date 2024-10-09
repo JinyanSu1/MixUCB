@@ -9,6 +9,11 @@ from icecream import ic
 import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.decomposition import PCA
+import pandas as pd
+import os
+from PIL import Image
+import cv2
+from sklearn.utils import shuffle
 
 # Function to load dataset
 def load_scene_classification_dataset(filepath):
@@ -20,20 +25,71 @@ def load_scene_classification_dataset(filepath):
 
     return data_dense, labels
 
+def scaleImage(x):          # Pass a PIL image, return a tensor
+    y = x
+    if(y.min() < y.max()):  # Assuming the image isn't empty, rescale so its values run from 0 to 1
+        y = (y - y.min())/(y.max() - y.min())
+    z = y - y.mean()        # Subtract the mean value of the image
+    return z
 
-def generate_data(T, n_actions, n_features, noise_std, seed, data_name='yeast'):
+def generate_data(T, n_actions, n_features, noise_std, seed, data_name='MedNIST', ):
+    '''
+    data_name='MedNIST', 'yeast'
+    '''
     # Set random seed for reproducibility
     np.random.seed(seed)
     # env = gym.make('maze2d-umaze-v1')
     # print('obs_space: ', env.observation_space)
     # print('action_space: ', env.action_space)
     if data_name == 'yeast':
-        train_data_path = 'multilabel_ds/yeast_train.svm'
-        test_data_path = 'multilabel_ds/yeast_test.svm'
+        train_data_path = 'raw_data/multilabel_ds/yeast_train.svm'
+        test_data_path = 'raw_data/multilabel_ds/yeast_test.svm'
         x_train, y_train = load_scene_classification_dataset(train_data_path)
         x_test, y_test = load_scene_classification_dataset(test_data_path)
         num_classes = 14
         x_train = PCA(n_components=6).fit_transform(x_train)
+    elif data_name == 'heart_disease':
+        # https://github.com/mrdbourke/zero-to-mastery-ml/blob/master/section-3-structured-data-projects/end-to-end-heart-disease-classification.ipynb
+        df = pd.read_csv("https://raw.githubusercontent.com/mrdbourke/zero-to-mastery-ml/master/data/heart-disease.csv")
+        # df = pd.read_csv("../data/heart-disease.csv") # Read from local directory, 'DataFrame' shortened to 'df'
+        print(df.shape)  # (rows, columns)
+        # Everything except target variable
+        x_train = df.drop(labels="target", axis=1)
+        x_train = x_train.to_numpy()
+        x_train = PCA(n_components=6).fit_transform(x_train)
+        # Target variable
+        y_train = df.target.to_numpy()
+        y_train = [[i] for i in y_train]
+        num_classes = 3
+    elif data_name == 'MedNIST':
+        dataDir = 'raw_data/MedNIST_resized'  # The main data directory
+        classNames = os.listdir(dataDir)  # Each type of image can be found in its own subdirectory
+        numClass = len(classNames)  # Number of types = number of subdirectories
+        imageFiles = [
+            [os.path.join(dataDir, classNames[i], x) for x in os.listdir(os.path.join(dataDir, classNames[i]))][:20]
+            for i in range(numClass)]  # A nested list of filenames
+        numEach = [len(imageFiles[i]) for i in range(numClass)]  # A count of each type of image
+        imageFilesList = []  # Created an un-nested list of filenames
+        imageClass = []  # The labels -- the type of each individual image in the list
+        for i in range(numClass):
+            imageFilesList.extend(imageFiles[i])
+            imageClass.extend([i] * numEach[i])
+        numTotal = len(imageClass)  # Total number of images
+        imageWidth, imageHeight = Image.open(imageFilesList[0]).size  # The dimensions of each image
+
+        print("There are", numTotal, "images in", numClass, "distinct categories")
+        print("Label names:", classNames)
+        print("Label counts:", numEach)
+        print("Image dimensions:", imageWidth, "x", imageHeight)
+        num_classes = len(classNames)  # 6
+        x_train = np.asarray([scaleImage(cv2.imread(x, cv2.IMREAD_GRAYSCALE)) for x in imageFilesList])
+        x_train = np.reshape(x_train, (x_train.shape[0], -1))
+        x_train = PCA(n_components=6).fit_transform(x_train)
+        y_train = imageClass
+        # ic(imageClass)
+        y_train = [[i] for i in y_train]
+        x_train, y_train = shuffle(x_train, y_train, random_state=0)
+
     elif data_name == 'iris':
         num_classes = 3
         iris = datasets.load_iris()
@@ -89,7 +145,9 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='yeast'):
         true_rewards = np.zeros(num_classes) #
         for i, a in enumerate(action):
             true_rewards[int(a)] = 1.
-        ic(context.shape, action.shape, true_rewards.shape)
+        if t == 0:
+            ic(context.shape, action.shape, true_rewards.shape)
+            ic(context, action, true_rewards)
         #     context.shape: (294,)
         #     action.shape: (1,)
         #     true_rewards.shape: (6,)
@@ -98,6 +156,7 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='yeast'):
             "context": context,
             "true_rewards": true_rewards,
         })
+    print('{} data samples.'.format(len(x_train)))
 
     return data
 
@@ -110,16 +169,18 @@ if __name__ == "__main__":
     parser.add_argument('--noise_std', type=float, default=0, help='Noise standard deviation for reward generation')
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('--output_file', type=str, default='multilabel_data.pkl', help='Output pickle file to store the data')
-    
+    parser.add_argument('--data_name', type=str, default='MedNIST',
+                        help='specific data name')
+
     args = parser.parse_args()
 
-    args.output_file = args.output_file[:-4] + '_{:02d}'.format(args.seed) + args.output_file[-4:]
+    args.output_file = args.output_file[:-4] + '_{}_{:02d}'.format(args.data_name, args.seed) + args.output_file[-4:]
 
     # Generate the data
-    data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, seed=args.seed)
+    data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed)
 
     # Save data to a pickle file
     with open(args.output_file, 'wb') as f:
         pickle.dump(data, f)
     
-    print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")
+    # print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")

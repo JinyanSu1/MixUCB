@@ -9,6 +9,7 @@ import logging
 from scipy.linalg import inv, sqrtm
 import os
 import time
+from icecream import ic
 
 logging.basicConfig(filename='simulation_mixucbI.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -48,7 +49,6 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         # TODO: possible speedup by maintaining sqrt(A) and updating recursively within lr_oracle
         As_sqrt = [sqrtm(A) for A in As]
         X_sum_sqrt = sqrtm(X_sum)
-
 
         actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
                                                    As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)

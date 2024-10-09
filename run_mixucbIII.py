@@ -53,7 +53,7 @@ if __name__ == "__main__":
     parser.add_argument('--T', type=int, default=1000)
     parser.add_argument('--delta', nargs='+', type=float, default=[0.2, 0.5, 1.,2., 5.])
     parser.add_argument('--lambda_', type=float, default=0.001)
-    parser.add_argument('--alpha', type=float, default=1)
+    parser.add_argument('--alpha', type=float, default=100)
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     
