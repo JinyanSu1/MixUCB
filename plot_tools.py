@@ -272,8 +272,11 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
         f'MixUCB-III ($\\delta = {delta}$)': RR_mixucbIII_std,
     }
 
-    fig, axs = plt.subplots(1, 1, figsize=(8, 8))
-    plot_average_rewards([axs], cumulative_rewards, cumulative_rewards_std)
+    # Add queries to this plot.
+    fig, axs = plt.subplots(2, 1, figsize=(8, 16))
+    plot_average_rewards([axs[0]], cumulative_rewards, cumulative_rewards_std)
+    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta])
+    plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_avgr.png'), format='jpg', dpi=300, bbox_inches='tight')
     
     fig, axs = plt.subplots(1, 1, figsize=(8, 8))
@@ -462,9 +465,17 @@ if __name__ == '__main__':
     # result_root="g2temp1.0_linearreward_20241008"
     # Figure_dir = f'Figures/{result_root}'
     # Temp 5.0
-    mixucb_postfix="_temp5.0_7"
-    result_root="g2temp5.0_linearreward_20241008"
+
+    # Experiments 10/9 (expected reward oracle)
+    # Temp 1.0
+    # mixucb_postfix="_temp1.0_10"
+    # result_root="g2temp1.0_explinearoracle_20241009"
+    # Temp 5.0
+    mixucb_postfix="_temp5.0_10"
+    result_root="g2temp5.0_explinearoracle_20241009"
+
     Figure_dir = f'Figures/{result_root}'
+
     plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix,result_root=result_root)
     # NOTE: using a fixed value of delta.
     delta=0.5

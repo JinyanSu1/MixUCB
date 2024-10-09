@@ -11,6 +11,8 @@ import pickle as pkl
 import itertools
 from argparse import ArgumentParser
 
+beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000]
+
 def main(temperature):
     # Fixed parameters: for experiments in 10/6 and before.
     # temperature = 0.1
@@ -47,7 +49,6 @@ def main(temperature):
 
     # 10/7: higher range of beta_MixUCBI
     # 10/8: using linear reward oracle.
-    beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
 
     # failed_I = {(lambda_, beta): False for (lambda_, beta) in generator}
     # failed_II = {(lambda_, beta): False for (lambda_, beta) in generator}

@@ -14,6 +14,7 @@ import numpy as np
 import sys
 
 from argparse import ArgumentParser
+from tune_mixUCB import beta_MixUCBI_values
 
 def main(temperature):
     # (1) load the failed pickles
@@ -43,7 +44,9 @@ def main(temperature):
     # generator = beta_MixUCBI_values
 
     # 2024-10-7: second temperature experiment
-    beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
+    # beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
+    
+    # 2024-10-09: switching to auto-imported beta_MixUCBI_values
     generator = beta_MixUCBI_values
 
     # Let's make binary heatmaps to see which settings failed
