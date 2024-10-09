@@ -49,9 +49,7 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
 
-    # Set random seed for reproducibility
-    np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
+    # torch.manual_seed(args.seed)    # no torch random ops are used in this script
 
     # Load pre-generated data from the pickle file
     with open(args.pickle_file, 'rb') as f:
@@ -60,18 +58,26 @@ if __name__ == "__main__":
     # Extract the number of rounds (T) from the data
     T = args.T if args.T <= len(data["rounds"]) else len(data["rounds"])
 
-    # Run NoisyExpert using the pre-generated data
-    CR_NoisyExpert = run_NoisyExpert(data, T, args.temperature)
+    for rep_id in range(5):
+        # Set random seed for reproducibility to args.seed + rep_id.
+        np.random.seed(args.seed+rep_id)
 
-    print(f"Finished running NoisyExpert for {T} rounds.")
+        # Run NoisyExpert using the pre-generated data
+        CR_NoisyExpert = run_NoisyExpert(data, T, args.temperature)
 
-    results = 'noisy_expert_results'
-    os.makedirs(results, exist_ok=True)
-    pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
-    dict_to_save = {
-        'CR_NoisyExpert': CR_NoisyExpert,
-        'T': args.T,
-    }
-    with open(pkl_name, 'wb') as f:
-        pickle.dump(dict_to_save, f)
-    print('Saved to {}'.format(pkl_name))
+        print(f"Finished running NoisyExpert for {T} rounds.")
+
+        results = 'noisy_expert_results'
+        os.makedirs(results, exist_ok=True)
+        # need to add a unique identifier to the file name,
+        # otherwise we can overwrite the results of previous runs
+        # because each run finishes in faster than 1 s.
+        # (don't need to do for mixUCBI and mixUCBII since I assume each run takes longer than 1s)
+        pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}_{rep_id}.pkl')
+        dict_to_save = {
+            'CR_NoisyExpert': CR_NoisyExpert,
+            'T': args.T,
+        }
+        with open(pkl_name, 'wb') as f:
+            pickle.dump(dict_to_save, f)
+        print('Saved to {}'.format(pkl_name))

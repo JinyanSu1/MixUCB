@@ -90,9 +90,7 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
     return CR_mixucbII, TotalQ_mixucbII, q_mixucbII
 
 def main(args):
-    # Set random seed for reproducibility
-    np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
+    # torch.manual_seed(args.seed)    # no torch random ops are used in this script
 
     # Load pre-generated data from the pickle file
     with open(args.pickle_file, 'rb') as f:
@@ -116,6 +114,9 @@ def main(args):
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
         for rep_id in range(5):
+            # Set random seed for reproducibility to args.seed + rep_id.
+            np.random.seed(args.seed+rep_id)
+
             # Initialize query and non-query parts
             mixucbII_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
             mixucbII_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
