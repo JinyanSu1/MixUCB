@@ -4,11 +4,10 @@ import os
 import pickle as pkl
 import numpy as np
 import matplotlib.pyplot as plt
+from tune_LinUCB import alphas, lambdas
 
 def main():
     # Parameters to tune: alpha and lambda
-    alphas = [0.1, 0.5, 1, 10]
-    lambdas = [0.001, 0.01, 0.1, 1, 2, 4, 6, 8, 10]
     generator = list(itertools.product(alphas, lambdas))
     
     final_CRs = [[0 for _ in range(len(lambdas))] for _ in range(len(alphas))]

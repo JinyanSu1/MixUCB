@@ -11,6 +11,7 @@ class ContextGenerator:
         """
         returns a single context and true rewards corresponding to each action.
         """
+        # sample random context in unit circle.
         context = np.random.randn(1, self.n_features)
         norm = np.linalg.norm(context)
         if norm > 1:  

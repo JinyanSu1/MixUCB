@@ -15,15 +15,19 @@ import pickle as pkl
 import numpy as np
 import matplotlib.pyplot as plt
 
+alphas = [0.1, 0.5, 1, 10]
+lambdas = [0.001, 0.01, 0.1, 1, 2, 4, 6, 8, 10]
+
 def main():
+    # file = "simulation_data_spanet.pkl"
+    file = "simulation_data_toy20241009.pkl"
+
     # Parameters to tune: alpha and lambda
-    alphas = [0.1, 0.5, 1, 10]
-    lambdas = [0.001, 0.01, 0.1, 1, 2, 4, 6, 8, 10]
     generator = list(itertools.product(alphas, lambdas))
     
     for (setting_id, (alpha, lambda_)) in enumerate(generator):
         print(f"Running LinUCB with alpha={alpha} and lambda={lambda_}...")
-        args = run_linucb.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', \
+        args = run_linucb.parser.parse_args(['--pickle_file', file, \
         '--T', '1000', \
         '--alpha', str(alpha), \
         '--lambda_', str(lambda_),\
