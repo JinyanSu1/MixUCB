@@ -10,9 +10,16 @@ import time
 logging.basicConfig(filename='simulation_NoisyExpert.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+def softmax_with_temperature(rewards, temperature):
+    """Compute the softmax of rewards scaled by temperature."""
+    rewards_tensor = torch.tensor(rewards, dtype=torch.float32)
+    action_probs = torch.softmax(rewards_tensor * temperature, dim=0).numpy()
+    return action_probs
+
 def run_NoisyExpert(data, T, temperature):
     CR_NoisyExpert = []
     r_NoisyExpert = 0
+    actions = []
 
     # Iterate over the rounds stored in the data
     for i in tqdm(range(T)):
@@ -20,14 +27,19 @@ def run_NoisyExpert(data, T, temperature):
         expert_rewards = data["rounds"][i]["expert_rewards"]
         true_rewards = data["rounds"][i]["true_rewards"]
 
-        # Sample expert action using softmax based on true rewards and temperature
-        rewards_tensor = torch.tensor(expert_rewards, dtype=torch.float32)
+        # # Sample expert action using softmax based on true rewards and temperature
+        # rewards_tensor = torch.tensor(expert_rewards, dtype=torch.float32)
 
-        # Use torch.softmax for temperature scaling
-        action_probs = torch.softmax(rewards_tensor * temperature, dim=0).numpy()
+        # # Use torch.softmax for temperature scaling
+        # action_probs = torch.softmax(rewards_tensor * temperature, dim=0).numpy()
+        action_probs = softmax_with_temperature(expert_rewards, temperature)
+
+        # if i==7:
+        #     import pdb; pdb.set_trace()
 
         # Sample expert action based on probabilities
         noisy_action = np.random.choice(len(expert_rewards), p=action_probs)
+        actions.append(noisy_action)
 
         # Get the reward for the noisy expert action
         reward = true_rewards[noisy_action]

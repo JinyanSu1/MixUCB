@@ -98,11 +98,11 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
     q_mixUCBIII_mean = []
     q_mixUCBIII_std = []
 
-    perfect_expert_pkls = os.listdir(os.path.join(result_root,f'perfect_expert_results'))
+    perfect_expert_pkls = os.listdir(os.path.join(result_root,f'perfect_expert_results_0'))
     perfect_expert_list = []
     perfect_expert_rawreward_list = []
     for each_perfect_expert_pkl in perfect_expert_pkls:
-        with open(os.path.join(result_root,'perfect_expert_results', each_perfect_expert_pkl), 'rb') as f:
+        with open(os.path.join(result_root,'perfect_expert_results_0', each_perfect_expert_pkl), 'rb') as f:
             data = pickle.load(f)
             CR_PerfectExpert = data['CR_PerfectExpert']
             perfect_expert_list.append(CR_PerfectExpert)
@@ -300,6 +300,8 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_rr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
+    plt.close()
+
 def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     os.makedirs(Figure_dir, exist_ok=True)
     CR_mixucbI_mean = []
@@ -323,7 +325,8 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     TotalQ_mixucbIII_mean = []
     TotalQ_mixucbIII_std = []
 
-    delta_values = [0.2, 0.5, 1.,2., 5.]
+    # delta_values = [0.2, 0.5, 1.,2., 5.]
+    delta_values = [0.2, 0.5, 1.]
     for each_delta in delta_values:
         mixucbI_pkls = os.listdir(os.path.join(result_root,f'mixucbI_results{result_postfix}','{}'.format(each_delta)))
         mixucbI_list = []
@@ -471,12 +474,32 @@ if __name__ == '__main__':
     # mixucb_postfix="_temp1.0_10"
     # result_root="g2temp1.0_explinearoracle_20241009"
     # Temp 5.0
-    mixucb_postfix="_temp5.0_10"
-    result_root="g2temp5.0_explinearoracle_20241009"
+    # mixucb_postfix="_temp5.0_10"
+    # result_root="g2temp5.0_explinearoracle_20241009"
+
+    # 10/9, synthetic.
+    # Temp 5.0
+    # mixucb_postfix="_temp5.0_1"
+    # result_root="synthetictemp5.0_20241009"
+
+    # Temp 5.0
+    # mixucb_postfix="_temp5.0_7"
+    # result_root="synthetictemp5.0_20241009_5"
+
+    # Temp 5.0, Alpha 1
+    # (need to use lambda=0.001 setting)
+    # mixucb_postfix="_temp5.0_alpha1.0_0"
+    # result_root="syntheticalpha1_20241010"
+
+    # Temp 1.0, Alpha 0.01
+    mixucb_postfix="_temp5.0_alpha0.01_0"
+    result_root="syntheticalpha0.01_20241010"
 
     Figure_dir = f'Figures/{result_root}'
 
     plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix,result_root=result_root)
     # NOTE: using a fixed value of delta.
-    delta=0.5
-    plot_six_baselines(Figure_dir=Figure_dir, mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
+    # delta=0.5
+    # for delta in [0.2, 0.5, 1., 2., 5.]:
+    for delta in [0.2, 0.5, 1.]:
+        plot_six_baselines(Figure_dir=f"{Figure_dir}_delta{delta}", mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)

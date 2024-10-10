@@ -10,15 +10,19 @@ class ContextGenerator:
     def generate_context_and_rewards(self):
         """
         returns a single context and true rewards corresponding to each action.
+
+        context, rewards, noiseless_rewards
         """
         # sample random context in unit circle.
         context = np.random.randn(1, self.n_features)
         norm = np.linalg.norm(context)
         if norm > 1:  
             context = context / norm
-        logits = np.dot(context, self.true_weights.T) + self.noise_std * np.random.randn(self.n_actions)
+        noiseless_rewards = np.dot(context, self.true_weights.T)
+        logits = noiseless_rewards + self.noise_std * np.random.randn(self.n_actions)
+        noiseless_rewards = noiseless_rewards.flatten()
         rewards = logits.flatten()
-        return context, rewards
+        return context, rewards, noiseless_rewards
 
         
     

@@ -51,16 +51,23 @@ class CBOptimizationDPP():
         for At, A, t in zip(self.Astheta_sq,As,theta_sq):
             At.value = A @ t
         for tAt, At, t in zip(self.quadAstheta_sq,self.Astheta_sq,theta_sq):
+            # The loop should have num_actions iterations.
+            # t is a np.array with shape (dim,) where dim is the dimension of the context
+            # At.value should also be np.array with shape (dim,) where dim is the dimension of the context
             tAt.value = t @ At.value
 
         self.X_sum_sqrt.value = X_sum_sqrt
         for Xt, t in zip(self.X_sum_theta_lr, theta_lr):
-            Xt.value = X_sum @ t
+            # I have a feeling the shape of theta_lr is wrong.
+            # It should be (num_actions, dim) but it is (dim,).
+            Xt.value = X_sum @ t        # problem is here. I think theta_lr is wrong shape.
+            # print(Xt.value)
         for tXt, Xt, t in zip(self.quadX_sum_theta_lr, self.X_sum_theta_lr, theta_lr):
             tXt.value = t @ Xt.value
 
         self.context.value = context
 
+        # import pdb; pdb.set_trace()
        
         if ucb:
             prob = self.problems_max[action]
@@ -73,6 +80,9 @@ class CBOptimizationDPP():
         # prob.unpack_results(soln, chain, inverse_data)
         
         # TODO: add error checking/catching
+        # for param in prob.parameters():
+        #     print(f"{param.name()}: {param.value}")  # This will print the current value of each parameter
+        # import pdb; pdb.set_trace()
         prob.solve(solver='MOSEK')
         # print('prob.value:', prob.value)
         return prob.value

@@ -14,12 +14,13 @@ import numpy as np
 import sys
 
 from argparse import ArgumentParser
-from tune_mixUCB import beta_MixUCBI_values
+# from tune_mixUCB import beta_MixUCBI_values
+from tune_mixUCB import beta_MixUCBI_values, lambdas, generator, deltas
 
-def main(temperature):
+def main(temperature, alpha):
     # (1) load the failed pickles
-    failed_I = pkl.load(open(f'failed_I_{temperature}.pkl', 'rb'))
-    failed_II = pkl.load(open(f'failed_II_{temperature}.pkl', 'rb'))
+    failed_I = pkl.load(open(f'failed_I_{temperature}_{alpha}.pkl', 'rb'))
+    failed_II = pkl.load(open(f'failed_II_{temperature}_{alpha}.pkl', 'rb'))
     print(f"Failure setting for I: {failed_I}")
     print(f"Failure setting for II: {failed_II}")
 
@@ -47,7 +48,7 @@ def main(temperature):
     # beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
     
     # 2024-10-09: switching to auto-imported beta_MixUCBI_values
-    generator = beta_MixUCBI_values
+    # generator = beta_MixUCBI_values
 
     # Let's make binary heatmaps to see which settings failed
     # failed_I_matrix = [[int(failed_I[(lambda_, beta)]) for beta in beta_MixUCBI_values] for lambda_ in lambdas]
@@ -113,35 +114,36 @@ def main(temperature):
         TotalQ_mixUCBIII_mean = []
         TotalQ_mixUCBIII_std = []
 
-        delta_values = [0.2, 0.5, 1.,2., 5.]
+        # delta_values = [0.2, 0.5, 1.,2., 5.]
+        delta_values = deltas
         for each_delta in delta_values:
-            mixucbI_pkls = os.listdir(os.path.join(f'mixucbI_results_temp{temperature}_{setting_ID}','{}'.format(each_delta)))
+            mixucbI_pkls = os.listdir(os.path.join(f'mixucbI_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta)))
             mixucbI_list = []
             mixucbI_list_totalQ = []
             for each_mixucbI_pkl in mixucbI_pkls:
-                with open(os.path.join(f'mixucbI_results_temp{temperature}_{setting_ID}','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbI_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbI = data['CR_mixucbI']
                     mixucbI_list.append(CR_mixucbI)
                     TotalQ_mixUCBI = data['TotalQ_mixucbI']
                     mixucbI_list_totalQ.append(TotalQ_mixUCBI)
 
-            mixucbII_pkls = os.listdir(os.path.join(f'mixucbII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta)))
+            mixucbII_pkls = os.listdir(os.path.join(f'mixucbII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta)))
             mixucbII_list = []
             mixucbII_list_totalQ = []
             for each_mixucbII_pkl in mixucbII_pkls:
-                with open(os.path.join(f'mixucbII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbII = data['CR_mixucbII']
                     mixucbII_list.append(CR_mixucbII)
                     TotalQ_mixUCBII = data['TotalQ_mixucbII']
                     mixucbII_list_totalQ.append(TotalQ_mixUCBII)
 
-            mixucbIII_pkls = os.listdir(os.path.join(f'mixucbIII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta)))
+            mixucbIII_pkls = os.listdir(os.path.join(f'mixucbIII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta)))
             mixucbIII_list = []
             mixucbIII_list_totalQ = []
             for each_mixucbIII_pkl in mixucbIII_pkls:
-                with open(os.path.join(f'mixucbIII_results_temp{temperature}_{setting_ID}','{}'.format(each_delta), each_mixucbIII_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbIII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbIII_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbIII = data['CR_mixucbIII']
                     mixucbIII_list.append(CR_mixucbIII)
@@ -171,7 +173,9 @@ def main(temperature):
 if __name__=="__main__":
     parser = ArgumentParser()
     parser.add_argument('--temperature', type=float, required=True)
+    parser.add_argument('--alpha', type=float, required=True)
     args = parser.parse_args()
 
     temperature = args.temperature
-    main(temperature)
+    alpha = args.alpha
+    main(temperature, alpha)

@@ -57,6 +57,7 @@ class OnlineLogisticRegressionOracle:
         dummy_X = np.zeros((1, n_features))
         dummy_y = np.array([0])  # Dummy class label
         self.model.partial_fit(dummy_X, dummy_y, classes=np.arange(n_actions))  # Initialize multi-class model
+        # import pdb; pdb.set_trace()
 
     def update(self, x_t, action):
         x_t_flat = x_t.ravel()

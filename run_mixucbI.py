@@ -40,6 +40,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
     q_mixucbI = np.zeros(T)
     TotalQ_mixucbI = 0
     r_mixucbI = 0
+    actions = []
 
     ### FOR DPP
     opt_probDPP = CBOptimizationDPP(n_actions, mixucbI_NotQuery_part.n_features, mixucbI_NotQuery_part.alpha**2, mixucbI_query_part.beta)
@@ -55,6 +56,10 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         # Use softmax with temperature to get noisy expert action
         # NOTE: this is the source of randomness.
         action_probs = softmax_with_temperature(expert_rewards, temperature)
+        
+        # if i==7:3
+        #     import pdb; pdb.set_trace()
+        
         noisy_expert_action = np.random.choice(n_actions, p=action_probs)
 
         actions_ucb = np.zeros(n_actions)
@@ -66,7 +71,6 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         # TODO: possible speedup by maintaining sqrt(A) and updating recursively within lr_oracle
         As_sqrt = [sqrtm(A) for A in As]
         X_sum_sqrt = sqrtm(X_sum)
-
 
         actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
                                                    As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
@@ -81,12 +85,15 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
             mixucbI_query_part.update(context, noisy_expert_action)
             q_mixucbI[i] = 1
             reward = true_rewards[noisy_expert_action]
+            actions.append(noisy_expert_action)
         else:
             reward = true_rewards[action_hat]
             mixucbI_NotQuery_part.update(action_hat, context, reward)
+            actions.append(action_hat)
 
         r_mixucbI += reward
         CR_mixucbI.append(r_mixucbI)
+
 
         logging.info(f'MixUCB-I: {r_mixucbI}, TotalQ_mixucbI: {TotalQ_mixucbI}, q_mixucbI: {q_mixucbI[i]}')
 
@@ -121,6 +128,7 @@ def main(args):
             np.random.seed(args.seed+rep_id)
 
             # Initialize query and non-query parts
+            print(f"Number of feature: {n_features}, Number of actions: {n_actions}")
             mixucbI_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
             mixucbI_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
 

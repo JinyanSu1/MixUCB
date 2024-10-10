@@ -20,7 +20,10 @@ def generate_data(T, n_actions, n_features, noise_std, seed):
     # np.random.seed(seed)
 
     # Generate true weights (theta) for actions
-    true_weights = np.array([[1/np.sqrt(2),1/np.sqrt(2)],[-1/np.sqrt(2),-1/np.sqrt(2)]])
+    # 2 classes behaves weirdly with OnlineLogisticRegressionOracle, so switching to 3.
+    # true_weights = np.array([[1/np.sqrt(2),1/np.sqrt(2)],[-1/np.sqrt(2),-1/np.sqrt(2)]])
+    # true_weights = np.array([[1/np.sqrt(2),1/np.sqrt(2)],[-1/np.sqrt(2),-1/np.sqrt(2)]])
+    true_weights = np.array([[np.cos(0),np.sin(0)],[np.cos(2/3*np.pi),np.sin(2/3*np.pi)],[np.cos(4/3*np.pi),np.sin(4/3*np.pi)]])
 
     # Initialize context generator
     generator = ContextGenerator(true_weights=true_weights, noise_std=noise_std)
@@ -33,15 +36,25 @@ def generate_data(T, n_actions, n_features, noise_std, seed):
 
     # Generate data for T rounds
     for t in range(T):
-        context, true_rewards = generator.generate_context_and_rewards()
+        context, noisy_rewards, noiseless_rewards = generator.generate_context_and_rewards()
         
         # Store context, true_rewards, and expert_action for each round
         data["rounds"].append({
             "context": context,
-            "true_rewards": true_rewards,
-            "expert_rewards": true_rewards, # assume that expert rewards are same as true rewards here.
+            "true_rewards": noisy_rewards,        # true rewards - should be noisy. use for evaluation.
+            "expert_rewards": noiseless_rewards, # expert rewards - should be noiseless (else expert is anticipating noise). 
+                                                 # use for expert decision-making
         })
 
+    # # Visualize true vs expert rewards (should see less noise in the latter)
+    # # for action 0.
+    # import matplotlib.pyplot as plt
+    # action_to_viz = 0
+    # plt.plot([round["true_rewards"][action_to_viz] for round in data["rounds"]], label="True rewards")
+    # plt.plot([round["expert_rewards"][action_to_viz] for round in data["rounds"]], label="Expert rewards")
+    # plt.legend()
+    # plt.savefig(f"fig_{noise_std}.png")
+    # plt.close()
     return data
 
 def main(args):

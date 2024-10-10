@@ -14,25 +14,42 @@ from argparse import ArgumentParser
 
 import multiprocessing
 
+# 10/9: synthetic experiments with noise_std=0.2
+# data_file = "simulation_data_toy20241009_noise0.2.pkl"
+# beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+# alpha = 0.1
+# lambda_ = 0.001
+
+# deriving from tune_mixUCB.py instead.
+# from tune_mixUCB import data_file, beta_MixUCBI_values, alpha, lambda_
+# from tune_mixUCB import data_file, beta_MixUCBI_values, alpha, lambdas, generator
+from tune_mixUCB import data_file, generator, T, deltas
+
 def run_mixucbI_wrapper(temperature,alpha,beta,lambda_,setting_id,queue):
-    args = run_mixucbI.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', '--temperature', str(temperature), \
+    args = run_mixucbI.parser.parse_args(['--pickle_file', data_file, '--temperature', str(temperature), \
                                             '--alpha', str(alpha), \
-                                            '--beta_MixUCBI', str(beta), '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_{setting_id}"])
+                                            '--beta_MixUCBI', str(beta), '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_alpha{alpha}_{setting_id}", \
+                                            "--T", str(T), "--delta"] + [str(delta) for delta in deltas])
     try:
         run_mixucbI.main(args)
     except cvxpy.error.SolverError as e:
         queue.put("fail: I")
+    except cvxpy.error.ParameterError as e: # error that appears in synthetic case
+        queue.put("fail: I")
 
 def run_mixucbII_wrapper(temperature,alpha,beta,lambda_,setting_id,queue):
-    args = run_mixucbII.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', '--temperature', str(temperature), \
+    args = run_mixucbII.parser.parse_args(['--pickle_file', data_file, '--temperature', str(temperature), \
                                             '--alpha', str(alpha), \
-                                            '--beta_MixUCBII', str(beta), '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_{setting_id}"])
+                                            '--beta_MixUCBII', str(beta), '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_alpha{alpha}_{setting_id}", \
+                                            "--T", str(T), "--delta"] + [str(delta) for delta in deltas])
     try:
         run_mixucbII.main(args)
     except cvxpy.error.SolverError as e:
         queue.put("fail: II")
+    except cvxpy.error.ParameterError as e: # error that appears in synthetic case
+        queue.put("fail: II")
 
-def main(temperature):
+def main(temperature, alpha):
     # Fixed parameters: for experiments in 10/6 and before.
     # temperature = 0.1
     # alpha = 1
@@ -41,9 +58,10 @@ def main(temperature):
     # alpha = 1
     # Fixed parameters for experiments on night of 10/7.
     # temperature is also considered to be fixed.
-    alpha = 0.1
-    lambda_ = 1
-    print(f"Running all algorithms with temperature={temperature}, alpha={alpha}, lambda={lambda_}...")
+    # alpha = 0.1
+    # lambda_ = 1
+    # print(f"Running all algorithms with temperature={temperature}, alpha={alpha}, lambda={lambda_}...")
+    print(f"Running all algorithms with temperature={temperature}, alpha={alpha}...")
 
     # Variable parameters.
     # lambdas = [0.001, 0.01, 0.1, 1]
@@ -71,54 +89,59 @@ def main(temperature):
     # beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000]
 
     # 10/9: turn up beta slightly.
-    beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000]
+    # beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000]
 
-    # failed_I = {(lambda_, beta): False for (lambda_, beta) in generator}
-    # failed_II = {(lambda_, beta): False for (lambda_, beta) in generator}
-    failed_I = {beta: False for beta in beta_MixUCBI_values}
-    failed_II = {beta: False for beta in beta_MixUCBI_values}
+    failed_I = {(lambda_, beta): False for (lambda_, beta) in generator}
+    failed_II = {(lambda_, beta): False for (lambda_, beta) in generator}
+    # failed_I = {beta: False for beta in beta_MixUCBI_values}
+    # failed_II = {beta: False for beta in beta_MixUCBI_values}
 
     exception_queue = multiprocessing.Queue()
 
-    # for (setting_id, (lambda_, beta)) in enumerate(generator):
-    for (setting_id, beta) in enumerate(beta_MixUCBI_values):
+    for (setting_id, (lambda_, beta)) in enumerate(generator):
+    # for (setting_id, beta) in enumerate(beta_MixUCBI_values):
         # print(f"Running all algorithms with lambda={lambda_} and beta_MixUCBI={beta}...")
-        print(f"Running all algorithms with beta={beta}...")
-        # MixUCB-I
-        p1 = multiprocessing.Process(target=run_mixucbI_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
-        # MixUCB-II
-        p2 = multiprocessing.Process(target=run_mixucbII_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
+        # # print(f"Running all algorithms with beta={beta}...")
+        # # MixUCB-I
+        # p1 = multiprocessing.Process(target=run_mixucbI_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
+        # # MixUCB-II
+        # p2 = multiprocessing.Process(target=run_mixucbII_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
         
-        # Start both processes
-        p1.start()
-        p2.start()
+        # # Start both processes
+        # p1.start()
+        # p2.start()
         
-        # Wait for both to complete
-        p1.join()
-        p2.join()
+        # # Wait for both to complete
+        # p1.join()
+        # p2.join()
         
-        while not exception_queue.empty():
-            error_message = exception_queue.get()
-            if error_message == "fail: I":
-                failed_I[beta] = True
-            elif error_message == "fail: II":
-                failed_II[beta] = True
+        # while not exception_queue.empty():
+        #     error_message = exception_queue.get()
+        #     if error_message == "fail: I":
+        #         failed_I[(lambda_, beta)] = True
+        #         # failed_I[beta] = True
+        #     elif error_message == "fail: II":
+        #         failed_II[(lambda_, beta)] = True
+        #         # failed_II[beta] = True
 
         # MixUCB-III
-        args = run_mixucbIII.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', \
+        args = run_mixucbIII.parser.parse_args(['--pickle_file', data_file, \
                                               '--alpha', str(alpha), \
-                                              '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_{setting_id}"])
+                                              '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_alpha{alpha}_{setting_id}", \
+                                              "--T", str(T), "--delta"] + [str(delta) for delta in deltas])
         run_mixucbIII.main(args)
             
     # pkl.dump(failed_I, open('failed_I.pkl', 'wb'))
     # pkl.dump(failed_II, open('failed_II.pkl', 'wb'))
-    pkl.dump(failed_I, open(f'failed_I_{temperature}.pkl', 'wb'))
-    pkl.dump(failed_II, open(f'failed_II_{temperature}.pkl', 'wb'))
+    pkl.dump(failed_I, open(f'failed_I_{temperature}_{alpha}.pkl', 'wb'))
+    pkl.dump(failed_II, open(f'failed_II_{temperature}_{alpha}.pkl', 'wb'))
 
 if __name__=="__main__":
     parser = ArgumentParser()
     parser.add_argument('--temperature', type=float, required=True)
+    parser.add_argument('--alpha', type=float, required=True)
     args = parser.parse_args()
 
     temperature = args.temperature
-    main(temperature)
+    alpha = args.alpha
+    main(temperature, alpha)

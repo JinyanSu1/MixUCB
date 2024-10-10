@@ -1,0 +1,3 @@
+Failure setting for I: {100: True, 200: True, 300: True, 400: True, 500: True}
+Failure setting for II: {100: True, 200: True, 300: True, 400: True, 500: True}
+Common settings where both I and II didn't fail to converge: []

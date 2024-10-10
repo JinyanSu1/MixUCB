@@ -11,7 +11,31 @@ import pickle as pkl
 import itertools
 from argparse import ArgumentParser
 
-beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000]
+# beta_MixUCBI_values = [9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000]
+
+# 10/9: sticking to higher betas for now, for speed (so we can finish this in 1 hr).
+# beta_MixUCBI_values = [15000,16000,17000,18000,19000,20000]
+
+# 10/9: synthetic experiments with noise_std=0.2
+data_file = "simulation_data_toy20241009_noise0.2.pkl"
+# beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+# higher betas
+# beta_MixUCBI_values = [8000, 10000, 12000, 14000, 16000]
+# all the betas
+# beta_MixUCBI_values = [1000, 2000, 4000, 8000, 10000, 12000, 14000, 16000]
+# what about smaller betas?
+# beta_MixUCBI_values = [100,200,300,400,500]
+# back to original range
+# beta_MixUCBI_values = [1000, 2000, 4000, 8000, 16000]
+beta_MixUCBI_values = [1000, 2000, 4000, 8000, 12000]
+# alpha = 0.1
+# lambda_ = 0.001
+# lambda_ = 1
+# I think we need to do a lambda sweep as well.
+lambdas = [0.001, 0.01, 0.1, 1]
+generator = list(itertools.product(lambdas, beta_MixUCBI_values))
+T = 200
+deltas=[0.2,0.5,1.0]
 
 def main(temperature):
     # Fixed parameters: for experiments in 10/6 and before.
@@ -22,9 +46,10 @@ def main(temperature):
     # alpha = 1
     # Fixed parameters for experiments on night of 10/7.
     # temperature is also considered to be fixed.
-    alpha = 0.1
-    lambda_ = 1
-    print(f"Running all algorithms with temperature={temperature}, alpha={alpha}, lambda={lambda_}...")
+    # alpha = 0.1
+    # lambda_ = 1
+    # print(f"Running all algorithms with temperature={temperature}, alpha={alpha}, lambda={lambda_}...")
+    print(f"Running all algorithms with temperature={temperature}, alpha={alpha}...")
 
     # Variable parameters.
     # lambdas = [0.001, 0.01, 0.1, 1]
@@ -55,29 +80,34 @@ def main(temperature):
     failed_I = {beta: False for beta in beta_MixUCBI_values}
     failed_II = {beta: False for beta in beta_MixUCBI_values}
 
-    # for (setting_id, (lambda_, beta)) in enumerate(generator):
-    for (setting_id, beta) in enumerate(beta_MixUCBI_values):
+    for (setting_id, (lambda_, beta)) in enumerate(generator):
+    # for (setting_id, beta) in enumerate(beta_MixUCBI_values):
         # print(f"Running all algorithms with lambda={lambda_} and beta_MixUCBI={beta}...")
         print(f"Running all algorithms with beta={beta}...")
         # MixUCB-I
-        args = run_mixucbI.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', '--temperature', str(temperature), \
+        args = run_mixucbI.parser.parse_args(['--pickle_file', data_file, '--temperature', str(temperature), \
                                               '--alpha', str(alpha), \
                                               '--beta_MixUCBI', str(beta), '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_{setting_id}"])
         try:
             run_mixucbI.main(args)
         except cvxpy.error.SolverError as e:
-            # failed_I[(lambda_, beta)] = True
             failed_I[beta] = True
+        except cvxpy.error.ParameterError as e:
+            print(e)
+            import pdb; pdb.set_trace()
         # MixUCB-II
-        args = run_mixucbII.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', '--temperature', str(temperature), \
+        args = run_mixucbII.parser.parse_args(['--pickle_file', data_file, '--temperature', str(temperature), \
                                               '--alpha', str(alpha), \
                                               '--beta_MixUCBII', str(beta), '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_{setting_id}"])
         try:
             run_mixucbII.main(args)
         except cvxpy.error.SolverError as e:
             failed_II[beta] = True
+        except cvxpy.error.ParameterError as e:
+            print(e)
+            import pdb; pdb.set_trace()
         # MixUCB-III
-        args = run_mixucbIII.parser.parse_args(['--pickle_file', 'simulation_data_spanet.pkl', \
+        args = run_mixucbIII.parser.parse_args(['--pickle_file', data_file, \
                                               '--alpha', str(alpha), \
                                               '--lambda_', str(lambda_), '--setting_id', f"temp{temperature}_{setting_id}"])
         run_mixucbIII.main(args)
