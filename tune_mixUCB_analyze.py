@@ -117,33 +117,33 @@ def main(temperature, alpha):
         # delta_values = [0.2, 0.5, 1.,2., 5.]
         delta_values = deltas
         for each_delta in delta_values:
-            mixucbI_pkls = os.listdir(os.path.join(f'mixucbI_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta)))
+            mixucbI_pkls = os.listdir(os.path.join(f'mixucbI_results_temp{temperature}_alpha{alpha}_{setting_ID}','{}'.format(each_delta)))
             mixucbI_list = []
             mixucbI_list_totalQ = []
             for each_mixucbI_pkl in mixucbI_pkls:
-                with open(os.path.join(f'mixucbI_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbI_results_temp{temperature}_alpha{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbI_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbI = data['CR_mixucbI']
                     mixucbI_list.append(CR_mixucbI)
                     TotalQ_mixUCBI = data['TotalQ_mixucbI']
                     mixucbI_list_totalQ.append(TotalQ_mixUCBI)
 
-            mixucbII_pkls = os.listdir(os.path.join(f'mixucbII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta)))
+            mixucbII_pkls = os.listdir(os.path.join(f'mixucbII_results_temp{temperature}_alpha{alpha}_{setting_ID}','{}'.format(each_delta)))
             mixucbII_list = []
             mixucbII_list_totalQ = []
             for each_mixucbII_pkl in mixucbII_pkls:
-                with open(os.path.join(f'mixucbII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbII_results_temp{temperature}_alpha{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbII_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbII = data['CR_mixucbII']
                     mixucbII_list.append(CR_mixucbII)
                     TotalQ_mixUCBII = data['TotalQ_mixucbII']
                     mixucbII_list_totalQ.append(TotalQ_mixUCBII)
 
-            mixucbIII_pkls = os.listdir(os.path.join(f'mixucbIII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta)))
+            mixucbIII_pkls = os.listdir(os.path.join(f'mixucbIII_results_temp{temperature}_alpha{alpha}_{setting_ID}','{}'.format(each_delta)))
             mixucbIII_list = []
             mixucbIII_list_totalQ = []
             for each_mixucbIII_pkl in mixucbIII_pkls:
-                with open(os.path.join(f'mixucbIII_results_temp{temperature}_alpha_{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbIII_pkl), 'rb') as f:
+                with open(os.path.join(f'mixucbIII_results_temp{temperature}_alpha{alpha}_{setting_ID}','{}'.format(each_delta), each_mixucbIII_pkl), 'rb') as f:
                     data = pkl.load(f)
                     CR_mixucbIII = data['CR_mixucbIII']
                     mixucbIII_list.append(CR_mixucbIII)

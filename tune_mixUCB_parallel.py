@@ -100,29 +100,29 @@ def main(temperature, alpha):
 
     for (setting_id, (lambda_, beta)) in enumerate(generator):
     # for (setting_id, beta) in enumerate(beta_MixUCBI_values):
-        # print(f"Running all algorithms with lambda={lambda_} and beta_MixUCBI={beta}...")
-        # # print(f"Running all algorithms with beta={beta}...")
-        # # MixUCB-I
-        # p1 = multiprocessing.Process(target=run_mixucbI_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
-        # # MixUCB-II
-        # p2 = multiprocessing.Process(target=run_mixucbII_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
+        print(f"Running all algorithms with lambda={lambda_} and beta_MixUCBI={beta}...")
+        # print(f"Running all algorithms with beta={beta}...")
+        # MixUCB-I
+        p1 = multiprocessing.Process(target=run_mixucbI_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
+        # MixUCB-II
+        p2 = multiprocessing.Process(target=run_mixucbII_wrapper, args=(temperature,alpha,beta,lambda_,setting_id,exception_queue))
         
-        # # Start both processes
-        # p1.start()
-        # p2.start()
+        # Start both processes
+        p1.start()
+        p2.start()
         
-        # # Wait for both to complete
-        # p1.join()
-        # p2.join()
+        # Wait for both to complete
+        p1.join()
+        p2.join()
         
-        # while not exception_queue.empty():
-        #     error_message = exception_queue.get()
-        #     if error_message == "fail: I":
-        #         failed_I[(lambda_, beta)] = True
-        #         # failed_I[beta] = True
-        #     elif error_message == "fail: II":
-        #         failed_II[(lambda_, beta)] = True
-        #         # failed_II[beta] = True
+        while not exception_queue.empty():
+            error_message = exception_queue.get()
+            if error_message == "fail: I":
+                failed_I[(lambda_, beta)] = True
+                # failed_I[beta] = True
+            elif error_message == "fail: II":
+                failed_II[(lambda_, beta)] = True
+                # failed_II[beta] = True
 
         # MixUCB-III
         args = run_mixucbIII.parser.parse_args(['--pickle_file', data_file, \

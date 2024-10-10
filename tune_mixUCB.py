@@ -27,7 +27,9 @@ data_file = "simulation_data_toy20241009_noise0.2.pkl"
 # beta_MixUCBI_values = [100,200,300,400,500]
 # back to original range
 # beta_MixUCBI_values = [1000, 2000, 4000, 8000, 16000]
-beta_MixUCBI_values = [1000, 2000, 4000, 8000, 12000]
+# beta_MixUCBI_values = [1000, 2000, 4000, 8000, 12000]
+# beta_MixUCBI_values = [500,600,700,800,900]
+beta_MixUCBI_values = [50,100,200,300,400]
 # alpha = 0.1
 # lambda_ = 0.001
 # lambda_ = 1
@@ -35,6 +37,8 @@ beta_MixUCBI_values = [1000, 2000, 4000, 8000, 12000]
 lambdas = [0.001, 0.01, 0.1, 1]
 generator = list(itertools.product(lambdas, beta_MixUCBI_values))
 T = 200
+# deltas=[0.2,0.5,1.0]
+# deltas=[0.2,0.5,0.75,1.0]
 deltas=[0.2,0.5,1.0]
 
 def main(temperature):

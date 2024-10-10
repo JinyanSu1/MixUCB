@@ -492,8 +492,12 @@ if __name__ == '__main__':
     # result_root="syntheticalpha1_20241010"
 
     # Temp 1.0, Alpha 0.01
-    mixucb_postfix="_temp5.0_alpha0.01_0"
-    result_root="syntheticalpha0.01_20241010"
+    # mixucb_postfix="_temp5.0_alpha0.01_0"
+    # result_root="syntheticalpha0.01_20241010"
+
+    # Temp 5.0, Alpha 0.75
+    # mixucb_postfix="_temp5.0_alpha0.75_0"
+    # result_root="syntheticalpha0.75_20241010_2"
 
     Figure_dir = f'Figures/{result_root}'
 
@@ -501,5 +505,6 @@ if __name__ == '__main__':
     # NOTE: using a fixed value of delta.
     # delta=0.5
     # for delta in [0.2, 0.5, 1., 2., 5.]:
-    for delta in [0.2, 0.5, 1.]:
+    # for delta in [0.2, 0.5, 1.]:
+    for delta in [0.2, 0.5, 0.75, 1.]:
         plot_six_baselines(Figure_dir=f"{Figure_dir}_delta{delta}", mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
