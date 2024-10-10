@@ -5,6 +5,10 @@ import os
 import pickle
 import numpy as np
 
+# fix colors for I, II, and III: orange, green, red
+# fix colors for LinUCB, NoisyExpert, PerfectExpert: blue, purple, brown
+color_map = {'I': 'orange', 'II': 'green', 'III': 'red', 'LinUCB': 'blue', 'NoisyExpert': 'purple', 'PerfectExpert': 'brown'}
+
 def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None, ylabel='Average Reward'):
     """Plot average rewards in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
@@ -13,6 +17,9 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
             cumulative_reward = item[idx]
             # print('cumulative_reward', cumulative_reward)
             average_rewards = [cum_reward / (i + 1) for i, cum_reward in enumerate(cumulative_reward)]
+            for elem in color_map.keys():
+                if elem in key:
+                    color = color_map[elem]
 
             if cumulative_awards_std:
                 # print(key, idx)
@@ -22,8 +29,12 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
 
                 ax.fill_between(range(len(average_rewards)),
                                 [a - s for a, s in zip(average_rewards, average_rewards_std)],
-                                [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2)
-            ax.plot(average_rewards, label=f'{key}')
+                                [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2,\
+                                color=color)
+            if 'III' in key:
+                ax.plot(average_rewards, label=f'{key}', marker='o', markersize=4, color=color)
+            else:
+                ax.plot(average_rewards, label=f'{key}', color=color)
             ax.set_xlabel('t')
             ax.set_ylabel(ylabel)
             if params is not None:
@@ -36,10 +47,14 @@ def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None,
         ax = axs[idx]
         for key, item in cumulative_rewards.items():
             cumulative_reward = item[idx]
+            for elem in color_map.keys():
+                if elem in key:
+                    color = color_map[elem]
             if cumulative_awards_std:
                 std = cumulative_awards_std[key][idx]
-                ax.fill_between(range(len(cumulative_reward)), [a - s for a, s in zip(cumulative_reward, std)], [a + s for a, s in zip(cumulative_reward, std)], alpha=0.2)
-            ax.plot(cumulative_reward, label=f'{key}')
+                ax.fill_between(range(len(cumulative_reward)), [a - s for a, s in zip(cumulative_reward, std)], [a + s for a, s in zip(cumulative_reward, std)], alpha=0.2,\
+                color=color)
+            ax.plot(cumulative_reward, label=f'{key}',color=color)
             ax.set_xlabel('t')
             ax.set_ylabel(ylabel)
             if params is not None:
@@ -52,9 +67,14 @@ def plot_cumulative_queries(axs, q_mean, q_std, params):
         ax = axs[idx]
         for key, item in q_mean.items():
             q = item[idx]
-            # std = q_std[key][idx]    # ignoring std for now.
-            # ax.fill_between(range(len(q)), [a - s for a, s in zip(q, std)], [a + s for a, s in zip(q, std)], alpha=0.2)
-            ax.plot(np.cumsum(q), label=f'{key}')
+            std = q_std[key][idx]    # putting std back in.
+            for elem in color_map.keys():
+                if elem in key:
+                    color = color_map[elem]
+            # cumsum_q = np.cumsum(q)
+            ax.fill_between(range(len(q)), [a - s for a, s in zip(q, std)], [a + s for a, s in zip(q, std)], alpha=0.2,\
+                color=color)
+            ax.plot(q, label=f'{key}',color=color)
             ax.set_xlabel('t')
             ax.set_ylabel('Cumulative Queries')
             ax.set_title(f'$\\delta={params[idx]}$')
@@ -91,12 +111,21 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
     AR_mixucbIII_mean = []
     AR_mixucbIII_std = []
 
+    # query_list
     q_mixUCBI_mean = []
     q_mixUCBI_std = []
     q_mixUCBII_mean = []
     q_mixUCBII_std = []
     q_mixUCBIII_mean = []
     q_mixUCBIII_std = []
+
+    # cumulative queries (call it CQ)
+    CQ_mixucbI_mean = []
+    CQ_mixucbI_std = []
+    CQ_mixucbII_mean = []
+    CQ_mixucbII_std = []
+    CQ_mixucbIII_mean = []
+    CQ_mixucbIII_std = []
 
     perfect_expert_pkls = os.listdir(os.path.join(result_root,f'perfect_expert_results_0'))
     perfect_expert_list = []
@@ -204,6 +233,14 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
     q_mixUCBIII_mean.append(np.mean(q_mixUCBIII_list, axis=0))
     q_mixUCBIII_std.append(np.std(q_mixUCBIII_list, axis=0))
 
+    # Cumulative queries.
+    CQ_mixucbI_mean.append(np.mean([np.cumsum(q) for q in q_mixUCBI_list],axis=0))
+    CQ_mixucbI_std.append(np.std([np.cumsum(q) for q in q_mixUCBI_list],axis=0))
+    CQ_mixucbII_mean.append(np.mean([np.cumsum(q) for q in q_mixUCBII_list],axis=0))
+    CQ_mixucbII_std.append(np.std([np.cumsum(q) for q in q_mixUCBII_list],axis=0))
+    CQ_mixucbIII_mean.append(np.mean([np.cumsum(q) for q in q_mixUCBIII_list],axis=0))
+    CQ_mixucbIII_std.append(np.std([np.cumsum(q) for q in q_mixUCBIII_list],axis=0))
+
     # AR and RR.
     AR_mixucbI_mean.append(np.mean(ARI_list, axis=0))
     AR_mixucbI_std.append(np.std(ARI_list, axis=0))
@@ -248,6 +285,18 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
         'MixUCB-III': q_mixUCBIII_std,
     }
 
+    cq_mean = {
+        'MixUCB-I': CQ_mixucbI_mean,
+        'MixUCB-II': CQ_mixucbII_mean,
+        'MixUCB-III': CQ_mixucbIII_mean,
+    }
+
+    cq_std = {
+        'MixUCB-I': CQ_mixucbI_std,
+        'MixUCB-II': CQ_mixucbII_std,
+        'MixUCB-III': CQ_mixucbIII_std,
+    }
+
     ar = {
         f'MixUCB-I ($\\delta = {delta}$)': AR_mixucbI_mean,
         f'MixUCB-II ($\\delta = {delta}$)': AR_mixucbII_mean,
@@ -275,7 +324,7 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
     # Add queries to this plot.
     fig, axs = plt.subplots(2, 1, figsize=(8, 16))
     plot_average_rewards([axs[0]], cumulative_rewards, cumulative_rewards_std)
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta])
+    plot_cumulative_queries([axs[1]], cq_mean, cq_std, [delta])
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_avgr.png'), format='jpg', dpi=300, bbox_inches='tight')
     
@@ -289,14 +338,14 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
     # For now we can compute this for just MixUCB-I, MixUCB-II, MixUCB-III.
     fig, axs = plt.subplots(2, 1, figsize=(8, 16))
     plot_cumulative_rewards([axs[0]], ar, ar_std,ylabel="Algorithm Regret")
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta])
+    plot_cumulative_queries([axs[1]], cq_mean, cq_std, [delta])
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_ar.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     # Add a reward regret plot, which is difference between perfect expert and querying algorithm.
     fig, axs = plt.subplots(2, 1, figsize=(8, 16))
     plot_cumulative_rewards([axs[0]], rr, rr_std,ylabel="Reward Regret")
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta])
+    plot_cumulative_queries([axs[1]], cq_mean, cq_std, [delta])
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_rr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -317,6 +366,14 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     q_mixUCBII_std = []
     q_mixUCBIII_mean = []
     q_mixUCBIII_std = []
+
+    # cumulative queries (CQ)
+    CQ_mixucbI_mean = []
+    CQ_mixucbI_std = []
+    CQ_mixucbII_mean = []
+    CQ_mixucbII_std = []
+    CQ_mixucbIII_mean = []
+    CQ_mixucbIII_std = []
 
     TotalQ_mixucbI_mean = []
     TotalQ_mixucbI_std = []
@@ -385,6 +442,13 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
         q_mixUCBIII_mean.append(np.mean(mixUCBIII_q_list, axis=0))
         q_mixUCBIII_std.append(np.std(mixUCBIII_q_list, axis=0))
 
+        CQ_mixucbI_mean.append(np.mean([np.cumsum(q) for q in mixUCBI_q_list],axis=0))
+        CQ_mixucbI_std.append(np.std([np.cumsum(q) for q in mixUCBI_q_list],axis=0))
+        CQ_mixucbII_mean.append(np.mean([np.cumsum(q) for q in mixUCBII_q_list],axis=0))
+        CQ_mixucbII_std.append(np.std([np.cumsum(q) for q in mixUCBII_q_list],axis=0))
+        CQ_mixucbIII_mean.append(np.mean([np.cumsum(q) for q in mixUCBIII_q_list],axis=0))
+        CQ_mixucbIII_std.append(np.std([np.cumsum(q) for q in mixUCBIII_q_list],axis=0))
+
         TotalQ_mixucbI_mean.append(np.mean(mixucbI_list_totalQ))
         TotalQ_mixucbI_std.append(np.std(mixucbI_list_totalQ))
         TotalQ_mixucbII_mean.append(np.mean(mixucbII_list_totalQ))
@@ -415,6 +479,18 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
         'MixUCB-III': q_mixUCBIII_std,
     }
 
+    cq_mean = {
+        'MixUCB-I': CQ_mixucbI_mean,
+        'MixUCB-II': CQ_mixucbII_mean,
+        'MixUCB-III': CQ_mixucbIII_mean,
+    }
+
+    cq_std = {
+        'MixUCB-I': CQ_mixucbI_std,
+        'MixUCB-II': CQ_mixucbII_std,
+        'MixUCB-III': CQ_mixucbIII_std,
+    }
+
     print(f"Deltas: {delta_values}")
     print(f'TotalQ_mixucbI_mean: {np.array(TotalQ_mixucbI_mean)}')
     print(f'TotalQ_mixucbII_mean: {np.array(TotalQ_mixucbII_mean)}')
@@ -432,7 +508,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_cr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     fig,axs = plt.subplots(1,len(delta_values),figsize=(18,3))
-    plot_cumulative_queries(axs, q_mean, q_std, delta_values)
+    plot_cumulative_queries(axs, cq_mean, cq_std, delta_values)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_q.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -499,6 +575,11 @@ if __name__ == '__main__':
     # mixucb_postfix="_temp5.0_alpha0.75_0"
     # result_root="syntheticalpha0.75_20241010_2"
 
+    # Temp 5.0, Alpha 0.75 again.
+    mixucb_postfix="_temp5.0_alpha0.75_0"   #beta=50
+    # mixucb_postfix="_temp5.0_alpha0.75_2" #beta=200
+    result_root="syntheticalpha0.75_20241010_3"
+
     Figure_dir = f'Figures/{result_root}'
 
     plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix,result_root=result_root)
@@ -506,5 +587,6 @@ if __name__ == '__main__':
     # delta=0.5
     # for delta in [0.2, 0.5, 1., 2., 5.]:
     # for delta in [0.2, 0.5, 1.]:
-    for delta in [0.2, 0.5, 0.75, 1.]:
+    # for delta in [0.2, 0.5, 0.75, 1.]:
+    for delta in [0.2, 0.5, 1.]:
         plot_six_baselines(Figure_dir=f"{Figure_dir}_delta{delta}", mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
