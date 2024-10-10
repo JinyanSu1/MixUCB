@@ -40,7 +40,7 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
             ax.set_xlabel('t')
             ax.set_ylabel(ylabel)
             if params is not None:
-                ax.set_title(f'$\\delta={params[idx]}$')
+                ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
 def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None, ylabel='Cumulative Reward'):
@@ -60,7 +60,7 @@ def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None,
             ax.set_xlabel('t')
             ax.set_ylabel(ylabel)
             if params is not None:
-                ax.set_title(f'$\\delta={params[idx]}$')
+                ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
 def plot_cumulative_queries(axs, q_mean, q_std, params):
@@ -79,7 +79,7 @@ def plot_cumulative_queries(axs, q_mean, q_std, params):
             ax.plot(q, label=f'{key}',color=color)
             ax.set_xlabel('t')
             ax.set_ylabel('Cumulative Queries')
-            ax.set_title(f'$\\delta={params[idx]}$')
+            ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
 def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,result_root=''):
@@ -260,17 +260,17 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
 
     cumulative_rewards = {
         'LinUCB': CR_linucb_mean,
-        f'MixUCB-I ($\\delta = {delta}$)': CR_mixucbI_mean,
-        f'MixUCB-II ($\\delta = {delta}$)': CR_mixucbII_mean,
-        f'MixUCB-III ($\\delta = {delta}$)': CR_mixucbIII_mean,
+        f'MixUCB-I ($\\Delta = {delta}$)': CR_mixucbI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': CR_mixucbII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': CR_mixucbIII_mean,
         'NoisyExpert': CR_NoisyExpert_mean,
         'PerfectExpert': CR_PerfectExpert_mean,
     }
     cumulative_rewards_std = {
         'LinUCB': CR_linucb_std,
-        f'MixUCB-I ($\\delta = {delta}$)': CR_mixucbI_std,
-        f'MixUCB-II ($\\delta = {delta}$)': CR_mixucbII_std,
-        f'MixUCB-III ($\\delta = {delta}$)': CR_mixucbIII_std,
+        f'MixUCB-I ($\\Delta = {delta}$)': CR_mixucbI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': CR_mixucbII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': CR_mixucbIII_std,
         'NoisyExpert': CR_NoisyExpert_std,
         'PerfectExpert': CR_PerfectExpert_std,
     }
@@ -300,27 +300,27 @@ def plot_six_baselines(Figure_dir='Figures',mixucb_result_postfix="",delta=0.5,r
     }
 
     ar = {
-        f'MixUCB-I ($\\delta = {delta}$)': AR_mixucbI_mean,
-        f'MixUCB-II ($\\delta = {delta}$)': AR_mixucbII_mean,
-        f'MixUCB-III ($\\delta = {delta}$)': AR_mixucbIII_mean,
+        f'MixUCB-I ($\\Delta = {delta}$)': AR_mixucbI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': AR_mixucbII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': AR_mixucbIII_mean,
     }
 
     ar_std = {
-        f'MixUCB-I ($\\delta = {delta}$)': AR_mixucbI_std,
-        f'MixUCB-II ($\\delta = {delta}$)': AR_mixucbII_std,
-        f'MixUCB-III ($\\delta = {delta}$)': AR_mixucbIII_std,
+        f'MixUCB-I ($\\Delta = {delta}$)': AR_mixucbI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': AR_mixucbII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': AR_mixucbIII_std,
     }
 
     rr = {
-        f'MixUCB-I ($\\delta = {delta}$)': RR_mixucbI_mean,
-        f'MixUCB-II ($\\delta = {delta}$)': RR_mixucbII_mean,
-        f'MixUCB-III ($\\delta = {delta}$)': RR_mixucbIII_mean,
+        f'MixUCB-I ($\\Delta = {delta}$)': RR_mixucbI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': RR_mixucbII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': RR_mixucbIII_mean,
     }
 
     rr_std = {
-        f'MixUCB-I ($\\delta = {delta}$)': RR_mixucbI_std,
-        f'MixUCB-II ($\\delta = {delta}$)': RR_mixucbII_std,
-        f'MixUCB-III ($\\delta = {delta}$)': RR_mixucbIII_std,
+        f'MixUCB-I ($\\Delta = {delta}$)': RR_mixucbI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': RR_mixucbII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': RR_mixucbIII_std,
     }
 
     # Add queries to this plot.
