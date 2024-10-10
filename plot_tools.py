@@ -6,7 +6,8 @@ import pickle
 import numpy as np
 
 
-def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None):
+def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None,
+                         marker_mapping=None):
     """Plot average rewards in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
@@ -24,7 +25,7 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
                 ax.fill_between(range(len(average_rewards)),
                                 [a - s for a, s in zip(average_rewards, average_rewards_std)],
                                 [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2)
-            ax.plot(average_rewards, label=f'{key}')
+            ax.plot(average_rewards, label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1],)
             ax.set_xlabel('t')
             ax.set_ylabel('Average Reward')
             if params is not None:
@@ -33,7 +34,7 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
 
 
 def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None,
-                            ylabel='Cumulative Reward'):
+                            ylabel='Cumulative Reward', marker_mapping=None):
     """Plot cumulative rewards in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
@@ -43,7 +44,7 @@ def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None,
                 std = cumulative_awards_std[key][idx]
                 ax.fill_between(range(len(cumulative_reward)), [a - s for a, s in zip(cumulative_reward, std)],
                                 [a + s for a, s in zip(cumulative_reward, std)], alpha=0.2)
-            ax.plot(cumulative_reward, label=f'{key}')
+            ax.plot(cumulative_reward, label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1])
             ax.set_xlabel('t')
             ax.set_ylabel(ylabel)
             if params is not None:
@@ -51,15 +52,16 @@ def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None,
         ax.legend()
 
 
-def plot_cumulative_queries(axs, q_mean, q_std, params):
+def plot_cumulative_queries(axs, q_mean, q_std, params, marker_mapping=None):
     """Plot cumulative queries in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
         for key, item in q_mean.items():
             q = item[idx]
+            print(marker_mapping, f'{key}')
             # std = q_std[key][idx]    # ignoring std for now.
             # ax.fill_between(range(len(q)), [a - s for a, s in zip(q, std)], [a + s for a, s in zip(q, std)], alpha=0.2)
-            ax.plot(np.cumsum(q), label=f'{key}')
+            ax.plot(np.cumsum(q), label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1])
             ax.set_xlabel('t')
             ax.set_ylabel('Cumulative Queries')
             ax.set_title(f'$\\delta={params[idx]}$')
@@ -256,15 +258,15 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     }
 
     q_mean = {
-        'MixUCB-I': q_mixUCBI_mean,
-        'MixUCB-II': q_mixUCBII_mean,
-        'MixUCB-III': q_mixUCBIII_mean,
+        f'MixUCB-I ($\\delta = {delta}$)': q_mixUCBI_mean,
+        f'MixUCB-II ($\\delta = {delta}$)': q_mixUCBII_mean,
+        f'MixUCB-III ($\\delta = {delta}$)': q_mixUCBIII_mean,
     }
 
     q_std = {
-        'MixUCB-I': q_mixUCBI_std,
-        'MixUCB-II': q_mixUCBII_std,
-        'MixUCB-III': q_mixUCBIII_std,
+        f'MixUCB-I ($\\delta = {delta}$)': q_mixUCBI_std,
+        f'MixUCB-II ($\\delta = {delta}$)': q_mixUCBII_std,
+        f'MixUCB-III ($\\delta = {delta}$)': q_mixUCBIII_std,
     }
 
     ar = {
@@ -291,12 +293,21 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
         f'MixUCB-III ($\\delta = {delta}$)': RR_mixucbIII_std,
     }
 
+    marker_mapping = {
+        'LinUCB': ['o', np.linspace(0, 119, 10).astype(int).tolist()],
+        f'MixUCB-I ($\\delta = {delta}$)': ['s', np.linspace(1, 119, 10).astype(int).tolist()],
+        f'MixUCB-II ($\\delta = {delta}$)': ['v', np.linspace(2, 119, 10).astype(int).tolist()],
+        f'MixUCB-III ($\\delta = {delta}$)': ['^', np.linspace(3, 119, 10).astype(int).tolist()],
+        'NoisyExpert': ['D', np.linspace(4, 119, 10).astype(int).tolist()],
+        'PerfectExpert': ['>', np.linspace(5, 119, 10).astype(int).tolist()]
+    }
+
     fig, axs = plt.subplots(1, 1, figsize=(8, 8))
-    plot_average_rewards([axs], cumulative_rewards, cumulative_rewards_std)
+    plot_average_rewards([axs], cumulative_rewards, cumulative_rewards_std, marker_mapping=marker_mapping)
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_avgr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     fig, axs = plt.subplots(1, 1, figsize=(8, 8))
-    plot_cumulative_rewards([axs], cumulative_rewards, cumulative_rewards_std)
+    plot_cumulative_rewards([axs], cumulative_rewards, cumulative_rewards_std, marker_mapping=marker_mapping)
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_cr.png'), format='jpg', dpi=300, bbox_inches='tight')
     plt.tight_layout()
 
@@ -304,15 +315,15 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     # but is 0 when we query. should be cumulative as well.
     # For now we can compute this for just MixUCB-I, MixUCB-II, MixUCB-III.
     fig, axs = plt.subplots(2, 1, figsize=(8, 16))
-    plot_cumulative_rewards([axs[0]], ar, ar_std, ylabel="Algorithm Regret")
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta])
+    plot_cumulative_rewards([axs[0]], ar, ar_std, ylabel="Algorithm Regret", marker_mapping=marker_mapping)
+    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_ar.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     # Add a reward regret plot, which is difference between perfect expert and querying algorithm.
     fig, axs = plt.subplots(2, 1, figsize=(8, 16))
-    plot_cumulative_rewards([axs[0]], rr, rr_std, ylabel="Reward Regret")
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta])
+    plot_cumulative_rewards([axs[0]], rr, rr_std, ylabel="Reward Regret", marker_mapping=marker_mapping)
+    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_rr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -439,19 +450,28 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     print(f'TotalQ_mixucbII_mean: {np.array(TotalQ_mixucbII_mean)}')
     print(f'TotalQ_mixucbIII_mean: {np.array(TotalQ_mixucbIII_mean)}')
 
+    marker_mapping = {
+        'LinUCB': ['o', np.linspace(0, 119, 10).astype(int).tolist()],
+        'MixUCB-I': ['s', np.linspace(1, 119, 10).astype(int).tolist()],
+        'MixUCB-II': ['v', np.linspace(2, 119, 10).astype(int).tolist()],
+        'MixUCB-III': ['^', np.linspace(3, 119, 10).astype(int).tolist()],
+        'NoisyExpert': ['D', np.linspace(4, 119, 10).astype(int).tolist()],
+        'PerfectExpert': ['>', np.linspace(5, 119, 10).astype(int).tolist()]
+    }
+
     # Create a 1 by m grid of subplots for average rewards
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
-    plot_average_rewards(axs, cumulative_rewards, cumulative_rewards_std, delta_values)
+    plot_average_rewards(axs, cumulative_rewards, cumulative_rewards_std, delta_values, marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_avgr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
-    plot_cumulative_rewards(axs, cumulative_rewards, cumulative_rewards_std, delta_values)
+    plot_cumulative_rewards(axs, cumulative_rewards, cumulative_rewards_std, delta_values, marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_cr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
-    plot_cumulative_queries(axs, q_mean, q_std, delta_values)
+    plot_cumulative_queries(axs, q_mean, q_std, delta_values, marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_q.png'), format='jpg', dpi=300, bbox_inches='tight')
 
