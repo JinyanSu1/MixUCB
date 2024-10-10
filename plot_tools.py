@@ -32,7 +32,9 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
                                 [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2,\
                                 color=color)
             if 'III' in key:
-                ax.plot(average_rewards, label=f'{key}', marker='o', markersize=4, color=color)
+                ax.plot(average_rewards, label=f'{key}', marker='o', markersize=2, color=color)
+            elif 'LinUCB' in key: # do a diamond marker
+                ax.plot(average_rewards, label=f'{key}', marker='D', markersize=2, color=color)
             else:
                 ax.plot(average_rewards, label=f'{key}', color=color)
             ax.set_xlabel('t')
@@ -576,9 +578,15 @@ if __name__ == '__main__':
     # result_root="syntheticalpha0.75_20241010_2"
 
     # Temp 5.0, Alpha 0.75 again.
-    mixucb_postfix="_temp5.0_alpha0.75_0"   #beta=50
-    # mixucb_postfix="_temp5.0_alpha0.75_2" #beta=200
-    result_root="syntheticalpha0.75_20241010_3"
+    # mixucb_postfix="_temp5.0_alpha0.75_0"   #beta=50
+    # # mixucb_postfix="_temp5.0_alpha0.75_2" #beta=200
+    # result_root="syntheticalpha0.75_20241010_3"
+    
+    # Again.
+    # NOTE: must use a setting with lambda=0.001
+    mixucb_postfix="_temp5.0_alpha0.75_0"   #beta=10
+    # mixucb_postfix="_temp5.0_alpha0.75_1"   #beta=10
+    result_root="syntheticalpha0.75_20241010_4"
 
     Figure_dir = f'Figures/{result_root}'
 
@@ -588,5 +596,6 @@ if __name__ == '__main__':
     # for delta in [0.2, 0.5, 1., 2., 5.]:
     # for delta in [0.2, 0.5, 1.]:
     # for delta in [0.2, 0.5, 0.75, 1.]:
-    for delta in [0.2, 0.5, 1.]:
+    for delta in [0.2, 0.5]:
+    # for delta in [0.2, 0.5, 1.]:
         plot_six_baselines(Figure_dir=f"{Figure_dir}_delta{delta}", mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
