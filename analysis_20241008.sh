@@ -8,7 +8,8 @@
 # SAVENAME_5="synthetictemp5.0_20241009_5"
 
 # SAVENAME_5="spanettemp5.0_20241010"
-SAVENAME_5="spanettemp5.0_20241010_2"
+# SAVENAME_5="spanettemp5.0_20241010_2"
+SAVENAME_5="spanettemp5.0_20241010_3"
 
 # python tune_mixUCB_analyze.py --temperature 1.0 > output1.0.txt
 python tune_mixUCB_analyze.py --temperature 5.0 --alpha 0.1 > output5.0.txt
