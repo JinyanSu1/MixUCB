@@ -7,7 +7,8 @@
 # SAVENAME_1="synthetictemp1.0_20241009_5"
 # SAVENAME_5="synthetictemp5.0_20241009_5"
 
-SAVENAME_5="spanettemp5.0_20241010"
+# SAVENAME_5="spanettemp5.0_20241010"
+SAVENAME_5="spanettemp5.0_20241010_2"
 
 # python tune_mixUCB_analyze.py --temperature 1.0 > output1.0.txt
 python tune_mixUCB_analyze.py --temperature 5.0 --alpha 0.1 > output5.0.txt
@@ -18,7 +19,7 @@ mv *_results_temp5.0* $SAVENAME_5
 # mv output1.0.txt $SAVENAME_1
 mv output5.0.txt $SAVENAME_5
 # mv *1.0.pkl $SAVENAME_1
-mv *5.0.pkl $SAVENAME_5
+mv *5.0_0.1.pkl $SAVENAME_5
 # mkdir -p Figures/$SAVENAME_1
 mkdir -p Figures/$SAVENAME_5
 # bash run_all_spanet.sh 1.0

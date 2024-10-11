@@ -45,11 +45,13 @@ from argparse import ArgumentParser
 
 # 10/9: switching back to original dataset.
 data_file = "simulation_data_spanet.pkl"
-beta_MixUCBI_values = [5000,6000,7000,8000,9000,10000]
+# beta_MixUCBI_values = [5000,6000,7000,8000,9000,10000]
+beta_MixUCBI_values = [500,1000,2000,3000,4000]
 lambdas = [1]
 generator = list(itertools.product(lambdas, beta_MixUCBI_values))
 T = 200
-deltas = [0.2,0.5,1.0]
+# deltas = [0.2,0.5,1.0]
+deltas = [0.75]
 
 def main(temperature):
     # Fixed parameters: for experiments in 10/6 and before.

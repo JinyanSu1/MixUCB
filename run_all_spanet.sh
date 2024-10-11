@@ -11,9 +11,9 @@ LAMBDA=1
 T=200
 # variable params
 # BETA=4000
-python run_linucb.py --pickle_file simulation_data_spanet.pkl --lambda $LAMBDA --alpha $ALPHA --T $T
-# python run_noisy_expert.py --pickle_file simulation_data_spanet.pkl --temperature $TEMPERATURE --T $T
-# python run_perfect_expert.py --pickle_file simulation_data_spanet.pkl --T $T
+# python run_linucb.py --pickle_file simulation_data_spanet.pkl --lambda $LAMBDA --alpha $ALPHA --T $T
+python run_noisy_expert.py --pickle_file simulation_data_spanet.pkl --temperature $TEMPERATURE --T $T
+python run_perfect_expert.py --pickle_file simulation_data_spanet.pkl --T $T
 # python run_mixucbI.py --pickle_file simulation_data_spanet.pkl   --beta_MixUCBI $BETA --lambda $LAMBDA --alpha $ALPHA --temperature $TEMPERATURE
 # python run_mixucbII.py --pickle_file simulation_data_spanet.pkl  --beta_MixUCBII $BETA --lambda $LAMBDA --alpha $ALPHA --temperature $TEMPERATURE
 # python run_mixucbIII.py --pickle_file simulation_data_spanet.pkl  --lambda $LAMBDA --alpha $ALPHA

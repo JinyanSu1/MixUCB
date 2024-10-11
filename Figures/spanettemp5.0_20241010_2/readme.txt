@@ -1,0 +1,1 @@
+beta=500, I believe

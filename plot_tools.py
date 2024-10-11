@@ -8,6 +8,8 @@ import numpy as np
 # fix colors for I, II, and III: orange, green, red
 # fix colors for LinUCB, NoisyExpert, PerfectExpert: blue, purple, brown
 color_map = {'I': 'orange', 'II': 'green', 'III': 'red', 'LinUCB': 'blue', 'NoisyExpert': 'purple', 'PerfectExpert': 'brown'}
+delta_values = [0.2, 0.5, 0.75, 1.0]
+
 
 def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None, ylabel='Average Reward'):
     """Plot average rewards in a 1 by m grid for different parameters."""
@@ -385,7 +387,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     TotalQ_mixucbIII_std = []
 
     # delta_values = [0.2, 0.5, 1.,2., 5.]
-    delta_values = [0.2, 0.5, 1.]
+    # delta_values = [0.2, 0.5, 1.]
     for each_delta in delta_values:
         mixucbI_pkls = os.listdir(os.path.join(result_root,f'mixucbI_results{result_postfix}','{}'.format(each_delta)))
         mixucbI_list = []
@@ -589,8 +591,11 @@ if __name__ == '__main__':
     # result_root="syntheticalpha0.75_20241010_4"
 
     # Back to SPANet
-    mixucb_postfix = "_temp5.0_alpha0.1_0"  # beta=5000
-    result_root = "spanettemp5.0_20241010"
+    # mixucb_postfix = "_temp5.0_alpha0.1_0"  # beta=5000
+    # result_root = "spanettemp5.0_20241010"
+
+    mixucb_postfix = "_temp5.0_alpha0.1_0"  # beta=500
+    result_root = "spanettemp5.0_20241010_2"
 
     Figure_dir = f'Figures/{result_root}'
 
@@ -601,5 +606,5 @@ if __name__ == '__main__':
     # for delta in [0.2, 0.5, 1.]:
     # for delta in [0.2, 0.5, 0.75, 1.]:
     # for delta in [0.2, 0.5]:
-    for delta in [0.2, 0.5, 1.]:
+    for delta in delta_values:
         plot_six_baselines(Figure_dir=f"{Figure_dir}_delta{delta}", mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
