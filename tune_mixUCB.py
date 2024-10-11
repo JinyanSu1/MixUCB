@@ -17,30 +17,39 @@ from argparse import ArgumentParser
 # beta_MixUCBI_values = [15000,16000,17000,18000,19000,20000]
 
 # 10/9: synthetic experiments with noise_std=0.2
-data_file = "simulation_data_toy20241009_noise0.2.pkl"
-# beta_MixUCBI_values = [1000, 2000, 4000, 8000]
-# higher betas
-# beta_MixUCBI_values = [8000, 10000, 12000, 14000, 16000]
-# all the betas
-# beta_MixUCBI_values = [1000, 2000, 4000, 8000, 10000, 12000, 14000, 16000]
-# what about smaller betas?
-# beta_MixUCBI_values = [100,200,300,400,500]
-# back to original range
-# beta_MixUCBI_values = [1000, 2000, 4000, 8000, 16000]
-# beta_MixUCBI_values = [1000, 2000, 4000, 8000, 12000]
-# beta_MixUCBI_values = [500,600,700,800,900]
-# beta_MixUCBI_values = [50,100,200,300,400]
-beta_MixUCBI_values = [5,10,20,30,40]
-# alpha = 0.1
-# lambda_ = 0.001
-# lambda_ = 1
-# I think we need to do a lambda sweep as well.
-lambdas = [0.001, 0.01, 0.1, 1]
+
+# data_file = "simulation_data_toy20241009_noise0.2.pkl"
+# # beta_MixUCBI_values = [1000, 2000, 4000, 8000]
+# # higher betas
+# # beta_MixUCBI_values = [8000, 10000, 12000, 14000, 16000]
+# # all the betas
+# # beta_MixUCBI_values = [1000, 2000, 4000, 8000, 10000, 12000, 14000, 16000]
+# # what about smaller betas?
+# # beta_MixUCBI_values = [100,200,300,400,500]
+# # back to original range
+# # beta_MixUCBI_values = [1000, 2000, 4000, 8000, 16000]
+# # beta_MixUCBI_values = [1000, 2000, 4000, 8000, 12000]
+# # beta_MixUCBI_values = [500,600,700,800,900]
+# # beta_MixUCBI_values = [50,100,200,300,400]
+# beta_MixUCBI_values = [5,10,20,30,40]
+# # alpha = 0.1
+# # lambda_ = 0.001
+# # lambda_ = 1
+# # I think we need to do a lambda sweep as well.
+# lambdas = [0.001, 0.01, 0.1, 1]
+# generator = list(itertools.product(lambdas, beta_MixUCBI_values))
+# T = 200
+# # deltas=[0.2,0.5,1.0]
+# # deltas=[0.2,0.5,0.75,1.0]
+# deltas=[0.2,0.5,1.0]
+
+# 10/9: switching back to original dataset.
+data_file = "simulation_data_spanet.pkl"
+beta_MixUCBI_values = [5000,6000,7000,8000,9000,10000]
+lambdas = [1]
 generator = list(itertools.product(lambdas, beta_MixUCBI_values))
 T = 200
-# deltas=[0.2,0.5,1.0]
-# deltas=[0.2,0.5,0.75,1.0]
-deltas=[0.2,0.5,1.0]
+deltas = [0.2,0.5,1.0]
 
 def main(temperature):
     # Fixed parameters: for experiments in 10/6 and before.

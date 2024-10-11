@@ -584,9 +584,13 @@ if __name__ == '__main__':
     
     # Again.
     # NOTE: must use a setting with lambda=0.001
-    mixucb_postfix="_temp5.0_alpha0.75_0"   #beta=10
-    # mixucb_postfix="_temp5.0_alpha0.75_1"   #beta=10
-    result_root="syntheticalpha0.75_20241010_4"
+    # mixucb_postfix="_temp5.0_alpha0.75_0"   #beta=10
+    # # mixucb_postfix="_temp5.0_alpha0.75_1"   #beta=10
+    # result_root="syntheticalpha0.75_20241010_4"
+
+    # Back to SPANet
+    mixucb_postfix = "_temp5.0_alpha0.1_0"  # beta=5000
+    result_root = "spanettemp5.0_20241010"
 
     Figure_dir = f'Figures/{result_root}'
 
@@ -596,6 +600,6 @@ if __name__ == '__main__':
     # for delta in [0.2, 0.5, 1., 2., 5.]:
     # for delta in [0.2, 0.5, 1.]:
     # for delta in [0.2, 0.5, 0.75, 1.]:
-    for delta in [0.2, 0.5]:
-    # for delta in [0.2, 0.5, 1.]:
+    # for delta in [0.2, 0.5]:
+    for delta in [0.2, 0.5, 1.]:
         plot_six_baselines(Figure_dir=f"{Figure_dir}_delta{delta}", mixucb_result_postfix=mixucb_postfix,delta=delta,result_root=result_root)
