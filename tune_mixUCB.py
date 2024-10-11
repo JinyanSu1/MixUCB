@@ -50,7 +50,8 @@ data_file = "simulation_data_spanet.pkl"
 beta_MixUCBI_values = [50,100,200,300,400]
 lambdas = [1]
 generator = list(itertools.product(lambdas, beta_MixUCBI_values))
-T = 200
+# T = 200
+T = 150
 deltas = [0.2,0.5,0.75,1.0]
 
 def main(temperature):
