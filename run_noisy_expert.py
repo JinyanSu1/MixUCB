@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
     print(f"Finished running NoisyExpert for {T} rounds.")
 
-    results = 'noisy_expert_results'
+    results = 'noisy_expert_results_{}'.format(args.temperature)
     os.makedirs(results, exist_ok=True)
     pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
     dict_to_save = {

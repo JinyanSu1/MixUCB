@@ -80,6 +80,8 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     CR_mixucbIII_std = []
     CR_NoisyExpert_mean = []
     CR_NoisyExpert_std = []
+    CR_NoisyExpert_mean_01 = []
+    CR_NoisyExpert_std_01 = []
     CR_PerfectExpert_mean = []
     CR_PerfectExpert_std = []
 
@@ -178,13 +180,21 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
             q_mixUCBIII = data['q_mixucbIII']
             q_mixUCBIII_list.append(q_mixUCBIII)
 
-    noisy_expert_pkls = os.listdir(os.path.join(result_root, f'noisy_expert_results'))
+    noisy_expert_pkls = os.listdir(os.path.join(result_root, f'noisy_expert_results_1.0'))
     noisy_expert_list = []
     for each_noisy_expert_pkl in noisy_expert_pkls:
-        with open(os.path.join(result_root, 'noisy_expert_results', each_noisy_expert_pkl), 'rb') as f:
+        with open(os.path.join(result_root, 'noisy_expert_results_1.0', each_noisy_expert_pkl), 'rb') as f:
             data = pickle.load(f)
             CR_NoisyExpert = data['CR_NoisyExpert']
             noisy_expert_list.append(CR_NoisyExpert)
+
+    noisy_expert_pkls = os.listdir(os.path.join(result_root, f'noisy_expert_results_0.1'))
+    noisy_expert_list_01 = []
+    for each_noisy_expert_pkl in noisy_expert_pkls:
+        with open(os.path.join(result_root, 'noisy_expert_results_0.1', each_noisy_expert_pkl), 'rb') as f:
+            data = pickle.load(f)
+            CR_NoisyExpert = data['CR_NoisyExpert']
+            noisy_expert_list_01.append(CR_NoisyExpert)
 
     # Algorithm regret. Need to use individual rewards, then zero out query times, then recompute cumulative rewards.
     ARI_list = [
@@ -215,6 +225,8 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     CR_mixucbIII_std.append(np.std(mixucbIII_list, axis=0))
     CR_NoisyExpert_mean.append(np.mean(noisy_expert_list, axis=0))
     CR_NoisyExpert_std.append(np.std(noisy_expert_list, axis=0))
+    CR_NoisyExpert_mean_01.append(np.mean(noisy_expert_list_01, axis=0))
+    CR_NoisyExpert_std_01.append(np.std(noisy_expert_list_01, axis=0))
     CR_PerfectExpert_mean.append(np.mean(perfect_expert_list, axis=0))
     CR_PerfectExpert_std.append(np.std(perfect_expert_list, axis=0))
 
@@ -245,7 +257,8 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
         f'MixUCB-I ($\\Delta = {delta}$)': CR_mixucbI_mean,
         f'MixUCB-II ($\\Delta = {delta}$)': CR_mixucbII_mean,
         f'MixUCB-III ($\\Delta = {delta}$)': CR_mixucbIII_mean,
-        'NoisyExpert': CR_NoisyExpert_mean,
+        'NoisyExpert ($\\alpha = 1.0$)': CR_NoisyExpert_mean,
+        'NoisyExpert ($\\alpha = 0.1$)': CR_NoisyExpert_mean_01,
         'PerfectExpert': CR_PerfectExpert_mean,
     }
     cumulative_rewards_std = {
@@ -253,7 +266,8 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
         f'MixUCB-I ($\\Delta = {delta}$)': CR_mixucbI_std,
         f'MixUCB-II ($\\Delta = {delta}$)': CR_mixucbII_std,
         f'MixUCB-III ($\\Delta = {delta}$)': CR_mixucbIII_std,
-        'NoisyExpert': CR_NoisyExpert_std,
+        'NoisyExpert ($\\alpha = 1.0$)': CR_NoisyExpert_std,
+        'NoisyExpert ($\\alpha = 0.1$)': CR_NoisyExpert_std_01,
         'PerfectExpert': CR_PerfectExpert_std,
     }
 
@@ -293,13 +307,14 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
         f'MixUCB-III ($\\Delta = {delta}$)': RR_mixucbIII_std,
     }
 
-    data_len = 119 # 302  # 119
+    data_len = 119 # 302  #
     marker_mapping = {
         'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
         f'MixUCB-I ($\\Delta = {delta}$)': ['s', np.linspace(1, data_len, 10).astype(int).tolist()],
         f'MixUCB-II ($\\Delta = {delta}$)': ['v', np.linspace(2, data_len, 10).astype(int).tolist()],
         f'MixUCB-III ($\\Delta = {delta}$)': ['^', np.linspace(3, data_len, 10).astype(int).tolist()],
-        'NoisyExpert': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
+        'NoisyExpert ($\\alpha = 1.0$)': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
+        'NoisyExpert ($\\alpha = 0.1$)': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
         'PerfectExpert': ['>', np.linspace(5, data_len, 10).astype(int).tolist()]
     }
 
@@ -451,13 +466,14 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     print(f'TotalQ_mixucbII_mean: {np.array(TotalQ_mixucbII_mean)}')
     print(f'TotalQ_mixucbIII_mean: {np.array(TotalQ_mixucbIII_mean)}')
 
-    data_len = 119  # 302  # 119
+    data_len = 119 # 302  #
     marker_mapping = {
         'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
         'MixUCB-I': ['s', np.linspace(1, data_len, 10).astype(int).tolist()],
         'MixUCB-II': ['v', np.linspace(2, data_len, 10).astype(int).tolist()],
         'MixUCB-III': ['^', np.linspace(3, data_len, 10).astype(int).tolist()],
-        'NoisyExpert': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
+        'NoisyExpert ($\\alpha = 1.0$)': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
+        'NoisyExpert ($\\alpha = 0.1$)': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
         'PerfectExpert': ['>', np.linspace(5, data_len, 10).astype(int).tolist()]
     }
 
