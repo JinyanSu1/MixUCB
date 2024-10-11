@@ -1,0 +1,2 @@
+Failure setting for I: {(1, 5000): False, (1, 6000): False, (1, 7000): False, (1, 8000): False, (1, 9000): False, (1, 10000): False}
+Failure setting for II: {(1, 5000): False, (1, 6000): False, (1, 7000): False, (1, 8000): False, (1, 9000): False, (1, 10000): False}
