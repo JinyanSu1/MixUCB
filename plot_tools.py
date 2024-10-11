@@ -29,7 +29,7 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
             ax.set_xlabel('t')
             ax.set_ylabel('Average Reward')
             if params is not None:
-                ax.set_title(f'$\\delta={params[idx]}$')
+                ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
 
@@ -48,7 +48,7 @@ def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None,
             ax.set_xlabel('t')
             ax.set_ylabel(ylabel)
             if params is not None:
-                ax.set_title(f'$\\delta={params[idx]}$')
+                ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
 
@@ -64,7 +64,7 @@ def plot_cumulative_queries(axs, q_mean, q_std, params, marker_mapping=None):
             ax.plot(np.cumsum(q), label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1])
             ax.set_xlabel('t')
             ax.set_ylabel('Cumulative Queries')
-            ax.set_title(f'$\\delta={params[idx]}$')
+            ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
 
@@ -242,64 +242,65 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
 
     cumulative_rewards = {
         'LinUCB': CR_linucb_mean,
-        f'MixUCB-I ($\\delta = {delta}$)': CR_mixucbI_mean,
-        f'MixUCB-II ($\\delta = {delta}$)': CR_mixucbII_mean,
-        f'MixUCB-III ($\\delta = {delta}$)': CR_mixucbIII_mean,
+        f'MixUCB-I ($\\Delta = {delta}$)': CR_mixucbI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': CR_mixucbII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': CR_mixucbIII_mean,
         'NoisyExpert': CR_NoisyExpert_mean,
         'PerfectExpert': CR_PerfectExpert_mean,
     }
     cumulative_rewards_std = {
         'LinUCB': CR_linucb_std,
-        f'MixUCB-I ($\\delta = {delta}$)': CR_mixucbI_std,
-        f'MixUCB-II ($\\delta = {delta}$)': CR_mixucbII_std,
-        f'MixUCB-III ($\\delta = {delta}$)': CR_mixucbIII_std,
+        f'MixUCB-I ($\\Delta = {delta}$)': CR_mixucbI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': CR_mixucbII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': CR_mixucbIII_std,
         'NoisyExpert': CR_NoisyExpert_std,
         'PerfectExpert': CR_PerfectExpert_std,
     }
 
     q_mean = {
-        f'MixUCB-I ($\\delta = {delta}$)': q_mixUCBI_mean,
-        f'MixUCB-II ($\\delta = {delta}$)': q_mixUCBII_mean,
-        f'MixUCB-III ($\\delta = {delta}$)': q_mixUCBIII_mean,
+        f'MixUCB-I ($\\Delta = {delta}$)': q_mixUCBI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': q_mixUCBII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': q_mixUCBIII_mean,
     }
 
     q_std = {
-        f'MixUCB-I ($\\delta = {delta}$)': q_mixUCBI_std,
-        f'MixUCB-II ($\\delta = {delta}$)': q_mixUCBII_std,
-        f'MixUCB-III ($\\delta = {delta}$)': q_mixUCBIII_std,
+        f'MixUCB-I ($\\Delta = {delta}$)': q_mixUCBI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': q_mixUCBII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': q_mixUCBIII_std,
     }
 
     ar = {
-        f'MixUCB-I ($\\delta = {delta}$)': AR_mixucbI_mean,
-        f'MixUCB-II ($\\delta = {delta}$)': AR_mixucbII_mean,
-        f'MixUCB-III ($\\delta = {delta}$)': AR_mixucbIII_mean,
+        f'MixUCB-I ($\\Delta = {delta}$)': AR_mixucbI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': AR_mixucbII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': AR_mixucbIII_mean,
     }
 
     ar_std = {
-        f'MixUCB-I ($\\delta = {delta}$)': AR_mixucbI_std,
-        f'MixUCB-II ($\\delta = {delta}$)': AR_mixucbII_std,
-        f'MixUCB-III ($\\delta = {delta}$)': AR_mixucbIII_std,
+        f'MixUCB-I ($\\Delta = {delta}$)': AR_mixucbI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': AR_mixucbII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': AR_mixucbIII_std,
     }
 
     rr = {
-        f'MixUCB-I ($\\delta = {delta}$)': RR_mixucbI_mean,
-        f'MixUCB-II ($\\delta = {delta}$)': RR_mixucbII_mean,
-        f'MixUCB-III ($\\delta = {delta}$)': RR_mixucbIII_mean,
+        f'MixUCB-I ($\\Delta = {delta}$)': RR_mixucbI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': RR_mixucbII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': RR_mixucbIII_mean,
     }
 
     rr_std = {
-        f'MixUCB-I ($\\delta = {delta}$)': RR_mixucbI_std,
-        f'MixUCB-II ($\\delta = {delta}$)': RR_mixucbII_std,
-        f'MixUCB-III ($\\delta = {delta}$)': RR_mixucbIII_std,
+        f'MixUCB-I ($\\Delta = {delta}$)': RR_mixucbI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': RR_mixucbII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': RR_mixucbIII_std,
     }
 
+    data_len = 119 # 302  # 119
     marker_mapping = {
-        'LinUCB': ['o', np.linspace(0, 119, 10).astype(int).tolist()],
-        f'MixUCB-I ($\\delta = {delta}$)': ['s', np.linspace(1, 119, 10).astype(int).tolist()],
-        f'MixUCB-II ($\\delta = {delta}$)': ['v', np.linspace(2, 119, 10).astype(int).tolist()],
-        f'MixUCB-III ($\\delta = {delta}$)': ['^', np.linspace(3, 119, 10).astype(int).tolist()],
-        'NoisyExpert': ['D', np.linspace(4, 119, 10).astype(int).tolist()],
-        'PerfectExpert': ['>', np.linspace(5, 119, 10).astype(int).tolist()]
+        'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
+        f'MixUCB-I ($\\Delta = {delta}$)': ['s', np.linspace(1, data_len, 10).astype(int).tolist()],
+        f'MixUCB-II ($\\Delta = {delta}$)': ['v', np.linspace(2, data_len, 10).astype(int).tolist()],
+        f'MixUCB-III ($\\Delta = {delta}$)': ['^', np.linspace(3, data_len, 10).astype(int).tolist()],
+        'NoisyExpert': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
+        'PerfectExpert': ['>', np.linspace(5, data_len, 10).astype(int).tolist()]
     }
 
     fig, axs = plt.subplots(1, 1, figsize=(8, 8))
@@ -351,7 +352,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     TotalQ_mixucbIII_mean = []
     TotalQ_mixucbIII_std = []
 
-    delta_values = [0.2, 0.5, 1.,]# 2., 5.]
+    delta_values = [0.2, 0.5, 1., 2., 5.]
     for each_delta in delta_values:
         mixucbI_pkls = os.listdir(
             os.path.join(result_root, f'mixucbI_results{result_postfix}', '{}'.format(each_delta)))
@@ -450,13 +451,14 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     print(f'TotalQ_mixucbII_mean: {np.array(TotalQ_mixucbII_mean)}')
     print(f'TotalQ_mixucbIII_mean: {np.array(TotalQ_mixucbIII_mean)}')
 
+    data_len = 119  # 302  # 119
     marker_mapping = {
-        'LinUCB': ['o', np.linspace(0, 119, 10).astype(int).tolist()],
-        'MixUCB-I': ['s', np.linspace(1, 119, 10).astype(int).tolist()],
-        'MixUCB-II': ['v', np.linspace(2, 119, 10).astype(int).tolist()],
-        'MixUCB-III': ['^', np.linspace(3, 119, 10).astype(int).tolist()],
-        'NoisyExpert': ['D', np.linspace(4, 119, 10).astype(int).tolist()],
-        'PerfectExpert': ['>', np.linspace(5, 119, 10).astype(int).tolist()]
+        'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
+        'MixUCB-I': ['s', np.linspace(1, data_len, 10).astype(int).tolist()],
+        'MixUCB-II': ['v', np.linspace(2, data_len, 10).astype(int).tolist()],
+        'MixUCB-III': ['^', np.linspace(3, data_len, 10).astype(int).tolist()],
+        'NoisyExpert': ['D', np.linspace(4, data_len, 10).astype(int).tolist()],
+        'PerfectExpert': ['>', np.linspace(5, data_len, 10).astype(int).tolist()]
     }
 
     # Create a 1 by m grid of subplots for average rewards

@@ -32,7 +32,7 @@ def scaleImage(x):          # Pass a PIL image, return a tensor
     z = y - y.mean()        # Subtract the mean value of the image
     return z
 
-def generate_data(T, n_actions, n_features, noise_std, seed, data_name='MedNIST', ):
+def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', ):
     '''
     data_name='MedNIST', 'yeast'
     '''
