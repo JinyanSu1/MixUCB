@@ -1,0 +1,21 @@
+Failure setting for I: {(0.1, 500): False, (0.1, 1000): True, (0.1, 2000): True, (0.1, 3000): True, (0.1, 4000): True, (1, 500): True, (1, 1000): True, (1, 2000): False, (1, 3000): False, (1, 4000): False}
+Failure setting for II: {(0.1, 500): True, (0.1, 1000): True, (0.1, 2000): True, (0.1, 3000): True, (0.1, 4000): True, (1, 500): True, (1, 1000): True, (1, 2000): False, (1, 3000): False, (1, 4000): False}
+Common settings where both I and II didn't fail to converge: [(1, 2000), (1, 3000), (1, 4000)]
+Checking querying metrics for beta=(1, 2000)
+Setting ID: 7
+Querying metrics for MixUCB-I
+Mean of TotalQ_mixucbI: [np.float64(67.2), np.float64(40.0), np.float64(11.0), np.float64(2.2)]
+Mean of TotalQ_mixucbII: [np.float64(42.0), np.float64(24.8), np.float64(5.4), np.float64(2.8)]
+Mean of TotalQ_mixUCBIII: [np.float64(5.0), np.float64(4.0), np.float64(4.0), np.float64(1.0)]
+Checking querying metrics for beta=(1, 3000)
+Setting ID: 8
+Querying metrics for MixUCB-I
+Mean of TotalQ_mixucbI: [np.float64(101.4), np.float64(58.4), np.float64(12.8), np.float64(1.2)]
+Mean of TotalQ_mixucbII: [np.float64(56.6), np.float64(28.0), np.float64(8.4), np.float64(3.0)]
+Mean of TotalQ_mixUCBIII: [np.float64(5.0), np.float64(4.0), np.float64(4.0), np.float64(1.0)]
+Checking querying metrics for beta=(1, 4000)
+Setting ID: 9
+Querying metrics for MixUCB-I
+Mean of TotalQ_mixucbI: [np.float64(120.4), np.float64(67.6), np.float64(10.8), np.float64(1.4)]
+Mean of TotalQ_mixucbII: [np.float64(65.4), np.float64(25.8), np.float64(8.0), np.float64(3.6)]
+Mean of TotalQ_mixUCBIII: [np.float64(5.0), np.float64(4.0), np.float64(4.0), np.float64(1.0)]

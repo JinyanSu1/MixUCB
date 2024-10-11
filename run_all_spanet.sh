@@ -5,6 +5,7 @@ ALPHA=$2
 # For: spanet dataset
 # ALPHA=0.1
 LAMBDA=1
+# LAMBDA=0.1
 # For: synthetic dataset
 # ALPHA=0.1
 # LAMBDA=0.001    # just use this for now.

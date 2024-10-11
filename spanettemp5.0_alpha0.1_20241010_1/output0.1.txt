@@ -1,0 +1,9 @@
+Failure setting for I: {(0.1, 500): True, (0.1, 1000): True, (0.1, 2000): True, (0.1, 3000): False, (0.1, 4000): False, (1, 500): False, (1, 1000): False, (1, 2000): True, (1, 3000): True, (1, 4000): True}
+Failure setting for II: {(0.1, 500): True, (0.1, 1000): False, (0.1, 2000): False, (0.1, 3000): True, (0.1, 4000): False, (1, 500): True, (1, 1000): True, (1, 2000): False, (1, 3000): False, (1, 4000): False}
+Common settings where both I and II didn't fail to converge: [(0.1, 4000)]
+Checking querying metrics for beta=(0.1, 4000)
+Setting ID: 4
+Querying metrics for MixUCB-I
+Mean of TotalQ_mixucbI: [np.float64(119.8), np.float64(126.4), np.float64(126.4), np.float64(126.4)]
+Mean of TotalQ_mixucbII: [np.float64(55.4), np.float64(49.8), np.float64(49.8), np.float64(49.6)]
+Mean of TotalQ_mixUCBIII: [np.float64(12.0), np.float64(6.0), np.float64(6.0), np.float64(5.0)]

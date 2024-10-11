@@ -594,8 +594,14 @@ if __name__ == '__main__':
     # mixucb_postfix = "_temp5.0_alpha0.1_0"  # beta=5000
     # result_root = "spanettemp5.0_20241010"
 
-    mixucb_postfix = "_temp5.0_alpha0.1_0"  # beta=500
-    result_root = "spanettemp5.0_20241010_2"
+    # mixucb_postfix = "_temp5.0_alpha0.1_0"  # beta=500
+    # result_root = "spanettemp5.0_20241010_2"
+
+    # mixucb_postfix = "_temp5.0_alpha0.05_7"  # beta=2000
+    # result_root = "spanettemp5.0_alpha0.05_20241010_1"
+
+    mixucb_postfix = "_temp5.0_alpha0.1_4"  # beta=200
+    result_root = "spanettemp5.0_alpha0.1_20241010_1"
 
     Figure_dir = f'Figures/{result_root}'
 
