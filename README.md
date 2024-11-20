@@ -33,3 +33,5 @@ pip install "cython<3"
 pip install git+https://github.com/Farama-Foundation/d4rl@master#egg=d4rl
 ```
 
+For robot dataset: need to comment out `viz_scripts` line in `utils_contextual_query_food.py`.
+
