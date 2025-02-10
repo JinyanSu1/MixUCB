@@ -5,6 +5,7 @@ from tqdm import tqdm
 import logging
 import os
 import time
+import argparse
 
 logging.basicConfig(filename='simulation_PerfectExpert.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -34,6 +35,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run PerfectExpert Baseline with pre-generated data from a pickle file')
     parser.add_argument('--T', type=int, default=1000, help='Number of rounds to run')
     parser.add_argument('--pickle_file', type=str, default = 'simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+    parser.add_argument("--data_name", type=str, default='', help="Name of the dataset to use.")
     
     args = parser.parse_args()
 
@@ -49,7 +51,8 @@ if __name__ == "__main__":
 
     print(f"Finished running PerfectExpert for {T} rounds.")
 
-    results = 'perfect_expert_results'
+    data_name = args.data_name
+    results = os.path.join(data_name, 'perfect_expert_results')
     os.makedirs(results, exist_ok=True)
     pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
     dict_to_save = {

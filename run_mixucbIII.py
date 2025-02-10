@@ -6,6 +6,8 @@ from tqdm import tqdm
 import logging
 import os
 import time
+from icecream import ic
+import argparse
 
 logging.basicConfig(filename='simulation_mixucbIII.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -15,6 +17,7 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
     q_mixucbIII = np.zeros(T)
     TotalQ_mixucbIII = 0
     r_mixucbIII = 0
+    action_hat_list = []
 
     for i in tqdm(range(T)):
         logging.info(f'Running MixUCB-III - round: {i}')
@@ -43,10 +46,12 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
         # Accumulate rewards and log results
         r_mixucbIII += reward
         CR_mixucbIII.append(r_mixucbIII)
+        action_hat_list.append(action_hat)
+        # ic(action_hat, mixucb_lcb, mixucb_ucb)
 
         logging.info(f'MixUCB-III: {r_mixucbIII}, TotalQ_mixucbIII: {TotalQ_mixucbIII}, q_mixucbIII: {q_mixucbIII[i]}')
 
-    return CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII
+    return CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-III Baseline')
@@ -56,6 +61,7 @@ if __name__ == "__main__":
     parser.add_argument('--alpha', type=float, default=100)
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
+    parser.add_argument("--data_name", type=str, default='', help="Name of the dataset to use.")
     
     args = parser.parse_args()
 
@@ -75,9 +81,10 @@ if __name__ == "__main__":
     # Initialize parameters
     delta_list = args.delta
     alpha = args.alpha
-
+    data_name = args.data_name
+    
     for delta in delta_list:
-        results = os.path.join('mixucbIII_results', '{}'.format(delta))
+        results = os.path.join(data_name, 'mixucbIII_results', '{}'.format(delta))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
         # for rep_id in range(5):
@@ -85,7 +92,7 @@ if __name__ == "__main__":
         mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
 
         # Run MixUCB-III using the pre-generated data
-        CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
+        CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
 
         print(f"Finished running MixUCB-III for {T} rounds.")
 
@@ -100,6 +107,7 @@ if __name__ == "__main__":
             'delta': delta,
             'TotalQ_mixucbIII': TotalQ_mixucbIII,
             'q_mixucbIII': q_mixucbIII,
+            'action_hat': action_hat_list,
         }
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)

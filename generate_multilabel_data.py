@@ -48,7 +48,12 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
         x_test, y_test = load_scene_classification_dataset(test_data_path)
         num_classes = 14
         x_train = PCA(n_components=6).fit_transform(x_train)
-    elif data_name == 'heart_disease':
+    elif data_name == 'heart_disease':  # not shuffle
+        '''
+        # context.shape: (1, 6)                                                                                                                                                                                                                           
+        # action.shape: (1,)                                                                                                                                                                                                                              
+        # true_rewards.shape: (3,) 
+        '''
         # https://github.com/mrdbourke/zero-to-mastery-ml/blob/master/section-3-structured-data-projects/end-to-end-heart-disease-classification.ipynb
         df = pd.read_csv("https://raw.githubusercontent.com/mrdbourke/zero-to-mastery-ml/master/data/heart-disease.csv")
         # df = pd.read_csv("../data/heart-disease.csv") # Read from local directory, 'DataFrame' shortened to 'df'
@@ -57,11 +62,22 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
         x_train = df.drop(labels="target", axis=1)
         x_train = x_train.to_numpy()
         x_train = PCA(n_components=6).fit_transform(x_train)
+        x_train = x_train[::-1]
         # Target variable
         y_train = df.target.to_numpy()
-        y_train = [[i] for i in y_train]
-        num_classes = 3
+        y_train = [[i] for i in y_train[::-1]]
+        num_classes = 2
+
     elif data_name == 'MedNIST':
+        '''
+        # There are 120 images in 6 distinct categories                                                                                                                                                                                                       
+        # Label names: ['AbdomenCT', 'BreastMRI', 'CXR', 'ChestCT', 'Hand', 'HeadCT']                                                                                                                                                                         
+        # Label counts: [20, 20, 20, 20, 20, 20]                                                                                                                                                                                                              
+        # Image dimensions: 64 x 64                                                                                                                                                                                                                           
+        # context.shape: (1, 6)                                                                                                                                                                                                                           
+        # action.shape: (1,)                                                                                                                                                                                                                              
+        # true_rewards.shape: (6,) 
+        '''
         dataDir = 'raw_data/MedNIST_resized'  # The main data directory
         classNames = os.listdir(dataDir)  # Each type of image can be found in its own subdirectory
         numClass = len(classNames)  # Number of types = number of subdirectories
@@ -151,6 +167,7 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
         #     context.shape: (294,)
         #     action.shape: (1,)
         #     true_rewards.shape: (6,)
+        ic(action, true_rewards)
         label_length.append(len(action))
         data["rounds"].append({
             "context": context,

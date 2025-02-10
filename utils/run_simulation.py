@@ -8,6 +8,7 @@ import sys
 import time
 import multiprocess as mp
 import warnings
+from icecream import ic
 
 warnings.filterwarnings(action='ignore', message="You are solving a parameterized problem that is not DPP")
 class CBOptimizationDPP():
@@ -36,7 +37,7 @@ class CBOptimizationDPP():
         self.constraints.append(sum_quad_form <= beta_lr)
 
         self.constraints.extend([cp.norm(self.theta[a], 2) <= 1 for a in range(n_actions)])
-
+        # ic(self.objectives_max, self.theta)
         self.problems_max = [cp.Problem(objmax, self.constraints) for objmax in self.objectives_max]
         self.problems_min = [cp.Problem(objmin, self.constraints) for objmin in self.objectives_min]
 
@@ -71,8 +72,14 @@ class CBOptimizationDPP():
         # data, chain, inverse_data = self.precompiled_min[action]
         # soln = chain.solve_via_data(prob, data)
         # prob.unpack_results(soln, chain, inverse_data)
-        
+
+        # print("As_sqrt:", [A.value for A in self.As_sqrt])
+        # print("Astheta_sq:", [At.value for At in self.Astheta_sq])
+        # print("quadAstheta_sq:", [tAt.value for tAt in self.quadAstheta_sq])
+        # breakpoint()
+
         # TODO: add error checking/catching
+        # prob.solve(solver='MOSEK', verbose=True)
         prob.solve(solver='MOSEK')
         # print('prob.value:', prob.value)
         return prob.value

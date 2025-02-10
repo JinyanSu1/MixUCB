@@ -6,6 +6,7 @@ import logging
 import torch
 import os
 import time
+import argparse
 
 logging.basicConfig(filename='simulation_NoisyExpert.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -45,6 +46,7 @@ if __name__ == "__main__":
     parser.add_argument('--temperature', type=float, default=50, help='Temperature for softmax expert action sampling')
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('--pickle_file', type=str, default = 'simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+    parser.add_argument("--data_name", type=str, default='', help="Name of the dataset to use.")
     
     args = parser.parse_args()
 
@@ -63,8 +65,9 @@ if __name__ == "__main__":
     CR_NoisyExpert = run_NoisyExpert(data, T, args.temperature)
 
     print(f"Finished running NoisyExpert for {T} rounds.")
-
-    results = 'noisy_expert_results_{}'.format(args.temperature)
+    
+    data_name = args.data_name
+    results = os.path.join(data_name, 'noisy_expert_results_{}'.format(args.temperature))
     os.makedirs(results, exist_ok=True)
     pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
     dict_to_save = {

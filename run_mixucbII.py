@@ -9,6 +9,8 @@ import logging
 from scipy.linalg import inv, sqrtm
 import os
 import time
+from icecream import ic
+import argparse
 
 logging.basicConfig(filename='simulation_mixucbII.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -24,6 +26,7 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
     q_mixucbII = np.zeros(T)
     TotalQ_mixucbII = 0
     r_mixucbII = 0
+    action_hat_list = []
 
     ### FOR DPP
     opt_probDPP = CBOptimizationDPP(n_actions, mixucbII_NotQuery_part.n_features, mixucbII_NotQuery_part.alpha**2, mixucbII_query_part.beta)
@@ -48,7 +51,7 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
         As_sqrt = [sqrtm(A) for A in As]
         X_sum_sqrt = sqrtm(X_sum)
 
-
+        # ic(context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
         actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
                                                    As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
         action_hat = np.argmax(actions_ucb)
@@ -57,8 +60,9 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
 
         ### ADDITION
         
-        width_Ahat = actions_ucb[action_hat] - action_hat_lcb
+        width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
 
+        # ic(width_Ahat > delta, width_Ahat, delta)  # False, -inf, 0.2
         if width_Ahat > delta:
             TotalQ_mixucbII += 1
             mixucbII_query_part.update(context, noisy_expert_action)
@@ -67,14 +71,16 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
             mixucbII_NotQuery_part.update(noisy_expert_action, context, reward)
         else:
             reward = true_rewards[action_hat]
+            # ic(action_hat, reward, true_rewards)  # [0], 0.0, 
             mixucbII_NotQuery_part.update(action_hat, context, reward)
 
         r_mixucbII += reward
         CR_mixucbII.append(r_mixucbII)
-
+        action_hat_list.append(action_hat)
+        # ic(action_hat, action_hat_lcb, actions_ucb)
         logging.info(f'MixUCB-II: {r_mixucbII}, TotalQ_mixucbII: {TotalQ_mixucbII}, q_mixucbII: {q_mixucbII[i]}')
 
-    return CR_mixucbII, TotalQ_mixucbII, q_mixucbII
+    return CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-II Baseline with pre-generated data from a pickle file')
@@ -87,6 +93,7 @@ if __name__ == "__main__":
     parser.add_argument('--temperature', type=float, default=50)
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+    parser.add_argument("--data_name", type=str, default='', help="Name of the dataset to use.")
     
     args = parser.parse_args()
 
@@ -109,9 +116,10 @@ if __name__ == "__main__":
     lambda_ = args.lambda_
     learning_rate = args.learning_rate
     alpha = args.alpha
+    data_name = args.data_name
 
     for delta in delta_list:
-        results = os.path.join('mixucbII_results', '{}'.format(delta))
+        results = os.path.join(data_name, 'mixucbII_results', '{}'.format(delta))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
         # for rep_id in range(5):
@@ -120,7 +128,7 @@ if __name__ == "__main__":
         mixucbII_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
 
         # Run MixUCB-II using the pre-generated data
-        CR_mixucbII, TotalQ_mixucbII, q_mixucbII = run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part)
+        CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list = run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part)
 
         print(f"Finished running MixUCB-II for {T} rounds.")
 
@@ -138,6 +146,7 @@ if __name__ == "__main__":
             'lr': learning_rate,
             'TotalQ_mixucbII': TotalQ_mixucbII,
             'q_mixucbII': q_mixucbII,
+            'action_hat': action_hat_list,
         }
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)

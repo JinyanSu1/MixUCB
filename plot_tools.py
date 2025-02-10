@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import os
 import pickle
 import numpy as np
-
+import argparse
+from icecream import ic
 
 def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None,
                          marker_mapping=None):
@@ -67,6 +68,22 @@ def plot_cumulative_queries(axs, q_mean, q_std, params, marker_mapping=None):
             ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
+def plot_action(axs, q_mean, params, marker_mapping=None):
+    """Plot cumulative queries in a 1 by m grid for different parameters."""
+    for idx in range(len(axs)):
+        ax = axs[idx]
+        for key, item in q_mean.items():
+            q = item[idx]
+            print(marker_mapping, f'{key}')
+            # ic(q)
+            # std = q_std[key][idx]    # ignoring std for now.
+            # ax.fill_between(range(len(q)), [a - s for a, s in zip(q, std)], [a + s for a, s in zip(q, std)], alpha=0.2)
+            ax.plot(q, label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1])
+            ax.set_xlabel('t')
+            ax.set_ylabel('Actions')
+            ax.set_title(f'$\\Delta={params[idx]}$')
+        ax.legend()
+
 
 def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5, result_root=''):
     os.makedirs(Figure_dir, exist_ok=True)
@@ -108,6 +125,10 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     q_mixUCBIII_mean = []
     q_mixUCBIII_std = []
 
+    action_mixUCBI_mean = []
+    action_mixUCBII_mean = []
+    action_mixUCBIII_mean = []
+
     perfect_expert_pkls = os.listdir(os.path.join(result_root, f'perfect_expert_results'))
     perfect_expert_list = []
     perfect_expert_rawreward_list = []
@@ -133,6 +154,7 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     mixucbI_list = []
     mixucbI_rawreward_list = []
     q_mixUCBI_list = []
+    action_mixUCBI_list = []
     for each_mixucbI_pkl in mixucbI_pkls:
         with open(os.path.join(result_root, f'mixucbI_results{mixucb_result_postfix}/{delta}', each_mixucbI_pkl),
                   'rb') as f:
@@ -145,11 +167,13 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
             mixucbI_rawreward_list.append(raw_rewards)
             q_mixUCBI = data['q_mixucbI']
             q_mixUCBI_list.append(q_mixUCBI)
+            action_mixUCBI_list.append(data['action_hat'])
 
     mixucbII_pkls = os.listdir(os.path.join(result_root, f'mixucbII_results{mixucb_result_postfix}/{delta}'))
     mixucbII_list = []
     mixucbII_rawreward_list = []
     q_mixUCBII_list = []
+    action_mixUCBII_list = []
     for each_mixucbII_pkl in mixucbII_pkls:
         with open(os.path.join(result_root, f'mixucbII_results{mixucb_result_postfix}/{delta}', each_mixucbII_pkl),
                   'rb') as f:
@@ -162,11 +186,13 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
             mixucbII_rawreward_list.append(raw_rewards)
             q_mixUCBII = data['q_mixucbII']
             q_mixUCBII_list.append(q_mixUCBII)
+            action_mixUCBII_list.append(data['action_hat'])
 
     mixucbIII_pkls = os.listdir(os.path.join(result_root, f'mixucbIII_results{mixucb_result_postfix}/{delta}'))
     mixucbIII_list = []
     mixucbIII_rawreward_list = []
     q_mixUCBIII_list = []
+    action_mixUCBIII_list = []
     for each_mixucbIII_pkl in mixucbIII_pkls:
         with open(os.path.join(result_root, f'mixucbIII_results{mixucb_result_postfix}/{delta}', each_mixucbIII_pkl),
                   'rb') as f:
@@ -179,6 +205,7 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
             mixucbIII_rawreward_list.append(raw_rewards)
             q_mixUCBIII = data['q_mixucbIII']
             q_mixUCBIII_list.append(q_mixUCBIII)
+            action_mixUCBIII_list.append(data['action_hat'])
 
     noisy_expert_pkls = os.listdir(os.path.join(result_root, f'noisy_expert_results_1.0'))
     noisy_expert_list = []
@@ -200,6 +227,7 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     ARI_list = [
         np.array(perfect_expert_rawreward_list[0]) * ~np.array(q, dtype=bool) - np.array(l) * ~np.array(q, dtype=bool)
         for (q, l) in zip(q_mixUCBI_list, mixucbI_rawreward_list)]
+    
     ARI_list = [np.cumsum(l) for l in ARI_list]
     ARII_list = [
         np.array(perfect_expert_rawreward_list[0]) * ~np.array(q, dtype=bool) - np.array(l) * ~np.array(q, dtype=bool)
@@ -251,6 +279,14 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     RR_mixucbII_std.append(np.std(RRII_list, axis=0))
     RR_mixucbIII_mean.append(np.mean(RRIII_list, axis=0))
     RR_mixucbIII_std.append(np.std(RRIII_list, axis=0))
+
+    # action_mixUCBI_mean.append(np.mean(action_mixUCBI_list, axis=0))
+    # action_mixUCBII_mean.append(np.mean(action_mixUCBII_list, axis=0))
+    # action_mixUCBIII_mean.append(np.mean(action_mixUCBIII_list, axis=0))
+    action_mixUCBI_mean.append(action_mixUCBI_list[0])
+    action_mixUCBII_mean.append(action_mixUCBII_list[0])
+    action_mixUCBIII_mean.append(action_mixUCBIII_list[0])
+
 
     cumulative_rewards = {
         'LinUCB': CR_linucb_mean,
@@ -307,6 +343,12 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
         f'MixUCB-III ($\\Delta = {delta}$)': RR_mixucbIII_std,
     }
 
+    action = {
+        f'MixUCB-I ($\\Delta = {delta}$)': action_mixUCBI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': action_mixUCBII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': action_mixUCBIII_mean,
+    }
+
     data_len = 119 # 302  #
     marker_mapping = {
         'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
@@ -330,16 +372,17 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     # Add a algorithm regret plot, which is difference between perfect expert and querying algorithm,
     # but is 0 when we query. should be cumulative as well.
     # For now we can compute this for just MixUCB-I, MixUCB-II, MixUCB-III.
-    fig, axs = plt.subplots(2, 1, figsize=(8, 16))
+    fig, axs = plt.subplots(3, 1, figsize=(8, 16))
     plot_cumulative_rewards([axs[0]], ar, ar_std, ylabel="Algorithm Regret", marker_mapping=marker_mapping)
     plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], marker_mapping=marker_mapping)
+    plot_action([axs[2]], action, [delta], marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_ar.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     # Add a reward regret plot, which is difference between perfect expert and querying algorithm.
-    fig, axs = plt.subplots(2, 1, figsize=(8, 16))
-    plot_cumulative_rewards([axs[0]], rr, rr_std, ylabel="Reward Regret", marker_mapping=marker_mapping)
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], marker_mapping=marker_mapping)
+    fig, axs = plt.subplots(1, 1, figsize=(8, 8))
+    plot_cumulative_rewards([axs], rr, rr_std, ylabel="Reward Regret", marker_mapping=marker_mapping)
+    # plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_rr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -360,6 +403,10 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     q_mixUCBIII_mean = []
     q_mixUCBIII_std = []
 
+    action_mixUCBI_mean = []
+    action_mixUCBII_mean = []
+    action_mixUCBIII_mean = []
+
     TotalQ_mixucbI_mean = []
     TotalQ_mixucbI_std = []
     TotalQ_mixucbII_mean = []
@@ -373,6 +420,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
             os.path.join(result_root, f'mixucbI_results{result_postfix}', '{}'.format(each_delta)))
         mixucbI_list = []
         mixUCBI_q_list = []
+        mixUCBI_action_list = []
         mixucbI_list_totalQ = []
         for each_mixucbI_pkl in mixucbI_pkls:
             with open(os.path.join(result_root, f'mixucbI_results{result_postfix}', '{}'.format(each_delta),
@@ -384,11 +432,13 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
                 mixucbI_list_totalQ.append(TotalQ_mixUCBI)
                 q_mixUCBI = data['q_mixucbI']
                 mixUCBI_q_list.append(q_mixUCBI)
+                mixUCBI_action_list.append(data['action_hat'])
 
         mixucbII_pkls = os.listdir(
             os.path.join(result_root, f'mixucbII_results{result_postfix}', '{}'.format(each_delta)))
         mixucbII_list = []
         mixUCBII_q_list = []
+        mixUCBII_action_list = []
         mixucbII_list_totalQ = []
         for each_mixucbII_pkl in mixucbII_pkls:
             with open(os.path.join(result_root, f'mixucbII_results{result_postfix}', '{}'.format(each_delta),
@@ -400,11 +450,13 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
                 mixucbII_list_totalQ.append(TotalQ_mixUCBII)
                 q_mixUCBII = data['q_mixucbII']
                 mixUCBII_q_list.append(q_mixUCBII)
+                mixUCBII_action_list.append(data['action_hat'])
 
         mixucbIII_pkls = os.listdir(
             os.path.join(result_root, f'mixucbIII_results{result_postfix}', '{}'.format(each_delta)))
         mixucbIII_list = []
         mixUCBIII_q_list = []
+        mixUCBIII_action_list = []
         mixucbIII_list_totalQ = []
         for each_mixucbIII_pkl in mixucbIII_pkls:
             with open(os.path.join(result_root, f'mixucbIII_results{result_postfix}', '{}'.format(each_delta),
@@ -416,6 +468,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
                 mixucbIII_list_totalQ.append(TotalQ_mixUCBIII)
                 q_mixUCBIII = data['q_mixucbIII']
                 mixUCBIII_q_list.append(q_mixUCBIII)
+                mixUCBIII_action_list.append(data['action_hat'])
 
         CR_mixucbI_mean.append(np.mean(mixucbI_list, axis=0))
         CR_mixucbI_std.append(np.std(mixucbI_list, axis=0))
@@ -430,6 +483,13 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
         q_mixUCBII_std.append(np.std(mixUCBII_q_list, axis=0))
         q_mixUCBIII_mean.append(np.mean(mixUCBIII_q_list, axis=0))
         q_mixUCBIII_std.append(np.std(mixUCBIII_q_list, axis=0))
+
+        # action_mixUCBI_mean.append(np.mean(mixUCBI_q_list, axis=0))
+        # action_mixUCBII_mean.append(np.mean(mixUCBII_q_list, axis=0))
+        # action_mixUCBIII_mean.append(np.mean(mixUCBIII_q_list, axis=0))
+        action_mixUCBI_mean.append(mixUCBI_action_list[0])
+        action_mixUCBII_mean.append(mixUCBII_action_list[0])
+        action_mixUCBIII_mean.append(mixUCBIII_action_list[0])
 
         TotalQ_mixucbI_mean.append(np.mean(mixucbI_list_totalQ))
         TotalQ_mixucbI_std.append(np.std(mixucbI_list_totalQ))
@@ -459,6 +519,12 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
         'MixUCB-I': q_mixUCBI_std,
         'MixUCB-II': q_mixUCBII_std,
         'MixUCB-III': q_mixUCBIII_std,
+    }
+
+    action = {
+        'MixUCB-I': action_mixUCBI_mean,
+        'MixUCB-II': action_mixUCBII_mean,
+        'MixUCB-III': action_mixUCBIII_mean,
     }
 
     print(f"Deltas: {delta_values}")
@@ -492,6 +558,11 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     plot_cumulative_queries(axs, q_mean, q_std, delta_values, marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_q.png'), format='jpg', dpi=300, bbox_inches='tight')
+
+    fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
+    plot_action(axs, action, delta_values, marker_mapping=marker_mapping)
+    plt.tight_layout()
+    fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_action.png'), format='jpg', dpi=300, bbox_inches='tight')
 
 
 if __name__ == '__main__':
@@ -528,9 +599,16 @@ if __name__ == '__main__':
     # Temp 5.0
     # mixucb_postfix = "_temp5.0_7"
     # result_root = "g2temp5.0_linearreward_20241008"
+
+    parser = argparse.ArgumentParser(description="Script for processing data.")
+    parser.add_argument("--data_name", type=str, default='', help="Name of the dataset to use.")
+    args = parser.parse_args()
+    data_name = args.data_name
+
     mixucb_postfix = ''
-    result_root = '.'
+    result_root = data_name
     Figure_dir = f'Figures/{result_root}'
+    os.makedirs(Figure_dir, exist_ok=True)
     plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix, result_root=result_root)
     # NOTE: using a fixed value of delta.
     delta = 0.5

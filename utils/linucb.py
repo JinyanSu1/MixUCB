@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.linalg import inv
 from sklearn.linear_model import SGDClassifier
+from icecream import ic
+import argparse
 
 class LinUCB:
     def __init__(self, n_actions, n_features, alpha=1.0, lambda_=1.0):
@@ -15,6 +17,7 @@ class LinUCB:
         context = context.reshape(-1)
         self.A[action] += np.outer(context, context)
         self.b[action] += reward * context
+        # ic(self.b, reward, context)
 
     def update_all(self, context, rewards):
         context = context.reshape(-1)
@@ -23,6 +26,7 @@ class LinUCB:
             self.b[a] += rewards[a] * context
 
     def get_theta(self):
+        # ic(self.A, self.b)
         return [inv(self.A[a]).dot(self.b[a]) for a in range(self.n_actions)]
 
     def get_ucb_lcb(self, context):
@@ -72,6 +76,7 @@ class OnlineLogisticRegressionOracle:
         x_t_flat = x_t.ravel()
         # Return the predicted probabilities for each class
         return self.model.predict_proba([x_t_flat])
+        
     def get_optimization_parameters(self):
         """
         Returns the parameters required for the convex optimization:

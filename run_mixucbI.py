@@ -10,6 +10,8 @@ from scipy.linalg import inv, sqrtm
 import os
 import time
 from icecream import ic
+import argparse
+
 
 logging.basicConfig(filename='simulation_mixucbI.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -25,6 +27,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
     q_mixucbI = np.zeros(T)
     TotalQ_mixucbI = 0
     r_mixucbI = 0
+    action_hat_list = []
 
     ### FOR DPP
     opt_probDPP = CBOptimizationDPP(n_actions, mixucbI_NotQuery_part.n_features, mixucbI_NotQuery_part.alpha**2, mixucbI_query_part.beta)
@@ -56,9 +59,10 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         
         action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
         
-        width_Ahat = actions_ucb[action_hat] - action_hat_lcb
+        width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
 
-        if width_Ahat > delta:
+        # ic(width_Ahat > delta, width_Ahat, delta, actions_ucb, action_hat, theta_lr)  # False, -inf, 0.2
+        if width_Ahat > delta:  # False
             TotalQ_mixucbI += 1
             mixucbI_query_part.update(context, noisy_expert_action)
             q_mixucbI[i] = 1
@@ -69,10 +73,11 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
 
         r_mixucbI += reward
         CR_mixucbI.append(r_mixucbI)
-
+        action_hat_list.append(action_hat)
+        # ic(action_hat, action_hat_lcb, actions_ucb)
         logging.info(f'MixUCB-I: {r_mixucbI}, TotalQ_mixucbI: {TotalQ_mixucbI}, q_mixucbI: {q_mixucbI[i]}')
 
-    return CR_mixucbI, TotalQ_mixucbI, q_mixucbI
+    return CR_mixucbI, TotalQ_mixucbI, q_mixucbI, action_hat_list
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-I Baseline with pre-generated data from a pickle file')
@@ -85,6 +90,7 @@ if __name__ == "__main__":
     parser.add_argument('--temperature', type=float, default=50)
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+    parser.add_argument("--data_name", type=str, default='', help="Name of the dataset to use.")
     
     args = parser.parse_args()
 
@@ -107,9 +113,10 @@ if __name__ == "__main__":
     lambda_ = args.lambda_
     learning_rate = args.learning_rate
     alpha = args.alpha
+    data_name = args.data_name
 
     for delta in delta_list:
-        results = os.path.join('mixucbI_results', '{}'.format(delta))
+        results = os.path.join(data_name, 'mixucbI_results', '{}'.format(delta))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
         # for rep_id in range(5):
@@ -118,7 +125,7 @@ if __name__ == "__main__":
         mixucbI_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
 
         # Run MixUCB-I using the pre-generated data
-        CR_mixucbI, TotalQ_mixucbI, q_mixucbI = run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part)
+        CR_mixucbI, TotalQ_mixucbI, q_mixucbI, action_hat_list = run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part)
 
         print(f"Finished running MixUCB-I for {T} rounds.")
 
@@ -136,6 +143,7 @@ if __name__ == "__main__":
             'lr': learning_rate,
             'TotalQ_mixucbI': TotalQ_mixucbI,
             'q_mixucbI': q_mixucbI,
+            'action_hat': action_hat_list,
         }
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)
