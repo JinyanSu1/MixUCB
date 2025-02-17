@@ -41,26 +41,36 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
         # Use softmax with temperature to get noisy expert action
         action_probs = softmax_with_temperature(true_rewards, temperature)
         noisy_expert_action = np.random.choice(n_actions, p=action_probs)
+        noisy_expert_action = np.argmax(true_rewards)
 
-        actions_ucb = np.zeros(n_actions)
-        
-        ### FOR DPP
-        As = [mixucbII_NotQuery_part.A[a] for a in range(n_actions)]
-        theta_sq = mixucbII_NotQuery_part.get_theta()
-        theta_lr, X_sum = mixucbII_query_part.get_optimization_parameters()
-        As_sqrt = [sqrtm(A) for A in As]
-        X_sum_sqrt = sqrtm(X_sum)
 
-        # ic(context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
-        actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
-                                                   As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
+        if False:        
+            ### FOR DPP
+            As = [mixucbII_NotQuery_part.A[a] for a in range(n_actions)]
+            theta_sq = mixucbII_NotQuery_part.get_theta()
+            theta_lr, X_sum = mixucbII_query_part.get_optimization_parameters()
+            As_sqrt = [sqrtm(A) for A in As]
+            X_sum_sqrt = sqrtm(X_sum)
+
+            # ic(context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
+            actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
+                                                       As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
+            action_hat = np.argmax(actions_ucb)
+            
+            action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
+            print(actions_ucb, action_hat_lcb)
+
+            ### ADDITION
+            
+            width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
+
+
+        actions_ucb_q, actions_lcb_q = mixucbII_query_part.get_ucb_lcb(context)
+        actions_ucb_nq, actions_lcb_nq = mixucbII_NotQuery_part.get_ucb_lcb(context)
+        actions_ucb = np.minimum(actions_ucb_q, actions_ucb_nq)
+        actions_lcb = np.maximum(actions_lcb_q, actions_lcb_nq)
         action_hat = np.argmax(actions_ucb)
-        
-        action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
-
-        ### ADDITION
-        
-        width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
+        width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
 
         # ic(width_Ahat > delta, width_Ahat, delta)  # False, -inf, 0.2
         if width_Ahat > delta:

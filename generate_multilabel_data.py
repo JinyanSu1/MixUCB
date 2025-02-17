@@ -14,6 +14,7 @@ import os
 from PIL import Image
 import cv2
 from sklearn.utils import shuffle
+from sklearn.preprocessing import normalize
 
 # Function to load dataset
 def load_scene_classification_dataset(filepath):
@@ -32,7 +33,7 @@ def scaleImage(x):          # Pass a PIL image, return a tensor
     z = y - y.mean()        # Subtract the mean value of the image
     return z
 
-def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', ):
+def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', norm_features=False):
     '''
     data_name='MedNIST', 'yeast'
     '''
@@ -149,6 +150,9 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
     #         "true_rewards": true_rewards,  # true_rewards.shape: (4,)
     #     })
 
+    if norm_features:
+        x_train = normalize(x_train)
+    
     data = {
         "true_theta": [],
         "rounds": []
@@ -194,7 +198,7 @@ if __name__ == "__main__":
     args.output_file = args.output_file[:-4] + '_{}_{:02d}'.format(args.data_name, args.seed) + args.output_file[-4:]
 
     # Generate the data
-    data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed)
+    data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed, norm_features=True)
 
     # Save data to a pickle file
     with open(args.output_file, 'wb') as f:

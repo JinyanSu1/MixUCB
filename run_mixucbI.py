@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 import pickle
-from utils.run_simulation import CBOptimizationDPP
+from utils.run_simulation import CBOptimizationDPP, CBOptimizationDPP_logonly
 from utils.linucb import LinUCB, OnlineLogisticRegressionOracle
 import argparse
 from tqdm import tqdm
@@ -31,6 +31,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
 
     ### FOR DPP
     opt_probDPP = CBOptimizationDPP(n_actions, mixucbI_NotQuery_part.n_features, mixucbI_NotQuery_part.alpha**2, mixucbI_query_part.beta)
+    # opt_probDPP = CBOptimizationDPP_logonly(n_actions, mixucbI_NotQuery_part.n_features, mixucbI_query_part.beta)
     ### END
     for i in tqdm(range(T)):
         logging.info(f'Running MixUCB-I - round: {i}')
@@ -42,24 +43,43 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         # Use softmax with temperature to get noisy expert action
         action_probs = softmax_with_temperature(true_rewards, temperature)
         noisy_expert_action = np.random.choice(n_actions, p=action_probs)
+        noisy_expert_action = np.argmax(true_rewards)
+        
+        if i-TotalQ_mixucbI == 0:
+            # here we have not observed any linear regression data, so we can directly compute logreg confidence intervals
+            actions_ucb, actions_lcb = mixucbI_query_part.get_ucb_lcb(context)
+            action_hat = np.argmax(actions_ucb)
+            width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
+        else:
+            if False:
+                As = [mixucbI_NotQuery_part.A[a] for a in range(n_actions)]
+                theta_sq = mixucbI_NotQuery_part.get_theta()
+                theta_lr, X_sum = mixucbI_query_part.get_optimization_parameters()
+                # TODO: possible speedup by maintaining sqrt(A) and updating recursively within lr_oracle
+                ### FOR DPP
+                As_sqrt = [sqrtm(A) for A in As]
+                X_sum_sqrt = sqrtm(X_sum)
+                print(X_sum)
+                print(theta_lr)
 
-        actions_ucb = np.zeros(n_actions)
-        
-        ### FOR DPP
-        As = [mixucbI_NotQuery_part.A[a] for a in range(n_actions)]
-        theta_sq = mixucbI_NotQuery_part.get_theta()
-        theta_lr, X_sum = mixucbI_query_part.get_optimization_parameters()
-        # TODO: possible speedup by maintaining sqrt(A) and updating recursively within lr_oracle
-        As_sqrt = [sqrtm(A) for A in As]
-        X_sum_sqrt = sqrtm(X_sum)
+                actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
+                                                           As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
+                # actions_ucb = opt_probDPP.solve_allactions(context.flatten(), theta_lr, 
+                #                                            X_sum, X_sum_sqrt, multithreading=False)
+                action_hat = np.argmax(actions_ucb)
+            
+                # action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
+                action_hat_lcb = opt_probDPP.solve(context.flatten(), theta_lr, X_sum, X_sum_sqrt, action_hat, ucb=False)
+                
+                width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
 
-        actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
-                                                   As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
-        action_hat = np.argmax(actions_ucb)
-        
-        action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
-        
-        width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
+            actions_ucb_q, actions_lcb_q = mixucbI_query_part.get_ucb_lcb(context)
+            actions_ucb_nq, actions_lcb_nq = mixucbI_NotQuery_part.get_ucb_lcb(context)
+            actions_ucb = np.minimum(actions_ucb_q, actions_ucb_nq)
+            actions_lcb = np.maximum(actions_lcb_q, actions_lcb_nq)
+            action_hat = np.argmax(actions_ucb)
+            width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
+
 
         # ic(width_Ahat > delta, width_Ahat, delta, actions_ucb, action_hat, theta_lr)  # False, -inf, 0.2
         if width_Ahat > delta:  # False
