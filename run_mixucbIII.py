@@ -18,6 +18,7 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
     TotalQ_mixucbIII = 0
     r_mixucbIII = 0
     action_hat_list = []
+    CR_when_not_querying_list = []
 
     for i in tqdm(range(T)):
         logging.info(f'Running MixUCB-III - round: {i}')
@@ -39,9 +40,17 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
             reward = true_rewards[expert_action]
             mixucbIII.update_all(context, true_rewards)
             q_mixucbIII[i] = 1
+            if i == 0:
+                CR_when_not_querying_list.append(0)
+            else:
+                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * (len(CR_when_not_querying_list) + 1))
         else:
             reward = true_rewards[action_hat]
             mixucbIII.update(action_hat, context, reward)
+            if i == 0:
+                CR_when_not_querying_list.append(0)
+            else:
+                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * len(CR_when_not_querying_list) + reward)
 
         # Accumulate rewards and log results
         r_mixucbIII += reward
@@ -51,7 +60,7 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
 
         logging.info(f'MixUCB-III: {r_mixucbIII}, TotalQ_mixucbIII: {TotalQ_mixucbIII}, q_mixucbIII: {q_mixucbIII[i]}')
 
-    return CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list
+    return CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list, CR_when_not_querying_list
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-III Baseline')
@@ -92,7 +101,7 @@ if __name__ == "__main__":
         mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
 
         # Run MixUCB-III using the pre-generated data
-        CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
+        CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list, CR_when_not_querying_list = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
 
         print(f"Finished running MixUCB-III for {T} rounds.")
 
@@ -108,6 +117,7 @@ if __name__ == "__main__":
             'TotalQ_mixucbIII': TotalQ_mixucbIII,
             'q_mixucbIII': q_mixucbIII,
             'action_hat': action_hat_list,
+            'CR_when_not_querying': CR_when_not_querying_list
         }
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)

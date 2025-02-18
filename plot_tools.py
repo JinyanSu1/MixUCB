@@ -155,6 +155,7 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     mixucbI_rawreward_list = []
     q_mixUCBI_list = []
     action_mixUCBI_list = []
+    CR_when_not_querying_mixUCBI_list = []
     for each_mixucbI_pkl in mixucbI_pkls:
         with open(os.path.join(result_root, f'mixucbI_results{mixucb_result_postfix}/{delta}', each_mixucbI_pkl),
                   'rb') as f:
@@ -168,12 +169,14 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
             q_mixUCBI = data['q_mixucbI']
             q_mixUCBI_list.append(q_mixUCBI)
             action_mixUCBI_list.append(data['action_hat'])
+            CR_when_not_querying_mixUCBI_list.append(data['CR_when_not_querying'])
 
     mixucbII_pkls = os.listdir(os.path.join(result_root, f'mixucbII_results{mixucb_result_postfix}/{delta}'))
     mixucbII_list = []
     mixucbII_rawreward_list = []
     q_mixUCBII_list = []
     action_mixUCBII_list = []
+    CR_when_not_querying_mixUCBII_list = []
     for each_mixucbII_pkl in mixucbII_pkls:
         with open(os.path.join(result_root, f'mixucbII_results{mixucb_result_postfix}/{delta}', each_mixucbII_pkl),
                   'rb') as f:
@@ -187,12 +190,14 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
             q_mixUCBII = data['q_mixucbII']
             q_mixUCBII_list.append(q_mixUCBII)
             action_mixUCBII_list.append(data['action_hat'])
+            CR_when_not_querying_mixUCBII_list.append(data['CR_when_not_querying'])
 
     mixucbIII_pkls = os.listdir(os.path.join(result_root, f'mixucbIII_results{mixucb_result_postfix}/{delta}'))
     mixucbIII_list = []
     mixucbIII_rawreward_list = []
     q_mixUCBIII_list = []
     action_mixUCBIII_list = []
+    CR_when_not_querying_mixUCBIII_list = []
     for each_mixucbIII_pkl in mixucbIII_pkls:
         with open(os.path.join(result_root, f'mixucbIII_results{mixucb_result_postfix}/{delta}', each_mixucbIII_pkl),
                   'rb') as f:
@@ -206,6 +211,7 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
             q_mixUCBIII = data['q_mixucbIII']
             q_mixUCBIII_list.append(q_mixUCBIII)
             action_mixUCBIII_list.append(data['action_hat'])
+            CR_when_not_querying_mixUCBIII_list.append(data['CR_when_not_querying'])
 
     noisy_expert_pkls = os.listdir(os.path.join(result_root, f'noisy_expert_results_1.0'))
     noisy_expert_list = []
@@ -287,6 +293,14 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     action_mixUCBII_mean.append(action_mixUCBII_list[0])
     action_mixUCBIII_mean.append(action_mixUCBIII_list[0])
 
+    CR_when_not_querying_mixUCBI_mean.append(np.mean(CR_when_not_querying_mixUCBI_list, axis=0))
+    CR_when_not_querying_mixUCBII_mean.append(np.mean(CR_when_not_querying_mixUCBII_list, axis=0))
+    CR_when_not_querying_mixUCBIII_mean.append(np.mean(CR_when_not_querying_mixUCBIII_list, axis=0))
+
+    CR_when_not_querying_mixUCBI_std.append(np.std(CR_when_not_querying_mixUCBI_list, axis=0))
+    CR_when_not_querying_mixUCBII_std.append(np.std(CR_when_not_querying_mixUCBII_list, axis=0))
+    CR_when_not_querying_mixUCBIII_std.append(np.std(CR_when_not_querying_mixUCBIII_list, axis=0))
+
 
     cumulative_rewards = {
         'LinUCB': CR_linucb_mean,
@@ -349,6 +363,18 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
         f'MixUCB-III ($\\Delta = {delta}$)': action_mixUCBIII_mean,
     }
 
+    CR_when_not_querying = {
+        f'MixUCB-I ($\\Delta = {delta}$)': CR_when_not_querying_mixUCBI_mean,
+        f'MixUCB-II ($\\Delta = {delta}$)': CR_when_not_querying_mixUCBII_mean,
+        f'MixUCB-III ($\\Delta = {delta}$)': CR_when_not_querying_mixUCBIII_mean,
+    }
+
+    CR_when_not_querying_std = {
+        f'MixUCB-I ($\\Delta = {delta}$)': CR_when_not_querying_mixUCBI_std,
+        f'MixUCB-II ($\\Delta = {delta}$)': CR_when_not_querying_mixUCBII_std,
+        f'MixUCB-III ($\\Delta = {delta}$)': CR_when_not_querying_mixUCBIII_std,
+    }
+
     data_len = 119 # 302  #
     marker_mapping = {
         'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
@@ -372,10 +398,11 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     # Add a algorithm regret plot, which is difference between perfect expert and querying algorithm,
     # but is 0 when we query. should be cumulative as well.
     # For now we can compute this for just MixUCB-I, MixUCB-II, MixUCB-III.
-    fig, axs = plt.subplots(3, 1, figsize=(8, 16))
+    fig, axs = plt.subplots(4, 1, figsize=(8, 24))
     plot_cumulative_rewards([axs[0]], ar, ar_std, ylabel="Algorithm Regret", marker_mapping=marker_mapping)
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], marker_mapping=marker_mapping)
-    plot_action([axs[2]], action, [delta], marker_mapping=marker_mapping)
+    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], ylabel="num query", marker_mapping=marker_mapping)
+    plot_action([axs[2]], action, [delta], ylabel="action", marker_mapping=marker_mapping)
+    plot_average_rewards([axs[3]], CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_ar.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -407,6 +434,13 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     action_mixUCBII_mean = []
     action_mixUCBIII_mean = []
 
+    CR_when_not_querying_mixUCBI_mean = []
+    CR_when_not_querying_mixUCBII_mean = []
+    CR_when_not_querying_mixUCBIII_mean = []
+    CR_when_not_querying_mixUCBI_std = []
+    CR_when_not_querying_mixUCBII_std = []
+    CR_when_not_querying_mixUCBIII_std = []
+
     TotalQ_mixucbI_mean = []
     TotalQ_mixucbI_std = []
     TotalQ_mixucbII_mean = []
@@ -421,6 +455,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
         mixucbI_list = []
         mixUCBI_q_list = []
         mixUCBI_action_list = []
+        mixUCBI_CR_when_not_querying_list = []
         mixucbI_list_totalQ = []
         for each_mixucbI_pkl in mixucbI_pkls:
             with open(os.path.join(result_root, f'mixucbI_results{result_postfix}', '{}'.format(each_delta),
@@ -433,12 +468,14 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
                 q_mixUCBI = data['q_mixucbI']
                 mixUCBI_q_list.append(q_mixUCBI)
                 mixUCBI_action_list.append(data['action_hat'])
+                mixUCBI_CR_when_not_querying_list.append(data['CR_when_not_querying'])
 
         mixucbII_pkls = os.listdir(
             os.path.join(result_root, f'mixucbII_results{result_postfix}', '{}'.format(each_delta)))
         mixucbII_list = []
         mixUCBII_q_list = []
         mixUCBII_action_list = []
+        mixUCBII_CR_when_not_querying_list = []
         mixucbII_list_totalQ = []
         for each_mixucbII_pkl in mixucbII_pkls:
             with open(os.path.join(result_root, f'mixucbII_results{result_postfix}', '{}'.format(each_delta),
@@ -451,12 +488,14 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
                 q_mixUCBII = data['q_mixucbII']
                 mixUCBII_q_list.append(q_mixUCBII)
                 mixUCBII_action_list.append(data['action_hat'])
+                mixUCBII_CR_when_not_querying_list.append(data['CR_when_not_querying'])
 
         mixucbIII_pkls = os.listdir(
             os.path.join(result_root, f'mixucbIII_results{result_postfix}', '{}'.format(each_delta)))
         mixucbIII_list = []
         mixUCBIII_q_list = []
         mixUCBIII_action_list = []
+        mixUCBIII_CR_when_not_querying_list = []
         mixucbIII_list_totalQ = []
         for each_mixucbIII_pkl in mixucbIII_pkls:
             with open(os.path.join(result_root, f'mixucbIII_results{result_postfix}', '{}'.format(each_delta),
@@ -469,6 +508,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
                 q_mixUCBIII = data['q_mixucbIII']
                 mixUCBIII_q_list.append(q_mixUCBIII)
                 mixUCBIII_action_list.append(data['action_hat'])
+                mixUCBIII_CR_when_not_querying_list.append(data['CR_when_not_querying'])
 
         CR_mixucbI_mean.append(np.mean(mixucbI_list, axis=0))
         CR_mixucbI_std.append(np.std(mixucbI_list, axis=0))
@@ -490,6 +530,14 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
         action_mixUCBI_mean.append(mixUCBI_action_list[0])
         action_mixUCBII_mean.append(mixUCBII_action_list[0])
         action_mixUCBIII_mean.append(mixUCBIII_action_list[0])
+
+        CR_when_not_querying_mixUCBI_mean.append(np.mean(mixUCBI_CR_when_not_querying_list, axis=0))
+        CR_when_not_querying_mixUCBII_mean.append(np.mean(mixUCBII_CR_when_not_querying_list, axis=0))
+        CR_when_not_querying_mixUCBIII_mean.append(np.mean(mixUCBIII_CR_when_not_querying_list, axis=0))
+
+        CR_when_not_querying_mixUCBI_std.append(np.std(mixUCBI_CR_when_not_querying_list, axis=0))
+        CR_when_not_querying_mixUCBII_std.append(np.std(mixUCBII_CR_when_not_querying_list, axis=0))
+        CR_when_not_querying_mixUCBIII_std.append(np.std(mixUCBIII_CR_when_not_querying_list, axis=0))
 
         TotalQ_mixucbI_mean.append(np.mean(mixucbI_list_totalQ))
         TotalQ_mixucbI_std.append(np.std(mixucbI_list_totalQ))
@@ -525,6 +573,18 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
         'MixUCB-I': action_mixUCBI_mean,
         'MixUCB-II': action_mixUCBII_mean,
         'MixUCB-III': action_mixUCBIII_mean,
+    }
+
+    CR_when_not_querying = {
+        'MixUCB-I': CR_when_not_querying_mixUCBI_mean,
+        'MixUCB-II': CR_when_not_querying_mixUCBII_mean,
+        'MixUCB-III': CR_when_not_querying_mixUCBIII_mean,
+    }
+
+    CR_when_not_querying_std = {
+        'MixUCB-I': CR_when_not_querying_mixUCBI_std,
+        'MixUCB-II': CR_when_not_querying_mixUCBII_std,
+        'MixUCB-III': CR_when_not_querying_mixUCBIII_std,
     }
 
     print(f"Deltas: {delta_values}")
@@ -563,6 +623,11 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     plot_action(axs, action, delta_values, marker_mapping=marker_mapping)
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_action.png'), format='jpg', dpi=300, bbox_inches='tight')
+
+    fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
+    plot_average_rewards(axs, CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping)
+    plt.tight_layout()
+    fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_avgr_when_not_querying.png'), format='jpg', dpi=300, bbox_inches='tight')
 
 
 if __name__ == '__main__':

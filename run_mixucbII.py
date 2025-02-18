@@ -27,6 +27,7 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
     TotalQ_mixucbII = 0
     r_mixucbII = 0
     action_hat_list = []
+    CR_when_not_querying_list = []
 
     ### FOR DPP
     opt_probDPP = CBOptimizationDPP(n_actions, mixucbII_NotQuery_part.n_features, mixucbII_NotQuery_part.alpha**2, mixucbII_query_part.beta)
@@ -79,10 +80,18 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
             q_mixucbII[i] = 1
             reward = true_rewards[noisy_expert_action]
             mixucbII_NotQuery_part.update(noisy_expert_action, context, reward)
+            if i == 0:
+                CR_when_not_querying_list.append(0)
+            else:
+                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * (len(CR_when_not_querying_list) + 1))
         else:
             reward = true_rewards[action_hat]
             # ic(action_hat, reward, true_rewards)  # [0], 0.0, 
             mixucbII_NotQuery_part.update(action_hat, context, reward)
+            if i == 0:
+                CR_when_not_querying_list.append(0)
+            else:
+                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * len(CR_when_not_querying_list) + reward)
 
         r_mixucbII += reward
         CR_mixucbII.append(r_mixucbII)
@@ -90,7 +99,7 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
         # ic(action_hat, action_hat_lcb, actions_ucb)
         logging.info(f'MixUCB-II: {r_mixucbII}, TotalQ_mixucbII: {TotalQ_mixucbII}, q_mixucbII: {q_mixucbII[i]}')
 
-    return CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list
+    return CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list, CR_when_not_querying_list
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-II Baseline with pre-generated data from a pickle file')
@@ -138,7 +147,7 @@ if __name__ == "__main__":
         mixucbII_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
 
         # Run MixUCB-II using the pre-generated data
-        CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list = run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part)
+        CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list, CR_when_not_querying_list = run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part)
 
         print(f"Finished running MixUCB-II for {T} rounds.")
 
@@ -157,6 +166,7 @@ if __name__ == "__main__":
             'TotalQ_mixucbII': TotalQ_mixucbII,
             'q_mixucbII': q_mixucbII,
             'action_hat': action_hat_list,
+            'CR_when_not_querying': CR_when_not_querying_list
         }
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)

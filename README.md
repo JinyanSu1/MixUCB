@@ -5,7 +5,7 @@ Generate the and store the data for T rounds using ```generate_multilabel_data.p
 
 ## Installation
 ```bash
-conda create -f env.yml
+conda env create -f env.yml
 ```
 ## mosek
 
