@@ -91,14 +91,16 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
             if i == 0:
                 CR_when_not_querying_list.append(0)
             else:
-                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * (len(CR_when_not_querying_list) + 1))
+                # CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * (len(CR_when_not_querying_list) + 1))
+                CR_when_not_querying_list.append(CR_when_not_querying_list[-1])
         else:
             reward = true_rewards[action_hat]
             mixucbI_NotQuery_part.update(action_hat, context, reward)
             if i == 0:
-                CR_when_not_querying_list.append(0)
+                CR_when_not_querying_list.append(reward)
             else:
-                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * len(CR_when_not_querying_list) + reward)
+                # CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * len(CR_when_not_querying_list) + reward)
+                CR_when_not_querying_list.append(CR_when_not_querying_list[-1] + reward)
 
         r_mixucbI += reward
         CR_mixucbI.append(r_mixucbI)

@@ -8,13 +8,13 @@ import argparse
 from icecream import ic
 
 def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None,
-                         marker_mapping=None):
+                         marker_mapping=None, y_label=None):
     """Plot average rewards in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
         for key, item in cumulative_rewards.items():
             cumulative_reward = item[idx]
-            # print('cumulative_reward', cumulative_reward)
+            print('cumulative_reward', cumulative_reward)
             average_rewards = [cum_reward / (i + 1) for i, cum_reward in enumerate(cumulative_reward)]
 
             if cumulative_awards_std:
@@ -28,7 +28,11 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
                                 [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2)
             ax.plot(average_rewards, label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1],)
             ax.set_xlabel('t')
-            ax.set_ylabel('Average Reward')
+            if y_label is None:
+                ax.set_ylabel('Average Reward')
+            else:
+                ax.set_ylabel(y_label)
+
             if params is not None:
                 ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
@@ -85,7 +89,7 @@ def plot_action(axs, q_mean, params, marker_mapping=None):
         ax.legend()
 
 
-def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5, result_root=''):
+def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5, result_root='', data_name=''):
     os.makedirs(Figure_dir, exist_ok=True)
     CR_linucb_mean = []
     CR_linucb_std = []
@@ -375,7 +379,10 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
         f'MixUCB-III ($\\Delta = {delta}$)': CR_when_not_querying_mixUCBIII_std,
     }
 
-    data_len = 119 # 302  #
+    if data_name == 'heart_disease':
+        data_len = 302
+    else:
+        data_len = 119 # 302  #
     marker_mapping = {
         'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
         f'MixUCB-I ($\\Delta = {delta}$)': ['s', np.linspace(1, data_len, 10).astype(int).tolist()],
@@ -402,7 +409,7 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     plot_cumulative_rewards([axs[0]], ar, ar_std, ylabel="Algorithm Regret", marker_mapping=marker_mapping)
     plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], ylabel="num query", marker_mapping=marker_mapping)
     plot_action([axs[2]], action, [delta], ylabel="action", marker_mapping=marker_mapping)
-    plot_average_rewards([axs[3]], CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping)
+    plot_average_rewards([axs[3]], CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping, y_label='Avg Reward (Not Querying)')
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_ar.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -414,7 +421,7 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_rr.png'), format='jpg', dpi=300, bbox_inches='tight')
 
 
-def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
+def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_name=''):
     os.makedirs(Figure_dir, exist_ok=True)
     CR_mixucbI_mean = []
     CR_mixucbI_std = []
@@ -592,7 +599,10 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     print(f'TotalQ_mixucbII_mean: {np.array(TotalQ_mixucbII_mean)}')
     print(f'TotalQ_mixucbIII_mean: {np.array(TotalQ_mixucbIII_mean)}')
 
-    data_len = 119 # 302  #
+    if data_name == 'heart_disease':
+        data_len = 302
+    else:
+        data_len = 119 # 302  #
     marker_mapping = {
         'LinUCB': ['o', np.linspace(0, data_len, 10).astype(int).tolist()],
         'MixUCB-I': ['s', np.linspace(1, data_len, 10).astype(int).tolist()],
@@ -625,7 +635,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root=''):
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_action.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
-    plot_average_rewards(axs, CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping)
+    plot_average_rewards(axs, CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping, y_label='Avg Reward (Not Querying)')
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_avgr_when_not_querying.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -674,8 +684,8 @@ if __name__ == '__main__':
     result_root = data_name
     Figure_dir = f'Figures/{result_root}'
     os.makedirs(Figure_dir, exist_ok=True)
-    plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix, result_root=result_root)
+    plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix, result_root=result_root, data_name=data_name)
     # NOTE: using a fixed value of delta.
     delta = 0.5
     plot_six_baselines(Figure_dir=Figure_dir, mixucb_result_postfix=mixucb_postfix, delta=delta,
-                       result_root=result_root)
+                       result_root=result_root, data_name=data_name)
