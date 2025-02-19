@@ -49,48 +49,62 @@ def initialize_ucb_algorithms(n_actions, n_features, alpha, lambda_, learning_ra
     online_sq_oracle= LinUCB(n_actions, n_features, alpha, lambda_)
     return mixucb, linucb, always_query_ucb, online_lr_oracle, online_sq_oracle
 
-# class OnlineLogisticRegressionOracle:
-#     def __init__(self, n_features, n_actions, learning_rate=0.1, lambda_=1.0, beta=1.0):
-#         self.model = LogisticRegression(multi_class='multinomial', C=1/lambda_, fit_intercept=False)  # Multi-class logistic regression
-#         self.n_actions = n_actions
-#         self.n_features = n_features
-#         self.X_sum = np.zeros((n_features, n_features))  # Accumulated X^T X
-#         self.lambda_ = lambda_
-#         self.beta = beta
-#         self.Xs = []
-#         self.ys = []
-#         # # Initialize the model with some dummy data to set the number of classes (multi-class)
-#         # dummy_X = np.zeros((1, n_features))
-#         # dummy_y = np.array([0])  # Dummy class label
-#         # self.model.fit(dummy_X, dummy_y, classes=np.arange(n_actions))  # Initialize multi-class model
+class OnlineLogisticRegressionOracle2:
+    def __init__(self, n_features, n_actions, learning_rate=0.1, lambda_=1.0, beta=1.0):
+        self.model = LogisticRegression(C=1/lambda_, fit_intercept=False)  # Multi-class logistic regression multi_class='multinomial', 
+        self.n_actions = n_actions
+        self.n_features = n_features
+        self.X_sum = np.zeros((n_features, n_features))  # Accumulated X^T X
+        self.lambda_ = lambda_
+        self.beta = beta
+        self.Xs = []
+        self.ys = []
+        # # Initialize the model with some dummy data to set the number of classes (multi-class)
+        dummy_X = np.zeros((n_actions, n_features))
+        dummy_y = np.array([i for i in range(n_actions)])  # Dummy class label
+        self.model.fit(dummy_X, dummy_y)  # Initialize multi-class model
 
-#     def update(self, x_t, action):
-#         self.Xs.append(x_t.ravel())
-#         self.ys.append([action])
-#         # Update the logistic regression model with the new data point
-#         self.model.fit(self.Xs, self.ys)
-#         self.X_sum += np.outer(x_t_flat, x_t_flat)  # Update X^T X sum for logistic regression constraint
+    def update(self, x_t, action):
+        x_t_flat = x_t.ravel()
+        self.Xs.append(x_t_flat)
+        self.ys.append(action)
+        # Update the logistic regression model with the new data point
+        if len(np.unique(self.ys)) == self.n_actions:
+            self.model.fit(self.Xs, self.ys)
+        self.X_sum += np.outer(x_t_flat, x_t_flat)  # Update X^T X sum for logistic regression constraint
 
-#     def get_model_params(self):
-#         # Return the parameter vector for each class (action)
-#         return self.model.coef_
+    def get_model_params(self):
+        # Return the parameter vector for each class (action)
+        return self.model.coef_
 
-#     def predict(self, x_t):
-#         x_t_flat = x_t.ravel()
-#         # Return the predicted probabilities for each class
-#         return self.model.predict_proba([x_t_flat])
+    def predict(self, x_t):
+        x_t_flat = x_t.ravel()
+        # Return the predicted probabilities for each class
+        return self.model.predict_proba([x_t_flat])
         
-#     def get_optimization_parameters(self):
-#         """
-#         Returns the parameters required for the convex optimization:
-#         - theta_lr: Logistic regression parameters for each action.
-#         - X_sum: the accumulated X^T X matrix (with regularization).
-#         """
-#         theta_lr = self.get_model_params()  # Get the logistic regression model's coefficients (theta)
-#         #  X_sum, with regularization
+    def get_optimization_parameters(self):
+        """
+        Returns the parameters required for the convex optimization:
+        - theta_lr: Logistic regression parameters for each action.
+        - X_sum: the accumulated X^T X matrix (with regularization).
+        """
+        theta_lr = self.get_model_params()  # Get the logistic regression model's coefficients (theta)
+        #  X_sum, with regularization
 
-#         X_sum = self.X_sum + np.eye(self.n_features) * self.lambda_
-#         return theta_lr, X_sum
+        X_sum = self.X_sum + np.eye(self.n_features) * self.lambda_
+        return theta_lr, X_sum
+
+    def get_ucb_lcb(self, context):
+        # this is valid when only considering logistic regression data
+        context = context.reshape(-1)
+        ucb = []
+        lcb = []
+        theta, X_sum = self.get_optimization_parameters()
+        sigma = self.beta * np.sqrt(context.dot(inv(X_sum).dot(context)))
+        for a in range(self.n_actions):
+            ucb.append(theta[a].dot(context) + sigma)
+            lcb.append(theta[a].dot(context) - sigma)
+        return np.array(ucb), np.array(lcb)
 
 class OnlineLogisticRegressionOracle:
     def __init__(self, n_features, n_actions, learning_rate=0.1, lambda_=1.0, beta=1.0):
