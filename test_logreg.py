@@ -57,6 +57,7 @@ else:
     X, y, true_params, corrected_y = generate_multiclass_data(num_features=n_features, num_classes=n_actions, random_seed=42,
                              temp=1)
     print('linear oracle accuracy', np.sum(corrected_y == y)/len(y))
+    normalized_true_params = true_params / np.linalg.norm(true_params, axis=1)[:, np.newaxis]
 
 logreg = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate=0.1, lambda_=1.0, beta=1.0,
                                         mode="torch")
@@ -67,8 +68,10 @@ param_errors = []
 for feature, label in tqdm(zip(X, y)):
     logreg.update(feature, label)
     theta_hat = logreg.get_model_params()
-    param_errors.append(np.linalg.norm(theta_hat-true_params))
-    hindsight_prederr.append(np.linalg.norm((theta_hat-true_params).dot(X.T))**2/X.shape[0])
+
+    normalized_theta_hat = theta_hat / np.linalg.norm(theta_hat, axis=1)[:, np.newaxis]
+    param_errors.append(np.linalg.norm(normalized_theta_hat-normalized_true_params))
+    hindsight_prederr.append(np.linalg.norm((normalized_theta_hat-normalized_true_params).dot(X.T))**2/X.shape[0])
     preds = logreg.predict(X)
     hindsight_acc.append(np.sum(preds == corrected_y)/len(y))
 

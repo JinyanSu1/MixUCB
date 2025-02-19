@@ -74,7 +74,7 @@ class MaxEntLinearModel(BaseEstimator, ClassifierMixin):
         self.lr = lr
         self.weight_decay = weight_decay # l2 reg
         self.epochs = epochs
-        self.model = nn.Linear(input_dim, output_dim)
+        self.model = nn.Linear(input_dim, output_dim, bias=False)
         self.criterion = nn.CrossEntropyLoss()
         self.optimizer = optim.SGD(self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay)
         self.coef_ = np.zeros([output_dim,input_dim])
