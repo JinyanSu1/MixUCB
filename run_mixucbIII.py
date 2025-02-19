@@ -43,14 +43,16 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
             if i == 0:
                 CR_when_not_querying_list.append(0)
             else:
-                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * (len(CR_when_not_querying_list) + 1))
+                # CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * (len(CR_when_not_querying_list) + 1))
+                CR_when_not_querying_list.append(CR_when_not_querying_list[-1])
         else:
             reward = true_rewards[action_hat]
             mixucbIII.update(action_hat, context, reward)
             if i == 0:
-                CR_when_not_querying_list.append(0)
+                CR_when_not_querying_list.append(reward)
             else:
-                CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * len(CR_when_not_querying_list) + reward)
+                # CR_when_not_querying_list.append(np.mean(CR_when_not_querying_list) * len(CR_when_not_querying_list) + reward)
+                CR_when_not_querying_list.append(CR_when_not_querying_list[-1] + reward)
 
         # Accumulate rewards and log results
         r_mixucbIII += reward
