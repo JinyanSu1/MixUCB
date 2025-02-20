@@ -187,13 +187,14 @@ class CombinedOnlineRegressionOracle:
         return theta, self.X_sum, self.A_sum
 
     def get_ucb_lcb(self, context):
-        # TODO doesnt currently consider lr data
         context = context.reshape(-1)
         ucb = []
         lcb = []
-        theta, X_sum, _ = self.get_optimization_parameters()
-        sigma = self.beta_log * np.sqrt(context.dot(inv(X_sum).dot(context)))
+        theta, X_sum, A_sum = self.get_optimization_parameters()
+        # TODO also implement separate CI
+        combined_cov = [X_sum / self.beta_log + A / self.beta_sq for A in A_sum]
         for a in range(self.n_actions):
+            sigma = np.sqrt(context.dot(inv(combined_cov[a]).dot(context)))
             ucb.append(theta[a].dot(context) + sigma)
             lcb.append(theta[a].dot(context) - sigma)
         return np.array(ucb), np.array(lcb)
