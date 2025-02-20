@@ -21,7 +21,7 @@ def softmax_with_temperature(rewards, temperature):
     action_probs = torch.softmax(rewards_tensor * temperature, dim=0).numpy()
     return action_probs
 
-def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part):
+def run_mixucbII(data, T, n_actions, delta, temperature, online_reg_oracle): # mixucbII_query_part, mixucbII_NotQuery_part):
     CR_mixucbII = []
     q_mixucbII = np.zeros(T)
     TotalQ_mixucbII = 0
@@ -30,7 +30,7 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
     CR_when_not_querying_list = []
 
     ### FOR DPP
-    opt_probDPP = CBOptimizationDPP(n_actions, mixucbII_NotQuery_part.n_features, mixucbII_NotQuery_part.alpha**2, mixucbII_query_part.beta)
+    # opt_probDPP = CBOptimizationDPP(n_actions, mixucbII_NotQuery_part.n_features, mixucbII_NotQuery_part.alpha**2, mixucbII_query_part.beta)
     ### END
     for i in tqdm(range(T)):
         logging.info(f'Running MixUCB-II - round: {i}')
@@ -45,41 +45,47 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
         noisy_expert_action = np.argmax(true_rewards)
 
 
-        if False:        
-            ### FOR DPP
-            As = [mixucbII_NotQuery_part.A[a] for a in range(n_actions)]
-            theta_sq = mixucbII_NotQuery_part.get_theta()
-            theta_lr, X_sum = mixucbII_query_part.get_optimization_parameters()
-            As_sqrt = [sqrtm(A) for A in As]
-            X_sum_sqrt = sqrtm(X_sum)
+        # if False:        
+        #     ### FOR DPP
+        #     As = [mixucbII_NotQuery_part.A[a] for a in range(n_actions)]
+        #     theta_sq = mixucbII_NotQuery_part.get_theta()
+        #     theta_lr, X_sum = mixucbII_query_part.get_optimization_parameters()
+        #     As_sqrt = [sqrtm(A) for A in As]
+        #     X_sum_sqrt = sqrtm(X_sum)
 
-            # ic(context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
-            actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
-                                                       As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
-            action_hat = np.argmax(actions_ucb)
+        #     # ic(context, theta_sq, theta_lr, As, As_sqrt, X_sum, X_sum_sqrt)
+        #     actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
+        #                                                As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
+        #     action_hat = np.argmax(actions_ucb)
             
-            action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
-            print(actions_ucb, action_hat_lcb)
+        #     action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
+        #     print(actions_ucb, action_hat_lcb)
 
-            ### ADDITION
+        #     ### ADDITION
             
-            width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
+        #     width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
 
 
-        actions_ucb_q, actions_lcb_q = mixucbII_query_part.get_ucb_lcb(context)
-        actions_ucb_nq, actions_lcb_nq = mixucbII_NotQuery_part.get_ucb_lcb(context)
-        actions_ucb = np.minimum(actions_ucb_q, actions_ucb_nq)
-        actions_lcb = np.maximum(actions_lcb_q, actions_lcb_nq)
+        # actions_ucb_q, actions_lcb_q = mixucbII_query_part.get_ucb_lcb(context)
+        # actions_ucb_nq, actions_lcb_nq = mixucbII_NotQuery_part.get_ucb_lcb(context)
+        # actions_ucb = np.minimum(actions_ucb_q, actions_ucb_nq)
+        # actions_lcb = np.maximum(actions_lcb_q, actions_lcb_nq)
+        # action_hat = np.argmax(actions_ucb)
+        # width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
+        
+        actions_ucb, actions_lcb = online_reg_oracle.get_ucb_lcb(context)
         action_hat = np.argmax(actions_ucb)
         width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
 
         # ic(width_Ahat > delta, width_Ahat, delta)  # False, -inf, 0.2
         if width_Ahat > delta:
             TotalQ_mixucbII += 1
-            mixucbII_query_part.update(context, noisy_expert_action)
+            # mixucbII_query_part.update(context, noisy_expert_action)
+            online_reg_oracle.update(context, action=noisy_expert_action)
             q_mixucbII[i] = 1
             reward = true_rewards[noisy_expert_action]
-            mixucbII_NotQuery_part.update(noisy_expert_action, context, reward)
+            # mixucbII_NotQuery_part.update(noisy_expert_action, context, reward)
+            online_reg_oracle.update(context, action=noisy_expert_action, reward=reward)
             if i == 0:
                 CR_when_not_querying_list.append(0)
             else:
@@ -88,7 +94,8 @@ def run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mi
         else:
             reward = true_rewards[action_hat]
             # ic(action_hat, reward, true_rewards)  # [0], 0.0, 
-            mixucbII_NotQuery_part.update(action_hat, context, reward)
+            # mixucbII_NotQuery_part.update(action_hat, context, reward)
+            online_reg_oracle.update(context, action=action_hat, reward=reward)
             if i == 0:
                 CR_when_not_querying_list.append(reward)
             else:
@@ -145,11 +152,13 @@ if __name__ == "__main__":
         print('Makedir {}'.format(results))
         # for rep_id in range(5):
         # Initialize query and non-query parts
-        mixucbII_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
-        mixucbII_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
+        # mixucbII_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
+        # mixucbII_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
+        online_reg_oracle = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta, rad_sq=alpha)
 
         # Run MixUCB-II using the pre-generated data
-        CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list, CR_when_not_querying_list = run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part)
+        # CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list, CR_when_not_querying_list = run_mixucbII(data, T, n_actions, delta, temperature, mixucbII_query_part, mixucbII_NotQuery_part)
+        CR_mixucbII, TotalQ_mixucbII, q_mixucbII, action_hat_list, CR_when_not_querying_list = run_mixucbII(data, T, n_actions, delta, temperature, online_reg_oracle)
 
         print(f"Finished running MixUCB-II for {T} rounds.")
 

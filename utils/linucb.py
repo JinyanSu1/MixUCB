@@ -84,8 +84,9 @@ class CombinedLinearModel(BaseEstimator, ClassifierMixin):
         self.tolerance = tol
     
     def fit(self, X_log, y_log, X_sq=None, y_sq=None, verbose=False):
-        X_log_tensor = torch.tensor(X_log, dtype=torch.float32)
-        y_log_tensor = torch.tensor(y_log, dtype=torch.long)
+        if len(X_log)>0 and len(y_log)>0:
+            X_log_tensor = torch.tensor(X_log, dtype=torch.float32)
+            y_log_tensor = torch.tensor(y_log, dtype=torch.long)
 
         if X_sq is not None and len(X_sq)>0:
             X_sq_tensor = torch.tensor(X_sq, dtype=torch.float32)
@@ -95,8 +96,10 @@ class CombinedLinearModel(BaseEstimator, ClassifierMixin):
         previous_loss = float('inf')
         
         for epoch in range(self.epochs):
-            outputs_log = self.model(X_log_tensor)
-            loss_log = self.criterion_log(outputs_log, y_log_tensor)
+            loss_log = 0
+            if len(X_log)>0 and len(y_log)>0:
+                outputs_log = self.model(X_log_tensor)
+                loss_log = self.criterion_log(outputs_log, y_log_tensor)
 
             loss_sq = 0
             if X_sq is not None and len(X_sq)>0:
@@ -143,8 +146,8 @@ class CombinedOnlineRegressionOracle:
         self.n_actions = n_actions
         self.n_features = n_features
         self.lambda_ = reg_coeff
-        self.X_sum = self.lambda_ * np.eye(n_features)  # Accumulated X^T X
-        self.A_sum = [self.lambda_ * np.eye(n_features) for _ in range(n_actions)]
+        self.X_sum = self.lambda_/2 * np.eye(n_features)  # Accumulated X^T X
+        self.A_sum = [self.lambda_/2 * np.eye(n_features) for _ in range(n_actions)]
         self.beta_log = rad_log
         self.beta_sq = rad_sq if rad_sq is not None else rad_log
         self.beta = self.beta_log # todo revmove
@@ -157,22 +160,23 @@ class CombinedOnlineRegressionOracle:
     def update(self, context, action=None, reward=None, rewards=None):
         self.Xs.append(context.ravel())
         self.ys.append(action)
-        self.ind_log.append((action is not None))
+        self.ind_log.append((action is not None) and reward is None and rewards is None)
         if reward is not None:
-            assert rewards is None
-            rewards = np.nan((self.n_actions))
+            assert rewards is None and action is not None
+            rewards = np.nan * np.ones(self.n_actions)
             rewards[action] = reward
-        self.rs.append(rewards)
         self.ind_sq.append((rewards is not None))
+        if rewards is None: rewards = np.nan * np.ones(self.n_actions)
+        self.rs.append(rewards)
 
-        self.model.fit(np.array(self.Xs)[self.ind_log], np.array(self.ys)[self.ind_log], np.array(self.Xs)[self.ind_sq], np.array(self.ys)[self.ind_sq])
+        self.model.fit(np.array(self.Xs)[self.ind_log], np.array(self.ys)[self.ind_log], np.array(self.Xs)[self.ind_sq], np.array(self.rs)[self.ind_sq])
         
         xxT = np.outer(context.ravel(), context.ravel())
         if action is not None:
             self.X_sum += xxT
         if rewards is not None:
             for a, r in enumerate(rewards):
-                if r is not None:
+                if not np.isnan(r):
                     self.A_sum[a] += xxT
 
     def get_model_params(self):
@@ -192,7 +196,7 @@ class CombinedOnlineRegressionOracle:
         lcb = []
         theta, X_sum, A_sum = self.get_optimization_parameters()
         # TODO also implement separate CI
-        combined_cov = [X_sum / self.beta_log + A / self.beta_sq for A in A_sum]
+        combined_cov = [X_sum / self.beta_log**2 + A / self.beta_sq**2 for A in A_sum]
         for a in range(self.n_actions):
             sigma = np.sqrt(context.dot(inv(combined_cov[a]).dot(context)))
             ucb.append(theta[a].dot(context) + sigma)
