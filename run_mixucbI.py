@@ -113,7 +113,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run MixUCB-I Baseline with pre-generated data from a pickle file')
     parser.add_argument('--T', type=int, default=1000)
-    parser.add_argument('--delta', nargs='+', type=float, default=[0.2, 0.5, 1.,2., 5.])
+    parser.add_argument('--delta', nargs='+', type=float, default=[4., 5., 6., 7., 8.])
     parser.add_argument('--lambda_', type=float, default=0.001)
     parser.add_argument('--learning_rate', type=float, default=0.1)
     parser.add_argument('--alpha', type=float, default=100)

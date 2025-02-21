@@ -8,7 +8,7 @@ import argparse
 from icecream import ic
 
 def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, params=None,
-                         marker_mapping=None, y_label=None):
+                         marker_mapping=None, y_label='Average Reward'):
     """Plot average rewards in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
@@ -28,10 +28,7 @@ def plot_average_rewards(axs, cumulative_rewards, cumulative_awards_std=None, pa
                                 [a + s for a, s in zip(average_rewards, average_rewards_std)], alpha=0.2)
             ax.plot(average_rewards, label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1],)
             ax.set_xlabel('t')
-            if y_label is None:
-                ax.set_ylabel('Average Reward')
-            else:
-                ax.set_ylabel(y_label)
+            ax.set_ylabel(y_label)
 
             if params is not None:
                 ax.set_title(f'$\\Delta={params[idx]}$')
@@ -57,7 +54,7 @@ def plot_cumulative_rewards(axs, cumulative_rewards, cumulative_awards_std=None,
         ax.legend()
 
 
-def plot_cumulative_queries(axs, q_mean, q_std, params, marker_mapping=None):
+def plot_cumulative_queries(axs, q_mean, q_std, params, ylabel='Cumulative Queries', marker_mapping=None):
     """Plot cumulative queries in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
@@ -68,11 +65,11 @@ def plot_cumulative_queries(axs, q_mean, q_std, params, marker_mapping=None):
             # ax.fill_between(range(len(q)), [a - s for a, s in zip(q, std)], [a + s for a, s in zip(q, std)], alpha=0.2)
             ax.plot(np.cumsum(q), label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1])
             ax.set_xlabel('t')
-            ax.set_ylabel('Cumulative Queries')
+            ax.set_ylabel(ylabel)
             ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
-def plot_action(axs, q_mean, params, marker_mapping=None):
+def plot_action(axs, q_mean, params, ylabel='Actions', marker_mapping=None):
     """Plot cumulative queries in a 1 by m grid for different parameters."""
     for idx in range(len(axs)):
         ax = axs[idx]
@@ -84,7 +81,7 @@ def plot_action(axs, q_mean, params, marker_mapping=None):
             # ax.fill_between(range(len(q)), [a - s for a, s in zip(q, std)], [a + s for a, s in zip(q, std)], alpha=0.2)
             ax.plot(q, label=f'{key}', marker=marker_mapping[f'{key}'][0], markevery=marker_mapping[f'{key}'][1])
             ax.set_xlabel('t')
-            ax.set_ylabel('Actions')
+            ax.set_ylabel(ylabel)
             ax.set_title(f'$\\Delta={params[idx]}$')
         ax.legend()
 
@@ -132,6 +129,13 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     action_mixUCBI_mean = []
     action_mixUCBII_mean = []
     action_mixUCBIII_mean = []
+
+    CR_when_not_querying_mixUCBI_mean = []
+    CR_when_not_querying_mixUCBII_mean = []
+    CR_when_not_querying_mixUCBIII_mean = []
+    CR_when_not_querying_mixUCBI_std = []
+    CR_when_not_querying_mixUCBII_std = []
+    CR_when_not_querying_mixUCBIII_std = []
 
     perfect_expert_pkls = os.listdir(os.path.join(result_root, f'perfect_expert_results'))
     perfect_expert_list = []
@@ -407,8 +411,8 @@ def plot_six_baselines(Figure_dir='Figures', mixucb_result_postfix="", delta=0.5
     # For now we can compute this for just MixUCB-I, MixUCB-II, MixUCB-III.
     fig, axs = plt.subplots(4, 1, figsize=(8, 24))
     plot_cumulative_rewards([axs[0]], ar, ar_std, ylabel="Algorithm Regret", marker_mapping=marker_mapping)
-    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], ylabel="num query", marker_mapping=marker_mapping)
-    plot_action([axs[2]], action, [delta], ylabel="action", marker_mapping=marker_mapping)
+    plot_cumulative_queries([axs[1]], q_mean, q_std, [delta], ylabel="Num Query", marker_mapping=marker_mapping)
+    plot_action([axs[2]], action, [delta], ylabel="Action", marker_mapping=marker_mapping)
     plot_average_rewards([axs[3]], CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping, y_label='Avg Reward (Not Querying)')
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'six_baselines_ar.png'), format='jpg', dpi=300, bbox_inches='tight')
@@ -455,7 +459,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', 
     TotalQ_mixucbIII_mean = []
     TotalQ_mixucbIII_std = []
 
-    delta_values = [0.2, 0.5, 1., 2., 5.]
+    delta_values = [4., 5., 6., 7., 8.]  # [0.2, 0.5, 1., 2., 5.]
     for each_delta in delta_values:
         mixucbI_pkls = os.listdir(
             os.path.join(result_root, f'mixucbI_results{result_postfix}', '{}'.format(each_delta)))
@@ -635,7 +639,7 @@ def plot_three_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', 
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_action.png'), format='jpg', dpi=300, bbox_inches='tight')
 
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
-    plot_average_rewards(axs, CR_when_not_querying, CR_when_not_querying_std, marker_mapping=marker_mapping, y_label='Avg Reward (Not Querying)')
+    plot_average_rewards(axs, CR_when_not_querying, CR_when_not_querying_std, delta_values, marker_mapping=marker_mapping, y_label='Avg Reward (Not Querying)')
     plt.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'three_mixucbs_avgr_when_not_querying.png'), format='jpg', dpi=300, bbox_inches='tight')
 
@@ -686,6 +690,6 @@ if __name__ == '__main__':
     os.makedirs(Figure_dir, exist_ok=True)
     plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix, result_root=result_root, data_name=data_name)
     # NOTE: using a fixed value of delta.
-    delta = 0.5
+    delta = 4.0 #0.5
     plot_six_baselines(Figure_dir=Figure_dir, mixucb_result_postfix=mixucb_postfix, delta=delta,
                        result_root=result_root, data_name=data_name)
