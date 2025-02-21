@@ -690,6 +690,6 @@ if __name__ == '__main__':
     os.makedirs(Figure_dir, exist_ok=True)
     plot_three_mixucbs(Figure_dir=Figure_dir, result_postfix=mixucb_postfix, result_root=result_root, data_name=data_name)
     # NOTE: using a fixed value of delta.
-    delta = 4.0 #0.5
+    delta = 7.0 #0.5
     plot_six_baselines(Figure_dir=Figure_dir, mixucb_result_postfix=mixucb_postfix, delta=delta,
                        result_root=result_root, data_name=data_name)
