@@ -1,0 +1,137 @@
+import numpy as np
+import pickle
+from utils.linucb import LinUCB, OnlineLogisticRegressionOracle
+import argparse
+from tqdm import tqdm
+import logging
+import os
+import time
+from icecream import ic
+import argparse
+
+logging.basicConfig(filename='simulation.log', level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
+    assert mode in ['lin','mixI','mixII','mixIII']
+    reward_per_time = np.zeros(T)
+    query_per_time = np.zeros(T)
+    action_per_time = []
+
+    for i in tqdm(range(T)):
+        logging.info(f'Running UCB {mode} - round: {i}')
+        
+        # Load pre-generated context and rewards for the current round
+        context = data["rounds"][i]["context"]
+        true_rewards = data["rounds"][i]["true_rewards"]
+
+        # Calculate UCB and LCB
+        ucb,lcb = online_reg_oracle.get_ucb_lcb(context)
+        action_hat = np.argmax(ucb)
+
+        if mode in ['mixI', 'mixII', 'mixIII']:
+            # Determine if querying expert or not
+            width = ucb - lcb
+            width_Ahat = width[action_hat]
+            if width_Ahat > delta:
+                # query expert and update online regression
+                query_per_time[i] = 1
+
+                if mode == 'mixIII':
+                    expert_action = np.argmax(true_rewards) # TODO different for synthetic - true rewards vs labels
+                else:
+                    expert_action = np.argmax(true_rewards) # TODO different for synthetic - true rewards vs labels
+                reward = true_rewards[expert_action]
+                
+                if mode == 'mixIII':
+                    online_reg_oracle.update(context,rewards=true_rewards) # TODO add noise?
+                elif mode == 'mixII':
+                    online_reg_oracle.update(context, action=expert_action) 
+                    online_reg_oracle.update(context, action=expert_action, reward=reward)
+                elif mode == 'mixI':
+                    online_reg_oracle.update(context, action=expert_action)
+            else:
+                # take action_hat and update online regression
+                reward = true_rewards[action_hat]
+                online_reg_oracle.update(context, action=action_hat, reward=reward)
+
+        else:
+            reward = true_rewards[action_hat]
+            online_reg_oracle.update(context, action=action_hat, reward=reward)
+
+        reward_per_time[i] = reward
+
+        if query_per_time[i]:
+            action_per_time.append(expert_action)
+        else:
+            action_per_time.append(action_hat)
+
+        logging.info(f'{mode} UCB: reward {reward}, query: {query_per_time[i]}, totalq: {np.sum(query_per_time)}')
+
+    return reward_per_time, query_per_time, action_per_time
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Run UCB Baseline')
+    parser.add_argument('--mode', type=str, default='lin', help='must be: lin, mixI, mixII, or mixIII')
+    parser.add_argument('--T', type=int, default=1000)
+    parser.add_argument('--delta', nargs='+', type=float, default=[4., 5., 6., 7., 8.])
+    parser.add_argument('--lambda_', type=float, default=0.001, help='regularization weight')
+    parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
+    parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
+    parser.add_argument("--data_name", type=str, default='', help="Name of the dataset to use.")
+    parser.add_argument('--learning_rate', type=float, default=0.1)
+    parser.add_argument('--alpha', type=float, default=100, help='squared loss confidence radius')
+    parser.add_argument('--beta', type=float, default=1000, help='log loss confidence radius')
+    # TODO add temperature?
+    
+    args = parser.parse_args()
+
+    # Set random seed for reproducibility
+    np.random.seed(args.seed)
+
+    # Load pre-generated data from the pickle file
+    with open(args.pickle_file, 'rb') as f:
+        data = pickle.load(f)
+
+    # Extract n_actions and n_features from the data
+    n_actions = len(data["rounds"][0]["true_rewards"])  # Number of actions
+    n_features = data["rounds"][0]["context"].shape[1]
+    # Extract the number of rounds (T) from the data
+    T = args.T if args.T <= len(data["rounds"]) else len(data["rounds"])
+
+    # Initialize parameters
+    delta_list = args.delta
+    alpha = args.alpha
+    beta = args.beta
+    lambda_ = args.lambda_ # TODO two diff lambda
+    learning_rate = args.learning_rate
+    data_name = args.data_name
+    mode = args.mode
+
+    if mode == 'lin':
+        delta_list = [0]
+    
+    for delta in delta_list:
+        results = os.path.join(data_name, '{}_ucb_results'.format(mode), '{}'.format(delta))
+        os.makedirs(results, exist_ok=True)
+        print('Makedir {}'.format(results))
+
+        online_reg_oracle = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta, rad_sq=alpha)
+
+        # Run using the pre-generated data
+        reward_per_time, query_per_time, action_per_time = run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=mode)
+
+        print(f"Finished running {mode} UCB for {T} rounds.")
+
+        pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+        dict_to_save = {
+            'reward_per_time': reward_per_time,
+            'query_per_time': query_per_time,
+            'action_per_time': action_per_time,
+            'alpha': args.alpha,
+            'beta': args.beta,
+            'lambda_': args.lambda_,
+        }
+        with open(pkl_name, 'wb') as f:
+            pickle.dump(dict_to_save, f)
+        print('Saved to {}'.format(pkl_name))
