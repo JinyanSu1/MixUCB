@@ -1,6 +1,6 @@
 import numpy as np
 import pickle
-from utils.linucb import LinUCB
+from utils.linucb import LinUCB, OnlineLogisticRegressionOracle
 import argparse
 from tqdm import tqdm
 import logging
@@ -12,7 +12,7 @@ import argparse
 logging.basicConfig(filename='simulation_mixucbIII.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
+def run_mixucbIII(data, T, n_actions, delta, online_reg_oracle): #mixucbIII):
     CR_mixucbIII = []
     q_mixucbIII = np.zeros(T)
     TotalQ_mixucbIII = 0
@@ -28,7 +28,7 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
         true_rewards = data["rounds"][i]["true_rewards"]
         
         # Calculate UCB and LCB
-        mixucb_ucb, mixucb_lcb = mixucbIII.get_ucb_lcb(context)
+        mixucb_ucb, mixucb_lcb = online_reg_oracle.get_ucb_lcb(context)
         width = mixucb_ucb - mixucb_lcb
         action_hat = np.argmax(mixucb_ucb)
         width_Ahat = width[action_hat]
@@ -38,7 +38,8 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
             TotalQ_mixucbIII += 1
             expert_action = np.argmax(true_rewards)
             reward = true_rewards[expert_action]
-            mixucbIII.update_all(context, true_rewards)
+            # mixucbIII.update_all(context, true_rewards)
+            online_reg_oracle.update(context,rewards=true_rewards)
             q_mixucbIII[i] = 1
             if i == 0:
                 CR_when_not_querying_list.append(0)
@@ -47,7 +48,8 @@ def run_mixucbIII(data, T, n_actions, delta, mixucbIII):
                 CR_when_not_querying_list.append(CR_when_not_querying_list[-1])
         else:
             reward = true_rewards[action_hat]
-            mixucbIII.update(action_hat, context, reward)
+            # mixucbIII.update(action_hat, context, reward)
+            online_reg_oracle.update(context, action=action_hat, reward=reward)
             if i == 0:
                 CR_when_not_querying_list.append(reward)
             else:
@@ -100,10 +102,13 @@ if __name__ == "__main__":
         print('Makedir {}'.format(results))
         # for rep_id in range(5):
         # Initialize MixUCB-III model
-        mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
+        # mixucbIII = LinUCB(n_actions, n_features, alpha, args.lambda_)
+        beta = 1 # not used TODO
+        learning_rate = 0.1 # TODO unify
+        online_reg_oracle = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, args.lambda_, beta, rad_sq=alpha)
 
         # Run MixUCB-III using the pre-generated data
-        CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list, CR_when_not_querying_list = run_mixucbIII(data, T, n_actions, delta, mixucbIII)
+        CR_mixucbIII, TotalQ_mixucbIII, q_mixucbIII, action_hat_list, CR_when_not_querying_list = run_mixucbIII(data, T, n_actions, delta, online_reg_oracle)
 
         print(f"Finished running MixUCB-III for {T} rounds.")
 

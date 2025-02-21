@@ -22,7 +22,7 @@ def softmax_with_temperature(rewards, temperature):
     action_probs = torch.softmax(rewards_tensor * temperature, dim=0).numpy()
     return action_probs
 
-def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part):
+def run_mixucbI(data, T, n_actions, delta, temperature, online_reg_oracle): #mixucbI_query_part, mixucbI_NotQuery_part):
     CR_mixucbI = []
     q_mixucbI = np.zeros(T)
     TotalQ_mixucbI = 0
@@ -31,7 +31,7 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
     CR_when_not_querying_list = []
 
     ### FOR DPP
-    opt_probDPP = CBOptimizationDPP(n_actions, mixucbI_NotQuery_part.n_features, mixucbI_NotQuery_part.alpha**2, mixucbI_query_part.beta)
+    # opt_probDPP = CBOptimizationDPP(n_actions, mixucbI_NotQuery_part.n_features, mixucbI_NotQuery_part.alpha**2, mixucbI_query_part.beta)
     # opt_probDPP = CBOptimizationDPP_logonly(n_actions, mixucbI_NotQuery_part.n_features, mixucbI_query_part.beta)
     ### END
     for i in tqdm(range(T)):
@@ -46,46 +46,52 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
         noisy_expert_action = np.random.choice(n_actions, p=action_probs)
         noisy_expert_action = np.argmax(true_rewards)
         
-        if i-TotalQ_mixucbI == 0:
-            # here we have not observed any linear regression data, so we can directly compute logreg confidence intervals
-            actions_ucb, actions_lcb = mixucbI_query_part.get_ucb_lcb(context)
-            action_hat = np.argmax(actions_ucb)
-            width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
-        else:
-            if False:
-                As = [mixucbI_NotQuery_part.A[a] for a in range(n_actions)]
-                theta_sq = mixucbI_NotQuery_part.get_theta()
-                theta_lr, X_sum = mixucbI_query_part.get_optimization_parameters()
-                # TODO: possible speedup by maintaining sqrt(A) and updating recursively within lr_oracle
-                ### FOR DPP
-                As_sqrt = [sqrtm(A) for A in As]
-                X_sum_sqrt = sqrtm(X_sum)
-                print(X_sum)
-                print(theta_lr)
 
-                actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
-                                                           As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
-                # actions_ucb = opt_probDPP.solve_allactions(context.flatten(), theta_lr, 
-                #                                            X_sum, X_sum_sqrt, multithreading=False)
-                action_hat = np.argmax(actions_ucb)
+        actions_ucb, actions_lcb = online_reg_oracle.get_ucb_lcb(context)
+        action_hat = np.argmax(actions_ucb)
+        width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
+
+        # if i-TotalQ_mixucbI == 0:
+        #     # here we have not observed any linear regression data, so we can directly compute logreg confidence intervals
+        #     actions_ucb, actions_lcb = mixucbI_query_part.get_ucb_lcb(context)
+        #     action_hat = np.argmax(actions_ucb)
+        #     width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
+        # else:
+        #     if False:
+        #         As = [mixucbI_NotQuery_part.A[a] for a in range(n_actions)]
+        #         theta_sq = mixucbI_NotQuery_part.get_theta()
+        #         theta_lr, X_sum = mixucbI_query_part.get_optimization_parameters()
+        #         # TODO: possible speedup by maintaining sqrt(A) and updating recursively within lr_oracle
+        #         ### FOR DPP
+        #         As_sqrt = [sqrtm(A) for A in As]
+        #         X_sum_sqrt = sqrtm(X_sum)
+        #         print(X_sum)
+        #         print(theta_lr)
+
+        #         actions_ucb = opt_probDPP.solve_allactions(context.flatten(), np.array(theta_sq), theta_lr, 
+        #                                                    As, As_sqrt, X_sum, X_sum_sqrt, multithreading=False)
+        #         # actions_ucb = opt_probDPP.solve_allactions(context.flatten(), theta_lr, 
+        #         #                                            X_sum, X_sum_sqrt, multithreading=False)
+        #         action_hat = np.argmax(actions_ucb)
             
-                # action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
-                action_hat_lcb = opt_probDPP.solve(context.flatten(), theta_lr, X_sum, X_sum_sqrt, action_hat, ucb=False)
+        #         # action_hat_lcb = opt_probDPP.solve(context.flatten(), np.array(theta_sq), theta_lr, As, As_sqrt, X_sum, X_sum_sqrt, action_hat, ucb=False)
+        #         action_hat_lcb = opt_probDPP.solve(context.flatten(), theta_lr, X_sum, X_sum_sqrt, action_hat, ucb=False)
                 
-                width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
+        #         width_Ahat = np.abs(actions_ucb[action_hat] - action_hat_lcb)
 
-            actions_ucb_q, actions_lcb_q = mixucbI_query_part.get_ucb_lcb(context)
-            actions_ucb_nq, actions_lcb_nq = mixucbI_NotQuery_part.get_ucb_lcb(context)
-            actions_ucb = np.minimum(actions_ucb_q, actions_ucb_nq)
-            actions_lcb = np.maximum(actions_lcb_q, actions_lcb_nq)
-            action_hat = np.argmax(actions_ucb)
-            width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
+        #     actions_ucb_q, actions_lcb_q = mixucbI_query_part.get_ucb_lcb(context)
+        #     actions_ucb_nq, actions_lcb_nq = mixucbI_NotQuery_part.get_ucb_lcb(context)
+        #     actions_ucb = np.minimum(actions_ucb_q, actions_ucb_nq)
+        #     actions_lcb = np.maximum(actions_lcb_q, actions_lcb_nq)
+        #     action_hat = np.argmax(actions_ucb)
+        #     width_Ahat = np.abs(actions_ucb[action_hat] - actions_lcb[action_hat])
 
 
         # ic(width_Ahat > delta, width_Ahat, delta, actions_ucb, action_hat, theta_lr)  # False, -inf, 0.2
         if width_Ahat > delta:  # False
             TotalQ_mixucbI += 1
-            mixucbI_query_part.update(context, noisy_expert_action)
+            # mixucbI_query_part.update(context, noisy_expert_action)
+            online_reg_oracle.update(context, action=noisy_expert_action)
             q_mixucbI[i] = 1
             reward = true_rewards[noisy_expert_action]
             if i == 0:
@@ -95,7 +101,8 @@ def run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixu
                 CR_when_not_querying_list.append(CR_when_not_querying_list[-1])
         else:
             reward = true_rewards[action_hat]
-            mixucbI_NotQuery_part.update(action_hat, context, reward)
+            # mixucbI_NotQuery_part.update(action_hat, context, reward)
+            online_reg_oracle.update(context, action=action_hat, reward=reward)
             if i == 0:
                 CR_when_not_querying_list.append(reward)
             else:
@@ -152,11 +159,13 @@ if __name__ == "__main__":
         print('Makedir {}'.format(results))
         # for rep_id in range(5):
         # Initialize query and non-query parts
-        mixucbI_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
-        mixucbI_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
+        # mixucbI_query_part = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
+        # mixucbI_NotQuery_part = LinUCB(n_actions, n_features, alpha, lambda_)
+        online_reg_oracle = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta, rad_sq=alpha)
 
         # Run MixUCB-I using the pre-generated data
-        CR_mixucbI, TotalQ_mixucbI, q_mixucbI, action_hat_list, CR_when_not_querying_list = run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part)
+        # CR_mixucbI, TotalQ_mixucbI, q_mixucbI, action_hat_list, CR_when_not_querying_list = run_mixucbI(data, T, n_actions, delta, temperature, mixucbI_query_part, mixucbI_NotQuery_part)
+        CR_mixucbI, TotalQ_mixucbI, q_mixucbI, action_hat_list, CR_when_not_querying_list = run_mixucbI(data, T, n_actions, delta, temperature, online_reg_oracle)
 
         print(f"Finished running MixUCB-I for {T} rounds.")
 
