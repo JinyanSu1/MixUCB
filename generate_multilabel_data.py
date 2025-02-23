@@ -193,6 +193,33 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
 
     return data
 
+def reprocess_pkl(filename):
+    with open(filename, 'rb') as f:
+        data = pickle.load(f)
+    x_train = []
+    y_train = []
+    for step in data["rounds"]:
+        x_train.append(step["context"].ravel().astype(np.float64))
+        y_train.append(np.array(step["true_rewards"]).ravel().astype(np.float64))
+    x_train = normalize(x_train)
+
+    if "true_theta" in data.keys():
+        # synethic case, generating theta
+        data["true_theta_classification"] = data["true_theta"]
+    else:
+        true_theta = hindsight_theta(np.array(x_train),np.vstack(y_train),len(x_train[0]), len(y_train[0]))
+        true_theta_classification = hindsight_theta(np.array(x_train),np.argmax(y_train, axis=1),len(x_train[0]), len(y_train[0]), mode="classification")
+        data["true_theta"] = true_theta
+        data["true_theta_classification"] = true_theta_classification
+
+    for t in range(len(data["rounds"])):
+        data["rounds"][t]["context"] = x_train[t].reshape(1,-1)
+    
+    newfile = filename[:-4] + 'reprocessed.pkl'
+    with open(newfile, 'wb') as f:
+        pickle.dump(data, f)
+
+
 if __name__ == "__main__":
     # Argument parser for setting T, n_actions, n_features, and other parameters
     parser = argparse.ArgumentParser(description='Generate Data for T rounds and store in a pickle file')
@@ -204,16 +231,20 @@ if __name__ == "__main__":
     parser.add_argument('--output_file', type=str, default='multilabel_data.pkl', help='Output pickle file to store the data')
     parser.add_argument('--data_name', type=str, default='MedNIST',
                         help='specific data name')
+    parser.add_argument('--reprocess', type=str, default='')
 
     args = parser.parse_args()
 
-    args.output_file = args.output_file[:-4] + '_{}_{:02d}'.format(args.data_name, args.seed) + args.output_file[-4:]
+    if len(args.reprocess) > 0:
+        reprocess_pkl(args.reprocess) 
+    else:
+        args.output_file = args.output_file[:-4] + '_{}_{:02d}'.format(args.data_name, args.seed) + args.output_file[-4:]
 
-    # Generate the data
-    data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed, norm_features=True)
+        # Generate the data
+        data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed, norm_features=True)
 
-    # Save data to a pickle file
-    with open(args.output_file, 'wb') as f:
-        pickle.dump(data, f)
-    
-    # print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")
+        # Save data to a pickle file
+        with open(args.output_file, 'wb') as f:
+            pickle.dump(data, f)
+        
+        # print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")
