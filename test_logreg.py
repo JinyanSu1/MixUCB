@@ -1,4 +1,4 @@
-from utils.linucb import CombinedLinearModel
+from utils.regression_ucb import CombinedLinearModel
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt

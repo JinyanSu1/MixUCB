@@ -1,6 +1,6 @@
 import numpy as np
 import pickle
-from utils.linucb import LinUCB, OnlineLogisticRegressionOracle
+from utils.regression_ucb import MixUCB, OnlineLogisticRegressionOracle
 import argparse
 from tqdm import tqdm
 import logging

@@ -3,8 +3,13 @@ from scipy.linalg import inv
 from sklearn.linear_model import SGDClassifier, LogisticRegression
 from icecream import ic
 import argparse
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.base import BaseEstimator, ClassifierMixin
+import warnings
 
-class LinUCB:
+class MixUCB:
     def __init__(self, n_actions, n_features, alpha=1.0, lambda_=1.0):
         self.n_actions = n_actions
         self.n_features = n_features
@@ -39,34 +44,6 @@ class LinUCB:
             ucb.append(theta_a.dot(context) + sigma_a)
             lcb.append(theta_a.dot(context) - sigma_a)
         return np.array(ucb), np.array(lcb)
-
-def initialize_ucb_algorithms(n_actions, n_features, alpha, lambda_, learning_rate = 1.0, beta= 1.0):
-    """Initialize UCB algorithms."""
-    mixucb = LinUCB(n_actions, n_features, alpha, lambda_)
-    linucb = LinUCB(n_actions, n_features, alpha, lambda_)
-    always_query_ucb = LinUCB(n_actions, n_features, alpha, lambda_)
-    online_lr_oracle = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta)
-    online_sq_oracle= LinUCB(n_actions, n_features, alpha, lambda_)
-    return mixucb, linucb, always_query_ucb, online_lr_oracle, online_sq_oracle
-
-
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from sklearn.base import BaseEstimator, ClassifierMixin
-import warnings
-
-
-class TorchLogReg(nn.Module): 
-    def __init__(self, input_size, num_classes): 
-        super(LogisticRegression, self).__init__() 
-        self.linear = nn.Linear(input_size, num_classes, bias=False) 
-        self.criterion = nn.CrossEntropyLoss() 
-  
-    def forward(self, x): 
-        out = self.linear(x) 
-        out = nn.functional.softmax(out, dim=1) 
-        return out 
 
 
 class CombinedLinearModel(BaseEstimator, ClassifierMixin):
@@ -137,10 +114,7 @@ class CombinedLinearModel(BaseEstimator, ClassifierMixin):
         outputs = self.model(X_tensor)
         return torch.softmax(outputs, dim=1).detach().numpy()
 
-
-
-
-class CombinedOnlineRegressionOracle:
+class OnlineLogisticRegressionOracle:
     def __init__(self, n_features, n_actions, learning_rate, reg_coeff, rad_log, rad_sq=None, max_epochs=1000, tol=1e-4):
         self.model = CombinedLinearModel(n_features, n_actions, lr=learning_rate, weight_decay=reg_coeff/2, epochs=max_epochs, tol=tol)
         self.n_actions = n_actions
@@ -202,5 +176,3 @@ class CombinedOnlineRegressionOracle:
             ucb.append(theta[a].dot(context) + sigma)
             lcb.append(theta[a].dot(context) - sigma)
         return np.array(ucb), np.array(lcb)
-
-OnlineLogisticRegressionOracle = CombinedOnlineRegressionOracle

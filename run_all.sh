@@ -13,4 +13,4 @@ python run_allucb.py --mode mixIII --pickle_file ${PICKLE_FILE} --alpha ${ALPHA}
 # python run_noisy_expert.py --pickle_file ${PICKLE_FILE} --temperature ${TEMP} --data_name ${data_name}
 # python run_noisy_expert.py --pickle_file ${PICKLE_FILE} --temperature 0.1 --data_name ${data_name}
 # python run_perfect_expert.py --pickle_file ${PICKLE_FILE} --data_name ${data_name}
-python plot_tools_new.py --data_name ${data_name}
+python plot_tools.py --data_name ${data_name}
