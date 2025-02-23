@@ -18,12 +18,24 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
     query_per_time = np.zeros(T)
     action_per_time = []
 
+    data_len = len(data["rounds"])
+    permutation = np.arange(data_len, dtype=int)
+
     for i in tqdm(range(T)):
         logging.info(f'Running UCB {mode} - round: {i}')
+
+        # Compute data index if i > T
+        if i == 0:
+            data_ind = i
+        else:
+            ind = i % data_len
+            if ind == 0:
+                np.random.shuffle(permutation) # TODO random seed
+            data_ind = permutation[ind]
         
         # Load pre-generated context and rewards for the current round
-        context = data["rounds"][i]["context"]
-        true_rewards = data["rounds"][i]["true_rewards"]
+        context = data["rounds"][data_ind]["context"]
+        true_rewards = data["rounds"][data_ind]["true_rewards"]
 
         # Calculate UCB and LCB
         ucb,lcb = online_reg_oracle.get_ucb_lcb(context)
@@ -73,7 +85,7 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run UCB Baseline')
     parser.add_argument('--mode', type=str, default='lin', help='must be: lin, mixI, mixII, or mixIII')
-    parser.add_argument('--T', type=int, default=1000)
+    parser.add_argument('--T', type=int, default=0)
     parser.add_argument('--delta', nargs='+', type=float, default=[4., 5., 6., 7., 8.])
     parser.add_argument('--lambda_', type=float, default=0.001, help='regularization weight')
     parser.add_argument('--pickle_file', type=str, default='simulation_data.pkl', help='Path to the pickle file containing pre-generated data')
@@ -97,7 +109,7 @@ if __name__ == "__main__":
     n_actions = len(data["rounds"][0]["true_rewards"])  # Number of actions
     n_features = data["rounds"][0]["context"].shape[1]
     # Extract the number of rounds (T) from the data
-    T = args.T if args.T <= len(data["rounds"]) else len(data["rounds"])
+    T = args.T if args.T > 0 else len(data["rounds"])
 
     # Initialize parameters
     delta_list = args.delta
