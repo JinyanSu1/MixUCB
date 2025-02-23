@@ -13,13 +13,16 @@ def extract_from(filename):
     with open(filename, 'rb') as f:
         data = pickle.load(f)
         reward_per_time = data['reward_per_time']
-        query_per_time = data['query_per_time']
+        try:
+            query_per_time = data['query_per_time']
+        except KeyError:
+            query_per_time = None
         action_per_time = data['action_per_time']
     return reward_per_time, query_per_time, action_per_time
 
 def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_name=''):
     os.makedirs(Figure_dir, exist_ok=True)
-    modes = ['lin', 'mixI', 'mixII', 'mixIII']
+    modes = ['lin', 'mixI', 'mixII', 'mixIII', 'sq_oracle', 'lr_oracle']
     rewards = {}
     queries = {}
     actions = {}
@@ -27,7 +30,16 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     delta_values = [4., 5., 6., 7., 8.]  # [0.2, 0.5, 1., 2., 5.]
 
     for mode in modes:
-        if mode == 'lin':
+        if mode in ['sq_oracle', 'lr_oracle']:
+            rewards[mode] = []
+            actions[mode] = []
+            dirname = os.path.join(result_root, f'{mode}_results{result_postfix}')
+            pkls = os.listdir(dirname)
+            for pklname in pkls:
+                reward_per_time, _, action_per_time = extract_from(os.path.join(dirname,pklname))
+                rewards[mode].append(reward_per_time)
+                actions[mode].append(action_per_time)
+        elif mode == 'lin':
             rewards[mode] = []
             queries[mode] = []
             actions[mode] = []
@@ -73,7 +85,10 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
         return np.array(ret)
     # cumulative reward over time
     for mode in modes:
-        if mode == 'lin':
+        if mode in ['sq_oracle', 'lr_oracle']:
+            cumulative_rewards[mode] = np.mean(accum(rewards[mode]), axis=0)
+            avg_reward_noquery[mode] = np.mean(masked_avg(rewards[mode],np.zeros_like(rewards[mode])), axis=0)
+        elif mode == 'lin':
             cumulative_rewards[mode] = np.mean(accum(rewards[mode]), axis=0)
             cumulative_queries[mode] = np.mean(accum(queries[mode]), axis=0)
             avg_reward_noquery[mode] = np.mean(masked_avg(rewards[mode], queries[mode]), axis=0)
@@ -88,6 +103,8 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
 
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
     for each_delta, ax in zip(delta_values, axs):
+        ax.plot(cumulative_rewards['sq_oracle'], label='sq_oracle')
+        ax.plot(cumulative_rewards['lr_oracle'], label='lr_oracle')
         ax.plot(cumulative_rewards['lin'], label='lin')
         for mode in ['mixI','mixII', 'mixIII']:
             ax.plot(cumulative_rewards[mode][each_delta], label=mode)
@@ -110,6 +127,8 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
 
     fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
     for each_delta, ax in zip(delta_values, axs):
+        ax.plot(avg_reward_noquery['sq_oracle'], label='sq_oracle')
+        ax.plot(avg_reward_noquery['lr_oracle'], label='lr_oracle')
         ax.plot(avg_reward_noquery['lin'], label='lin')
         for mode in ['mixI','mixII', 'mixIII']:
             ax.plot(avg_reward_noquery[mode][each_delta], label=mode)

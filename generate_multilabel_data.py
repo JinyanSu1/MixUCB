@@ -15,6 +15,17 @@ from PIL import Image
 import cv2
 from sklearn.utils import shuffle
 from sklearn.preprocessing import normalize
+from utils.regression_ucb import CombinedLinearModel
+
+
+def hindsight_theta(X, y, n_features, n_actions,  mode="regression"):
+    assert mode in ["regression", "classification"]
+    model = CombinedLinearModel(n_features, n_actions, lr=0.1, weight_decay=0)
+    if mode == "regression":
+        model.fit([],[],X_sq=X,y_sq=y)
+    else:
+        model.fit(X, y)
+    return model.coef_
 
 # Function to load dataset
 def load_scene_classification_dataset(filepath):
@@ -152,12 +163,18 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
 
     if norm_features:
         x_train = normalize(x_train)
+
+    onehotlabels = np.zeros((len(x_train), num_classes))
+    onehotlabels[y_train] = 1
+    true_theta = hindsight_theta(np.array(x_train),onehotlabels,len(x_train[0]), num_classes)
+    true_theta_classification = hindsight_theta(np.array(x_train),np.array(y_train).ravel(),len(x_train[0]), num_classes, mode="classification")
     
     data = {
-        "true_theta": [],
+        "true_theta": true_theta,
+        "true_theta_classification": true_theta_classification,
         "rounds": []
     }
-    label_length = list()
+
     for t in range(len(x_train)):
         context = np.asarray(x_train[t])[None]  # (1, 294)
         action = np.asarray(y_train[t])  #
@@ -165,17 +182,12 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
         true_rewards = np.zeros(num_classes) #
         for i, a in enumerate(action):
             true_rewards[int(a)] = 1.
-        if t == 0:
-            ic(context.shape, action.shape, true_rewards.shape)
-            ic(context, action, true_rewards)
-        #     context.shape: (294,)
-        #     action.shape: (1,)
-        #     true_rewards.shape: (6,)
-        ic(action, true_rewards)
-        label_length.append(len(action))
+        # TODO true reward vs expected reward
+
         data["rounds"].append({
             "context": context,
-            "true_rewards": true_rewards,
+            "onehot_label": true_rewards,
+            "true_rewards": np.array([]),
         })
     print('{} data samples.'.format(len(x_train)))
 

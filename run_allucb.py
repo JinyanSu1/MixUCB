@@ -12,8 +12,16 @@ import argparse
 logging.basicConfig(filename='simulation.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+def expert_choice(rewards, r=np.inf):
+    if r == np.inf:
+        return np.argmax(rewards)
+    else:
+        # TODO seed
+        return np.random.choice(len(rewards), p=np.exp(r*rewards)/sum(np.exp(r*rewards)))
+
 def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
     assert mode in ['lin','mixI','mixII','mixIII']
+    rationality = 1 # TODO make argument
     reward_per_time = np.zeros(T)
     query_per_time = np.zeros(T)
     action_per_time = []
@@ -35,7 +43,13 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
         
         # Load pre-generated context and rewards for the current round
         context = data["rounds"][data_ind]["context"]
-        true_rewards = data["rounds"][data_ind]["true_rewards"]
+        # todo expected vs actual rewards
+        if len(data["rounds"][data_ind]["true_rewards"]) == 0:
+            true_rewards = data["rounds"][data_ind]["onehot_label"]
+            classification = True
+        else:
+            true_rewards = data["rounds"][data_ind]["true_rewards"]
+            classification = False
 
         # Calculate UCB and LCB
         ucb,lcb = online_reg_oracle.get_ucb_lcb(context)
@@ -50,13 +64,16 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
                 query_per_time[i] = 1
 
                 if mode == 'mixIII':
-                    expert_action = np.argmax(true_rewards) # TODO different for synthetic - true rewards vs labels
+                    expert_action = np.argmax(true_rewards) # TODO synthetic and noise?
                 else:
-                    expert_action = np.argmax(true_rewards) # TODO different for synthetic - true rewards vs labels
+                    if classification:
+                        expert_action = np.argmax(true_rewards)
+                    else:
+                        expert_action = expert_choice(true_rewards, r=rationality)
                 reward = true_rewards[expert_action]
                 
                 if mode == 'mixIII':
-                    online_reg_oracle.update(context,rewards=true_rewards) # TODO add noise?
+                    online_reg_oracle.update(context,rewards=true_rewards) # TODO synthetic and noise?
                 elif mode == 'mixII':
                     online_reg_oracle.update(context, action=expert_action) 
                     online_reg_oracle.update(context, action=expert_action, reward=reward)
@@ -82,9 +99,50 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
 
     return reward_per_time, query_per_time, action_per_time
 
+def run_linear_oracle(data, T, theta):
+    reward_per_time = np.zeros(T)
+    action_per_time = []
+
+
+    data_len = len(data["rounds"])
+    permutation = np.arange(data_len, dtype=int)
+
+    for i in tqdm(range(T)):
+        logging.info(f'Running linear oracle - round: {i}')
+
+        # Compute data index if i > T
+        if i == 0:
+            data_ind = i
+        else:
+            ind = i % data_len
+            if ind == 0:
+                np.random.shuffle(permutation) # TODO random seed
+            data_ind = permutation[ind]
+        
+        # Load pre-generated context and rewards for the current round
+        context = data["rounds"][data_ind]["context"]
+
+        if len(data["rounds"][data_ind]["true_rewards"]) == 0:
+            true_rewards = data["rounds"][data_ind]["onehot_label"]
+        else:
+            true_rewards = data["rounds"][data_ind]["true_rewards"]
+
+        est_rewards = np.dot(theta, context.ravel())
+        action = np.argmax(est_rewards)
+
+        reward = true_rewards[action]
+        reward_per_time[i] = reward
+        action_per_time.append(action)
+
+        logging.info(f'oracle: reward {reward}')
+
+    return reward_per_time, action_per_time
+
+    pass
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run UCB Baseline')
-    parser.add_argument('--mode', type=str, default='lin', help='must be: lin, mixI, mixII, or mixIII')
+    parser.add_argument('--mode', type=str, default='lin', help='must be: lin, mixI, mixII, mixIII, sq_oracle, lr_oracle')
     parser.add_argument('--T', type=int, default=0)
     parser.add_argument('--delta', nargs='+', type=float, default=[4., 5., 6., 7., 8.])
     parser.add_argument('--lambda_', type=float, default=0.001, help='regularization weight')
@@ -106,7 +164,11 @@ if __name__ == "__main__":
         data = pickle.load(f)
 
     # Extract n_actions and n_features from the data
-    n_actions = len(data["rounds"][0]["true_rewards"])  # Number of actions
+    if len(data["rounds"][0]["true_rewards"]) == 0:
+        n_actions = len(data["rounds"][0]["onehot_label"])
+    else:
+        n_actions = len(data["rounds"][0]["true_rewards"])
+      # Number of actions
     n_features = data["rounds"][0]["context"].shape[1]
     # Extract the number of rounds (T) from the data
     T = args.T if args.T > 0 else len(data["rounds"])
@@ -120,30 +182,54 @@ if __name__ == "__main__":
     data_name = args.data_name
     mode = args.mode
 
-    if mode == 'lin':
-        delta_list = [0]
-    
-    for delta in delta_list:
-        results = os.path.join(data_name, '{}_ucb_results'.format(mode), '{}'.format(delta))
+    if mode in ['sq_oracle', 'lr_oracle']:
+        results = os.path.join(data_name, '{}_results'.format(mode))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
 
-        online_reg_oracle = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta, rad_sq=alpha)
+        if mode == 'sq_oracle':
+            theta = data['true_theta']
+        else:
+            theta = data['true_theta_classification']
 
         # Run using the pre-generated data
-        reward_per_time, query_per_time, action_per_time = run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=mode)
+        reward_per_time, action_per_time = run_linear_oracle(data, T, theta)
 
-        print(f"Finished running {mode} UCB for {T} rounds.")
+        print(f"Finished running {mode} for {T} rounds.")
 
         pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
         dict_to_save = {
             'reward_per_time': reward_per_time,
-            'query_per_time': query_per_time,
             'action_per_time': action_per_time,
-            'alpha': args.alpha,
-            'beta': args.beta,
-            'lambda_': args.lambda_,
         }
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)
         print('Saved to {}'.format(pkl_name))
+    else:
+        if mode == 'lin':
+            delta_list = [0]
+        
+        for delta in delta_list:
+            results = os.path.join(data_name, '{}_ucb_results'.format(mode), '{}'.format(delta))
+            os.makedirs(results, exist_ok=True)
+            print('Makedir {}'.format(results))
+
+            online_reg_oracle = OnlineLogisticRegressionOracle(n_features, n_actions, learning_rate, lambda_, beta, rad_sq=alpha)
+
+            # Run using the pre-generated data
+            reward_per_time, query_per_time, action_per_time = run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=mode)
+
+            print(f"Finished running {mode} UCB for {T} rounds.")
+
+            pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+            dict_to_save = {
+                'reward_per_time': reward_per_time,
+                'query_per_time': query_per_time,
+                'action_per_time': action_per_time,
+                'alpha': args.alpha,
+                'beta': args.beta,
+                'lambda_': args.lambda_,
+            }
+            with open(pkl_name, 'wb') as f:
+                pickle.dump(dict_to_save, f)
+            print('Saved to {}'.format(pkl_name))
