@@ -178,16 +178,15 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
     for t in range(len(x_train)):
         context = np.asarray(x_train[t])[None]  # (1, 294)
         action = np.asarray(y_train[t])  #
-        # true_rewards = np.ones_like(action)  #
-        true_rewards = np.zeros(num_classes) #
+        actual_rewards = np.zeros(num_classes) #
         for i, a in enumerate(action):
-            true_rewards[int(a)] = 1.
+            actual_rewards[int(a)] = 1.
         # TODO true reward vs expected reward
 
         data["rounds"].append({
             "context": context,
-            "onehot_label": true_rewards,
-            "true_rewards": np.array([]),
+            "actual_rewards": actual_rewards,
+            "expected_rewards": np.array([]),
         })
     print('{} data samples.'.format(len(x_train)))
 
@@ -203,8 +202,11 @@ def reprocess_pkl(filename):
         y_train.append(np.array(step["true_rewards"]).ravel().astype(np.float64))
     x_train = normalize(x_train)
 
+    synthetic = False
+
     if "true_theta" in data.keys():
         # synethic case, generating theta
+        synthetic = True
         data["true_theta_classification"] = data["true_theta"]
     else:
         true_theta = hindsight_theta(np.array(x_train),np.vstack(y_train),len(x_train[0]), len(y_train[0]))
@@ -214,6 +216,13 @@ def reprocess_pkl(filename):
 
     for t in range(len(data["rounds"])):
         data["rounds"][t]["context"] = x_train[t].reshape(1,-1)
+        if synthetic:
+            data["rounds"][t]["actual_rewards"] = data["rounds"][t]["true_rewards"]
+            data["rounds"][t]["expected_rewards"] = np.dot(data["true_theta"],x_train[t])
+        else:
+            # sample 0/1 success
+            data["rounds"][t]["actual_rewards"] = np.random.binomial(1, p=data["rounds"][t]["true_rewards"])
+            data["rounds"][t]["expected_rewards"] = data["rounds"][t]["true_rewards"]
     
     newfile = filename[:-4] + 'reprocessed.pkl'
     with open(newfile, 'wb') as f:

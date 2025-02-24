@@ -43,14 +43,10 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
         
         # Load pre-generated context and rewards for the current round
         context = data["rounds"][data_ind]["context"]
-        # todo expected vs actual rewards
-        if len(data["rounds"][data_ind]["true_rewards"]) == 0:
-            true_rewards = data["rounds"][data_ind]["onehot_label"]
-            classification = True
-        else:
-            true_rewards = data["rounds"][data_ind]["true_rewards"]
-            classification = False
-
+        # expected vs actual rewards
+        expected_rewards = data["rounds"][data_ind]["expected_rewards"] # empty for classification datasets
+        actual_rewards = data["rounds"][data_ind]["actual_rewards"]
+        
         # Calculate UCB and LCB
         ucb,lcb = online_reg_oracle.get_ucb_lcb(context)
         action_hat = np.argmax(ucb)
@@ -64,16 +60,24 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
                 query_per_time[i] = 1
 
                 if mode == 'mixIII':
-                    expert_action = np.argmax(true_rewards) # TODO synthetic and noise?
-                else:
-                    if classification:
-                        expert_action = np.argmax(true_rewards)
+                    # todo: should mixIII expert know expected or noisy rewards?
+                    if len(expected_rewards) == 0:
+                        expert_action = np.argmax(actual_rewards)
                     else:
-                        expert_action = expert_choice(true_rewards, r=rationality)
-                reward = true_rewards[expert_action]
+                        expert_action = np.argmax(expected_rewards)
+                else:
+                    if len(expected_rewards) == 0:
+                        expert_action = np.argmax(actual_rewards)
+                    else:
+                        expert_action = expert_choice(expected_rewards, r=rationality)
+                reward = actual_rewards[expert_action]
                 
                 if mode == 'mixIII':
-                    online_reg_oracle.update(context,rewards=true_rewards) # TODO synthetic and noise?
+                    # todo: should mixIII expert know expected or noisy rewards?
+                    if len(expected_rewards) == 0:
+                        online_reg_oracle.update(context,rewards=actual_rewards)
+                    else:
+                        online_reg_oracle.update(context,rewards=expected_rewards)
                 elif mode == 'mixII':
                     online_reg_oracle.update(context, action=expert_action) 
                     online_reg_oracle.update(context, action=expert_action, reward=reward)
@@ -81,11 +85,11 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
                     online_reg_oracle.update(context, action=expert_action)
             else:
                 # take action_hat and update online regression
-                reward = true_rewards[action_hat]
+                reward = actual_rewards[action_hat]
                 online_reg_oracle.update(context, action=action_hat, reward=reward)
 
         else:
-            reward = true_rewards[action_hat]
+            reward = actual_rewards[action_hat]
             online_reg_oracle.update(context, action=action_hat, reward=reward)
 
         reward_per_time[i] = reward
@@ -122,15 +126,12 @@ def run_linear_oracle(data, T, theta):
         # Load pre-generated context and rewards for the current round
         context = data["rounds"][data_ind]["context"]
 
-        if len(data["rounds"][data_ind]["true_rewards"]) == 0:
-            true_rewards = data["rounds"][data_ind]["onehot_label"]
-        else:
-            true_rewards = data["rounds"][data_ind]["true_rewards"]
+        actual_rewards = data["rounds"][data_ind]["actual_rewards"]
 
         est_rewards = np.dot(theta, context.ravel())
         action = np.argmax(est_rewards)
 
-        reward = true_rewards[action]
+        reward = actual_rewards[action]
         reward_per_time[i] = reward
         action_per_time.append(action)
 
@@ -164,11 +165,7 @@ if __name__ == "__main__":
         data = pickle.load(f)
 
     # Extract n_actions and n_features from the data
-    if len(data["rounds"][0]["true_rewards"]) == 0:
-        n_actions = len(data["rounds"][0]["onehot_label"])
-    else:
-        n_actions = len(data["rounds"][0]["true_rewards"])
-      # Number of actions
+    n_actions = len(data["rounds"][0]["actual_rewards"])
     n_features = data["rounds"][0]["context"].shape[1]
     # Extract the number of rounds (T) from the data
     T = args.T if args.T > 0 else len(data["rounds"])
