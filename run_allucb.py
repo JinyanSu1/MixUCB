@@ -198,6 +198,7 @@ if __name__ == "__main__":
         dict_to_save = {
             'reward_per_time': reward_per_time,
             'action_per_time': action_per_time,
+            'delta_list': delta_list
         }
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)
@@ -226,6 +227,7 @@ if __name__ == "__main__":
                 'alpha': args.alpha,
                 'beta': args.beta,
                 'lambda_': args.lambda_,
+                'delta_list': delta_list
             }
             with open(pkl_name, 'wb') as f:
                 pickle.dump(dict_to_save, f)

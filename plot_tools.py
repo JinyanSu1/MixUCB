@@ -27,7 +27,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     queries = {}
     actions = {}
 
-    delta_values = [4., 5., 6., 7., 8.]  # [0.2, 0.5, 1., 2., 5.]
+    delta_values = None
 
     for mode in modes:
         if mode in ['sq_oracle', 'lr_oracle']:
@@ -54,7 +54,13 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
             rewards[mode] = {}
             queries[mode] = {}
             actions[mode] = {}
+            new_delta_values = np.sort(os.listdir(os.path.join(result_root, f'{mode}_ucb_results{result_postfix}')))
+            if delta_values is not None:
+                assert (delta_values == new_delta_values).all()
+            else:
+                delta_values = new_delta_values
             for each_delta in delta_values:
+                print(each_delta)
                 rewards[mode][each_delta] = []
                 queries[mode][each_delta] = []
                 actions[mode][each_delta] = []
@@ -101,7 +107,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
                 cumulative_queries[mode][each_delta] = np.mean(accum(queries[mode][each_delta]), axis=0)
                 avg_reward_noquery[mode][each_delta] = np.mean(masked_avg(rewards[mode][each_delta], queries[mode][each_delta]), axis=0)
 
-    fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
+    fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
     for each_delta, ax in zip(delta_values, axs):
         ax.plot(cumulative_rewards['sq_oracle'], label='sq_oracle')
         ax.plot(cumulative_rewards['lr_oracle'], label='lr_oracle')
@@ -114,7 +120,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     fig.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'cumulative_reward.png'), format='jpg', dpi=300, bbox_inches='tight')
 
-    fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
+    fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
     for each_delta, ax in zip(delta_values, axs):
         ax.plot(cumulative_queries['lin'], label='lin')
         for mode in ['mixI','mixII', 'mixIII']:
@@ -125,7 +131,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     fig.tight_layout()
     fig.savefig(os.path.join(Figure_dir, f'cumulative_queries.png'), format='jpg', dpi=300, bbox_inches='tight')
 
-    fig, axs = plt.subplots(1, len(delta_values), figsize=(18, 3))
+    fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
     for each_delta, ax in zip(delta_values, axs):
         ax.plot(avg_reward_noquery['sq_oracle'], label='sq_oracle')
         ax.plot(avg_reward_noquery['lr_oracle'], label='lr_oracle')
