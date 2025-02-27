@@ -6,6 +6,7 @@ import pickle
 import numpy as np
 import argparse
 from icecream import ic
+import seaborn as sns
 
 
 def extract_from(filename):
@@ -22,14 +23,27 @@ def extract_from(filename):
 
 def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_name=''):
     os.makedirs(Figure_dir, exist_ok=True)
-    modes = ['lin', 'mixI', 'mixII', 'mixIII', 'sq_oracle', 'lr_oracle']
+    colors_list = sns.color_palette('colorblind', n_colors=6)
+    modes = {'lin':['LinUCB'], 
+             'mixI':['MixUCB-I'], 
+             'mixII':['MixUCB-II'],
+             'mixIII':['MixUCB-III'], 
+             'sq_oracle':['Lin Oracle (Regression)'], 
+             'lr_oracle':['Lin Oracle (Classification)']}
+    for mode, color in zip(modes.keys(), colors_list):
+        modes[mode].append(color)
+    marker_list = [".", "o", "v", "s", "+", "D"]
+    assert len(marker_list) >= len(modes.keys())
+    for mode, marker in zip(modes.keys(), marker_list):
+        modes[mode].append(marker)
+    markerevery = 30
     rewards = {}
     queries = {}
     actions = {}
 
     delta_values = None
 
-    for mode in modes:
+    for mode in modes.keys():
         if mode in ['sq_oracle', 'lr_oracle']:
             rewards[mode] = []
             actions[mode] = []
@@ -90,7 +104,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
 
         return np.array(ret)
     # cumulative reward over time
-    for mode in modes:
+    for mode in modes.keys():
         if mode in ['sq_oracle', 'lr_oracle']:
             cumulative_rewards[mode] = np.mean(accum(rewards[mode]), axis=0)
             avg_reward_noquery[mode] = np.mean(masked_avg(rewards[mode],np.zeros_like(rewards[mode])), axis=0)
@@ -107,42 +121,45 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
                 cumulative_queries[mode][each_delta] = np.mean(accum(queries[mode][each_delta]), axis=0)
                 avg_reward_noquery[mode][each_delta] = np.mean(masked_avg(rewards[mode][each_delta], queries[mode][each_delta]), axis=0)
 
-    fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
-    for each_delta, ax in zip(delta_values, axs):
-        ax.plot(cumulative_rewards['sq_oracle'], label='sq_oracle')
-        ax.plot(cumulative_rewards['lr_oracle'], label='lr_oracle')
-        ax.plot(cumulative_rewards['lin'], label='lin')
+    fig_list, axs_list = [], []
+    for i, each_delta in enumerate(delta_values):
+        fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
+        fig_list.append(fig)
+        axs_list.append(axs)
+    
+    for i, each_delta in enumerate(delta_values):
+        ax = axs_list[i][0]
+        for mode in ['sq_oracle', 'lr_oracle', 'lin']:
+            ax.plot(cumulative_rewards[mode], label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
         for mode in ['mixI','mixII', 'mixIII']:
-            ax.plot(cumulative_rewards[mode][each_delta], label=mode)
-        ax.set_title(each_delta)
-        ax.legend()
-    fig.suptitle('cumulative reward')
-    fig.tight_layout()
-    fig.savefig(os.path.join(Figure_dir, f'cumulative_reward.png'), format='jpg', dpi=300, bbox_inches='tight')
+            ax.plot(cumulative_rewards[mode][each_delta], label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
+        ax.set_title('Cumulative Reward ($\Delta={}$)'.format(each_delta))
+        ax.set_xlabel('time steps')
 
-    fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
-    for each_delta, ax in zip(delta_values, axs):
-        ax.plot(cumulative_queries['lin'], label='lin')
+    for i, each_delta in enumerate(delta_values):
+        ax = axs_list[i][2]
         for mode in ['mixI','mixII', 'mixIII']:
-            ax.plot(cumulative_queries[mode][each_delta], label=mode)
-        ax.set_title(each_delta)
-        ax.legend()
-    fig.suptitle('cumulative queries')
-    fig.tight_layout()
-    fig.savefig(os.path.join(Figure_dir, f'cumulative_queries.png'), format='jpg', dpi=300, bbox_inches='tight')
+            ax.plot(cumulative_queries[mode][each_delta], label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
+        ax.set_title('Cumulative Queries ($\Delta={}$)'.format(each_delta))
+        ax.set_xlabel('time steps')
 
-    fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
-    for each_delta, ax in zip(delta_values, axs):
-        ax.plot(avg_reward_noquery['sq_oracle'], label='sq_oracle')
-        ax.plot(avg_reward_noquery['lr_oracle'], label='lr_oracle')
-        ax.plot(avg_reward_noquery['lin'], label='lin')
+    for i, each_delta in enumerate(delta_values):
+        ax = axs_list[i][1]
+        for mode in ['sq_oracle', 'lr_oracle', 'lin']:
+            ax.plot(avg_reward_noquery[mode], label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
         for mode in ['mixI','mixII', 'mixIII']:
-            ax.plot(avg_reward_noquery[mode][each_delta], label=mode)
-        ax.set_title(each_delta)
-        ax.legend()
-    fig.suptitle('average no-query reward')
-    fig.tight_layout()
-    fig.savefig(os.path.join(Figure_dir, f'average_noquery_reward.png'), format='jpg', dpi=300, bbox_inches='tight')
+            ax.plot(avg_reward_noquery[mode][each_delta], label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
+        ax.set_title('Average Autonomus Reward ($\Delta={}$)'.format(each_delta))
+        ax.set_xlabel('time steps')
+
+    handles, labels = axs_list[0][0].get_legend_handles_labels()
+    for i, each_delta in enumerate(delta_values):
+        fig = fig_list[i]
+        fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 0.0),
+                  fancybox=True, shadow=True, ncol=6)    
+        fig.tight_layout()
+        fig.savefig(os.path.join(Figure_dir, f'delta{each_delta}.pdf'), format='pdf', dpi=300, bbox_inches='tight')
+
 
 
 if __name__ == '__main__':
