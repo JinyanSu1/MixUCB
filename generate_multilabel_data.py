@@ -44,8 +44,10 @@ def scaleImage(x):          # Pass a PIL image, return a tensor
     z = y - y.mean()        # Subtract the mean value of the image
     return z
 
-def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', norm_features=False):
+def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', norm_features=False):
     '''
+    Specifically for medical datasets.
+
     data_name='MedNIST', 'yeast'
     '''
     # Set random seed for reproducibility
@@ -193,6 +195,16 @@ def generate_data(T, n_actions, n_features, noise_std, seed, data_name='heart_di
     return data
 
 def reprocess_pkl(filename):
+    """
+    Reprocesses an existing data pickle file. Handles either synthetic data or non-synthetic data (spanet data).
+    - Adds "true_theta" and "true_theta_classification" to data dictionary.
+    - Populates 'actual_rewards' and 'expected_rewards' for each round.
+    
+    Dumps the reprocessed data to a new pickle file with the same name as the input file, but with 'reprocessed' appended to the name.
+    """
+    # Compile x and y labels. Also normalizes x.
+    # x --> context
+    # y --> true_rewards (synthetic: these are actual rewards, non-synthetic: these are expected rewards)
     with open(filename, 'rb') as f:
         data = pickle.load(f)
     x_train = []
@@ -209,11 +221,13 @@ def reprocess_pkl(filename):
         synthetic = True
         data["true_theta_classification"] = data["true_theta"]
     else:
+        # non-synthetic case. Generating thetas from hindsight (both regression and classification)
         true_theta = hindsight_theta(np.array(x_train),np.vstack(y_train),len(x_train[0]), len(y_train[0]))
         true_theta_classification = hindsight_theta(np.array(x_train),np.argmax(y_train, axis=1),len(x_train[0]), len(y_train[0]), mode="classification")
         data["true_theta"] = true_theta
         data["true_theta_classification"] = true_theta_classification
 
+    # Populate data with new context and new expected rewards.
     for t in range(len(data["rounds"])):
         data["rounds"][t]["context"] = x_train[t].reshape(1,-1)
         if synthetic:
@@ -250,7 +264,7 @@ if __name__ == "__main__":
         args.output_file = args.output_file[:-4] + '_{}_{:02d}'.format(args.data_name, args.seed) + args.output_file[-4:]
 
         # Generate the data
-        data = generate_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed, norm_features=True)
+        data = generate_medical_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed, norm_features=True)
 
         # Save data to a pickle file
         with open(args.output_file, 'wb') as f:
