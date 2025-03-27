@@ -149,7 +149,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
             ax.plot(avg_reward_noquery[mode], label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
         for mode in ['mixI','mixII', 'mixIII']:
             ax.plot(avg_reward_noquery[mode][each_delta], label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
-        ax.set_title('Average Autonomus Reward ($\Delta={}$)'.format(each_delta))
+        ax.set_title('Average Autonomous Reward ($\Delta={}$)'.format(each_delta))
         ax.set_xlabel('time steps')
 
     handles, labels = axs_list[0][0].get_legend_handles_labels()
