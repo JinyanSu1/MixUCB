@@ -18,6 +18,8 @@ from sklearn.preprocessing import normalize
 from utils.regression_ucb import CombinedLinearModel
 
 
+## UTILITIES
+
 def hindsight_theta(X, y, n_features, n_actions,  mode="regression"):
     assert mode in ["regression", "classification"]
     model = CombinedLinearModel(n_features, n_actions, lr=0.1, weight_decay=0)
@@ -43,6 +45,56 @@ def scaleImage(x):          # Pass a PIL image, return a tensor
         y = (y - y.min())/(y.max() - y.min())
     z = y - y.mean()        # Subtract the mean value of the image
     return z
+
+## MAIN METHODS.
+
+def generate_synthetic_data(T, noise_std, seed):
+    """
+    Seed should affect the following: context sequence, true rewards, (indirectly - expected rewards), expert choices.
+    Derived from: https://github.com/JinyanSu1/MixUCB/blob/devel/rohan/generate_toy_data.py
+
+    Returns:
+        data
+    """
+    # Set np global random seed for reproducibility
+    np.random.seed(seed)
+
+    # Generate true weights (theta) for actions
+    true_weights = np.array([[np.cos(0),np.sin(0)],[np.cos(2/3*np.pi),np.sin(2/3*np.pi)],[np.cos(4/3*np.pi),np.sin(4/3*np.pi)]])
+
+    # Initialize context generator
+    generator = ContextGenerator(true_weights=true_weights, noise_std=noise_std)
+
+    # Store data for each round
+    data = {
+        "true_theta": true_weights,
+        "rounds": []
+    }
+
+    # Generate data for T rounds
+    for t in range(T):
+        context, noisy_rewards, noiseless_rewards, noisy_expert_choice = generator.generate_context_and_rewards()
+        
+        # Store context, true_rewards, and expert_action for each round
+        data["rounds"].append({
+            "context": context,
+            "actual_rewards": noisy_rewards,                       # actual/observed rewards - should be noisy. use for evaluation.
+            "expected_rewards": noiseless_rewards,                 # expected rewards - should be noiseless (otherwise, expert is anticipating noise). 
+                                                                   # use for expert decision-making
+            "noisy_expert_choice": noisy_expert_choice             # boltzmann expert choice that operates on expected rewards.
+        })
+
+    return data
+
+def generate_spanet_data(T, seed):
+    """
+    Seed should affect the following: context sequence, true rewards, (indirectly - expected rewards), expert choices.
+    """
+    ## Steps for me:
+    ## (1) pull up original synthetic data generation code.
+    ## (2) I need to add a new field called "noisy_expert_choice" that [assuming fixed temperature],
+    ##     saves what the noisy expert that operates on expected rewards would choose.
+    raise NotImplementedError("This method is not implemented yet.")
 
 def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', norm_features=False):
     '''
