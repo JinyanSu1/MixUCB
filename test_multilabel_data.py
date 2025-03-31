@@ -77,9 +77,42 @@ def test_generate_spanet_data():
     assert "true_theta" in data
     assert "true_theta_classification" in data
 
+def test_generate_medical_data():
+    """
+    Sanity-checks on medical data generation.
+    Check that the data shapes agree with the number of actions and feature dimension.
+    """
+    print("TEST: generating medical data.")
+    datasets = ['heart_disease', 'MedNIST']
+    for dataset in datasets:
+        print(f"Dataset: {dataset}")
+        seed = 42
+        T = 300
+        data = generate_multilabel_data.generate_medical_data(T, seed, data_name=dataset, norm_features=True)
+        # Fixed values
+        if dataset == 'heart_disease':
+            n_features = 6
+            n_actions = 2
+        elif dataset == 'MedNIST':
+            n_features = 6
+            n_actions = 6
+        # Sanity checks on first data-point.
+        # (took out T-check because for these datasets, the number of rounds may be less than T.)
+        assert data["rounds"][0]["context"].shape == (1,n_features), f"Context shape: {data['rounds'][0]['context'].shape}"
+        assert len(data["rounds"][0]["actual_rewards"]) == n_actions
+        len_data = len(data["rounds"])
+        # Normalization checks (contexts should have norm 1)
+        for i in range(len_data):
+            context = data["rounds"][i]["context"]
+            assert np.abs(np.linalg.norm(context)-1) < EPSILON, f"Context {i} has norm {np.linalg.norm(context)}"
+        # Make sure 'true_theta' and 'true_theta_classification' exist in the data.
+        assert "true_theta" in data
+        assert "true_theta_classification" in data
+
 
 if __name__=="__main__":
     test_generate_synthetic_data()
     test_context_generator()
     test_generate_spanet_data()
+    test_generate_medical_data()
     print("All tests passed!")

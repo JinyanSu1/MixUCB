@@ -239,7 +239,7 @@ def generate_spanet_data(T, pca_dim, seed):
 
     return data
 
-def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', norm_features=False):
+def generate_medical_data(T, seed, data_name='heart_disease', norm_features=False):
     '''
     Specifically for medical datasets.
 
@@ -257,6 +257,11 @@ def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='
         x_test, y_test = load_scene_classification_dataset(test_data_path)
         num_classes = 14
         x_train = PCA(n_components=6).fit_transform(x_train)
+        # shuffle data
+        x_train, y_train = shuffle(x_train, y_train, random_state=seed)
+        # truncate at T
+        x_train = x_train[:T]
+        y_train = y_train[:T]
     elif data_name == 'heart_disease':  # not shuffle
         '''
         # context.shape: (1, 6)                                                                                                                                                                                                                           
@@ -276,6 +281,11 @@ def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='
         y_train = df.target.to_numpy()
         y_train = [[i] for i in y_train[::-1]]
         num_classes = 2
+        # shuffle data
+        x_train, y_train = shuffle(x_train, y_train, random_state=seed)
+        # truncate at T
+        x_train = x_train[:T]
+        y_train = y_train[:T]
 
     elif data_name == 'MedNIST':
         '''
@@ -313,13 +323,22 @@ def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='
         y_train = imageClass
         # ic(imageClass)
         y_train = [[i] for i in y_train]
-        x_train, y_train = shuffle(x_train, y_train, random_state=0)
+        # shuffle data according to seed
+        x_train, y_train = shuffle(x_train, y_train, random_state=seed)
+        # truncate at T
+        x_train = x_train[:T]
+        y_train = y_train[:T]
 
     elif data_name == 'iris':
         num_classes = 3
         iris = datasets.load_iris()
         x_train = iris.data
         y_train = [[i] for i in iris.target]
+        # shuffle data
+        x_train, y_train = shuffle(x_train, y_train, random_state=seed)
+        # truncate at T
+        x_train = x_train[:T]
+        y_train = y_train[:T]
         print(x_train, y_train)
 
     # ic(label_length)
@@ -384,6 +403,7 @@ def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='
             "context": context,
             "actual_rewards": actual_rewards,
             "expected_rewards": np.array([]),
+            "noisy_expert_choice": np.array([])
         })
     print('{} data samples.'.format(len(x_train)))
 
