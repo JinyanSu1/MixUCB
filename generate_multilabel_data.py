@@ -17,7 +17,10 @@ from sklearn.utils import shuffle
 from sklearn.preprocessing import normalize
 from utils.regression_ucb import CombinedLinearModel
 
-
+# SPANET imports
+from cb_with_human_query.src.utils_contextual_query_food import LinearCBHumanQueryFood
+from cb_with_human_query.src.cb_human_query_utils import full_fooditem_list
+import pickle as pkl
 ## UTILITIES
 
 def hindsight_theta(X, y, n_features, n_actions,  mode="regression"):
@@ -46,6 +49,87 @@ def scaleImage(x):          # Pass a PIL image, return a tensor
     z = y - y.mean()        # Subtract the mean value of the image
     return z
 
+## UTILITIES, FOR SPANET DATA.
+
+def load_dataset():
+    """
+    Returns:
+        - food_dataset: full dataset of (context, action, reward) pairs.
+        - pretrain_dataset: dataset of (context, action, reward) pairs for pretraining.
+        - val_dataset: dataset of (context, action, reward) pairs for validation.
+        - rotationally_symmetric: set of food items that are rotationally symmetric.
+    """
+    validation_fooditems = []
+    pretrain_fooditems = list(set(full_fooditem_list) - set(validation_fooditems))
+
+    # Dig up dataset of (context, action, reward) pairs
+    # copied from utils_contextual_query_food.
+    path_to_food_dataset = "cb_with_human_query/feeding_preprocessing/spanet_dataset_with_contexts_iros2024_carrot_banana_cantaloupe_grape.pkl"
+
+    with open(path_to_food_dataset,"rb") as f:
+        food_dataset = pkl.load(f)
+    print(f"Loading food dataset located at {path_to_food_dataset}")
+    # Create new action column that maps actions to integers.
+    food_dataset["action"] = food_dataset.apply(LinearCBHumanQueryFood.convert_action_to_int, axis=1)
+   
+    # Remove rows with null contexts.
+    food_dataset = food_dataset[~food_dataset.isna()["context"]]
+
+    # Extract set of rotationally-symmetric food-items (used for ground-truth reward computation)
+    rotationally_symmetric = []
+    for fooditem in food_dataset["fooditem"].unique():
+        missing_90_data = False
+        for action in ["tilted_angled","tilted_vertical_skewer","vertical_skewer"]:
+            for roll in ['0','90']:
+                base_df = food_dataset
+                df = base_df[(base_df['fooditem']==fooditem) & (base_df['action_pitch']==action) & (base_df['action_roll']==roll)]
+                if roll == '90' and np.isnan(np.mean(df['success'])):
+                    missing_90_data = True
+        if missing_90_data:
+            rotationally_symmetric.append(fooditem)
+    print(f"Rotationally symmetric food items: {rotationally_symmetric}")
+
+    # Filter validation food items if necessary.
+    pretrain_dataset = food_dataset[food_dataset["fooditem"].isin(pretrain_fooditems)]
+    val_dataset = food_dataset[food_dataset["fooditem"].isin(validation_fooditems)]
+    print(f"Pretrain food items: {pretrain_fooditems}")
+    print(f"Validation food items: {validation_fooditems}, Full dataset size: {len(food_dataset)}")
+
+    return food_dataset, pretrain_dataset, val_dataset, rotationally_symmetric
+
+
+def dataset_reward(food_dataset, foodtype, arm, rotationally_symmetric):
+    """
+    Return mean reward for a given foodtype and arm.
+    """
+    # If the foodtype is rotationally symmetric, then we will lookup the mapping for the action with 0-degree roll.
+    arm_to_use = arm
+    if foodtype in rotationally_symmetric:
+        pitch, _ = LinearCBHumanQueryFood.convert_int_to_action(arm)
+        arm_to_use = LinearCBHumanQueryFood.convert_action_to_int({"action_pitch":pitch, "action_roll":'0'})
+
+    # Compute the mean reward for this arm and context, using food_dataset.
+
+    # Pick rows corresponding to action i, that have non-null context.
+    action_food_dataset = food_dataset[(food_dataset["action"]==arm_to_use) & (~food_dataset.isna()["context"])]
+    # Pick rows corresponding to the given foodtype.
+    action_food_dataset = action_food_dataset[action_food_dataset["fooditem"]==foodtype]
+    # Compute mean reward.
+    mean_reward = action_food_dataset["success"].mean()
+    return mean_reward
+
+def get_all_dataset_rewards(food_dataset, foodtype, rotationally_symmetric):
+    """
+    Return all rewards for a given foodtype.
+    """
+    reward_list = []
+    num_arms = 6
+    for arm in range(num_arms):
+        mean_reward = dataset_reward(food_dataset, foodtype, arm, rotationally_symmetric)
+        reward_list.append(mean_reward)
+
+    return reward_list
+
 ## MAIN METHODS.
 
 def generate_synthetic_data(T, noise_std, seed):
@@ -54,7 +138,7 @@ def generate_synthetic_data(T, noise_std, seed):
     Derived from: https://github.com/JinyanSu1/MixUCB/blob/devel/rohan/generate_toy_data.py
 
     Returns:
-        data
+        data (fields for data['rounds'] values: context, actual_rewards, expected_rewards, noisy_expert_choice)
     """
     # Set np global random seed for reproducibility
     np.random.seed(seed)
@@ -86,15 +170,56 @@ def generate_synthetic_data(T, noise_std, seed):
 
     return data
 
-def generate_spanet_data(T, seed):
+def generate_spanet_data(T, pca_dim, seed):
     """
+    Generates data for T rounds.
     Seed should affect the following: context sequence, true rewards, (indirectly - expected rewards), expert choices.
+
+    Derived from: https://github.com/JinyanSu1/MixUCB/blob/devel/rohan/generate_spanet_data.py
+
+    Returns:
+        data (fields for data['rounds'] values: context, actual_rewards, expected_rewards, noisy_expert_choice)
     """
-    ## Steps for me:
-    ## (1) pull up original synthetic data generation code.
-    ## (2) I need to add a new field called "noisy_expert_choice" that [assuming fixed temperature],
-    ##     saves what the noisy expert that operates on expected rewards would choose.
-    raise NotImplementedError("This method is not implemented yet.")
+    # Set random seed for reproducibility
+    np.random.seed(seed)
+
+    # Store data for each round
+    data = {
+        "rounds": []
+    }
+
+    full_dataset, _, _, rotationally_symmetric = load_dataset()
+    # Sample T random contexts and true rewards for each round.
+    subsampled_dataset = full_dataset.sample(n=T, random_state=seed)
+    contexts = np.squeeze(np.array(list(subsampled_dataset["context"])))
+
+    # Oracle is the dataset itself.
+    # Generates list of expected rewards.
+    true_rewards_list = [get_all_dataset_rewards(full_dataset, foodtype, rotationally_symmetric) for foodtype in subsampled_dataset["fooditem"]]
+    
+    pca_full = PCA(n_components=pca_dim)
+    pca_full.fit(np.squeeze(np.array(list(full_dataset["context"]))))
+
+    # PCA just for the contexts in the dataset.
+    contexts_pca = pca_full.fit_transform(contexts)
+
+    # Generate data for T rounds
+    for t in range(T):
+        context = contexts_pca[t]
+        true_rewards = true_rewards_list[t]
+        # Generate noisy expert choice based on expected (noiseless) rewards.
+        r=1 # rationality.
+        noisy_expert_choice = np.random.choice(len(true_rewards), p=np.exp(r*true_rewards)/sum(np.exp(r*true_rewards)))
+
+        # Store context, actual_rewards, and expected_rewards for each round
+        data["rounds"].append({
+            "context": np.expand_dims(context,0),
+            "actual_rewards": np.random.binomial(1, p=true_rewards),
+            "expected_rewards": true_rewards,
+            "noisy_expert_choice": noisy_expert_choice
+        })
+
+    return data
 
 def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='heart_disease', norm_features=False):
     '''
