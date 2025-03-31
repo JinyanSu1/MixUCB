@@ -16,6 +16,7 @@ import cv2
 from sklearn.utils import shuffle
 from sklearn.preprocessing import normalize
 from utils.regression_ucb import CombinedLinearModel
+from pathlib import Path
 
 # SPANET imports
 from cb_with_human_query.src.utils_contextual_query_food import LinearCBHumanQueryFood
@@ -477,13 +478,20 @@ if __name__ == "__main__":
     if len(args.reprocess) > 0:
         reprocess_pkl(args.reprocess) 
     else:
+        raw_data_dir = Path("raw_data")
+
         args.output_file = args.output_file[:-4] + '_{}_{:02d}'.format(args.data_name, args.seed) + args.output_file[-4:]
 
         # Generate the data
-        data = generate_medical_data(T=args.T, n_actions=args.n_actions, n_features=args.n_features, noise_std=args.noise_std, data_name=args.data_name, seed=args.seed, norm_features=True)
+        if args.data_name == 'synthetic':
+            data = generate_synthetic_data(T=args.T, noise_std=args.noise_std, seed=args.seed)
+        elif args.data_name == 'spanet':
+            data = generate_spanet_data(T=args.T, pca_dim=args.n_features, seed=args.seed)
+        elif args.data_name == 'heart_disease' or args.data_name == 'MedNIST' or args.data_name == 'yeast' or args.data_name == 'iris':
+            data = generate_medical_data(T=args.T, data_name=args.data_name, seed=args.seed, norm_features=True)
 
         # Save data to a pickle file
-        with open(args.output_file, 'wb') as f:
+        with open(Path(raw_data_dir / args.output_file), 'wb') as f:
             pickle.dump(data, f)
         
-        # print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")
+        print(f"Data for {args.T} rounds generated and saved to {args.output_file} with seed {args.seed}")
