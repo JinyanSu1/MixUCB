@@ -12,7 +12,7 @@ class ContextGenerator:
         assumes rationality=1 for noisy expert choice.
 
         Return:
-            context, rewards, noiseless_rewards, noisy_expert_choice
+            context (normalized to have norm <= 1), rewards, noiseless_rewards, noisy_expert_choice
         """
         # sample random context in unit circle.
         context = np.random.randn(1, self.n_features)

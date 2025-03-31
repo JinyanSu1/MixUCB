@@ -138,7 +138,8 @@ def generate_synthetic_data(T, noise_std, seed):
     Derived from: https://github.com/JinyanSu1/MixUCB/blob/devel/rohan/generate_toy_data.py
 
     Returns:
-        data (fields for data['rounds'] values: context, actual_rewards, expected_rewards, noisy_expert_choice)
+        data (fields for data: true_theta, true_theta_classification, rounds;
+        fields for data['rounds'] values: context, actual_rewards, expected_rewards, noisy_expert_choice)
     """
     # Set np global random seed for reproducibility
     np.random.seed(seed)
@@ -152,16 +153,20 @@ def generate_synthetic_data(T, noise_std, seed):
     # Store data for each round
     data = {
         "true_theta": true_weights,
+        "true_theta_classification": true_weights,
         "rounds": []
     }
 
     # Generate data for T rounds
     for t in range(T):
         context, noisy_rewards, noiseless_rewards, noisy_expert_choice = generator.generate_context_and_rewards()
+
+        # Normalize the context
+        context_normalized = normalize(context)
         
         # Store context, true_rewards, and expert_action for each round
         data["rounds"].append({
-            "context": context,
+            "context": context_normalized,
             "actual_rewards": noisy_rewards,                       # actual/observed rewards - should be noisy. use for evaluation.
             "expected_rewards": noiseless_rewards,                 # expected rewards - should be noiseless (otherwise, expert is anticipating noise). 
                                                                    # use for expert decision-making
@@ -178,7 +183,8 @@ def generate_spanet_data(T, pca_dim, seed):
     Derived from: https://github.com/JinyanSu1/MixUCB/blob/devel/rohan/generate_spanet_data.py
 
     Returns:
-        data (fields for data['rounds'] values: context, actual_rewards, expected_rewards, noisy_expert_choice)
+        data (fields for data: true_theta, true_theta_classification, rounds;
+        fields for data['rounds'] values: context, actual_rewards, expected_rewards, noisy_expert_choice)
     """
     # Set random seed for reproducibility
     np.random.seed(seed)
@@ -203,9 +209,21 @@ def generate_spanet_data(T, pca_dim, seed):
     # PCA just for the contexts in the dataset.
     contexts_pca = pca_full.fit_transform(contexts)
 
+    # Normalize the pca_contexts --> x_train; true_rewards_list --> y_train.
+    contexts_pca_normalized = normalize(contexts_pca)
+    x_train = contexts_pca_normalized
+    y_train = np.zeros((len(contexts_pca_normalized), len(true_rewards_list[0])))
+    for i, true_rewards in enumerate(true_rewards_list):
+        y_train[i] = true_rewards
+    # Add true theta values to data dictionary.
+    true_theta = hindsight_theta(np.array(x_train),np.vstack(y_train),len(x_train[0]), len(y_train[0]))
+    true_theta_classification = hindsight_theta(np.array(x_train),np.argmax(y_train, axis=1),len(x_train[0]), len(y_train[0]), mode="classification")
+    data["true_theta"] = true_theta
+    data["true_theta_classification"] = true_theta_classification
+
     # Generate data for T rounds
     for t in range(T):
-        context = contexts_pca[t]
+        context = contexts_pca_normalized[t]
         true_rewards = true_rewards_list[t]
         # Generate noisy expert choice based on expected (noiseless) rewards.
         r=1 # rationality.
@@ -374,7 +392,8 @@ def generate_medical_data(T, n_actions, n_features, noise_std, seed, data_name='
 def reprocess_pkl(filename):
     """
     Reprocesses an existing data pickle file. Handles either synthetic data or non-synthetic data (spanet data).
-    - Adds "true_theta" and "true_theta_classification" to data dictionary.
+    - Normalizes contexts.
+    - Calculates (if applicale) and adds "true_theta" and "true_theta_classification" to data dictionary.
     - Populates 'actual_rewards' and 'expected_rewards' for each round.
     
     Dumps the reprocessed data to a new pickle file with the same name as the input file, but with 'reprocessed' appended to the name.

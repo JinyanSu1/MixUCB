@@ -4,6 +4,8 @@ import generate_multilabel_data
 import utils.get_data
 import numpy as np
 
+EPSILON=1e-6
+
 def test_generate_synthetic_data():
     """
     Sanity-checks on synthetic data generation.
@@ -23,6 +25,13 @@ def test_generate_synthetic_data():
     assert len(data["rounds"][0]["actual_rewards"]) == num_actions
     assert len(data["rounds"][0]["expected_rewards"]) == num_actions
     assert data["rounds"][0]["noisy_expert_choice"] in range(num_actions)
+    # Normalization checks (contexts should have norm 1)
+    for i in range(T):
+        context = data["rounds"][i]["context"]
+        assert np.abs(np.linalg.norm(context)-1) < EPSILON, f"Context {i} has norm {np.linalg.norm(context)}"
+    # Make sure 'true_theta' and 'true_theta_classification' exist in the data.
+    assert "true_theta" in data
+    assert "true_theta_classification" in data
 
 # Test to make sure that expert choice from ContextGenerator is based on noiseless rewards, not noisy rewards.
 def test_context_generator():
@@ -60,6 +69,13 @@ def test_generate_spanet_data():
     assert len(data["rounds"][0]["actual_rewards"]) == num_actions
     assert len(data["rounds"][0]["expected_rewards"]) == num_actions
     assert data["rounds"][0]["noisy_expert_choice"] in range(num_actions)
+    # Normalization checks (contexts should have norm 1)
+    for i in range(T):
+        context = data["rounds"][i]["context"]
+        assert np.abs(np.linalg.norm(context)-1) < EPSILON, f"Context {i} has norm {np.linalg.norm(context)}"
+    # Make sure 'true_theta' and 'true_theta_classification' exist in the data.
+    assert "true_theta" in data
+    assert "true_theta_classification" in data
 
 
 if __name__=="__main__":
