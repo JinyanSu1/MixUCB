@@ -12,13 +12,6 @@ import argparse
 logging.basicConfig(filename='simulation.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-def expert_choice(rewards, r=np.inf):
-    if r == np.inf:
-        return np.argmax(rewards)
-    else:
-        # TODO seed
-        return np.random.choice(len(rewards), p=np.exp(r*rewards)/sum(np.exp(r*rewards)))
-
 def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
     assert mode in ['lin','mixI','mixII','mixIII']
     rationality = 1 # TODO make argument
@@ -33,9 +26,11 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
         logging.info(f'Running UCB {mode} - round: {i}')
 
         # Compute data index if i > T
+        # (NOTE: np.random.shuffle is already seeded in the main block.)
         if i == 0:
             data_ind = i
         else:
+            # if the data length is less than T, we loop over a randomly shuffled permutation of the data.
             ind = i % data_len
             if ind == 0:
                 np.random.shuffle(permutation) # TODO random seed
@@ -46,6 +41,8 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
         # expected vs actual rewards
         expected_rewards = data["rounds"][data_ind]["expected_rewards"] # empty for classification datasets
         actual_rewards = data["rounds"][data_ind]["actual_rewards"]
+        # noisy expert choice.
+        noisy_expert_choice = data["rounds"][data_ind]["noisy_expert_choice"]
         
         # Calculate UCB and LCB
         ucb,lcb = online_reg_oracle.get_ucb_lcb(context)
@@ -69,7 +66,7 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
                     if len(expected_rewards) == 0:
                         expert_action = np.argmax(actual_rewards)
                     else:
-                        expert_action = expert_choice(expected_rewards, r=rationality)
+                        expert_action = noisy_expert_choice
                 reward = actual_rewards[expert_action]
                 
                 if mode == 'mixIII':
@@ -115,12 +112,13 @@ def run_linear_oracle(data, T, theta):
         logging.info(f'Running linear oracle - round: {i}')
 
         # Compute data index if i > T
+        # (NOTE: np.random.shuffle is already seeded in the main block.)
         if i == 0:
             data_ind = i
         else:
             ind = i % data_len
             if ind == 0:
-                np.random.shuffle(permutation) # TODO random seed
+                np.random.shuffle(permutation)
             data_ind = permutation[ind]
         
         # Load pre-generated context and rewards for the current round
@@ -178,9 +176,10 @@ if __name__ == "__main__":
     learning_rate = args.learning_rate
     data_name = args.data_name
     mode = args.mode
+    seed = args.seed
 
     if mode in ['sq_oracle', 'lr_oracle']:
-        results = os.path.join(data_name, '{}_results'.format(mode))
+        results = os.path.join(data_name, f"seed_{seed:02d}", '{}_results'.format(mode))
         os.makedirs(results, exist_ok=True)
         print('Makedir {}'.format(results))
 
@@ -208,7 +207,7 @@ if __name__ == "__main__":
             delta_list = [0]
         
         for delta in delta_list:
-            results = os.path.join(data_name, '{}_ucb_results'.format(mode), '{}'.format(delta))
+            results = os.path.join(data_name, f"seed_{seed:02d}", '{}_ucb_results'.format(mode), '{}'.format(delta))
             os.makedirs(results, exist_ok=True)
             print('Makedir {}'.format(results))
 
