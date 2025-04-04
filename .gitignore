@@ -1,6 +1,8 @@
 Figures/
 MedNIST/
 heart_disease/
+spanet/
+synthetic/
 multilabel_data*.pkl
 
 # Byte-compiled / optimized / DLL files
