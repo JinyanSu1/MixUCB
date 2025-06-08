@@ -8,7 +8,6 @@ import argparse
 from icecream import ic
 import seaborn as sns
 
-
 def extract_from(filename):
     print(filename)
     with open(filename, 'rb') as f:
@@ -23,16 +22,18 @@ def extract_from(filename):
 
 def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_name='', seeds=[42]):
     os.makedirs(Figure_dir, exist_ok=True)
-    colors_list = sns.color_palette('colorblind', n_colors=6)
     modes = {'lin':['LinUCB'], 
              'mixI':['MixUCB-I'], 
              'mixII':['MixUCB-II'],
              'mixIII':['MixUCB-III'], 
              'sq_oracle':['Lin Oracle (Regression)'], 
-             'lr_oracle':['Lin Oracle (Classification)']}
+             'lr_oracle':['Lin Oracle (Classification)'],
+             'perfect_exp':['Perfect Expert'],
+             'noisy_exp':['Noisy Expert']}
+    colors_list = sns.color_palette('colorblind', n_colors=len(modes.keys()))
     for mode, color in zip(modes.keys(), colors_list):
         modes[mode].append(color)
-    marker_list = [".", "o", "v", "s", "+", "D"]
+    marker_list = [".", "o", "v", "s", "+", "D", '1', 'p']    # shapes for each mode.
     assert len(marker_list) >= len(modes.keys())
     for mode, marker in zip(modes.keys(), marker_list):
         modes[mode].append(marker)
@@ -54,7 +55,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     for seed in seeds:
         # modes are algorithms.
         for mode in modes.keys():
-            if mode in ['sq_oracle', 'lr_oracle']:
+            if mode in ['sq_oracle', 'lr_oracle', 'perfect_exp', 'noisy_exp']:
                 rewards[mode][seed] = []
                 actions[mode][seed] = []
                 dirname = os.path.join(result_root, f'seed_{seed:02d}', f'{mode}_results{result_postfix}')
@@ -112,7 +113,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
             return np.array(ret)
         # cumulative reward over time
         for mode in modes.keys():
-            if mode in ['sq_oracle', 'lr_oracle']:
+            if mode in ['sq_oracle', 'lr_oracle', 'perfect_exp', 'noisy_exp']:
                 cumulative_rewards[mode][seed] = np.mean(accum(rewards[mode][seed]), axis=0)
                 avg_reward_noquery[mode][seed] = np.mean(masked_avg(rewards[mode][seed],np.zeros_like(rewards[mode][seed])), axis=0)
             elif mode == 'lin':
@@ -141,7 +142,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     # Plot 1: Cumulative Reward
     for i, each_delta in enumerate(delta_values):
         ax = axs_list[i][0]
-        for mode in ['sq_oracle', 'lr_oracle', 'lin']:
+        for mode in ['sq_oracle', 'lr_oracle', 'perfect_exp', 'noisy_exp', 'lin']:
             # Calculate mean + std of cumulative_rewards over the seeds.
             mean_cumulative_rewards = np.mean([cumulative_rewards[mode][seed] for seed in seeds], axis=0)
             std_cumulative_rewards = np.std([cumulative_rewards[mode][seed] for seed in seeds], axis=0)
@@ -174,7 +175,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     # Plot 3: Average Autonomous Reward
     for i, each_delta in enumerate(delta_values):
         ax = axs_list[i][1]
-        for mode in ['sq_oracle', 'lr_oracle', 'lin']:
+        for mode in ['sq_oracle', 'lr_oracle', 'perfect_exp','noisy_exp','lin']:
             # Calculate mean + std of avg_reward_noquery over the seeds.
             mean_avg_reward_noquery = np.mean([avg_reward_noquery[mode][seed] for seed in seeds], axis=0)
             std_avg_reward_noquery = np.std([avg_reward_noquery[mode][seed] for seed in seeds], axis=0)
