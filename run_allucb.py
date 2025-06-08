@@ -139,9 +139,62 @@ def run_linear_oracle(data, T, theta):
 
     pass
 
+def run_expert(data, T, type='perfect_exp'):
+    """
+    Runs the expert algorithm for T rounds (either perfect or noisy).
+    """
+    reward_per_time = np.zeros(T)
+    action_per_time = []
+
+    data_len = len(data["rounds"])
+    permutation = np.arange(data_len, dtype=int)
+
+    for i in tqdm(range(T)):
+        logging.info(f'Running expert type {type} - round: {i}')
+
+        # Compute data index if i > T
+        # (NOTE: np.random.shuffle is already seeded in the main block.)
+        if i == 0:
+            data_ind = i
+        else:
+            ind = i % data_len
+            if ind == 0:
+                np.random.shuffle(permutation)
+            data_ind = permutation[ind]
+        
+        # Load pre-generated expected and actual rewards for the current round
+        expected_rewards = data["rounds"][data_ind]["expected_rewards"]
+        actual_rewards = data["rounds"][data_ind]["actual_rewards"]
+        # noisy expert choice.
+        noisy_expert_choice = data["rounds"][data_ind]["noisy_expert_choice"]
+
+        # Select either the perfect or noisy expert action based on the type.
+        # Identical to logic in run_mixucb for MixUCB-I/II/III expert logic.
+        if type == 'perfect_exp':
+            # Same as MixUCB-III expert logic
+            if len(expected_rewards) == 0:
+                expert_action = np.argmax(actual_rewards)
+            else:
+                expert_action = np.argmax(expected_rewards)
+        elif type == 'noisy_exp':
+            # Same as MixUCB-I/II expert logic.
+            if len(expected_rewards) == 0:
+                expert_action = np.argmax(actual_rewards)
+            else:
+                expert_action = noisy_expert_choice
+        
+        reward = actual_rewards[expert_action]
+        reward_per_time[i] = reward
+        action_per_time.append(expert_action)
+
+        logging.info(f'expert: reward {reward}')
+
+    return reward_per_time, action_per_time
+
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Run UCB Baseline')
-    parser.add_argument('--mode', type=str, default='lin', help='must be: lin, mixI, mixII, mixIII, sq_oracle, lr_oracle')
+    parser = argparse.ArgumentParser(description='Run UCB Baseline + oracles + experts.')
+    parser.add_argument('--mode', type=str, default='lin', help='must be: lin, mixI, mixII, mixIII, sq_oracle, lr_oracle, perfect_exp, noisy_exp')
     parser.add_argument('--T', type=int, default=0)
     parser.add_argument('--delta', nargs='+', type=float, default=[4., 5., 6., 7., 8.])
     parser.add_argument('--lambda_', type=float, default=0.001, help='regularization weight')
@@ -202,6 +255,25 @@ if __name__ == "__main__":
         with open(pkl_name, 'wb') as f:
             pickle.dump(dict_to_save, f)
         print('Saved to {}'.format(pkl_name))
+    elif mode in ['perfect_exp', 'noisy_exp']:
+        results = os.path.join(data_name, f"seed_{seed:02d}", '{}_results'.format(mode))
+        os.makedirs(results, exist_ok=True)
+        print('Makedir {}'.format(results))
+        
+        reward_per_time, action_per_time = run_expert(data, T, type=mode)
+        
+        print(f"Finished running {mode} for {T} rounds.")
+
+        pkl_name = os.path.join(results, f'{time.strftime("%Y%m%d_%H%M%S")}.pkl')
+        dict_to_save = {
+            'reward_per_time': reward_per_time,
+            'action_per_time': action_per_time,
+            'delta_list': delta_list
+        }
+        with open(pkl_name, 'wb') as f:
+            pickle.dump(dict_to_save, f)
+        print('Saved to {}'.format(pkl_name))
+
     else:
         if mode == 'lin':
             delta_list = [0]
