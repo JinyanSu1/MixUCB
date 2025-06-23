@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import pickle
 from utils.regression_ucb import MixUCB, OnlineLogisticRegressionOracle
@@ -52,6 +53,8 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
             # Determine if querying expert or not
             width = ucb - lcb
             width_Ahat = width[action_hat]
+            # Print i, action_hat, width_Ahat, delta.
+            logging.info(f'Round {i}, action_hat: {action_hat}, width_Ahat: {width_Ahat}, delta: {delta}')
             if width_Ahat > delta:
                 # query expert and update online regression
                 query_per_time[i] = 1
@@ -86,6 +89,8 @@ def run_mixucb(data, T, n_actions, delta, online_reg_oracle, mode=None):
                 online_reg_oracle.update(context, action=action_hat, reward=reward)
 
         else:
+            # Print i, action_hat, width_Ahat, delta.
+            logging.info(f'Round {i}, action_hat: {action_hat}')
             reward = actual_rewards[action_hat]
             online_reg_oracle.update(context, action=action_hat, reward=reward)
 
