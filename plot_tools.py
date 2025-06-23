@@ -98,7 +98,12 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
                         actions[mode][seed][each_delta].append(action_per_time)
 
         def accum(list_of_lists):
-            return np.array([np.cumsum(l) for l in list_of_lists])
+            try:
+                return np.array([np.cumsum(l) for l in list_of_lists])
+            except ValueError as e:
+                print(f"Error in accumulating lists: {e}")
+                print([np.cumsum(l) for l in list_of_lists])
+                raise ValueError
         def masked_avg(list_of_values, list_of_masks):
             ret = []
             for vals, mask in zip(list_of_values, list_of_masks):
@@ -135,7 +140,9 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     ## [meaning, for each mode/algorithm pair, plot the median and the quartiles (or mean and std) over the seeds.]
     fig_list, axs_list = [], []
     for i, each_delta in enumerate(delta_values):
-        fig, axs = plt.subplots(1, len(delta_values), figsize=(10, 3))
+        num_metrics_to_plot = 3 # Cumulative Reward, Cumulative Queries, Average Autonomous Reward
+        # Create a figure with 3 subplots (1 row, 3 columns).
+        fig, axs = plt.subplots(1, num_metrics_to_plot, figsize=(10, 3))
         fig_list.append(fig)
         axs_list.append(axs)
     
