@@ -30,6 +30,10 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
              'lr_oracle':['Lin Oracle (Classification)'],
              'perfect_exp':['Perfect Expert'],
              'noisy_exp':['Noisy Expert']}
+    # If dataset is either 'heart_disease' or 'MedNIST', we won't show perfect expert or noisy expert.
+    if data_name in ['heart_disease', 'MedNIST']:
+        modes.pop('perfect_exp', None)
+        modes.pop('noisy_exp', None)
     colors_list = sns.color_palette('colorblind', n_colors=len(modes.keys()))
     for mode, color in zip(modes.keys(), colors_list):
         modes[mode].append(color)
@@ -147,29 +151,34 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
         axs_list.append(axs)
     
     # Plot 1: Cumulative Reward
+
+    non_mixucb_labels = ['sq_oracle', 'lr_oracle', 'perfect_exp', 'noisy_exp', 'lin']
+    mixucb_labels = ['mixI', 'mixII', 'mixIII']
+
     for i, each_delta in enumerate(delta_values):
         ax = axs_list[i][0]
-        for mode in ['sq_oracle', 'lr_oracle', 'perfect_exp', 'noisy_exp', 'lin']:
-            # Calculate mean + std of cumulative_rewards over the seeds.
-            mean_cumulative_rewards = np.mean([cumulative_rewards[mode][seed] for seed in seeds], axis=0)
-            std_cumulative_rewards = np.std([cumulative_rewards[mode][seed] for seed in seeds], axis=0)
-            ax.plot(mean_cumulative_rewards, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
-            ax.fill_between(range(len(mean_cumulative_rewards)), mean_cumulative_rewards - std_cumulative_rewards, mean_cumulative_rewards + std_cumulative_rewards, \
-                            color=modes[mode][1], alpha=0.2)
-        for mode in ['mixI','mixII', 'mixIII']:
-            # Calculate mean + std of cumulative_rewards over the seeds.
-            mean_cumulative_rewards = np.mean([cumulative_rewards[mode][seed][each_delta] for seed in seeds], axis=0)
-            std_cumulative_rewards = np.std([cumulative_rewards[mode][seed][each_delta] for seed in seeds], axis=0)
-            ax.plot(mean_cumulative_rewards, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
-            ax.fill_between(range(len(mean_cumulative_rewards)), mean_cumulative_rewards - std_cumulative_rewards, mean_cumulative_rewards + std_cumulative_rewards, \
-                            color=modes[mode][1], alpha=0.2)
+        for mode in modes.keys():
+            if mode in non_mixucb_labels:
+                # Calculate mean + std of cumulative_rewards over the seeds.
+                mean_cumulative_rewards = np.mean([cumulative_rewards[mode][seed] for seed in seeds], axis=0)
+                std_cumulative_rewards = np.std([cumulative_rewards[mode][seed] for seed in seeds], axis=0)
+                ax.plot(mean_cumulative_rewards, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
+                ax.fill_between(range(len(mean_cumulative_rewards)), mean_cumulative_rewards - std_cumulative_rewards, mean_cumulative_rewards + std_cumulative_rewards, \
+                                color=modes[mode][1], alpha=0.2)
+            elif mode in mixucb_labels:
+                # Calculate mean + std of cumulative_rewards over the seeds for each delta.
+                mean_cumulative_rewards = np.mean([cumulative_rewards[mode][seed][each_delta] for seed in seeds], axis=0)
+                std_cumulative_rewards = np.std([cumulative_rewards[mode][seed][each_delta] for seed in seeds], axis=0)
+                ax.plot(mean_cumulative_rewards, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
+                ax.fill_between(range(len(mean_cumulative_rewards)), mean_cumulative_rewards - std_cumulative_rewards, mean_cumulative_rewards + std_cumulative_rewards, \
+                                color=modes[mode][1], alpha=0.2)
         ax.set_title('Cumulative Reward ($\Delta={}$)'.format(each_delta))
         ax.set_xlabel('time steps')
 
     # Plot 2: Cumulative Queries
     for i, each_delta in enumerate(delta_values):
         ax = axs_list[i][2]
-        for mode in ['mixI','mixII', 'mixIII']:
+        for mode in mixucb_labels:
             # Calculate mean + std of cumulative_queries over the seeds.
             mean_cumulative_queries = np.mean([cumulative_queries[mode][seed][each_delta] for seed in seeds], axis=0)
             std_cumulative_queries = np.std([cumulative_queries[mode][seed][each_delta] for seed in seeds], axis=0)
@@ -182,20 +191,21 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     # Plot 3: Average Autonomous Reward
     for i, each_delta in enumerate(delta_values):
         ax = axs_list[i][1]
-        for mode in ['sq_oracle', 'lr_oracle', 'perfect_exp','noisy_exp','lin']:
-            # Calculate mean + std of avg_reward_noquery over the seeds.
-            mean_avg_reward_noquery = np.mean([avg_reward_noquery[mode][seed] for seed in seeds], axis=0)
-            std_avg_reward_noquery = np.std([avg_reward_noquery[mode][seed] for seed in seeds], axis=0)
-            ax.plot(mean_avg_reward_noquery, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
-            ax.fill_between(range(len(mean_avg_reward_noquery)), mean_avg_reward_noquery - std_avg_reward_noquery, mean_avg_reward_noquery + std_avg_reward_noquery, \
-                            color=modes[mode][1], alpha=0.2)
-        for mode in ['mixI','mixII', 'mixIII']:
-            # Calculate mean + std of avg_reward_noquery over the seeds.
-            mean_avg_reward_noquery = np.mean([avg_reward_noquery[mode][seed][each_delta] for seed in seeds], axis=0)
-            std_avg_reward_noquery = np.std([avg_reward_noquery[mode][seed][each_delta] for seed in seeds], axis=0)
-            ax.plot(mean_avg_reward_noquery, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
-            ax.fill_between(range(len(mean_avg_reward_noquery)), mean_avg_reward_noquery - std_avg_reward_noquery, mean_avg_reward_noquery + std_avg_reward_noquery, \
-                            color=modes[mode][1], alpha=0.2)
+        for mode in modes.keys():
+            if mode in non_mixucb_labels:
+                # Calculate mean + std of avg_reward_noquery over the seeds.
+                mean_avg_reward_noquery = np.mean([avg_reward_noquery[mode][seed] for seed in seeds], axis=0)
+                std_avg_reward_noquery = np.std([avg_reward_noquery[mode][seed] for seed in seeds], axis=0)
+                ax.plot(mean_avg_reward_noquery, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
+                ax.fill_between(range(len(mean_avg_reward_noquery)), mean_avg_reward_noquery - std_avg_reward_noquery, mean_avg_reward_noquery + std_avg_reward_noquery, \
+                                color=modes[mode][1], alpha=0.2)
+            elif mode in mixucb_labels:
+                # Calculate mean + std of avg_reward_noquery over the seeds for each delta.
+                mean_avg_reward_noquery = np.mean([avg_reward_noquery[mode][seed][each_delta] for seed in seeds], axis=0)
+                std_avg_reward_noquery = np.std([avg_reward_noquery[mode][seed][each_delta] for seed in seeds], axis=0)
+                ax.plot(mean_avg_reward_noquery, label=modes[mode][0], color=modes[mode][1], marker=modes[mode][2], markevery=markerevery)
+                ax.fill_between(range(len(mean_avg_reward_noquery)), mean_avg_reward_noquery - std_avg_reward_noquery, mean_avg_reward_noquery + std_avg_reward_noquery, \
+                                color=modes[mode][1], alpha=0.2)
         ax.set_title('Average Autonomous Reward ($\Delta={}$)'.format(each_delta))
         ax.set_xlabel('time steps')
 
@@ -203,7 +213,7 @@ def plot_mixucbs(Figure_dir='Figures', result_postfix="", result_root='', data_n
     for i, each_delta in enumerate(delta_values):
         fig = fig_list[i]
         fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 0.0),
-                  fancybox=True, shadow=True, ncol=6)    
+                  fancybox=True, shadow=True, ncol=len(labels), fontsize='small')
         fig.tight_layout()
         fig.savefig(os.path.join(Figure_dir, f'delta{each_delta}.pdf'), format='pdf', dpi=300, bbox_inches='tight')
 
